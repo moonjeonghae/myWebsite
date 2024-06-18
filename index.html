@@ -11,13 +11,13 @@
 <body>
     <header>
         <div class="logo-mainmenu">
-            <div class="cotainer">
-                <div class="log-mainmenu-box">
+            <div class="container">
+                <div class="logo-mainmenu-box">
                     <div class="logo">
                         <h1><img src="./images/logo.png" alt="logo"></h1>
                     </div>
 
-                    <div class="main-menu">
+                    <nav class="main-menu">
                         <ul class="gnb">
                             <li>HOME</li>
                             <li>ABOUT ME</li>
@@ -25,7 +25,13 @@
                             <li>PORTFOLIO</li>
                             <li>CONTACT</li>
                         </ul>
-                    </div>
+
+                        <div class="mobile-menu-bar">  <!-- 모바일(햄버거 메뉴) -->
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </nav>
                 </div> <!-- logo-mainmenu-box -->
             </div>  <!-- container -->
         </div>  <!-- logo-mainmenu -->
@@ -37,10 +43,12 @@
 
     <main>
         <section class="home">
-            <div class="container">
-                <div class="moon"></div>
-                <div class="cloud1"><img src="./images/cloud_1.png" alt="left cloud"></div>
-                <div class="cloud2"><img src="./images/cloud_2.png" alt="right cloud"></div>
+            <div class="container home-container">
+                <div class="sky-box">
+                    <div class="moon"><img src="./images/moon.png" alt="moon"></div>
+                    <div class="cloud1"><img src="./images/cloud_1.png" alt="left cloud"></div>
+                    <div class="cloud2"><img src="./images/cloud_2.png" alt="right cloud"></div>
+                </div>
 
                 <div class="ocean">
                     <div class="moon-shadow1 shadow"></div>
@@ -92,9 +100,22 @@
                 <div class="smallest-star"><img src="./images/star.png" alt="smallest star"></div>
 
                 <!-- shooting-star -->
-                <div class="shooting-star"><img src="./images/star.png" alt="smallest star"></div>
-                <div class="shooting-star"><img src="./images/star.png" alt="smallest star"></div>
-                <div class="shooting-star"><img src="./images/star.png" alt="smallest star"></div>
+                <div class="shooting-star">
+                    <div class="shooting1">
+                        <div class="tail"></div>
+                        <img src="./images/star.png" alt="smallest star">
+                    </div>
+
+                    <div class="shooting2">
+                        <div class="tail"></div>
+                        <div class="shooting-star"><img src="./images/star.png" alt="smallest star"></div>
+                    </div>
+
+                    <div class="shooting3">
+                        <div class="tail"></div>
+                        <div class="shooting-star"><img src="./images/star.png" alt="smallest star"></div>
+                    </div>
+                </div>
             </div>  <!-- star -->
         </section>  <!-- home -->
 
@@ -182,7 +203,7 @@
 
 
 
-        <section class="portfolio-title">
+        <section class="portfolio">
             <div class="container">
                 <div class="long-line"></div>
 
@@ -200,135 +221,120 @@
                     <div class="pf-line"></div>
                     <div class="pf-starlight"><img src="./images/starlight.png" alt="startlight"></div>
                 </div>
+                
+                <!--+++++++++++++++++ portfolio_1 +++++++++++++++++-->
+                <div class="portfolio_1">
+                    <h2 class="pf-content-title">HOLLYS</h2>
+    
+    
+                    <div class="hollys-content-box">
+                        <div class="hollys-img">
+                            <img src="" alt="hollys renewal website">
+                        </div>
+    
+    
+                        <div class="hollys-txt">
+                            <h3 class="ko-content-title">할리스 리뉴얼 페이지</h3>
+    
+                            <p class="type">개인 프로젝트</p>
+    
+                            <div class="using-skills">
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Javascript</li>
+                                </ul>
+                            </div>
+    
+                            <p class="desc-txt"></p>
+    
+                            <div class="pf-btn">
+                                <button class="git-btn">Git</button>
+                                <button class="page-btn">Page</button>
+                                <button class="design-btn">Design Guide</button>
+                            </div>
+                        </div>
+                    </div>  <!-- hollys-content-box -->
+                </div>  <!-- portfolio_1 -->
+        
+        
+                <!--+++++++++++++++++ portfolio_2 +++++++++++++++++-->
+                <div class="portfolio_2">
+                    <h2 class="pf-content-title">CULTURE STATION SEOUL 284</h2>
+    
+    
+                    <div class="station-content-box">
+                        <div class="station-img">
+                            <img src="" alt="station website">
+                        </div>
+    
+    
+                        <div class="station-txt">
+                            <h3 class="ko-content-title">문화역서울284 리뉴얼 페이지</h3>
+    
+                            <p class="type">팀 프로젝트</p>
+    
+                            <div class="using-skills">
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Javascript</li>
+                                </ul>
+                            </div>
+    
+                            <p class="desc-txt"></p>
+    
+                            <div class="pf-btn">
+                                <button class="git-btn">Git</button>
+                                <button class="page-btn">Page</button>
+                                <button class="design-btn">Design Guide</button>
+                                <button class="design-btn">Proposal</button>
+                            </div>
+                        </div>
+                    </div>  <!-- hollys-content-box -->
+                </div>  <!-- portfolio_2 -->
+        
+        
+                <!--+++++++++++++++++ portfolio_3 +++++++++++++++++-->
+                <div class="portfolio_3">
+                    <h2 class="pf-content-title">PERSONAL PORTFOLIO</h2>
+    
+    
+                    <div class="personal-content-box">
+                        <div class="personal-img">
+                            <img src="" alt="personal website">
+                        </div>
+    
+    
+                        <div class="personal-txt">
+                            <h3 class="ko-content-title">개인 포트폴리오</h3>
+    
+                            <p class="type">개인 프로젝트</p>
+    
+                            <div class="using-skills">
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Javascript</li>
+                                </ul>
+                            </div>
+    
+                            <p class="desc-txt"></p>
+    
+                            <div class="pf-btn">
+                                <button class="git-btn">Git</button>
+                                <button class="page-btn">Page</button>
+                                <button class="design-btn">Design Guide</button>
+                            </div>
+                        </div>
+                    </div>  <!-- hollys-content-box -->
+                </div>  <!-- portfolio_3 -->
             </div>  <!-- container -->
-        </section>  <!-- portfolio-title -->
+        </section>  <!-- portfolio -->
 
 
 
-        <section class="portfolio_1">
-            <div class="container">
-                <h2 class="pf-content-title">HOLLYS</h2>
-
-
-                <div class="hollys-content-box">
-                    <div class="hollys-img">
-                        <img src="" alt="hollys renewal website">
-                    </div>
-
-
-                    <div class="hollys-txt">
-                        <h3 class="ko-content-title">할리스 리뉴얼 페이지</h3>
-
-                        <p class="type">개인 프로젝트</p>
-
-                        <div class="using-skills">
-                            <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>Javascript</li>
-                            </ul>
-                        </div>
-
-                        <p class="desc-txt"></p>
-
-                        <div class="pf-btn">
-                            <button class="git-btn">Git</button>
-                            <button class="page-btn">Page</button>
-                            <button class="design-btn">Design Guide</button>
-                        </div>
-                    </div>
-                </div>  <!-- hollys-content-box -->
-            </div>  <!-- container -->
-        </section>  <!-- portfolio_1 -->
-
-
-
-        <section class="portfolio_2">
-            <div class="container">
-                <h2 class="pf-content-title">CULTURE STATION SEOUL 284</h2>
-
-
-                <div class="station-content-box">
-                    <div class="station-img">
-                        <img src="" alt="station website">
-                    </div>
-
-
-                    <div class="station-txt">
-                        <h3 class="ko-content-title">문화역서울284 리뉴얼 페이지</h3>
-
-                        <p class="type">팀 프로젝트</p>
-
-                        <div class="using-skills">
-                            <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>Javascript</li>
-                            </ul>
-                        </div>
-
-                        <p class="desc-txt"></p>
-
-                        <div class="pf-btn">
-                            <button class="git-btn">Git</button>
-                            <button class="page-btn">Page</button>
-                            <button class="design-btn">Design Guide</button>
-                            <button class="design-btn">Proposal</button>
-                        </div>
-                    </div>
-                </div>  <!-- hollys-content-box -->
-            </div>  <!-- container -->
-        </section>  <!-- portfolio_2 -->
-
-
-
-        <section class="portfolio_3">
-            <div class="container">
-                <h2 class="pf-content-title">PERSONAL PORTFOLIO</h2>
-
-
-                <div class="personal-content-box">
-                    <div class="personal-img">
-                        <img src="" alt="personal website">
-                    </div>
-
-
-                    <div class="personal-txt">
-                        <h3 class="ko-content-title">개인 포트폴리오</h3>
-
-                        <p class="type">개인 프로젝트</p>
-
-                        <div class="using-skills">
-                            <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>Javascript</li>
-                            </ul>
-                        </div>
-
-                        <p class="desc-txt"></p>
-
-                        <div class="pf-btn">
-                            <button class="git-btn">Git</button>
-                            <button class="page-btn">Page</button>
-                            <button class="design-btn">Design Guide</button>
-                        </div>
-                    </div>
-                </div>  <!-- hollys-content-box -->
-            </div>  <!-- container -->
-        </section>  <!-- portfolio_3 -->
-
-
-
-        <section class="portfolio_4">
-
-        </section>  <!-- portfolio_4 -->
-
-
-
-        <section class="portfolio_5">
-
-        </section>  <!-- portfolio_5 -->
+        
 
 
 

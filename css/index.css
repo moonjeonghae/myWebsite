@@ -1,1 +1,395 @@
-/*# sourceMappingURL=index.css.map */
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap);
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  background-color: #190d22;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: #fff;
+}
+
+strong,
+span {
+  display: block;
+}
+
+address {
+  font-style: normal;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+img,
+textarea,
+input,
+select {
+  vertical-align: center;
+}
+
+h1 {
+  font-size: 1.875rem;
+}
+
+h2 {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 3.333rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+header,
+nav,
+main,
+section,
+footer {
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+header {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 14vh;
+}
+@media only screen and (min-width: 1024px) {
+  header {
+    height: 150px;
+  }
+}
+header .logo-mainmenu-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 14vh;
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box {
+    height: 150px;
+  }
+}
+header .logo-mainmenu-box .logo {
+  margin: 0;
+  width: 12vw;
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box .logo {
+    width: 95px;
+  }
+}
+header .logo-mainmenu-box .main-menu {
+  margin: 0;
+}
+header .logo-mainmenu-box .main-menu .gnb {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box .main-menu .gnb {
+    display: flex;
+    justify-content: space-between;
+    width: 820px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box .main-menu .gnb li {
+    margin: 0;
+    font-family: "Playfair Display SC", serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar {
+  width: 8vw;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box .main-menu .mobile-menu-bar {
+    display: none;
+  }
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar {
+  width: 100%;
+  height: 1px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  margin: 30% 0;
+}
+
+main {
+  width: 100%;
+}
+main .home {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+main .home .home-container {
+  padding: 0;
+}
+main .home .home-container .sky-box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 85vh;
+  background: radial-gradient(circle at center bottom, #461b59, #190d22);
+}
+main .home .home-container .sky-box .moon {
+  width: 50%;
+  margin-top: 25vh;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 7px rgba(255, 255, 255, 0.7);
+}
+main .home .home-container .sky-box .moon img {
+  width: 100%;
+  transform: scale(1.05);
+}
+main .home .home-container .sky-box .cloud1 {
+  position: absolute;
+  z-index: 1;
+  left: -25vw;
+  bottom: -10vh;
+  width: 60%;
+}
+main .home .home-container .sky-box .cloud2 {
+  position: absolute;
+  right: -15vw;
+  top: 50vh;
+  width: 40%;
+}
+main .home .home-container .ocean {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  background-color: #190d22;
+}
+main .home .stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+main .home .stars img {
+  transform: scale(2.5);
+}
+main .home .stars .biggest-star {
+  position: absolute;
+  width: 1vw;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.5);
+}
+main .home .stars .biggest-star:first-of-type {
+  left: 3vw;
+  top: 45vh;
+}
+main .home .stars .biggest-star:nth-of-type(2) {
+  left: 60vw;
+  top: 17vh;
+}
+main .home .stars .big-star {
+  position: absolute;
+  width: 0.8vw;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
+}
+main .home .stars .big-star:nth-of-type(3) {
+  left: 82vw;
+  top: 50vh;
+}
+main .home .stars .big-star:nth-of-type(4) {
+  left: 20vw;
+  top: 4vh;
+}
+main .home .stars .big-star:nth-of-type(5) {
+  display: none;
+}
+main .home .stars .big-star:nth-of-type(6) {
+  display: none;
+}
+main .home .stars .middle-star {
+  position: absolute;
+  width: 0.6vw;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+}
+main .home .stars .middle-star:nth-of-type(7) {
+  left: 30vw;
+  top: 70vh;
+}
+main .home .stars .middle-star:nth-of-type(8) {
+  left: 70vw;
+  top: 7vh;
+}
+main .home .stars .middle-star:nth-of-type(9) {
+  left: 5vw;
+  top: 20vh;
+}
+main .home .stars .middle-star:nth-of-type(10) {
+  left: 90vw;
+  top: 15vh;
+}
+main .home .stars .middle-star:nth-of-type(11) {
+  display: none;
+}
+main .home .stars .middle-star:nth-of-type(12) {
+  display: none;
+}
+main .home .stars .small-star {
+  position: absolute;
+  width: 0.4vw;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+}
+main .home .stars .small-star:nth-of-type(13) {
+  left: 88vw;
+  top: 25vh;
+}
+main .home .stars .small-star:nth-of-type(14) {
+  left: 95vw;
+  top: 44vh;
+}
+main .home .stars .small-star:nth-of-type(15) {
+  left: 12vw;
+  top: 27vh;
+}
+main .home .stars .small-star:nth-of-type(16) {
+  display: none;
+}
+main .home .stars .small-star:nth-of-type(17) {
+  display: none;
+}
+main .home .stars .small-star:nth-of-type(18) {
+  display: none;
+}
+main .home .stars .small-star:nth-of-type(19) {
+  display: none;
+}
+main .home .stars .small-star:nth-of-type(20) {
+  display: none;
+}
+main .home .stars .smallest-star {
+  position: absolute;
+  width: 0.25vw;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+}
+main .home .stars .smallest-star:nth-of-type(21) {
+  left: 80vw;
+  top: 4vh;
+}
+main .home .stars .smallest-star:nth-of-type(22) {
+  left: 13vw;
+  top: 40vh;
+}
+main .home .stars .smallest-star:nth-of-type(23) {
+  left: 37vw;
+  top: 11vh;
+}
+main .home .stars .smallest-star:nth-of-type(24) {
+  left: 30vw;
+  top: 22vh;
+}
+main .home .stars .smallest-star:nth-of-type(25) {
+  left: 75vw;
+  top: 30vh;
+}
+main .home .stars .smallest-star:nth-of-type(26) {
+  left: 47vw;
+  top: 4vh;
+}
+main .home .stars .smallest-star:nth-of-type(27) {
+  left: 10vw;
+  top: 55vh;
+}
+main .home .stars .smallest-star:nth-of-type(28) {
+  display: none;
+}
+main .home .stars .smallest-star:nth-of-type(29) {
+  display: none;
+}
+main .home .stars .smallest-star:nth-of-type(30) {
+  display: none;
+}
+main .home .stars .shooting-star {
+  position: relative;
+  width: 25vw;
+}
+main .home .stars .shooting-star div {
+  width: 100%;
+  height: 2px;
+}
+main .home .stars .shooting-star div .tail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  border: 1px solid transparent;
+  -o-border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
+     border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
+  border-image-slice: 1;
+}
+main .home .stars .shooting-star div img {
+  position: absolute;
+  left: 0;
+  width: 0.4vw;
+}
+main .home .stars .shooting-star .shooting1 {
+  position: absolute;
+  left: 10vw;
+  top: 15vh;
+  transform: rotate(-45deg);
+}
+main .home .stars .shooting-star .shooting2 {
+  position: absolute;
+  left: 7vw;
+  top: 57vh;
+  transform: rotate(-45deg);
+}
+main .home .stars .shooting-star .shooting3 {
+  position: absolute;
+  left: 77vw;
+  top: 35vh;
+  transform: rotate(-45deg);
+}
+main .about-me {
+  margin-top: 100vh;
+}/*# sourceMappingURL=index.css.map */

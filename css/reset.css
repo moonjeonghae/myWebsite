@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap);
 * {
   margin: 0 auto;
   padding: 0;
@@ -5,5 +7,71 @@
 }
 
 body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
   font-size: 16px;
+  color: #fff;
+  background-color: #190d22;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: #fff;
+}
+
+strong,
+span {
+  display: block;
+}
+
+address {
+  font-style: normal;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+img,
+textarea,
+input,
+select {
+  vertical-align: center;
+}
+
+h1 {
+  font-size: 1.875rem;
+}
+
+h2 {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 3.333rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+header,
+nav,
+main,
+section,
+footer {
+  display: block;
 }/*# sourceMappingURL=reset.css.map */

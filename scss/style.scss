@@ -1,7 +1,40 @@
+// font
+$ko-font: 'Noto Sans KR', sans-serif;
+$ko-font-light: 300;
+$ko-font-regular: 400;
+$ko-font-medium: 500;
+$ko-font-semibold: 600;
+
+$en-font: "Playfair Display SC", serif;
+$en-font-regular: 400;
+$en-font-bold: 700;
+
+
+// font-color
+$color-main: #fff;
+$color-point: #7b588c;
+
+
+// line-color
+$line-white: #fff;
+
+
+// bg-color
 $main-bg: #190d22;
 $moonlight-bg: #461b59;
+
+
+// etc-color
 $small-starlight: #efb1d5;
 
 
-$color-main: #fff;
-$color-point: #7b588c;
+// width, height
+$wide-width: 100%;
+$half-width: 50%;
+$wide-height: 100%;
+$half-height: 50%;
+
+
+// screen size
+$screen-small: 320px;
+$screen-large: 1024px;

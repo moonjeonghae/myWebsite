@@ -1,0 +1,375 @@
+@import './style.scss';
+@import './mixin.scss';
+@import './reset.scss';
+
+
+
+//******* 공통 *******
+.container {
+    width: $wide-width;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10px;
+    // background-color: lightpink;
+}
+
+
+//******* header *******
+header {
+    position: relative;
+    z-index: 2;
+    width: $wide-width;
+    height: 14vh;
+    // background-color: lightblue;
+
+    @include responsive(large-screens) {
+        height: 150px;
+    }
+
+    .logo-mainmenu-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: $wide-width;
+        height: 14vh;
+        // background-color: lightcoral;
+        
+        @include responsive(large-screens) {
+            height: 150px;
+        }
+
+        .logo {
+            margin: 0;
+            width: 12vw;
+
+            @include responsive(large-screens) {
+                width: 95px;
+            }
+        }
+
+        .main-menu {
+            margin: 0;
+            // background-color: lightsalmon;
+            
+            .gnb {
+                display: none;
+
+                @include responsive(large-screens) {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 820px;
+                }
+
+                
+                li {
+                    @include responsive(large-screens) {
+                        margin: 0;
+                        font: {
+                            family: $en-font;
+                            weight: $en-font-regular;
+                            size: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .mobile-menu-bar {
+                width: 8vw;
+                cursor: pointer;
+
+
+                @include responsive(large-screens) {
+                    display: none;
+                }
+
+                .bar {
+                    // display: block;
+                    width: $wide-width;
+                    height: 1px;
+                    border: 1px solid $color-main;
+                    border-radius: 15px;
+                    margin: 30% 0;
+                }
+            }
+        }
+    }
+}
+
+
+//******* main *******
+main {
+    width: $wide-width;
+
+
+    //====== home ======
+    .home {
+        position: absolute;
+        left: 0; top: 0;
+        overflow: hidden;
+        width: $wide-width;
+        height: 100vh;
+
+        .home-container {
+            padding: 0;
+
+            .sky-box {
+                position: relative;
+                overflow: hidden;
+                width: $wide-width;
+                height: 85vh;
+                background: radial-gradient(circle at center bottom, $moonlight-bg, $main-bg);
+                // background-color: lightblue;
+                .moon {
+                    width: $half-width;
+                    margin-top: 25vh;
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px 7px rgba(255, 255, 255, 0.7);
+        
+                    img {
+                        width: $wide-width;
+                        transform: scale(1.05);
+                    }
+                }  // moon
+        
+                .cloud1 {
+                    position: absolute;
+                    z-index: 1;
+                    left: -25vw; bottom: -10vh;
+                    width: 60%;
+        
+                }
+        
+                .cloud2 {
+                    position: absolute;
+                    right: -15vw; top: 50vh;
+                    width: 40%;
+                }
+            }  // sky-box
+    
+            .ocean {
+                position: relative;
+                width: $wide-width;
+                height: 15vh;
+                background-color: $main-bg;
+            }
+        }  // home-container
+
+
+        .stars {
+            position: absolute;
+            left: 0; top: 0;
+
+            img {
+                transform: scale(2.5);
+            }
+
+            .biggest-star {
+                position: absolute;
+                width: 1vw;
+                border-radius: 50%;
+                box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.5);
+
+                &:first-of-type {
+                    left: 3vw; top: 45vh;
+                }
+                
+                &:nth-of-type(2) {
+                    left: 60vw; top: 17vh;
+                }
+            }  // biggest-star
+
+
+            .big-star {
+                position: absolute;
+                width: 0.8vw;
+                border-radius: 50%;
+                box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
+
+                &:nth-of-type(3) {
+                    left: 82vw; top: 50vh;
+                }
+
+                &:nth-of-type(4) {
+                    left: 20vw; top: 4vh;
+                }
+
+                &:nth-of-type(5) {
+                    display: none;
+                }
+
+                &:nth-of-type(6) {
+                    display: none;
+                }
+            }
+
+            .middle-star {
+                position: absolute;
+                width: 0.6vw;
+                border-radius: 50%;
+                box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+
+                &:nth-of-type(7) {
+                    left: 30vw; top: 70vh;
+                }
+
+                &:nth-of-type(8) {
+                    left: 70vw; top: 7vh;
+                }
+
+                &:nth-of-type(9) {
+                    left: 5vw; top: 20vh;
+                }
+
+                &:nth-of-type(10) {
+                    left: 90vw; top: 15vh;
+                }
+
+                &:nth-of-type(11) {
+                    display: none;
+                }
+
+                &:nth-of-type(12) {
+                    display: none;
+                }
+            }
+
+            .small-star {
+                position: absolute;
+                width: 0.4vw;
+                border-radius: 50%;
+                box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+
+                &:nth-of-type(13) {
+                    left: 88vw; top: 25vh;
+                }
+
+                &:nth-of-type(14) {
+                    left: 95vw; top: 44vh;
+                }
+
+                &:nth-of-type(15) {
+                    left: 12vw; top: 27vh;
+                }
+                
+                &:nth-of-type(16) {
+                    display: none;
+                }
+
+                &:nth-of-type(17) {
+                    display: none;
+                }
+
+                &:nth-of-type(18) {
+                    display: none;
+                }
+
+                &:nth-of-type(19) {
+                    display: none;
+                }
+
+                &:nth-of-type(20) {
+                    display: none;
+                }
+            }
+
+            .smallest-star {
+                position: absolute;
+                width: 0.25vw;
+                border-radius: 50%;
+                box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+
+                &:nth-of-type(21) {
+                    left: 80vw; top: 4vh;
+                }
+
+                &:nth-of-type(22) {
+                    left: 13vw; top: 40vh;
+                }
+
+                &:nth-of-type(23) {
+                    left: 37vw; top: 11vh;
+                }
+
+                &:nth-of-type(24) {
+                    left: 30vw; top: 22vh;
+                }
+
+                &:nth-of-type(25) {
+                    left: 75vw; top: 30vh;
+                }
+
+                &:nth-of-type(26) {
+                    left: 47vw; top: 4vh;
+                }
+
+                &:nth-of-type(27) {
+                    left: 10vw; top: 55vh;
+                }
+
+                &:nth-of-type(28) {
+                    display: none;
+                }
+
+                &:nth-of-type(29) {
+                    display: none;
+                }
+
+                &:nth-of-type(30) {
+                    display: none;
+                }
+            }
+
+            .shooting-star {
+                position: relative;
+                width: 25vw;
+
+                div{
+                    width: $wide-width;
+                    height: 2px;
+                    
+                    .tail {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: $wide-width;
+                        border: 1px solid transparent;
+                        border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
+                        border-image-slice: 1;
+                        // background: linear-gradient(to right, #fff 100%, transparent 0%);
+                    }
+    
+                    img {
+                        position: absolute;
+                        left: 0;
+                        width: 0.4vw;
+                    }
+                }
+
+                .shooting1 {
+                    position: absolute;
+                    left: 10vw; top: 15vh;
+                    transform: rotate(-45deg);
+                }
+
+                .shooting2 {
+                    position: absolute;
+                    left: 7vw; top: 57vh;
+                    transform: rotate(-45deg);
+                }
+
+                .shooting3 {
+                    position: absolute;
+                    left: 77vw; top: 35vh;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }  // home
+
+    .about-me {
+        margin-top: 100vh;
+    }
+}  // main
+
+
+//******* footer *******
