@@ -886,6 +886,28 @@ main .skill .skill-desc {
   height: 100vh;
   background-color: rgba(25, 13, 34, 0.8);
 }
+main .skill .skill-desc .x-btn {
+  position: absolute;
+  right: 2vw;
+  top: 2vw;
+  width: 7vw;
+  height: 7vw;
+}
+main .skill .skill-desc .x-btn .x-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform-origin: center; /* 기본적으로 중심을 기준으로 회전 */
+}
+main .skill .skill-desc .x-btn .x-line:first-of-type {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+main .skill .skill-desc .x-btn .x-line:last-of-type {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 main .skill .skill-desc .skill-desc-txt {
   display: none;
   position: absolute;
