@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap);
 * {
@@ -12,6 +13,10 @@ body {
   font-size: 16px;
   color: #fff;
   background-color: #190d22;
+}
+body.scroll-stop {
+  height: 100%;
+  overflow: hidden;
 }
 
 ol,
@@ -85,7 +90,7 @@ footer {
 
 header {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   height: 14vh;
 }
@@ -103,6 +108,8 @@ header .logo-mainmenu-box {
 }
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box {
+    position: fixed;
+    max-width: 1440px;
     height: 150px;
   }
 }
@@ -112,7 +119,7 @@ header .logo-mainmenu-box .logo {
 }
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box .logo {
-    width: 95px;
+    width: 80px;
   }
 }
 header .logo-mainmenu-box .main-menu {
@@ -133,7 +140,7 @@ header .logo-mainmenu-box .main-menu .gnb {
     margin: 0;
     font-family: "Playfair Display SC", serif;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.167rem;
   }
 }
 header .logo-mainmenu-box .main-menu .mobile-menu-bar {
@@ -156,6 +163,9 @@ header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar {
 main {
   width: 100%;
 }
+main .title {
+  font-size: 2rem;
+}
 main .home {
   position: absolute;
   left: 0;
@@ -167,6 +177,11 @@ main .home {
 main .home .home-container {
   padding: 0;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .home-container {
+    max-width: 100vw;
+  }
+}
 main .home .home-container .sky-box {
   position: relative;
   overflow: hidden;
@@ -174,11 +189,22 @@ main .home .home-container .sky-box {
   height: 85vh;
   background: radial-gradient(circle at center bottom, #461b59, #190d22);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .sky-box {
+    height: 87vh;
+  }
+}
 main .home .home-container .sky-box .moon {
   width: 50%;
   margin-top: 25vh;
   border-radius: 50%;
   box-shadow: 0 0 10px 7px rgba(255, 255, 255, 0.7);
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .sky-box .moon {
+    width: 260px;
+    margin-top: 30vh;
+  }
 }
 main .home .home-container .sky-box .moon img {
   width: 100%;
@@ -191,17 +217,94 @@ main .home .home-container .sky-box .cloud1 {
   bottom: -10vh;
   width: 60%;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .sky-box .cloud1 {
+    left: 250px;
+    bottom: -80px;
+    width: 435px;
+  }
+}
 main .home .home-container .sky-box .cloud2 {
   position: absolute;
   right: -15vw;
-  top: 50vh;
+  bottom: 15vh;
   width: 40%;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .sky-box .cloud2 {
+    right: 250px;
+    bottom: 190px;
+    width: 285px;
+  }
 }
 main .home .home-container .ocean {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 15vh;
   background-color: #190d22;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean {
+    height: 13vh;
+  }
+}
+main .home .home-container .ocean .shadow {
+  height: 1vh;
+  border-radius: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean .shadow {
+    height: 10px;
+  }
+}
+main .home .home-container .ocean .moon-shadow1 {
+  width: 20vw;
+  background-color: #5f5c62;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean .moon-shadow1 {
+    width: 150px;
+  }
+}
+main .home .home-container .ocean .moon-shadow2 {
+  position: relative;
+  left: 5vw;
+  width: 25vw;
+  background-color: #434046;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean .moon-shadow2 {
+    left: 43px;
+    width: 200px;
+  }
+}
+main .home .home-container .ocean .moon-shadow3 {
+  position: relative;
+  right: 5vw;
+  width: 30vw;
+  background-color: #2b272d;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean .moon-shadow3 {
+    right: 30px;
+    width: 250px;
+  }
+}
+main .home .home-container .ocean .moon-shadow4 {
+  position: relative;
+  left: 5vw;
+  width: 35vw;
+  background-color: #1c181e;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .home-container .ocean .moon-shadow4 {
+    left: 25px;
+    width: 300px;
+  }
 }
 main .home .stars {
   position: absolute;
@@ -211,19 +314,41 @@ main .home .stars {
 main .home .stars img {
   transform: scale(2.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars img {
+    transform: scale(2);
+  }
+}
 main .home .stars .biggest-star {
   position: absolute;
   width: 1vw;
   border-radius: 50%;
   box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .biggest-star {
+    width: 0.6vw;
+  }
+}
 main .home .stars .biggest-star:first-of-type {
   left: 3vw;
   top: 45vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .biggest-star:first-of-type {
+    left: 95vw;
+    top: 50vh;
+  }
+}
 main .home .stars .biggest-star:nth-of-type(2) {
   left: 60vw;
   top: 17vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .biggest-star:nth-of-type(2) {
+    left: 51vw;
+    top: 185px;
+  }
 }
 main .home .stars .big-star {
   position: absolute;
@@ -231,19 +356,50 @@ main .home .stars .big-star {
   border-radius: 50%;
   box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .big-star {
+    width: 0.4vw;
+  }
+}
 main .home .stars .big-star:nth-of-type(3) {
   left: 82vw;
   top: 50vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .big-star:nth-of-type(3) {
+    left: 69vw;
+    top: 270px;
+  }
 }
 main .home .stars .big-star:nth-of-type(4) {
   left: 20vw;
   top: 4vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .big-star:nth-of-type(4) {
+    left: 10vw;
+    top: 300px;
+  }
+}
 main .home .stars .big-star:nth-of-type(5) {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .big-star:nth-of-type(5) {
+    display: block;
+    left: 40vw;
+    top: 30px;
+  }
+}
 main .home .stars .big-star:nth-of-type(6) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .big-star:nth-of-type(6) {
+    display: block;
+    left: 23vw;
+    top: 80px;
+  }
 }
 main .home .stars .middle-star {
   position: absolute;
@@ -251,27 +407,70 @@ main .home .stars .middle-star {
   border-radius: 50%;
   box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star {
+    width: 0.3vw;
+  }
+}
 main .home .stars .middle-star:nth-of-type(7) {
   left: 30vw;
   top: 70vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(7) {
+    left: 27vw;
+    top: 500px;
+  }
 }
 main .home .stars .middle-star:nth-of-type(8) {
   left: 70vw;
   top: 7vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(8) {
+    left: 86vw;
+    top: 160px;
+  }
+}
 main .home .stars .middle-star:nth-of-type(9) {
   left: 5vw;
   top: 20vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(9) {
+    left: 3vw;
+    top: 50px;
+  }
 }
 main .home .stars .middle-star:nth-of-type(10) {
   left: 90vw;
   top: 15vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(10) {
+    left: 30vw;
+    top: 172px;
+  }
+}
 main .home .stars .middle-star:nth-of-type(11) {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(11) {
+    display: block;
+    left: 63vw;
+    top: 128px;
+  }
+}
 main .home .stars .middle-star:nth-of-type(12) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .middle-star:nth-of-type(12) {
+    display: block;
+    left: 95vw;
+    top: 52px;
+  }
 }
 main .home .stars .small-star {
   position: absolute;
@@ -279,32 +478,90 @@ main .home .stars .small-star {
   border-radius: 50%;
   box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star {
+    width: 0.2vw;
+  }
+}
 main .home .stars .small-star:nth-of-type(13) {
   left: 88vw;
   top: 25vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(13) {
+    left: 59vw;
+    top: 230px;
+  }
 }
 main .home .stars .small-star:nth-of-type(14) {
   left: 95vw;
   top: 44vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(14) {
+    left: 61vw;
+    top: 370px;
+  }
+}
 main .home .stars .small-star:nth-of-type(15) {
   left: 12vw;
   top: 27vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(15) {
+    left: 68vw;
+    top: 175px;
+  }
+}
 main .home .stars .small-star:nth-of-type(16) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(16) {
+    display: block;
+    left: 84vw;
+    top: 400px;
+  }
 }
 main .home .stars .small-star:nth-of-type(17) {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(17) {
+    display: block;
+    left: 5vw;
+    top: 220px;
+  }
+}
 main .home .stars .small-star:nth-of-type(18) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(18) {
+    display: block;
+    left: 90vw;
+    top: 250px;
+  }
 }
 main .home .stars .small-star:nth-of-type(19) {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(19) {
+    display: block;
+    left: 75vw;
+    top: 330px;
+  }
+}
 main .home .stars .small-star:nth-of-type(20) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .small-star:nth-of-type(20) {
+    display: block;
+    left: 24vw;
+    top: 350px;
+  }
 }
 main .home .stars .smallest-star {
   position: absolute;
@@ -312,46 +569,119 @@ main .home .stars .smallest-star {
   border-radius: 50%;
   box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star {
+    width: 0.1vw;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(21) {
   left: 80vw;
   top: 4vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(21) {
+    left: 82vw;
+    top: 330px;
+  }
 }
 main .home .stars .smallest-star:nth-of-type(22) {
   left: 13vw;
   top: 40vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(22) {
+    left: 38vw;
+    top: 270px;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(23) {
   left: 37vw;
   top: 11vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(23) {
+    left: 15vw;
+    top: 450px;
+  }
 }
 main .home .stars .smallest-star:nth-of-type(24) {
   left: 30vw;
   top: 22vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(24) {
+    left: 44vw;
+    top: 150px;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(25) {
   left: 75vw;
   top: 30vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(25) {
+    left: 78vw;
+    top: 200px;
+  }
 }
 main .home .stars .smallest-star:nth-of-type(26) {
   left: 47vw;
   top: 4vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(26) {
+    left: 41vw;
+    top: 250px;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(27) {
   left: 10vw;
   top: 55vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(27) {
+    left: 30vw;
+    top: 300px;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(28) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(28) {
+    display: block;
+    left: 5vw;
+    top: 420px;
+  }
 }
 main .home .stars .smallest-star:nth-of-type(29) {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(29) {
+    display: block;
+    left: 35vw;
+    top: 430px;
+  }
+}
 main .home .stars .smallest-star:nth-of-type(30) {
   display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .smallest-star:nth-of-type(30) {
+    display: block;
+    left: 20vw;
+    top: 200px;
+  }
 }
 main .home .stars .shooting-star {
   position: relative;
   width: 25vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .shooting-star {
+    width: 15vw;
+  }
 }
 main .home .stars .shooting-star div {
   width: 100%;
@@ -372,11 +702,22 @@ main .home .stars .shooting-star div img {
   left: 0;
   width: 0.4vw;
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .shooting-star div img {
+    width: 0.2vw;
+  }
+}
 main .home .stars .shooting-star .shooting1 {
   position: absolute;
   left: 10vw;
   top: 15vh;
   transform: rotate(-45deg);
+}
+@media only screen and (min-width: 1024px) {
+  main .home .stars .shooting-star .shooting1 {
+    left: 20vw;
+    top: 160px;
+  }
 }
 main .home .stars .shooting-star .shooting2 {
   position: absolute;
@@ -384,12 +725,194 @@ main .home .stars .shooting-star .shooting2 {
   top: 57vh;
   transform: rotate(-45deg);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .shooting-star .shooting2 {
+    left: 32vw;
+    top: 530px;
+  }
+}
 main .home .stars .shooting-star .shooting3 {
   position: absolute;
   left: 77vw;
   top: 35vh;
   transform: rotate(-45deg);
 }
+@media only screen and (min-width: 1024px) {
+  main .home .stars .shooting-star .shooting3 {
+    left: 67vw;
+    top: 300px;
+  }
+}
 main .about-me {
   margin-top: 100vh;
+}
+main .about-me .title {
+  text-align: center;
+}
+main .about-me .photo-content {
+  position: relative;
+  height: 70VW;
+}
+main .about-me .photo-content .my-photo {
+  position: relative;
+  z-index: 2;
+  width: 50vw;
+  margin-top: 10vh;
+}
+main .about-me .photo-content .big-circle {
+  position: absolute;
+  left: 8vw;
+  top: 13vh;
+}
+main .about-me .photo-content .big-circle .big-line svg {
+  width: 50vw;
+  height: 30vh;
+}
+main .about-me .photo-content .big-circle .big-line svg circle {
+  cx: 25vw;
+  cy: 15vh;
+  r: 25vw;
+  stroke-dasharray: 0 500;
+}
+main .about-me .photo-content .small-circle {
+  position: absolute;
+  right: 8vw;
+  top: -5vh;
+}
+main .about-me .photo-content .small-circle .small-line {
+  transform: rotate(180deg);
+}
+main .about-me .photo-content .small-circle .small-line svg {
+  width: 40vw;
+  height: 20vh;
+}
+main .about-me .photo-content .small-circle .small-line svg circle {
+  cx: 20vw;
+  cy: 10vh;
+  r: 17vw;
+  stroke-dasharray: 0 300;
+}
+main .about-me .txt-content-box {
+  margin-top: 5vh;
+}
+main .about-me .txt-content-box .main-txt {
+  font-size: 1rem;
+}
+main .about-me .txt-content-box .main-txt strong {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+main .about-me .txt-content-box .main-txt strong span {
+  display: inline-block;
+  color: #efb1d5;
+}
+main .skill {
+  position: relative;
+  width: 100%;
+  margin-top: 20vh;
+}
+main .skill .skill-box .skill-tab-btn {
+  overflow-x: scroll;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+main .skill .skill-box .skill-tab-btn::-webkit-scrollbar {
+  display: none; /* Webkit 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨김 */
+}
+main .skill .skill-box .skill-tab-btn button {
+  padding: 5px 20px;
+  margin: 5vw 1vw 10vw 0;
+  border: 0;
+  border-radius: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: #7b588c;
+}
+main .skill .skill-box .skill-tab-btn button.selected {
+  font-weight: 500;
+  color: #7b588c;
+  background-color: #fff;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-box .skill-tab-btn {
+    display: none;
+  }
+}
+main .skill .skill-box .icon-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  -moz-column-gap: 5vw;
+       column-gap: 5vw;
+  row-gap: 7vw;
+  width: 100%;
+}
+main .skill .skill-box .icon-box .icon {
+  position: relative;
+  width: 28vw;
+  height: 28vw;
+  border-radius: 50%;
+}
+main .skill .skill-box .icon-box .icon::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  content: "";
+  width: 25vw;
+  height: 25vw;
+  display: block;
+  border-radius: 50%;
+  background-color: #190d22;
+}
+main .skill .skill-box .icon-box .icon img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 15vw;
+}
+main .skill .skill-desc {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(25, 13, 34, 0.8);
+}
+main .skill .skill-desc .skill-desc-txt {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 7vw;
+  width: 70vw;
+  height: 60vh;
+  border: 1px solid #fff;
+  border-radius: 50px;
+}
+main .skill .skill-desc .skill-desc-txt .skill-title {
+  margin-bottom: 2vh;
+  font-size: 1.5rem;
+  text-align: center;
+}
+main .skill .skill-desc .skill-desc-txt .skill-icon {
+  width: 30vw;
+}
+main .skill .skill-desc .skill-desc-txt .skill-line {
+  margin-top: 4vh;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt {
+  margin-top: 3vh;
+  font-size: 0.875rem;
 }/*# sourceMappingURL=index.css.map */

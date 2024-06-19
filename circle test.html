@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
+    <title>circle test</title>
+</head>
+<body>
+    <svg width="860" height="860">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:rgb(158,110,151);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="430" cy="430" r="210" stroke="url(#grad1)" stroke-width="1px" fill="transparent" 
+                stroke-dasharray="0 1319.47" stroke-dashoffset="0">
+          <animate attributeName="stroke-dasharray" from="0 1319.47" to="1000 319.47" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
+        </circle>
+      </svg>
+</body>
+</html>
