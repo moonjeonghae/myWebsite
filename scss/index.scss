@@ -8,8 +8,8 @@
 .container {
     width: $wide-width;
     max-width: 1440px;
-    margin: 0 auto;
     padding: 0 10px;
+    margin: 0 auto;
     // background-color: lightpink;
 }
 
@@ -759,7 +759,7 @@ main {
                     border-radius: 20px;
                     font: {
                         family: $ko-font;
-                        size: 0.875rem;
+                        size: 0.833rem;
                     }
                     color: $color-main;
                     background-color: $color-point;
@@ -819,7 +819,7 @@ main {
 
         .skill-desc {
             display: none;
-            position: absolute;
+            position: fixed;
             z-index: 3;
             left: 0; top: 0;
             width: $wide-width;
@@ -881,12 +881,170 @@ main {
 
                 .desc-txt {
                     margin-top: 3vh;
-                    font-size: 0.875rem;
+                    font-size: 0.833rem;
                 }
             }
         }  // skill-desc
     }  // skill
+
+
+    .portfolio {
+        width: $wide-width;
+        margin-top: 50vh;
+        .title-box {
+            width: 90vw;
+            // background-color: lightblue;
+
+            .pf-sub-title {
+                margin-bottom: 2vh;
+                font: {
+                    family: $en-font;
+                    size: 2rem;
+                }
+                text-align: left;
+                // background-color: aquamarine;
+            }
+
+            .pf-title {
+                width: 66vw;
+                font-size: 2.7rem;
+                text-align: center;
+                // background-color: lightgoldenrodyellow;
+            }
+        }  // title-box
+
+        .circle-box {
+            position: relative;
+
+            .pf-starlight {
+                position: absolute;
+                left: 0; top: 0;
+                width: 5vw;
+            }
+        }
+    }  // portfolio
+
+
+    .contact {
+        width: $wide-width;
+
+        .contact-content-box {
+            width: $wide-width;
+
+            .title {
+                position: relative;
+                z-index: 1;
+                width: 170px;
+                text-align: center;
+                background-color: $main-bg;
+            }
+
+            .contact-line-content {
+                position: relative;
+                top: -35px;
+
+                .contact-content {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: lightcoral;
+
+                    form {
+                        width: 50vw;
+
+                        div {
+                            width: $wide-width;
+                            label {
+                                margin-bottom: 30px;
+                                font-size: 0.833rem;
+                            }
+
+                            input {
+                                width: $wide-width;
+                                height: 5vh;
+                                border-style: none;
+                                border-bottom: 1px solid $color-main;
+                                background-color: transparent;
+
+                                &::placeholder {
+                                    font-size: 0.667rem;
+                                    color: rgba($color-main, 0.5);
+                                }
+                            }
+                        }
+                    }  // form
+                }  // contact-content
+            }  // contact-line-content
+        }  // contact-content-box
+    }  // contact
 }  // main
 
 
 //******* footer *******
+footer {
+    width: $wide-width;
+    height: 12vh;
+    border-top: 1px solid rgba($color-main, 0.5);
+
+    .logo-contact-icon {
+        display: flex;
+        align-items: center;
+        width: $wide-width;
+        height: $wide-height;
+        
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: $wide-width;
+            // background-color: lightseagreen;
+
+            .footer-logo {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 51vw;
+                margin: 0;
+                // background-color: lightblue;
+    
+                img {
+                    width: 7vw;
+                }
+            }
+    
+    
+            .logo-txt {
+                width: 40vw;
+                // background-color: lightcoral;
+                
+                p {
+                    display: flex;
+                    align-items: center;
+                    font-size: 0.667rem;
+    
+                    img {
+                        width: 10px;
+                        height: 10px;
+                        margin-left: 3px;
+                    }
+                }
+            }
+    
+    
+            .contact-icon-box {
+                display: flex;
+                align-items: center;
+                width: 17vw;
+                margin: 0;
+                // background-color: lightgreen;
+                div {
+                    a {
+                        img {
+                            width: 4vw;
+                        }
+                    }
+                }
+            }
+        }  // footer-content
+    }  // logo-contact-icon
+}  // footer

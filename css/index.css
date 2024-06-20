@@ -84,8 +84,8 @@ footer {
 .container {
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
   padding: 0 10px;
+  margin: 0 auto;
 }
 
 header {
@@ -826,7 +826,7 @@ main .skill .skill-box .skill-tab-btn button {
   border: 0;
   border-radius: 20px;
   font-family: "Noto Sans KR", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.833rem;
   color: #fff;
   background-color: #7b588c;
 }
@@ -878,7 +878,7 @@ main .skill .skill-box .icon-box .icon img {
 }
 main .skill .skill-desc {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 3;
   left: 0;
   top: 0;
@@ -936,5 +936,131 @@ main .skill .skill-desc .skill-desc-txt .skill-line {
 }
 main .skill .skill-desc .skill-desc-txt .desc-txt {
   margin-top: 3vh;
-  font-size: 0.875rem;
+  font-size: 0.833rem;
+}
+main .portfolio {
+  width: 100%;
+  margin-top: 50vh;
+}
+main .portfolio .title-box {
+  width: 90vw;
+}
+main .portfolio .title-box .pf-sub-title {
+  margin-bottom: 2vh;
+  font-family: "Playfair Display SC", serif;
+  font-size: 2rem;
+  text-align: left;
+}
+main .portfolio .title-box .pf-title {
+  width: 66vw;
+  font-size: 2.7rem;
+  text-align: center;
+}
+main .portfolio .circle-box {
+  position: relative;
+}
+main .portfolio .circle-box .pf-starlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5vw;
+}
+main .contact {
+  width: 100%;
+}
+main .contact .contact-content-box {
+  width: 100%;
+}
+main .contact .contact-content-box .title {
+  position: relative;
+  z-index: 1;
+  width: 170px;
+  text-align: center;
+  background-color: #190d22;
+}
+main .contact .contact-content-box .contact-line-content {
+  position: relative;
+  top: -35px;
+}
+main .contact .contact-content-box .contact-line-content .contact-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightcoral;
+}
+main .contact .contact-content-box .contact-line-content .contact-content form {
+  width: 50vw;
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div {
+  width: 100%;
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div label {
+  margin-bottom: 30px;
+  font-size: 0.833rem;
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div input {
+  width: 100%;
+  height: 5vh;
+  border-style: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div input::-moz-placeholder {
+  font-size: 0.667rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div input::placeholder {
+  font-size: 0.667rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+  width: 100%;
+  height: 12vh;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+footer .logo-contact-icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+footer .logo-contact-icon .footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+footer .logo-contact-icon .footer-content .footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 51vw;
+  margin: 0;
+}
+footer .logo-contact-icon .footer-content .footer-logo img {
+  width: 7vw;
+}
+footer .logo-contact-icon .footer-content .logo-txt {
+  width: 40vw;
+}
+footer .logo-contact-icon .footer-content .logo-txt p {
+  display: flex;
+  align-items: center;
+  font-size: 0.667rem;
+}
+footer .logo-contact-icon .footer-content .logo-txt p img {
+  width: 10px;
+  height: 10px;
+  margin-left: 3px;
+}
+footer .logo-contact-icon .footer-content .contact-icon-box {
+  display: flex;
+  align-items: center;
+  width: 17vw;
+  margin: 0;
+}
+footer .logo-contact-icon .footer-content .contact-icon-box div a img {
+  width: 4vw;
 }/*# sourceMappingURL=index.css.map */

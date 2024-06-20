@@ -357,8 +357,8 @@
 
 
                 <div class="title-box">
-                    <p></p>
-                    <h2 class="pf-title"></h2>
+                    <p class="pf-sub-title">THIS IS MY</p>
+                    <h2 class="pf-title">PORTFOLIO</h2>
                 </div>
 
 
@@ -490,26 +490,33 @@
             <div class="container">
                 <div class="contact-content-box">
                     <h2 class="title">CONTACT</h2>
-                    <div class="contact-line"></div>
+                    <div class="contact-line-content">
+                        <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                            <circle cx="100" cy="100" r="95" stroke="white" stroke-width="0.5px" fill="transparent" filter="url(#glow)"></circle>
+                          </svg> 
+
+                          <div class="contact-content">
+                              <form action="" method="post">
+                                  <div class="name-box">
+                                      <label for="name">Name</label>
+                                      <input type="text" id="name" name="name" placeholder="Name">
+                                  </div>
+      
+                                  <div class="email-box">
+                                      <label for="email">E-mail</label>
+                                      <input type="text" id="email" name="email" placeholder="email">
+                                  </div>
+      
+                                  <div class="message-box">
+                                      <label for="message">message</label>
+                                      <textarea name="message" id="message" cols="10" rows="1"></textarea>
+                                  </div>
+                              </form>
+
+                              <button class="send-btn">Send</button>
+                          </div>  <!--  contact-content -->
+                    </div>  <!-- contact-line-content -->
                     
-                    <div class="contact-content">
-                        <form action="" method="post">
-                            <div class="name-box">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name">
-                            </div>
-
-                            <div class="email-box">
-                                <label for="email">E-mail</label>
-                                <input type="text" id="email" name="email">
-                            </div>
-
-                            <div class="message-box">
-                                <label for="message">message</label>
-                                <textarea name="message" id="message" cols="" rows=""></textarea>
-                            </div>
-                        </form>
-                    </div>  <!--  contact-content -->
                 </div>  <!-- contact-content-box -->
             </div>  <!-- container -->
         </section>  <!-- contact -->
@@ -520,25 +527,32 @@
 
 
     <footer>
-        <div class="logo-contacticon">
+        <div class="logo-contact-icon">
             <div class="container">
-                <div class="footer-logo">
-                    <div class="logo-img">
-                        <img src="./images/logo.png" alt="logo">
-                    </div>
-
-                    <div class="logo-txt">
-                        <p>created by Jeonghae. Thank you for visiting</p>
-                        <img src="./images/star.png" alt="star">
-                    </div>
-                </div> <!-- footer-logo -->
-
-
-                <div class="contact-icon-box">
-                    <div class="git-icon"><a href=""><img src="./images/git_character.png" alt="git icon"></a></div>
-                    <div class="mail-icon"><a href=""><img src="./images/mail.png" alt="mail icon"></a></div>
-                    <div class="phone-icon"><a href=""><img src="./images/phone.png" alt="phone icon"></a></div>
-                </div>  <!-- contact-icon-box -->
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <div class="logo-img">
+                            <img src="./images/logo.png" alt="logo">
+                        </div>
+    
+                        <div class="logo-txt">
+                            <p class="first">
+                                created by Jeonghae.
+                            </p>
+                            <p class="second">
+                                Thank you for visiting
+                                <img src="./images/star.png" alt="star">
+                            </p>
+                        </div>
+                    </div> <!-- footer-logo -->
+    
+    
+                    <div class="contact-icon-box">
+                        <div class="git-icon"><a href=""><img src="./images/git_character.png" alt="git icon"></a></div>
+                        <div class="mail-icon"><a href=""><img src="./images/mail.png" alt="mail icon"></a></div>
+                        <div class="phone-icon"><a href=""><img src="./images/phone.png" alt="phone icon"></a></div>
+                    </div>  <!-- contact-icon-box -->
+                </div>  <!-- footer-content -->
             </div>  <!-- container -->
         </div>  <!-- logo-contacticon -->
     </footer>
