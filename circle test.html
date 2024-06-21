@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index_test.css">
     <script src="./js/index.js"></script>
     <title>circle test</title>
 </head>
@@ -22,9 +22,75 @@
         </circle>
       </svg> -->
       
-      <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+      <!-- <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
         <circle cx="100" cy="100" r="100" stroke="white" stroke-width="1px" fill="transparent" stroke-dasharray="440 70"></circle>
-      </svg>
+      </svg> -->
       
+
+      <!-- <div class="big-circle">
+        <div class="big-line">
+            <svg width="100%" height="100%" viewBox="0 0 860 860" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:rgb(158,110,151);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="430" cy="430" r="200" stroke="url(#grad1)" stroke-width="1px" fill="transparent" stroke-dasharray="0 1319.47" stroke-dashoffset="0">
+                  <animate attributeName="stroke-dasharray" from="0 1319.47" to="950 369.47" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
+                </circle>
+              </svg>
+        </div>
+        <div class="starlight"></div>
+    </div> -->
+
+<!-- 
+    <div class="small-circle">
+      <div class="small-line">
+          <svg width="100%" height="100%" viewBox="0 0 460 460" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
+                  <stop offset="100%" style="stop-color:rgb(158,110,151);stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle cx="230" cy="230" r="100" stroke="url(#grad1)" stroke-width="1px" fill="transparent" 
+                      stroke-dasharray="0 700" stroke-dashoffset="0">
+                <animate attributeName="stroke-dasharray" from="0 700" to="500 200" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
+              </circle>
+            </svg>
+      </div>
+      <div class="starlight"></div>
+  </div> -->
+
+  <div class="circle">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box">12</div>
+</div>
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const circle = document.querySelector('.circle');
+    const boxes = circle.querySelectorAll('.box');
+    const radius = 150; // 반지름
+
+    boxes.forEach((box, index) => {
+        const angle = (360 / boxes.length) * index;
+        const radians = (angle * Math.PI) / 180; // 각도를 라디안으로 변환
+        const x = Math.cos(radians) * radius;
+        const y = Math.sin(radians) * radius;
+        box.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+ </script>
 </body>
 </html>

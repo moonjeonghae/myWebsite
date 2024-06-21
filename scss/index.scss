@@ -23,6 +23,7 @@ header {
     // background-color: lightblue;
 
     @include responsive(large-screens) {
+        position: fixed;
         height: 150px;
     }
 
@@ -35,7 +36,6 @@ header {
         // background-color: lightcoral;
         
         @include responsive(large-screens) {
-            position: fixed;
             max-width: 1440px;
             height: 150px;
         }
@@ -102,10 +102,15 @@ header {
 //******* main *******
 main {
     width: $wide-width;
-
+    overflow: hidden;
     // ====== 공통 ======
     .title {
         font-size: 2rem;
+
+        @include responsive(large-screens) {
+            padding-top: 170px;
+            font-size: 3rem;
+        }
     }
 
     //====== home ======
@@ -122,7 +127,8 @@ main {
             @include responsive(large-screens) {
                 max-width: 100vw;
             }
-
+            
+            
             .sky-box {
                 position: relative;
                 overflow: hidden;
@@ -158,10 +164,7 @@ main {
                     left: -25vw; bottom: -10vh;
                     width: 60%;
 
-                    @include responsive(large-screens) {
-                        left: 250px; bottom: -80px;
-                        width: 435px;
-                    }
+                      
                 }
         
                 .cloud2 {
@@ -636,97 +639,208 @@ main {
     //====== about-me ======
     .about-me {
         margin-top: 100vh;
+        // background-color: lightseagreen;
+
+        @include responsive(large-screens) {
+            height: 100vh;
+        }
 
         .title {
             text-align: center;
+
+            @include responsive(large-screens) {
+                padding-top: 170px;
+                text-align: left;
+            }
         }
 
-        .photo-content {
-            position: relative;
-            // background-color: aqua;
-            height: 70VW;
-            .my-photo {
+
+        .aboutme-content {
+            @include responsive(large-screens) {
+                display: flex;
+                align-items: center;
+            }
+
+            .photo-content {
                 position: relative;
-                z-index: 2;
-                width: 50vw;
-                margin-top: 10vh;
-            }
-
-            .big-circle {
-                position: absolute;
-                left: 8vw; top: 13vh;
-                
-                .big-line {
-                    svg {
-                        // background-color: antiquewhite;
-                        width: 50vw; 
-                        height: 30vh;
-
-                        circle {
-                            cx: 25vw;
-                            cy: 15vh;
-                            r: 25vw;
-
-                            stroke-dasharray:0 500; 
+                height: 75vw;
+                // background-color: darkgreen;
     
-                            // animate {
-                            //     from: 0 500;
-                            //     to: 400 100;
-                            // }
+                @include responsive(large-screens) {
+                    width: 800px;
+                    height: 640px;
+    
+                }
+    
+                .my-photo {
+                    position: relative;
+                    z-index: 2;
+                    width: 50vw;
+                    margin-top: 10vh;
+                    padding-top: 5vh;
+                    // background-color: bisque;
+    
+                    @include responsive(large-screens) {
+                        display: flex;
+                        align-items: left;
+                        width: 340px;
+                        margin-top: 50px;
+                        padding-top: 0;
+                    }
+    
+                    img {
+                        width: $wide-width;
+                    }
+                }
+    
+                .big-circle {
+                    position: relative;
+                    left: -20vw; top: -63vw;
+    
+    
+                    @include responsive(large-screens) {
+                        position: absolute;
+                        left: 30px; top: 27vh;
+                    }
+
+                    .big-line {
+                        transform: rotate(15deg);
+
+                        @include responsive(large-screens) {
+                            transform: scale(2.5) rotate(5deg);
                         }
                     }
                 }
-            }
-
-            .small-circle {
-                position: absolute;
-                right: 8vw; top: -5vh;
-                
-                .small-line {
-                    transform: rotate(180deg);
-                    svg {
-                        // background-color: antiquewhite;
-                        width: 40vw; 
-                        height: 20vh;
-
-                        circle {
-                            cx: 20vw;
-                            cy: 10vh;
-                            r: 17vw;
-
-                            stroke-dasharray:0 300; 
     
-                            // animate {
-                            //     from: 0 500;
-                            //     to: 400 100;
-                            // }
+                .small-circle {
+                    position: relative;
+                    left: 23vw; top: -201vw;
+    
+                    @include responsive(large-screens) {
+                        position: absolute;
+                        left: 290px; top: -30px;
+    
+                    }
+                    .small-line {
+                        transform: rotate(190deg);
+
+                        @include responsive(large-screens) {
+                            transform: scale(2) rotate(190deg);
                         }
                     }
                 }
-            }
-        }  // photo-content
-
-
-        .txt-content-box {
-            margin-top: 5vh;
-
-            .main-txt {
-                font-size: 1rem;
-
-                strong {
-                    display: inline-block;
-                    font: {
-                        weight: $ko-font-semibold;
-                        size: 1.5rem;
+            }  // photo-content
+    
+    
+            .txt-content-box {
+                margin-top: 7vh;
+    
+                @include responsive(large-screens) {
+                    margin-top: 0;
+                    margin-left: 40px;
+                }
+                .main-txt {
+                    font-size: 1rem;
+    
+                    @include responsive(large-screens) {
+                           font-size: 1.667rem;
                     }
 
-                    span {
+                    strong {
                         display: inline-block;
-                        color: $small-starlight;
+                        font: {
+                            weight: $ko-font-semibold;
+                            size: 1.5rem;
+                        }
+    
+                        @include responsive(large-screens) {
+                           font-size: 2.5rem;
+                        }
+                        
+                        span {
+                            display: inline-block;
+                            
+                            &.bracket {
+                                color: $small-starlight;
+                            }
+                        }
+                    }
+                }  // main-txt
+    
+                
+                .aboutme-tab-btn {
+                    margin: 3vh 0 2vh 1vh;
+
+                    @include responsive(large-screens) {
+                           margin-top: 40px;
+                    }
+
+                    button {
+                        position: relative;
+                        margin-right: 5vw;
+                        border-style: none;
+                        font: {
+                            family: $ko-font;
+                            size: 0.833rem;
+                        }
+                        color: $color-main;
+                        background-color: transparent;
+                        cursor: pointer;
+
+                        @include responsive(large-screens) {
+                            margin-right: 53px;
+                            font-size: 1rem;                    
+                        }
+
+                        &::after {
+                            position: absolute;
+                            z-index: -1;
+                            left: 0; top: 50%;
+                            transform: translateY(-50%);
+                            width: 0;
+                            height: 7px;
+                            content: '';
+                            transition: width 0.5s ease;
+                            background-color: $color-point;
+
+                            @include responsive(large-screens) {
+                                height: 10px;
+                                transform:translateY(-30%);
+                            }
+                        }
+
+                        &:hover::after {
+                            @include responsive(large-screens) {
+                                height: 10px;
+                                width: $wide-width;
+                                transform:translateY(-30%) scaleX(1.3);
+                            }
+                        }
+
+                        &.selected::after {
+                            width: $wide-width;
+                            transform: scaleX(1.2);
+
+                            @include responsive(large-screens) {
+                                transform:translateY(-30%) scaleX(1.3);
+                            }
+                        }
+                    }
+                }  // aboutme-tab-btn
+    
+    
+                .aboutme-content-txt {
+                    .txt {
+                        font-size: 0.833rem;
+                        line-height: 1.8;
+
+                        @include responsive(large-screens) {
+                            font-size: 1.167rem;
+                        }
                     }
                 }
-            }
-        }
+            }  // txt-content-box
+        }  //aboutme-content
     }  // about-me
 
 
@@ -735,7 +849,31 @@ main {
         position: relative;
         width: $wide-width;
         margin-top: 20vh;
+        background-color: darkgoldenrod;
 
+        @include responsive(large-screens) {
+            height: 100vh;
+        }
+
+        .title-box {
+            @include responsive(large-screens) {
+                position: absolute;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+                width: 256px;
+                height: 256px;
+                line-height: 256px;
+                border: 1px solid $color-main;
+                border-radius: 50%;
+            }
+
+            .title {
+                @include responsive(large-screens) {
+                    padding-top: 0;
+                    text-align: center;
+                }
+            }
+        }
         .skill-box {
             // .circle {
             //     @include responsive(large-screens) {
@@ -785,6 +923,17 @@ main {
                 row-gap: 7vw;
                 width: $wide-width;
 
+                @include responsive(large-screens) {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    display: block;
+                    width: 668px;
+                    height: 668px;
+                    border: 1px solid $color-main;
+                    border-radius: 50%;   
+                }
+
                 .icon {
                     position: relative;
                     width: 28vw;
@@ -803,6 +952,10 @@ main {
                         display: block;
                         border-radius: 50%;
                         background-color: $main-bg;
+
+                        @include responsive(large-screens) {
+                            display: none;
+                        }
                     }
 
                     img {
@@ -891,31 +1044,61 @@ main {
     .portfolio {
         width: $wide-width;
         margin-top: 50vh;
+
+        
         .title-box {
             width: 90vw;
             // background-color: lightblue;
 
             .pf-sub-title {
-                margin-bottom: 2vh;
-                font: {
-                    family: $en-font;
-                    size: 2rem;
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: flex-end;
+                // background-color: aquamarine; 
+
+                .long-line {
+                    width: 30vw;
+                    height: 1px;
+                    margin: 0;
+                    margin-left: 3vw;
+                    background-color: $color-main;    
                 }
-                text-align: left;
-                // background-color: aquamarine;
+
+                p {
+                    margin: 0;
+                    margin-bottom: 0.5vh;
+                    font: {
+                        family: $en-font;
+                        size: 8.5vw;
+                    }
+                    text-align: left;
+                }
             }
 
             .pf-title {
                 width: 66vw;
-                font-size: 2.7rem;
+                font-size: 12vw;
                 text-align: center;
                 // background-color: lightgoldenrodyellow;
             }
         }  // title-box
 
+        .short-line {
+            display: none;
+        }
+
         .circle-box {
             position: relative;
-
+            height: 30vh;
+            // background-color: darkgray;
+            .pf-line {
+                position: relative;
+                left: 16vw; top: -60vw;
+                svg {
+                    transform: scale(0.95) rotate(230deg);
+                }
+            }
             .pf-starlight {
                 position: absolute;
                 left: 0; top: 0;
@@ -947,21 +1130,26 @@ main {
                     position: absolute;
                     left: 50%; top: 50%;
                     transform: translate(-50%, -50%);
-                    background-color: lightcoral;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 68%;
+                    // background-color: lightcoral;
 
                     form {
-                        width: 50vw;
-
+                        width: 55vw;
                         div {
                             width: $wide-width;
+                            margin-bottom: 2vh;
+
                             label {
-                                margin-bottom: 30px;
                                 font-size: 0.833rem;
                             }
 
                             input {
                                 width: $wide-width;
-                                height: 5vh;
+                                height: 3vh;
+                                margin-top: 7px;
                                 border-style: none;
                                 border-bottom: 1px solid $color-main;
                                 background-color: transparent;
@@ -971,8 +1159,27 @@ main {
                                     color: rgba($color-main, 0.5);
                                 }
                             }
+                            textarea {
+                                width: $wide-width;
+                                height: 60px;
+                                margin-top: 7px;
+                                border: 1px solid $color-main;
+                                border-radius: 3px;
+                                background-color: transparent;
+                            }
                         }
                     }  // form
+
+                    .send-btn {
+                        padding: 2px 20px;
+                        border: 1px solid $color-main;
+                        border-radius: 25px;
+                        font: {
+                            family: $ko-font;
+                            size: 0.833rem;
+                        }
+                        background-color: $color-main;
+                    }
                 }  // contact-content
             }  // contact-line-content
         }  // contact-content-box
@@ -1020,6 +1227,7 @@ footer {
                 p {
                     display: flex;
                     align-items: center;
+                    font-weight: $ko-font-light;
                     font-size: 0.667rem;
     
                     img {
@@ -1041,6 +1249,14 @@ footer {
                     a {
                         img {
                             width: 4vw;
+                        }
+                    }
+
+                    &.mail-icon {
+                        a {
+                            img {
+                                width: 5vw;
+                            }
                         }
                     }
                 }

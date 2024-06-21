@@ -1,0 +1,39 @@
+@import './style.scss';
+@import './mixin.scss';
+@import './reset.scss';
+
+
+
+//******* 공통 *******
+.circle {
+    position: relative;
+    width: 300px; // 원의 크기
+    height: 300px; // 원의 크기
+    border: 1px solid lightgray; // 원의 경계 (디버깅용)
+    border-radius: 50%; // 원 모양으로 만들기
+    margin: 0 auto; // 수평 가운데 정렬
+    margin-top: 50px;
+
+    .box {
+        position: absolute;
+        left: 0; top: 0;
+        // transform: translate(-50%, -50%);
+        width: 50px; // 박스 크기
+        height: 50px; // 박스 크기
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%; // 원 모양의 박스
+    }
+
+    // 각 박스를 원의 특정 각도에 위치시키기 위한 믹스인
+    // @for $i from 1 through 12 {
+    //     .box:nth-child(#{$i}) {
+    //         $angle: 360deg / 12 * ($i - 1);
+    //         $x: cos($angle) * 120px; // 원의 반지름 (반경)
+    //         $y: sin($angle) * 120px; // 원의 반지름 (반경)
+    //         transform: translate($x, $y);
+    //     }
+    // }
+}

@@ -96,6 +96,7 @@ header {
 }
 @media only screen and (min-width: 1024px) {
   header {
+    position: fixed;
     height: 150px;
   }
 }
@@ -108,7 +109,6 @@ header .logo-mainmenu-box {
 }
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box {
-    position: fixed;
     max-width: 1440px;
     height: 150px;
   }
@@ -162,9 +162,16 @@ header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar {
 
 main {
   width: 100%;
+  overflow: hidden;
 }
 main .title {
   font-size: 2rem;
+}
+@media only screen and (min-width: 1024px) {
+  main .title {
+    padding-top: 170px;
+    font-size: 3rem;
+  }
 }
 main .home {
   position: absolute;
@@ -216,13 +223,6 @@ main .home .home-container .sky-box .cloud1 {
   left: -25vw;
   bottom: -10vh;
   width: 60%;
-}
-@media only screen and (min-width: 1024px) {
-  main .home .home-container .sky-box .cloud1 {
-    left: 250px;
-    bottom: -80px;
-    width: 435px;
-  }
 }
 main .home .home-container .sky-box .cloud2 {
   position: absolute;
@@ -746,71 +746,224 @@ main .home .stars .shooting-star .shooting3 {
 main .about-me {
   margin-top: 100vh;
 }
+@media only screen and (min-width: 1024px) {
+  main .about-me {
+    height: 100vh;
+  }
+}
 main .about-me .title {
   text-align: center;
 }
-main .about-me .photo-content {
-  position: relative;
-  height: 70VW;
+@media only screen and (min-width: 1024px) {
+  main .about-me .title {
+    padding-top: 170px;
+    text-align: left;
+  }
 }
-main .about-me .photo-content .my-photo {
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content {
+    display: flex;
+    align-items: center;
+  }
+}
+main .about-me .aboutme-content .photo-content {
+  position: relative;
+  height: 75vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content {
+    width: 800px;
+    height: 640px;
+  }
+}
+main .about-me .aboutme-content .photo-content .my-photo {
   position: relative;
   z-index: 2;
   width: 50vw;
   margin-top: 10vh;
+  padding-top: 5vh;
 }
-main .about-me .photo-content .big-circle {
-  position: absolute;
-  left: 8vw;
-  top: 13vh;
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .my-photo {
+    display: flex;
+    align-items: left;
+    width: 340px;
+    margin-top: 50px;
+    padding-top: 0;
+  }
 }
-main .about-me .photo-content .big-circle .big-line svg {
-  width: 50vw;
-  height: 30vh;
+main .about-me .aboutme-content .photo-content .my-photo img {
+  width: 100%;
 }
-main .about-me .photo-content .big-circle .big-line svg circle {
-  cx: 25vw;
-  cy: 15vh;
-  r: 25vw;
-  stroke-dasharray: 0 500;
+main .about-me .aboutme-content .photo-content .big-circle {
+  position: relative;
+  left: -20vw;
+  top: -63vw;
 }
-main .about-me .photo-content .small-circle {
-  position: absolute;
-  right: 8vw;
-  top: -5vh;
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .big-circle {
+    position: absolute;
+    left: 30px;
+    top: 27vh;
+  }
 }
-main .about-me .photo-content .small-circle .small-line {
-  transform: rotate(180deg);
+main .about-me .aboutme-content .photo-content .big-circle .big-line {
+  transform: rotate(15deg);
 }
-main .about-me .photo-content .small-circle .small-line svg {
-  width: 40vw;
-  height: 20vh;
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .big-circle .big-line {
+    transform: scale(2.5) rotate(5deg);
+  }
 }
-main .about-me .photo-content .small-circle .small-line svg circle {
-  cx: 20vw;
-  cy: 10vh;
-  r: 17vw;
-  stroke-dasharray: 0 300;
+main .about-me .aboutme-content .photo-content .small-circle {
+  position: relative;
+  left: 23vw;
+  top: -201vw;
 }
-main .about-me .txt-content-box {
-  margin-top: 5vh;
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .small-circle {
+    position: absolute;
+    left: 290px;
+    top: -30px;
+  }
 }
-main .about-me .txt-content-box .main-txt {
+main .about-me .aboutme-content .photo-content .small-circle .small-line {
+  transform: rotate(190deg);
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .small-circle .small-line {
+    transform: scale(2) rotate(190deg);
+  }
+}
+main .about-me .aboutme-content .txt-content-box {
+  margin-top: 7vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .main-txt {
   font-size: 1rem;
 }
-main .about-me .txt-content-box .main-txt strong {
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .main-txt {
+    font-size: 1.667rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong {
   display: inline-block;
   font-weight: 600;
   font-size: 1.5rem;
 }
-main .about-me .txt-content-box .main-txt strong span {
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .main-txt strong {
+    font-size: 2.5rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span {
   display: inline-block;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.bracket {
   color: #efb1d5;
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
+  margin: 3vh 0 2vh 1vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
+    margin-top: 40px;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
+  position: relative;
+  margin-right: 5vw;
+  border-style: none;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.833rem;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
+    margin-right: 53px;
+    font-size: 1rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button::after {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 7px;
+  content: "";
+  transition: width 0.5s ease;
+  background-color: #7b588c;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button::after {
+    height: 10px;
+    transform: translateY(-30%);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button:hover::after {
+    height: 10px;
+    width: 100%;
+    transform: translateY(-30%) scaleX(1.3);
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button.selected::after {
+  width: 100%;
+  transform: scaleX(1.2);
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button.selected::after {
+    transform: translateY(-30%) scaleX(1.3);
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-txt .txt {
+  font-size: 0.833rem;
+  line-height: 1.8;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-txt .txt {
+    font-size: 1.167rem;
+  }
 }
 main .skill {
   position: relative;
   width: 100%;
   margin-top: 20vh;
+  background-color: darkgoldenrod;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill {
+    height: 100vh;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .title-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 256px;
+    height: 256px;
+    line-height: 256px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .title-box .title {
+    padding-top: 0;
+    text-align: center;
+  }
 }
 main .skill .skill-box .skill-tab-btn {
   overflow-x: scroll;
@@ -849,6 +1002,19 @@ main .skill .skill-box .icon-box {
   row-gap: 7vw;
   width: 100%;
 }
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-box .icon-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 668px;
+    height: 668px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+}
 main .skill .skill-box .icon-box .icon {
   position: relative;
   width: 28vw;
@@ -867,6 +1033,11 @@ main .skill .skill-box .icon-box .icon::before {
   display: block;
   border-radius: 50%;
   background-color: #190d22;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-box .icon-box .icon::before {
+    display: none;
+  }
 }
 main .skill .skill-box .icon-box .icon img {
   position: absolute;
@@ -946,18 +1117,44 @@ main .portfolio .title-box {
   width: 90vw;
 }
 main .portfolio .title-box .pf-sub-title {
-  margin-bottom: 2vh;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+main .portfolio .title-box .pf-sub-title .long-line {
+  width: 30vw;
+  height: 1px;
+  margin: 0;
+  margin-left: 3vw;
+  background-color: #fff;
+}
+main .portfolio .title-box .pf-sub-title p {
+  margin: 0;
+  margin-bottom: 0.5vh;
   font-family: "Playfair Display SC", serif;
-  font-size: 2rem;
+  font-size: 8.5vw;
   text-align: left;
 }
 main .portfolio .title-box .pf-title {
   width: 66vw;
-  font-size: 2.7rem;
+  font-size: 12vw;
   text-align: center;
+}
+main .portfolio .short-line {
+  display: none;
 }
 main .portfolio .circle-box {
   position: relative;
+  height: 30vh;
+}
+main .portfolio .circle-box .pf-line {
+  position: relative;
+  left: 16vw;
+  top: -60vw;
+}
+main .portfolio .circle-box .pf-line svg {
+  transform: scale(0.95) rotate(230deg);
 }
 main .portfolio .circle-box .pf-starlight {
   position: absolute;
@@ -987,21 +1184,25 @@ main .contact .contact-content-box .contact-line-content .contact-content {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 68%;
 }
 main .contact .contact-content-box .contact-line-content .contact-content form {
-  width: 50vw;
+  width: 55vw;
 }
 main .contact .contact-content-box .contact-line-content .contact-content form div {
   width: 100%;
+  margin-bottom: 2vh;
 }
 main .contact .contact-content-box .contact-line-content .contact-content form div label {
-  margin-bottom: 30px;
   font-size: 0.833rem;
 }
 main .contact .contact-content-box .contact-line-content .contact-content form div input {
   width: 100%;
-  height: 5vh;
+  height: 3vh;
+  margin-top: 7px;
   border-style: none;
   border-bottom: 1px solid #fff;
   background-color: transparent;
@@ -1013,6 +1214,22 @@ main .contact .contact-content-box .contact-line-content .contact-content form d
 main .contact .contact-content-box .contact-line-content .contact-content form div input::placeholder {
   font-size: 0.667rem;
   color: rgba(255, 255, 255, 0.5);
+}
+main .contact .contact-content-box .contact-line-content .contact-content form div textarea {
+  width: 100%;
+  height: 60px;
+  margin-top: 7px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background-color: transparent;
+}
+main .contact .contact-content-box .contact-line-content .contact-content .send-btn {
+  padding: 2px 20px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.833rem;
+  background-color: #fff;
 }
 
 footer {
@@ -1048,6 +1265,7 @@ footer .logo-contact-icon .footer-content .logo-txt {
 footer .logo-contact-icon .footer-content .logo-txt p {
   display: flex;
   align-items: center;
+  font-weight: 300;
   font-size: 0.667rem;
 }
 footer .logo-contact-icon .footer-content .logo-txt p img {
@@ -1063,4 +1281,7 @@ footer .logo-contact-icon .footer-content .contact-icon-box {
 }
 footer .logo-contact-icon .footer-content .contact-icon-box div a img {
   width: 4vw;
+}
+footer .logo-contact-icon .footer-content .contact-icon-box div.mail-icon a img {
+  width: 5vw;
 }/*# sourceMappingURL=index.css.map */
