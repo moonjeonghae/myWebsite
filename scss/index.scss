@@ -149,7 +149,7 @@ main {
         
                     @include responsive(large-screens) {
                         width: 260px;
-                        margin-top: 30vh;
+                        margin-top: 270px;
                     }
 
                     img {
@@ -163,18 +163,37 @@ main {
                     z-index: 1;
                     left: -25vw; bottom: -10vh;
                     width: 60%;
+                    animation: cloudMove 4s ease-in-out infinite;
 
-                      
+                    @include responsive(large-screens) {
+                        left: 0; bottom: -70px;
+                        width: 315px;
+                    }
                 }
         
                 .cloud2 {
                     position: absolute;
                     right: -15vw; bottom: 15vh;
                     width: 40%;
+                    animation: cloudMove 4s ease-in-out infinite;
 
                     @include responsive(large-screens) {
-                        right: 250px; bottom: 190px;
+                        right: 0; bottom: 210px;
                         width: 285px;
+                    }
+                }
+
+                @keyframes cloudMove {
+                    0% {
+                        transform: translateY(10px);
+                    }
+
+                    50% {
+                        transform: translateY(-10px);
+                    }
+
+                    100% {
+                        transform: translateY(10px);
                     }
                 }
             }  // sky-box
@@ -200,10 +219,39 @@ main {
                     @include responsive(large-screens) {
                         height: 10px;
                     }
+
+                    @keyframes shadow1 {
+                        0% {
+                            transform: translateX(5px);
+                        }
+
+                        50% {
+                            transform: translateX(-5px);
+                        }
+
+                        100% {
+                            transform: translateX(5px);
+                        }
+                    }
+
+                    @keyframes shadow2 {
+                        0% {
+                            transform: translateX(-5px);
+                        }
+
+                        50% {
+                            transform: translateX(5px);
+                        }
+
+                        100% {
+                            transform: translateX(-5px);
+                        }
+                    }
                 }
                 .moon-shadow1 {
                     width: 20vw;
                     background-color: $moon-shadow1;
+                    animation: shadow1 4s ease-in-out infinite;
 
                     @include responsive(large-screens) {
                         width: 150px;
@@ -215,6 +263,7 @@ main {
                     left: 5vw;
                     width: 25vw;
                     background-color: $moon-shadow2;
+                    animation: shadow2 4s ease-in-out 0.3s infinite;
 
                     @include responsive(large-screens) {
                         left: 43px;
@@ -227,6 +276,8 @@ main {
                     right: 5vw;
                     width: 30vw;
                     background-color: $moon-shadow3;
+                    animation: shadow1 4s ease-in-out 0.6s infinite;
+
                     @include responsive(large-screens) {
                         right: 30px;
                         width: 250px;
@@ -238,6 +289,7 @@ main {
                     left: 5vw;
                     width: 35vw;
                     background-color: $moon-shadow4;
+                    animation: shadow2 4s ease-in-out 0.9s infinite;
 
                     @include responsive(large-screens) {
                         left: 25px;
@@ -260,11 +312,31 @@ main {
                 }
             }
 
+            div {
+                @keyframes starMove {
+                    0% {
+                        transform: scale(0.5);
+                        opacity: 0.5;
+                    }
+
+                    50% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: scale(0.5);
+                        opacity: 0.5;
+                    }
+                }
+            }
+
             .biggest-star {
                 position: absolute;
                 width: 1vw;
                 border-radius: 50%;
                 box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.5);
+                animation: starMove 2.5s ease-in-out infinite;
 
                 @include responsive(large-screens) {
                     width: 0.6vw;
@@ -284,7 +356,10 @@ main {
                     @include responsive(large-screens) {
                         left:51vw; top: 185px;
                     }
+
+                    animation-delay: 0.5s;
                 }
+
             }  // biggest-star
 
 
@@ -293,6 +368,7 @@ main {
                 width: 0.8vw;
                 border-radius: 50%;
                 box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
+                animation: starMove 2.5s ease-in-out infinite;
                 
                 @include responsive(large-screens) {
                     width: 0.4vw;
@@ -300,6 +376,7 @@ main {
 
                 &:nth-of-type(3) {
                     left: 82vw; top: 50vh;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         left:69vw; top: 270px;
@@ -316,6 +393,7 @@ main {
 
                 &:nth-of-type(5) {
                     display: none;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -325,6 +403,7 @@ main {
 
                 &:nth-of-type(6) {
                     display: none;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -338,6 +417,7 @@ main {
                 width: 0.6vw;
                 border-radius: 50%;
                 box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+                animation: starMove 2.5s ease-in-out infinite;
 
                 @include responsive(large-screens) {
                     width: 0.3vw;
@@ -345,6 +425,7 @@ main {
 
                 &:nth-of-type(7) {
                     left: 30vw; top: 70vh;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         left: 27vw; top: 500px;
@@ -353,6 +434,7 @@ main {
 
                 &:nth-of-type(8) {
                     left: 70vw; top: 7vh;
+                    animation-delay: 1.5s;
 
                     @include responsive(large-screens) {
                         left: 86vw; top: 160px;
@@ -361,6 +443,7 @@ main {
 
                 &:nth-of-type(9) {
                     left: 5vw; top: 20vh;
+                    animation-delay: 1.5s;
 
                     @include responsive(large-screens) {
                         left: 3vw; top: 50px;
@@ -369,6 +452,7 @@ main {
 
                 &:nth-of-type(10) {
                     left: 90vw; top: 15vh;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         left: 30vw; top: 172px;
@@ -377,6 +461,7 @@ main {
 
                 &:nth-of-type(11) {
                     display: none;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -386,6 +471,7 @@ main {
 
                 &:nth-of-type(12) {
                     display: none;
+                    animation-delay: 0.1s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -399,6 +485,7 @@ main {
                 width: 0.4vw;
                 border-radius: 50%;
                 box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+                animation: starMove 2.5s ease-in-out infinite;
 
                 @include responsive(large-screens) {
                     width: 0.2vw;
@@ -414,6 +501,7 @@ main {
 
                 &:nth-of-type(14) {
                     left: 95vw; top: 44vh;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         left: 61vw; top: 370px;
@@ -422,6 +510,7 @@ main {
 
                 &:nth-of-type(15) {
                     left: 12vw; top: 27vh;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         left: 68vw; top: 175px;
@@ -430,6 +519,7 @@ main {
                 
                 &:nth-of-type(16) {
                     display: none;
+                    animation-delay: 1.5s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -448,6 +538,7 @@ main {
 
                 &:nth-of-type(18) {
                     display: none;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -457,6 +548,7 @@ main {
 
                 &:nth-of-type(19) {
                     display: none;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -479,6 +571,7 @@ main {
                 width: 0.25vw;
                 border-radius: 50%;
                 box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+                animation: starMove 2.5s ease-in-out infinite;
 
                 @include responsive(large-screens) {
                    width: 0.1vw;
@@ -494,6 +587,7 @@ main {
 
                 &:nth-of-type(22) {
                     left: 13vw; top: 40vh;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         left: 38vw; top: 270px;
@@ -502,6 +596,7 @@ main {
 
                 &:nth-of-type(23) {
                     left: 37vw; top: 11vh;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         left: 15vw; top: 450px;
@@ -518,6 +613,7 @@ main {
 
                 &:nth-of-type(25) {
                     left: 75vw; top: 30vh;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         left: 78vw; top: 200px;
@@ -526,6 +622,7 @@ main {
 
                 &:nth-of-type(26) {
                     left: 47vw; top: 4vh;
+                    animation-delay: 1.5s;
 
                     @include responsive(large-screens) {
                         left: 41vw; top: 250px;
@@ -542,6 +639,7 @@ main {
 
                 &:nth-of-type(28) {
                     display: none;
+                    animation-delay: 0.5s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -551,6 +649,7 @@ main {
 
                 &:nth-of-type(29) {
                     display: none;
+                    animation-delay: 1s;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -588,7 +687,7 @@ main {
                         border: 1px solid transparent;
                         border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
                         border-image-slice: 1;
-                        // background: linear-gradient(to right, #fff 100%, transparent 0%);
+                        // background: linear-gradient( #fff 100%, #fff 0%);
                     }
     
                     img {
@@ -700,7 +799,7 @@ main {
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 30px; top: 27vh;
+                        left: 5px; top: 240px;
                     }
 
                     .big-line {
@@ -714,18 +813,18 @@ main {
     
                 .small-circle {
                     position: relative;
-                    left: 23vw; top: -201vw;
+                    left: 23vw; top: -200vw;
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 290px; top: -30px;
+                        left: 230px; top: -40px;
     
                     }
                     .small-line {
                         transform: rotate(190deg);
 
                         @include responsive(large-screens) {
-                            transform: scale(2) rotate(190deg);
+                            transform: scale(2) rotate(180deg);
                         }
                     }
                 }
@@ -928,8 +1027,8 @@ main {
                     left: 50%; top: 50%;
                     transform: translate(-50%, -50%);
                     display: block;
-                    width: 668px;
-                    height: 668px;
+                    width: 600px;
+                    height: 600px;
                     border: 1px solid $color-main;
                     border-radius: 50%;   
                 }
@@ -941,6 +1040,11 @@ main {
                     // border: 3px solid $color-main;
                     border-radius: 50%;
                     
+                    @include responsive(large-screens) {
+                       position: absolute;
+                       transform: translate(-50%, -50%);
+                    }
+
                     &::before {
                         position: absolute;
                         left: 50%; top: 50%;
@@ -964,6 +1068,10 @@ main {
                         transform: translate(-50%, -50%);
                         z-index: 2;
                         width: 15vw;
+
+                        @include responsive(large-screens) {
+                            width: 80px;
+                        }
                     }
                 }
             }  // icon-box
@@ -1044,18 +1152,36 @@ main {
     .portfolio {
         width: $wide-width;
         margin-top: 50vh;
+        background-color: darkkhaki;
 
+        @include responsive(large-screens) {
+            position: relative;
+            margin-top: 0;
+            height: 100vh;
+        }
         
         .title-box {
             width: 90vw;
-            // background-color: lightblue;
+            background-color: lightblue;
+
+            @include responsive(large-screens) {
+                position: absolute;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+                width: $wide-width;
+            }
 
             .pf-sub-title {
                 display: flex;
                 flex-direction: row-reverse;
                 align-items: center;
                 justify-content: flex-end;
-                // background-color: aquamarine; 
+                background-color: aquamarine; 
+
+                @include responsive(large-screens) {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                }
 
                 .long-line {
                     width: 30vw;
@@ -1063,6 +1189,12 @@ main {
                     margin: 0;
                     margin-left: 3vw;
                     background-color: $color-main;    
+
+                    @include responsive(large-screens) {
+                        width: 330px;
+                        margin-left: 0;
+                        margin-right: 15px;
+                    }
                 }
 
                 p {
@@ -1073,6 +1205,10 @@ main {
                         size: 8.5vw;
                     }
                     text-align: left;
+
+                    @include responsive(large-screens) {
+                        font-size: 5.333rem;
+                    }
                 }
             }
 
@@ -1080,7 +1216,11 @@ main {
                 width: 66vw;
                 font-size: 12vw;
                 text-align: center;
-                // background-color: lightgoldenrodyellow;
+                background-color: lightgoldenrodyellow;
+
+                @include responsive(large-screens) {
+                    font-size: 7rem;
+                }
             }
         }  // title-box
 
@@ -1110,9 +1250,20 @@ main {
 
     .contact {
         width: $wide-width;
+        // background-color: lightsalmon;
+
+        @include responsive(large-screens) {
+            height: 100vh;
+        }
 
         .contact-content-box {
             width: $wide-width;
+            padding-top: 5vh;
+
+            
+            @include responsive(large-screens) {
+                padding-top: 0;
+            }
 
             .title {
                 position: relative;
@@ -1120,12 +1271,25 @@ main {
                 width: 170px;
                 text-align: center;
                 background-color: $main-bg;
+
+                @include responsive(large-screens) {
+                    width: 240px;
+                }
             }
 
             .contact-line-content {
                 position: relative;
                 top: -35px;
+                width: 90vw;
+                height: 90vw;
+                border: 1px solid $color-main;
+                border-radius: 50%;
 
+                @include responsive(large-screens) {
+                    top: -40px;
+                    width: 36vw;
+                    height: 36vw;
+                }
                 .contact-content {
                     position: absolute;
                     left: 50%; top: 50%;
@@ -1138,34 +1302,100 @@ main {
 
                     form {
                         width: 55vw;
+
+                        @include responsive(large-screens) {
+                            width: 20vw;
+                        }
+
                         div {
                             width: $wide-width;
                             margin-bottom: 2vh;
 
+                            @include responsive(large-screens) {
+                                margin-bottom: 4vh;
+                            }
+
                             label {
                                 font-size: 0.833rem;
+
+                                
+                                @include responsive(large-screens) {
+                                    font-size: 1.167rem;
+                                }
                             }
 
                             input {
                                 width: $wide-width;
                                 height: 3vh;
                                 margin-top: 7px;
+                                padding-left: 7px;
                                 border-style: none;
                                 border-bottom: 1px solid $color-main;
                                 background-color: transparent;
 
+                                @include responsive(large-screens) {
+                                    height: 4vh;
+                                    margin-top: 10px;
+                                }
+
                                 &::placeholder {
-                                    font-size: 0.667rem;
+                                    font: {
+                                        family: $ko-font;
+                                        size: 0.667rem;   
+                                    }
+                                    opacity: 1;
                                     color: rgba($color-main, 0.5);
+
+                                    @include responsive(large-screens) {
+                                        font-size: 0.833rem;
+                                    }
+                                }
+                                
+                                &:focus {
+                                    outline: none;
+                                    color: $color-main;
+                                }
+
+                                &:focus::placeholder {
+                                    opacity: 0;
                                 }
                             }
+
                             textarea {
                                 width: $wide-width;
                                 height: 60px;
                                 margin-top: 7px;
+                                padding: 7px;
                                 border: 1px solid $color-main;
                                 border-radius: 3px;
                                 background-color: transparent;
+
+                                @include responsive(large-screens) {
+                                    height: 90px;
+                                }
+
+                                &::placeholder {
+                                    font: {
+                                        family: $ko-font;
+                                        size: 0.667rem;   
+                                    }
+                                    opacity: 1;
+                                    color: rgba($color-main, 0.5);
+
+                                    @include responsive(large-screens) {
+                                        font-size: 0.833rem;
+                                    }
+                                }
+
+                                &:focus {
+                                    outline: none;
+                                    font-family: $ko-font;
+                                    color: $color-main;
+                                }
+
+                                &:focus::placeholder {
+                                    opacity: 0;
+                                }
                             }
                         }
                     }  // form
@@ -1179,6 +1409,12 @@ main {
                             size: 0.833rem;
                         }
                         background-color: $color-main;
+                        cursor: pointer;
+
+                        @include responsive(large-screens) {
+                            padding: 4px 40px;
+                            font-size: 1rem;
+                        }
                     }
                 }  // contact-content
             }  // contact-line-content
@@ -1193,6 +1429,11 @@ footer {
     height: 12vh;
     border-top: 1px solid rgba($color-main, 0.5);
 
+    @include responsive(large-screens) {
+        position: relative;
+        height: 140px;
+    }
+
     .logo-contact-icon {
         display: flex;
         align-items: center;
@@ -1206,6 +1447,12 @@ footer {
             width: $wide-width;
             // background-color: lightseagreen;
 
+            @include responsive(large-screens) {
+                position: relative;
+                display: block;
+                height: 40px;
+            }
+
             .footer-logo {
                 display: flex;
                 align-items: center;
@@ -1214,8 +1461,19 @@ footer {
                 margin: 0;
                 // background-color: lightblue;
     
+                @include responsive(large-screens) {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 430px;
+                }
+
                 img {
                     width: 7vw;
+
+                    @include responsive(large-screens) {
+                        width: 70px;
+                    }
                 }
             }
     
@@ -1224,16 +1482,37 @@ footer {
                 width: 40vw;
                 // background-color: lightcoral;
                 
+                @include responsive(large-screens) {
+                    display: flex;
+                    width: 340px;
+                }
+
                 p {
                     display: flex;
                     align-items: center;
                     font-weight: $ko-font-light;
                     font-size: 0.667rem;
     
+                    @include responsive(large-screens) {
+                        font-size: 1rem;
+                        margin: 0;
+                    }
+
+                    &.second {
+                        @include responsive(large-screens) {
+                            margin-left: 5px;
+                        }
+                    }
                     img {
                         width: 10px;
                         height: 10px;
                         margin-left: 3px;
+
+                        @include responsive(large-screens) {
+                            width: 15px;
+                            height: 15px;
+                            margin-left: 5px;
+                        }
                     }
                 }
             }
@@ -1245,10 +1524,22 @@ footer {
                 width: 17vw;
                 margin: 0;
                 // background-color: lightgreen;
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    right: 0; top: 50%;
+                    transform: translateY(-50%);
+                    width: 150px;
+                }
+
                 div {
                     a {
                         img {
                             width: 4vw;
+
+                            @include responsive(large-screens) {
+                                width: 30px;
+                            }
                         }
                     }
 
@@ -1256,6 +1547,10 @@ footer {
                         a {
                             img {
                                 width: 5vw;
+
+                                @include responsive(large-screens) {
+                                    width: 35px;
+                                }
                             }
                         }
                     }
