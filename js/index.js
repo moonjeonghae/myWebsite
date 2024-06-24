@@ -149,7 +149,7 @@ window.onload = function() {
 
     // ----- [PC] icon 배치 -----
     if(windowWidth > 768) {
-        const radius = 300;
+        const radius = 285;
 
         const iconArrangement = (idx) => {
             // #각도를 라디안으로 변환

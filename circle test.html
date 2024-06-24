@@ -63,7 +63,7 @@
       <div class="starlight"></div>
   </div> -->
 
-  <div class="circle">
+  <!-- <div class="circle">
     <div class="box">1</div>
     <div class="box">2</div>
     <div class="box">3</div>
@@ -91,6 +91,25 @@
         box.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+ </script> -->
+
+ <div class="test">
+  <img src="./images/html.png" alt="html">
+ </div>
+
+ <script>
+  // 이미지 요소를 선택합니다.
+const img = document.querySelector('.test img');
+
+// 이미지가 로드되면 애니메이션 클래스를 추가합니다.
+img.onload = function() {
+  img.addEventListener('click', function() {
+    img.classList.add('animate-img');
+  });
+};
+
+// 애니메이션 종료 후 클래스를 제거하는 이벤트 리스너를 추가합니다.
+
  </script>
 </body>
 </html>

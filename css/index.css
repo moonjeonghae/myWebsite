@@ -61,12 +61,12 @@ h1 {
 h2 {
   font-family: "Playfair Display SC", serif;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h3 {
-  font-weight: 400;
-  font-size: 3.333rem;
+  font-weight: 500;
+  font-size: 2.5rem;
 }
 
 p {
@@ -181,15 +181,7 @@ main .home {
   width: 100%;
   height: 100vh;
 }
-main .home .home-container {
-  padding: 0;
-}
-@media only screen and (min-width: 1024px) {
-  main .home .home-container {
-    max-width: 100vw;
-  }
-}
-main .home .home-container .sky-box {
+main .home .sky-box {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -197,27 +189,37 @@ main .home .home-container .sky-box {
   background: radial-gradient(circle at center bottom, #461b59, #190d22);
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .sky-box {
+  main .home .sky-box {
     height: 87vh;
   }
 }
-main .home .home-container .sky-box .moon {
+main .home .sky-box .home-container {
+  padding: 0;
+}
+@media only screen and (min-width: 1024px) {
+  main .home .sky-box .home-container {
+    position: relative;
+    height: 100%;
+    padding: 0 10px;
+  }
+}
+main .home .sky-box .home-container .moon {
   width: 50%;
   margin-top: 25vh;
   border-radius: 50%;
   box-shadow: 0 0 10px 7px rgba(255, 255, 255, 0.7);
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .sky-box .moon {
+  main .home .sky-box .home-container .moon {
     width: 260px;
     margin-top: 270px;
   }
 }
-main .home .home-container .sky-box .moon img {
+main .home .sky-box .home-container .moon img {
   width: 100%;
   transform: scale(1.05);
 }
-main .home .home-container .sky-box .cloud1 {
+main .home .sky-box .home-container .cloud1 {
   position: absolute;
   z-index: 1;
   left: -25vw;
@@ -226,13 +228,13 @@ main .home .home-container .sky-box .cloud1 {
   animation: cloudMove 4s ease-in-out infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .sky-box .cloud1 {
+  main .home .sky-box .home-container .cloud1 {
     left: 0;
-    bottom: -70px;
-    width: 315px;
+    bottom: 180px;
+    width: 420px;
   }
 }
-main .home .home-container .sky-box .cloud2 {
+main .home .sky-box .home-container .cloud2 {
   position: absolute;
   right: -15vw;
   bottom: 15vh;
@@ -240,9 +242,9 @@ main .home .home-container .sky-box .cloud2 {
   animation: cloudMove 4s ease-in-out infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .sky-box .cloud2 {
+  main .home .sky-box .home-container .cloud2 {
     right: 0;
-    bottom: 210px;
+    bottom: 500px;
     width: 285px;
   }
 }
@@ -257,7 +259,7 @@ main .home .home-container .sky-box .cloud2 {
     transform: translateY(10px);
   }
 }
-main .home .home-container .ocean {
+main .home .ocean {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -268,16 +270,16 @@ main .home .home-container .ocean {
   background-color: #190d22;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean {
+  main .home .ocean {
     height: 13vh;
   }
 }
-main .home .home-container .ocean .shadow {
+main .home .ocean .shadow {
   height: 1vh;
   border-radius: 10px;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean .shadow {
+  main .home .ocean .shadow {
     height: 10px;
   }
 }
@@ -303,51 +305,51 @@ main .home .home-container .ocean .shadow {
     transform: translateX(-5px);
   }
 }
-main .home .home-container .ocean .moon-shadow1 {
+main .home .ocean .moon-shadow1 {
   width: 20vw;
   background-color: #5f5c62;
-  animation: shadow1 4s ease-in-out infinite;
+  animation: shadow1 3.5s ease-in-out infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean .moon-shadow1 {
+  main .home .ocean .moon-shadow1 {
     width: 150px;
   }
 }
-main .home .home-container .ocean .moon-shadow2 {
+main .home .ocean .moon-shadow2 {
   position: relative;
   left: 5vw;
   width: 25vw;
   background-color: #434046;
-  animation: shadow2 4s ease-in-out 0.3s infinite;
+  animation: shadow2 3.5s ease-in-out 0.3s infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean .moon-shadow2 {
+  main .home .ocean .moon-shadow2 {
     left: 43px;
     width: 200px;
   }
 }
-main .home .home-container .ocean .moon-shadow3 {
+main .home .ocean .moon-shadow3 {
   position: relative;
   right: 5vw;
   width: 30vw;
   background-color: #2b272d;
-  animation: shadow1 4s ease-in-out 0.6s infinite;
+  animation: shadow1 3.5s ease-in-out 0.6s infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean .moon-shadow3 {
+  main .home .ocean .moon-shadow3 {
     right: 30px;
     width: 250px;
   }
 }
-main .home .home-container .ocean .moon-shadow4 {
+main .home .ocean .moon-shadow4 {
   position: relative;
   left: 5vw;
   width: 35vw;
   background-color: #1c181e;
-  animation: shadow2 4s ease-in-out 0.9s infinite;
+  animation: shadow2 3.5s ease-in-out 0.9s infinite;
 }
 @media only screen and (min-width: 1024px) {
-  main .home .home-container .ocean .moon-shadow4 {
+  main .home .ocean .moon-shadow4 {
     left: 25px;
     width: 300px;
   }
@@ -1038,9 +1040,10 @@ main .skill {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 256px;
-    height: 256px;
-    line-height: 256px;
+    margin-top: 30px;
+    width: 230px;
+    height: 230px;
+    line-height: 230px;
     border: 1px solid #fff;
     border-radius: 50%;
   }
@@ -1093,10 +1096,11 @@ main .skill .skill-box .icon-box {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-90deg);
     display: block;
-    width: 600px;
-    height: 600px;
+    width: 570px;
+    height: 570px;
+    margin-top: 30px;
     border: 1px solid #fff;
     border-radius: 50%;
   }
@@ -1110,7 +1114,7 @@ main .skill .skill-box .icon-box .icon {
 @media only screen and (min-width: 1024px) {
   main .skill .skill-box .icon-box .icon {
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(90deg);
   }
 }
 main .skill .skill-box .icon-box .icon::before {
@@ -1209,21 +1213,24 @@ main .skill .skill-desc .skill-desc-txt .desc-txt {
 main .portfolio {
   width: 100%;
   margin-top: 50vh;
-  background-color: darkkhaki;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio {
-    position: relative;
     margin-top: 0;
+    height: 400vh;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title {
+    position: relative;
     height: 100vh;
   }
 }
-main .portfolio .title-box {
+main .portfolio .portfolio-title .title-box {
   width: 90vw;
-  background-color: lightblue;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .title-box {
+  main .portfolio .portfolio-title .title-box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1231,20 +1238,19 @@ main .portfolio .title-box {
     width: 100%;
   }
 }
-main .portfolio .title-box .pf-sub-title {
+main .portfolio .portfolio-title .title-box .pf-sub-title {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-end;
-  background-color: aquamarine;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .title-box .pf-sub-title {
+  main .portfolio .portfolio-title .title-box .pf-sub-title {
     flex-direction: row;
     justify-content: flex-start;
   }
 }
-main .portfolio .title-box .pf-sub-title .long-line {
+main .portfolio .portfolio-title .title-box .pf-sub-title .long-line {
   width: 30vw;
   height: 1px;
   margin: 0;
@@ -1252,13 +1258,13 @@ main .portfolio .title-box .pf-sub-title .long-line {
   background-color: #fff;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .title-box .pf-sub-title .long-line {
+  main .portfolio .portfolio-title .title-box .pf-sub-title .long-line {
     width: 330px;
     margin-left: 0;
     margin-right: 15px;
   }
 }
-main .portfolio .title-box .pf-sub-title p {
+main .portfolio .portfolio-title .title-box .pf-sub-title p {
   margin: 0;
   margin-bottom: 0.5vh;
   font-family: "Playfair Display SC", serif;
@@ -1266,48 +1272,297 @@ main .portfolio .title-box .pf-sub-title p {
   text-align: left;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .title-box .pf-sub-title p {
+  main .portfolio .portfolio-title .title-box .pf-sub-title p {
     font-size: 5.333rem;
   }
 }
-main .portfolio .title-box .pf-title {
+main .portfolio .portfolio-title .title-box .pf-main-title {
+  width: 66vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .title-box .pf-main-title {
+    position: relative;
+  }
+}
+main .portfolio .portfolio-title .title-box .pf-main-title .pf-title {
   width: 66vw;
   font-size: 12vw;
   text-align: center;
-  background-color: lightgoldenrodyellow;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .title-box .pf-title {
+  main .portfolio .portfolio-title .title-box .pf-main-title .pf-title {
     font-size: 7rem;
   }
 }
-main .portfolio .short-line {
+main .portfolio .portfolio-title .title-box .pf-main-title .short-line {
   display: none;
 }
-main .portfolio .circle-box {
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .title-box .pf-main-title .short-line {
+    display: block;
+    position: absolute;
+    right: 110px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 1px;
+    background-color: #fff;
+  }
+}
+main .portfolio .portfolio-title .circle-box {
   position: relative;
   height: 30vh;
 }
-main .portfolio .circle-box .pf-line {
+main .portfolio .portfolio-title .circle-box .pf-line {
   position: relative;
   left: 16vw;
   top: -60vw;
 }
-main .portfolio .circle-box .pf-line svg {
+main .portfolio .portfolio-title .circle-box .pf-line svg {
   transform: scale(0.95) rotate(230deg);
 }
-main .portfolio .circle-box .pf-starlight {
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .circle-box .pf-line svg {
+    transform: scale(0.7) rotate(220deg);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .circle-box .pf-line {
+    left: 410px;
+    top: -200px;
+  }
+}
+main .portfolio .portfolio-title .circle-box .pf-starlight {
   position: absolute;
   left: 0;
   top: 0;
   width: 5vw;
 }
+main .portfolio .portfolio-detail {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 90vw;
+  height: 450px;
+  border-radius: 30px;
+  background-color: #fff;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail {
+    flex-direction: column;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+main .portfolio .portfolio-detail div {
+  width: 100%;
+  height: 100vh;
+}
+main .portfolio .portfolio-detail div .pf-content-title {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-title {
+    display: block;
+    padding-top: 170px;
+    font-size: 3.333rem;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .website-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin: 0;
+  background-color: antiquewhite;
+}
+main .portfolio .portfolio-detail div .pf-content-box .website-image img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .website-image img {
+    width: 100%;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+  width: 90vw;
+  height: 150px;
+  padding: 10px 10px;
+  text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+    text-align: left;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+  font-size: 1.333rem;
+  color: #000;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
+  margin-top: 5px;
+  font-size: 0.675rem;
+  color: #000;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
+    font-size: 0.833rem;
+    color: #fff;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration {
+    display: block;
+    display: flex;
+    justify-content: flex-start;
+    height: 30px;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .duration-txt {
+  font-weight: 600;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .duration-txt {
+    font-size: 1.167rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .time {
+    font-size: 1.167rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills {
+    height: 37px;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 5px 0 15px;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul {
+    height: 100%;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li {
+  margin: 0 10px;
+  font-size: 0.776rem;
+  color: #190d22;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li {
+    height: 100%;
+    line-height: 37px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-size: 1.167rem;
+    color: #190d22;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li:first-child {
+    margin-left: 0;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li .sharp {
+  display: inline-block;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li .sharp {
+    display: none;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
+    display: block;
+    width: 100%;
+    height: 200px;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
+    height: 40px;
+  }
+}
+main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
+  padding: 5px 10px;
+  border: 2px solid #7b588c;
+  border-radius: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.833rem;
+  color: #7b588c;
+  background-color: #fff;
+}
+main .portfolio .portfolio-detail div.portfolio_1 .pf-content-title {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div.portfolio_1 .pf-content-box {
+    height: 653px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div.portfolio_1 .pf-content-box .website-image {
+    width: 580px;
+    height: 653px;
+    border-radius: 0 165px 0 165px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div.portfolio_1 .pf-content-box .pf-txt {
+    width: 700px;
+    height: 375px;
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail div.portfolio_1 .pf-content-box .pf-txt .desc-txt {
+    width: 700px;
+  }
+}
 main .contact {
   width: 100%;
+  margin-top: 10vh;
 }
 @media only screen and (min-width: 1024px) {
   main .contact {
     height: 100vh;
+    margin-top: 0;
   }
 }
 main .contact .contact-content-box {

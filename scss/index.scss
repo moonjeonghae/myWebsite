@@ -121,24 +121,27 @@ main {
         width: $wide-width;
         height: 100vh;
 
-        .home-container {
-            padding: 0;
-
+        
+        
+        .sky-box {
+            position: relative;
+            overflow: hidden;
+            width: $wide-width;
+            height: 85vh;
+            background: radial-gradient(circle at center bottom, $moonlight-bg, $main-bg);
+            // background-color: lightblue;
+            
             @include responsive(large-screens) {
-                max-width: 100vw;
+                height: 87vh;
             }
             
-            
-            .sky-box {
-                position: relative;
-                overflow: hidden;
-                width: $wide-width;
-                height: 85vh;
-                background: radial-gradient(circle at center bottom, $moonlight-bg, $main-bg);
-                // background-color: lightblue;
-
+            .home-container {
+                padding: 0;
+    
                 @include responsive(large-screens) {
-                    height: 87vh;
+                    position: relative;
+                    height: $wide-height;
+                    padding: 0 10px;
                 }
 
                 .moon {
@@ -166,8 +169,8 @@ main {
                     animation: cloudMove 4s ease-in-out infinite;
 
                     @include responsive(large-screens) {
-                        left: 0; bottom: -70px;
-                        width: 315px;
+                        left: 0; bottom: 180px;
+                        width: 420px;
                     }
                 }
         
@@ -178,7 +181,7 @@ main {
                     animation: cloudMove 4s ease-in-out infinite;
 
                     @include responsive(large-screens) {
-                        right: 0; bottom: 210px;
+                        right: 0; bottom: 500px;
                         width: 285px;
                     }
                 }
@@ -196,109 +199,110 @@ main {
                         transform: translateY(10px);
                     }
                 }
-            }  // sky-box
+            } 
+        }
     
-            .ocean {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                width: $wide-width;
-                height: 15vh;
-                background-color: $main-bg;
+
+        .ocean {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: $wide-width;
+            height: 15vh;
+            background-color: $main-bg;
+
+            @include responsive(large-screens) {
+                height: 13vh;
+            }
+
+            .shadow {
+                height: 1vh;
+                border-radius: 10px;
 
                 @include responsive(large-screens) {
-                    height: 13vh;
+                    height: 10px;
                 }
 
-                .shadow {
-                    height: 1vh;
-                    border-radius: 10px;
-
-                    @include responsive(large-screens) {
-                        height: 10px;
+                @keyframes shadow1 {
+                    0% {
+                        transform: translateX(5px);
                     }
 
-                    @keyframes shadow1 {
-                        0% {
-                            transform: translateX(5px);
-                        }
-
-                        50% {
-                            transform: translateX(-5px);
-                        }
-
-                        100% {
-                            transform: translateX(5px);
-                        }
+                    50% {
+                        transform: translateX(-5px);
                     }
 
-                    @keyframes shadow2 {
-                        0% {
-                            transform: translateX(-5px);
-                        }
-
-                        50% {
-                            transform: translateX(5px);
-                        }
-
-                        100% {
-                            transform: translateX(-5px);
-                        }
-                    }
-                }
-                .moon-shadow1 {
-                    width: 20vw;
-                    background-color: $moon-shadow1;
-                    animation: shadow1 4s ease-in-out infinite;
-
-                    @include responsive(large-screens) {
-                        width: 150px;
+                    100% {
+                        transform: translateX(5px);
                     }
                 }
 
-                .moon-shadow2 {
-                    position: relative;
-                    left: 5vw;
-                    width: 25vw;
-                    background-color: $moon-shadow2;
-                    animation: shadow2 4s ease-in-out 0.3s infinite;
-
-                    @include responsive(large-screens) {
-                        left: 43px;
-                        width: 200px;
+                @keyframes shadow2 {
+                    0% {
+                        transform: translateX(-5px);
                     }
-                }
 
-                .moon-shadow3 {
-                    position: relative;
-                    right: 5vw;
-                    width: 30vw;
-                    background-color: $moon-shadow3;
-                    animation: shadow1 4s ease-in-out 0.6s infinite;
-
-                    @include responsive(large-screens) {
-                        right: 30px;
-                        width: 250px;
+                    50% {
+                        transform: translateX(5px);
                     }
-                }
 
-                .moon-shadow4 {
-                    position: relative;
-                    left: 5vw;
-                    width: 35vw;
-                    background-color: $moon-shadow4;
-                    animation: shadow2 4s ease-in-out 0.9s infinite;
-
-                    @include responsive(large-screens) {
-                        left: 25px;
-                        width: 300px;
+                    100% {
+                        transform: translateX(-5px);
                     }
                 }
             }
-        }  // home-container
+            .moon-shadow1 {
+                width: 20vw;
+                background-color: $moon-shadow1;
+                animation: shadow1 3.5s ease-in-out infinite;
 
+                @include responsive(large-screens) {
+                    width: 150px;
+                }
+            }
+
+            .moon-shadow2 {
+                position: relative;
+                left: 5vw;
+                width: 25vw;
+                background-color: $moon-shadow2;
+                animation: shadow2 3.5s ease-in-out 0.3s infinite;
+
+                @include responsive(large-screens) {
+                    left: 43px;
+                    width: 200px;
+                }
+            }
+
+            .moon-shadow3 {
+                position: relative;
+                right: 5vw;
+                width: 30vw;
+                background-color: $moon-shadow3;
+                animation: shadow1 3.5s ease-in-out 0.6s infinite;
+
+                @include responsive(large-screens) {
+                    right: 30px;
+                    width: 250px;
+                }
+            }
+
+            .moon-shadow4 {
+                position: relative;
+                left: 5vw;
+                width: 35vw;
+                background-color: $moon-shadow4;
+                animation: shadow2 3.5s ease-in-out 0.9s infinite;
+
+                @include responsive(large-screens) {
+                    left: 25px;
+                    width: 300px;
+                }
+            }
+        }
+            
 
         .stars {
             position: absolute;
@@ -959,9 +963,10 @@ main {
                 position: absolute;
                 left: 50%; top: 50%;
                 transform: translate(-50%, -50%);
-                width: 256px;
-                height: 256px;
-                line-height: 256px;
+                margin-top: 30px;
+                width: 230px;
+                height: 230px;
+                line-height: 230px;
                 border: 1px solid $color-main;
                 border-radius: 50%;
             }
@@ -974,12 +979,6 @@ main {
             }
         }
         .skill-box {
-            // .circle {
-            //     @include responsive(large-screens) {
-                    
-            //     }
-            // }
-
             .skill-tab-btn {
                 overflow-x: scroll;
                 white-space: nowrap;
@@ -1025,12 +1024,19 @@ main {
                 @include responsive(large-screens) {
                     position: absolute;
                     left: 50%; top: 50%;
-                    transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%) rotate(-90deg);
                     display: block;
-                    width: 600px;
-                    height: 600px;
+                    width: 570px;
+                    height: 570px;
+                    margin-top: 30px;
                     border: 1px solid $color-main;
-                    border-radius: 50%;   
+                    border-radius: 50%;
+                    // animation: circleRotate 30s linear infinite;
+                    
+                    // @keyframes circleRotate {
+                    //     0% { transform: translate(-50%, -50%) rotate(0); }
+                    //     100% { transform: translate(-50%, -50%) rotate(360deg); }
+                    // }
                 }
 
                 .icon {
@@ -1042,7 +1048,7 @@ main {
                     
                     @include responsive(large-screens) {
                        position: absolute;
-                       transform: translate(-50%, -50%);
+                       transform: translate(-50%, -50%) rotate(90deg);
                     }
 
                     &::before {
@@ -1152,108 +1158,398 @@ main {
     .portfolio {
         width: $wide-width;
         margin-top: 50vh;
-        background-color: darkkhaki;
 
         @include responsive(large-screens) {
-            position: relative;
             margin-top: 0;
-            height: 100vh;
+            height: 400vh;
         }
         
-        .title-box {
-            width: 90vw;
-            background-color: lightblue;
+        .portfolio-title {
+            // background-color: darkkhaki;
 
             @include responsive(large-screens) {
-                position: absolute;
-                left: 50%; top: 50%;
-                transform: translate(-50%, -50%);
-                width: $wide-width;
-            }
-
-            .pf-sub-title {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-                justify-content: flex-end;
-                background-color: aquamarine; 
-
-                @include responsive(large-screens) {
-                    flex-direction: row;
-                    justify-content: flex-start;
-                }
-
-                .long-line {
-                    width: 30vw;
-                    height: 1px;
-                    margin: 0;
-                    margin-left: 3vw;
-                    background-color: $color-main;    
-
-                    @include responsive(large-screens) {
-                        width: 330px;
-                        margin-left: 0;
-                        margin-right: 15px;
-                    }
-                }
-
-                p {
-                    margin: 0;
-                    margin-bottom: 0.5vh;
-                    font: {
-                        family: $en-font;
-                        size: 8.5vw;
-                    }
-                    text-align: left;
-
-                    @include responsive(large-screens) {
-                        font-size: 5.333rem;
-                    }
-                }
-            }
-
-            .pf-title {
-                width: 66vw;
-                font-size: 12vw;
-                text-align: center;
-                background-color: lightgoldenrodyellow;
-
-                @include responsive(large-screens) {
-                    font-size: 7rem;
-                }
-            }
-        }  // title-box
-
-        .short-line {
-            display: none;
-        }
-
-        .circle-box {
-            position: relative;
-            height: 30vh;
-            // background-color: darkgray;
-            .pf-line {
                 position: relative;
-                left: 16vw; top: -60vw;
-                svg {
-                    transform: scale(0.95) rotate(230deg);
+                height: 100vh;
+            }
+            
+            .title-box {
+                width: 90vw;
+                // background-color: lightblue;
+    
+                @include responsive(large-screens) {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: $wide-width;
+                }
+    
+                .pf-sub-title {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    align-items: center;
+                    justify-content: flex-end;
+                    // background-color: aquamarine; 
+    
+                    @include responsive(large-screens) {
+                        flex-direction: row;
+                        justify-content: flex-start;
+                    }
+    
+                    .long-line {
+                        width: 30vw;
+                        height: 1px;
+                        margin: 0;
+                        margin-left: 3vw;
+                        background-color: $color-main;    
+    
+                        @include responsive(large-screens) {
+                            width: 330px;
+                            margin-left: 0;
+                            margin-right: 15px;
+                        }
+                    }
+    
+                    p {
+                        margin: 0;
+                        margin-bottom: 0.5vh;
+                        font: {
+                            family: $en-font;
+                            size: 8.5vw;
+                        }
+                        text-align: left;
+    
+                        @include responsive(large-screens) {
+                            font-size: 5.333rem;
+                        }
+                    }
+                }
+                
+                .pf-main-title {
+                    width: 66vw;
+
+                    @include responsive(large-screens) {
+                        position: relative;
+                    }
+
+                    .pf-title {
+                        width: 66vw;
+                        font-size: 12vw;
+                        text-align: center;
+                        // background-color: lightgoldenrodyellow;
+         
+                        @include responsive(large-screens) {
+                            font-size: 7rem;
+                        }
+                    }
+
+                    .short-line {
+                        display: none;
+        
+                        @include responsive(large-screens) {
+                            display: block;
+                            position: absolute;
+                            right: 110px; top: 50%;
+                            transform: translateY(-50%);
+                            width: 200px;
+                            height: 1px;
+                            background-color: $color-main;           
+                        }
+                    }
+                }
+            }  // title-box
+    
+    
+            .circle-box {
+                position: relative;
+                height: 30vh;
+                // background-color: darkgray;
+
+                .pf-line {
+                    position: relative;
+                    left: 16vw; top: -60vw;
+                    svg {
+                        transform: scale(0.95) rotate(230deg);
+                        
+                        @include responsive(large-screens) {
+                            transform: scale(0.7) rotate(220deg);
+                        } 
+                    }
+
+                    @include responsive(large-screens) {
+                        left: 410px; top: -200px;
+                    }
+                }
+                .pf-starlight {
+                    position: absolute;
+                    left: 0; top: 0;
+                    width: 5vw;
                 }
             }
-            .pf-starlight {
-                position: absolute;
-                left: 0; top: 0;
-                width: 5vw;
+        }  // portfolio-title
+
+
+        // +++++++ portfolio-detail +++++++
+        .portfolio-detail {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 90vw;
+            height: 450px;
+            border-radius: 30px;
+            background-color: $color-main;
+
+            @include responsive(large-screens) {
+                flex-direction: column;
+                overflow: visible;
+                width: $wide-width;
+                height: $wide-height;
+                border-radius: 0;
+                background-color: transparent;
             }
-        }
+            
+            
+            div {
+                width: $wide-width;
+                height: 100vh;
+
+                // 공통 style
+                .pf-content-title {
+                    display: none;
+    
+                    @include responsive(large-screens) {
+                        display: block;
+                        padding-top: 170px;
+                        font-size: 3.333rem;
+                    }
+                }
+
+                .pf-content-box {
+                    width: $wide-width;
+
+                    @include responsive(large-screens) {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    .website-image {
+                        position: relative;
+                        width: $wide-width;
+                        height: 300px;
+                        overflow: hidden;
+                        margin: 0;
+                        background-color: antiquewhite;
+
+                        img {
+                            position: absolute;
+                            left: 0; top: 0;
+                            width: 90vw;
+                            // animation: imgMove 10s linear infinite;
+
+                            // @keyframes imgMove {
+                            //     0% { transform: translateY(0); }
+                            //     50% { transform: translateY(-450px); }
+                            //     100% { transform: translateY(0); }
+                            // }
+                            
+                            @include responsive(large-screens) {
+                                width: $wide-width;
+                            }
+                        }
+                    }
+
+                    .pf-txt {
+                        width: 90vw;
+                        height: 150px;
+                        padding: 10px 10px;
+                        text-align: center;
+                        // background-color: lightblue;
+
+                        @include responsive(large-screens) {
+                            text-align: left;
+                        }
+
+                        .ko-content-title {
+                            font-size: 1.333rem;
+                            color: $color-black;
+                            
+                            @include responsive(large-screens) {
+                                font-size: 1.5rem;
+                                color: $color-main;
+                            }
+                        }
+
+                        .type {
+                            margin-top: 5px;
+                            font-size: 0.675rem;
+                            color: $color-black;
+
+                            @include responsive(large-screens) {
+                                font-size: 0.833rem;
+                                color: $color-main;
+                            }
+                        }
+
+                        .duration {
+                            display: none;
+
+                            @include responsive(large-screens) {
+                                display: block;
+                                display: flex;
+                                justify-content: flex-start;
+                                height: 30px;
+                                // background-color: antiquewhite;
+                            }
+
+                            .duration-txt {
+                                font: {
+                                    weight: $ko-font-semibold;
+                                    
+                                }
+
+                                @include responsive(large-screens) {
+                                    font-size: 1.167rem;
+                                }
+                            }
+
+                            .time {
+                                @include responsive(large-screens) {
+                                    font-size: 1.167rem;
+                                }
+                            }
+                        }
+
+                        .using-skills {
+                            // background-color: lightsalmon;
+
+                            @include responsive(large-screens) {
+                                height: 37px;
+                            }
+
+                           ul {
+                            display: flex;
+                            align-items: center;
+                            justify-content: left;
+                            margin: 5px 0 15px;
+
+                            @include responsive(large-screens) {
+                                height: $wide-height;
+                            }        
+
+                                li {
+                                    margin: 0 10px;
+                                    font-size: 0.776rem;
+                                    color: $color-mainbg;
+
+                                    @include responsive(large-screens) {
+                                        height: $wide-height;
+                                        line-height: 37px;
+                                        padding: 0 20px;
+                                        border-radius: 20px;
+                                        font-size: 1.167rem;
+                                        color: $color-mainbg;
+                                        background-color: rgba($color-main, 0.5);
+                                    }   
+                                    
+                                    &:first-child {
+                                        @include responsive(large-screens) {
+                                            margin-left: 0;
+                                        } 
+                                    }
+
+                                    .sharp {
+                                        display: inline-block;
+
+                                        @include responsive(large-screens) {
+                                            display: none;
+                                        }        
+                                    }
+                                }
+                           }
+                        }
+
+                        .desc-txt {
+                            display: none;
+
+                            @include responsive(large-screens) {
+                                display: block;
+                                width: $wide-width;
+                                height: 200px;
+                                // background-color: bisque;
+                            }        
+                        }
+
+                        .pf-btn {
+                            width: $wide-width;
+                            // background-color: aquamarine;
+
+                            @include responsive(large-screens) {
+                                height: 40px;
+                            }
+
+                            button {
+                                padding: 5px 10px;
+                                border: 2px solid $color-point;
+                                border-radius: 10px;
+                                font: {
+                                    family: $ko-font;
+                                    size: 0.833rem;
+                                }
+                                color: $color-point;
+                                background-color: $color-main;
+
+                                @include responsive(large-screens) {
+
+                                }        
+                            }
+                        }
+                    }  // pf-txt
+                }  // pf-content-box
+
+                &.portfolio_1 {
+                    .pf-content-title {
+                        margin-bottom: 10px;
+                    }
+                    
+                    .pf-content-box {
+                        @include responsive(large-screens) {
+                            height: 653px;
+                        }
+                        .website-image {
+                            @include responsive(large-screens) {
+                                width: 580px;
+                                height: 653px;
+                                border-radius: 0 165px 0 165px;
+                            }
+                        }
+
+                        .pf-txt {
+                            @include responsive(large-screens) {
+                                width: 700px;
+                                height: 375px;
+                                padding: 0;
+                            }
+
+                            .desc-txt {
+                                @include responsive(large-screens) {
+                                    width: 700px;
+                                }
+                            }
+                        }
+                    }
+                }  // portfolio_1
+            } // div
+        }  // portfolio-detail
     }  // portfolio
 
 
     .contact {
         width: $wide-width;
         // background-color: lightsalmon;
-
+        margin-top: 10vh;
         @include responsive(large-screens) {
             height: 100vh;
+            margin-top: 0;
         }
 
         .contact-content-box {

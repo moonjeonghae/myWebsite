@@ -43,20 +43,22 @@
 
     <main>
         <section class="home">
-            <div class="container home-container">
-                <div class="sky-box">
+            <div class="sky-box">
+                <div class="container home-container">
                     <div class="moon"><img src="./images/moon.png" alt="moon"></div>
                     <div class="cloud1"><img src="./images/cloud_1.png" alt="left cloud"></div>
                     <div class="cloud2"><img src="./images/cloud_2.png" alt="right cloud"></div>
                 </div>
+            </div>
 
+            <div class="container">
                 <div class="ocean">
                     <div class="moon-shadow1 shadow"></div>
                     <div class="moon-shadow2 shadow"></div>
                     <div class="moon-shadow3 shadow"></div>
                     <div class="moon-shadow4 shadow"></div>
                 </div>
-            </div>  <!-- container -->
+            </div>
             
             <div class="stars">
                 <!-- biggest-star -->
@@ -252,35 +254,41 @@
                         <h3 class="skill-title">HTML</h3>
                         <img src="./images/html.png" alt="html icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt">HTML의 다양한 요소를 이용하여 텍스트, 이미지, 링크, 테이블 등 다양한 형식의 콘텐츠를 생성하고, 이를 구조화하여 웹 페이지의 레이아웃을 설계할 수 있습니다.</p>
+                        <p class="desc-txt">
+                            HTML로 텍스트, 이미지, 링크, 테이블 등 다양한 콘텐츠를 만들고 웹 페이지의 레이아웃을 구조화할 수 있습니다.
+                        </p>
                     </div>
 
                     <div class="skill-desc-txt css">
                         <h3 class="skill-title">CSS</h3>
                         <img src="./images/css.png" alt="css icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt"></p>
+                        <p class="desc-txt">
+                            반응형 웹 디자인, @keyframes 애니메이션, 그리드를 이용한 복잡한 레이아웃 설계 및 스타일 속성을 활용한 요소 디자인과 정렬 조정이 가능합니다.
+                        </p>
                     </div>
 
                     <div class="skill-desc-txt javascript">
                         <h3 class="skill-title">Javascript</h3>
                         <img src="./images/javascript.png" alt="javascript icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt"></p>
+                        <p class="desc-txt">
+                            HTML 요소 선택 및 수정하고, 'addEventListener'로 사용자 이벤트를 처리하며, 배열 메소드를 활용하여 데이터를 효율적으로 처리할 수 있습니다.
+                        </p>
                     </div>
 
                     <div class="skill-desc-txt sass">
                         <h3 class="skill-title">Sass</h3>
                         <img src="./images/sass.png" alt="sass icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt"></p>
+                        <p class="desc-txt">변수를 사용하여 색상, 글꼴, 여백 등을 정의할 수 있으며, css 규칙을 중첩하여 구조화할 수 있습니다. 또한, 믹스인을 활용하여 반복적인 스타일 패턴을 추상화하고 코드를 재사용할 수 있습니다.</p>
                     </div>
 
                     <div class="skill-desc-txt jquery">
                         <h3 class="skill-title">jQuery</h3>
                         <img src="./images/jquery.png" alt="jquery icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt"></p>
+                        <p class="desc-txt">CSS 속성 변경, class 추가/제거, 요소의 크기와 위치 설정을 포함한 DOM 조작을 간편하게 할 수 있으며, 'click', 'hover', 'focus' 등의 이벤트 처리와 함께 요소의 'fade in/out', 'slide' 등의 애니메이션 효과를 쉽게 구현할 수 있습니다.</p>
                     </div>
 
                     <div class="skill-desc-txt bootstrap">
@@ -294,7 +302,7 @@
                         <h3 class="skill-title">React</h3>
                         <img src="./images/react.png" alt="react icon" class="skill-icon">
                         <div class="skill-graph skill-line"></div>
-                        <p class="desc-txt"></p>
+                        <p class="desc-txt">라우터를 활용하여 다양한 페이지를 제작할 수 있습니다.</p>
                     </div>
 
                     <div class="skill-desc-txt figma">
@@ -354,144 +362,159 @@
 
         <section class="portfolio">
             <div class="container">
-
-
-                <div class="title-box">
-                    <div class="pf-sub-title">
-                        <div class="long-line"></div>
-                        <p>THIS IS MY</p>
+                <div class="portfolio-title">
+                    <div class="title-box">
+                        <div class="pf-sub-title">
+                            <div class="long-line"></div>
+                            <p>THIS IS MY</p>
+                        </div>
+                        <div class="pf-main-title">
+                            <h2 class="pf-title">PORTFOLIO</h2>
+                            <div class="short-line"></div>
+                        </div>
                     </div>
-                    <h2 class="pf-title">PORTFOLIO</h2>
-                </div>
-
-
-                <div class="short-line"></div>
-
-
-                <div class="circle-box">
-                    <div class="pf-line">
-                        <svg witdh="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                                <lineargradient id="grad2" x1="80%" y1="0%" x2="0%" y2="130%">
-                                    <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
-                                    <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                                </lineargradient>
-                            </defs>
-                            <circle cx="100" cy="100" r="60" stroke="url(#grad2)" stroke-width="0.5px" fill="transparent" strokedasharray="0 500" stroke-dashoffset="0">
-                                <animate attributeName="stroke-dasharray" from="0 500" to="300 100" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
-                            </circle>
-                        </svg>
+    
+    
+    
+    
+                    <div class="circle-box">
+                        <div class="pf-line">
+                            <svg witdh="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <lineargradient id="grad2" x1="80%" y1="0%" x2="0%" y2="130%">
+                                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+                                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                                    </lineargradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="60" stroke="url(#grad2)" stroke-width="0.5px" fill="transparent" strokedasharray="0 500" stroke-dashoffset="0">
+                                    <animate attributeName="stroke-dasharray" from="0 500" to="300 100" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
+                                </circle>
+                            </svg>
+                        </div>
+                        <div class="pf-starlight"><img src="./images/starlight.png" alt="startlight"></div>
                     </div>
-                    <div class="pf-starlight"><img src="./images/starlight.png" alt="startlight"></div>
                 </div>
                 
-                <!--+++++++++++++++++ portfolio_1 +++++++++++++++++-->
-                <div class="portfolio_1">
-                    <h2 class="pf-content-title">HOLLYS</h2>
-    
-    
-                    <div class="hollys-content-box">
-                        <div class="hollys-img">
-                            <img src="" alt="hollys renewal website">
-                        </div>
-    
-    
-                        <div class="hollys-txt">
-                            <h3 class="ko-content-title">할리스 리뉴얼 페이지</h3>
-    
-                            <p class="type">개인 프로젝트</p>
-    
-                            <div class="using-skills">
-                                <ul>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>Javascript</li>
-                                </ul>
-                            </div>
-    
-                            <p class="desc-txt"></p>
-    
-                            <div class="pf-btn">
-                                <button class="git-btn">Git</button>
-                                <button class="page-btn">Page</button>
-                                <button class="design-btn">Design Guide</button>
-                            </div>
-                        </div>
-                    </div>  <!-- hollys-content-box -->
-                </div>  <!-- portfolio_1 -->
+                <div class="portfolio-detail">
+                    <!--+++++++++++++++++ portfolio_1 +++++++++++++++++-->
+                    <div class="portfolio_1">
+                        <h2 class="pf-content-title">HOLLYS</h2>
         
         
-                <!--+++++++++++++++++ portfolio_2 +++++++++++++++++-->
-                <div class="portfolio_2">
-                    <h2 class="pf-content-title">CULTURE STATION SEOUL 284</h2>
-    
-    
-                    <div class="station-content-box">
-                        <div class="station-img">
-                            <img src="" alt="station website">
-                        </div>
-    
-    
-                        <div class="station-txt">
-                            <h3 class="ko-content-title">문화역서울284 리뉴얼 페이지</h3>
-    
-                            <p class="type">팀 프로젝트</p>
-    
-                            <div class="using-skills">
-                                <ul>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>Javascript</li>
-                                </ul>
+                        <div class="hollys-content-box pf-content-box">
+                            <div class="hollys-img website-image">
+                                <img src="./images/hollys.png" alt="hollys renewal website">
                             </div>
-    
-                            <p class="desc-txt"></p>
-    
-                            <div class="pf-btn">
-                                <button class="git-btn">Git</button>
-                                <button class="page-btn">Page</button>
-                                <button class="design-btn">Design Guide</button>
-                                <button class="design-btn">Proposal</button>
-                            </div>
-                        </div>
-                    </div>  <!-- hollys-content-box -->
-                </div>  <!-- portfolio_2 -->
         
         
-                <!--+++++++++++++++++ portfolio_3 +++++++++++++++++-->
-                <div class="portfolio_3">
-                    <h2 class="pf-content-title">PERSONAL PORTFOLIO</h2>
-    
-    
-                    <div class="personal-content-box">
-                        <div class="personal-img">
-                            <img src="" alt="personal website">
-                        </div>
-    
-    
-                        <div class="personal-txt">
-                            <h3 class="ko-content-title">개인 포트폴리오</h3>
-    
-                            <p class="type">개인 프로젝트</p>
-    
-                            <div class="using-skills">
-                                <ul>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>Javascript</li>
-                                </ul>
+                            <div class="hollys-txt pf-txt">
+                                <h3 class="ko-content-title">할리스 리뉴얼 페이지</h3>
+        
+                                <p class="type">개인 프로젝트</p>
+                                
+                                <div class="duration">
+                                    <div class="duration-txt">제작기간</div>
+                                    <div class="titme">
+                                        <time datetime="2024.03.01">2024.03.01</time> ~ <time datetime="2024.04.02">2024.04.02</time>
+                                    </div>
+                                </div>
+
+                                <div class="using-skills">
+                                    <ul>
+                                        <li><span class="sharp">#</span>HTML</li>
+                                        <li><span class="sharp">#</span>CSS</li>
+                                        <li><span class="sharp">#</span>Javascript</li>
+                                    </ul>
+                                </div>
+        
+                                <div class="desc-txt">
+                                    <p>
+                                        작은 글씨와 한 번에 많은 메뉴 정보가 보이도록 되어있어 가독성이 떨어졌던 기존 디자인을 개선하기 위해 리뉴얼 페이지를 제작하였습니다. <br>새로운 디자인에서는 글씨 크기를 크게 조정하고, 한 화면에 보이는 메뉴를 한정하여 사용자가 정보에 쉽게 접근할 수 있도록 하였습니다. 이와 함께 중복되는 부분을 줄여서 페이지의 명확성과 효율성을 높였습니다.
+                                    </p>
+                                </div>
+        
+                                <div class="pf-btn">
+                                    <button class="git-btn">Git</button>
+                                    <button class="page-btn">Page</button>
+                                    <button class="design-btn">Design Guide</button>
+                                </div>
                             </div>
-    
-                            <p class="desc-txt"></p>
-    
-                            <div class="pf-btn">
-                                <button class="git-btn">Git</button>
-                                <button class="page-btn">Page</button>
-                                <button class="design-btn">Design Guide</button>
+                        </div>  <!-- hollys-content-box -->
+                    </div>  <!-- portfolio_1 -->
+            
+            
+                    <!--+++++++++++++++++ portfolio_2 +++++++++++++++++-->
+                    <div class="portfolio_2">
+                        <h2 class="pf-content-title">CULTURE STATION SEOUL 284</h2>
+        
+        
+                        <div class="station-content-box pf-content-box">
+                            <div class="station-img website-image">
+                                <img src="./images/hollys.png" alt="station website">
                             </div>
-                        </div>
-                    </div>  <!-- hollys-content-box -->
-                </div>  <!-- portfolio_3 -->
+        
+        
+                            <div class="station-txt pf-txt">
+                                <h3 class="ko-content-title">문화역서울284 리뉴얼 페이지</h3>
+        
+                                <p class="type">팀 프로젝트</p>
+        
+                                <div class="using-skills">
+                                    <ul>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>Javascript</li>
+                                    </ul>
+                                </div>
+        
+                                <p class="desc-txt"></p>
+        
+                                <div class="pf-btn">
+                                    <button class="git-btn">Git</button>
+                                    <button class="page-btn">Page</button>
+                                    <button class="design-btn">Design Guide</button>
+                                    <button class="design-btn">Proposal</button>
+                                </div>
+                            </div>
+                        </div>  <!-- hollys-content-box -->
+                    </div>  <!-- portfolio_2 -->
+            
+            
+                    <!--+++++++++++++++++ portfolio_3 +++++++++++++++++-->
+                    <div class="portfolio_3">
+                        <h2 class="pf-content-title">PERSONAL PORTFOLIO</h2>
+        
+        
+                        <div class="personal-content-box">
+                            <div class="personal-img">
+                                <img src="./images/hollys.png" alt="personal website">
+                            </div>
+        
+        
+                            <div class="personal-txt">
+                                <h3 class="ko-content-title">개인 포트폴리오</h3>
+        
+                                <p class="type">개인 프로젝트</p>
+        
+                                <div class="using-skills">
+                                    <ul>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>Javascript</li>
+                                    </ul>
+                                </div>
+        
+                                <p class="desc-txt"></p>
+        
+                                <div class="pf-btn">
+                                    <button class="git-btn">Git</button>
+                                    <button class="page-btn">Page</button>
+                                    <button class="design-btn">Design Guide</button>
+                                </div>
+                            </div>
+                        </div>  <!-- hollys-content-box -->
+                    </div>  <!-- portfolio_3 -->
+                </div>  <!-- portfolio-detail -->
             </div>  <!-- container -->
         </section>  <!-- portfolio -->
 
