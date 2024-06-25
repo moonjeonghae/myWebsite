@@ -1,4 +1,10 @@
 window.onload = function() {
+    // const logo = document.querySelector('.logo');
+    // const $html = document.querySelector('html');
+
+    // logo.addEventListener('click', () => {
+    //     $html.style.scrollTop = 0;
+    // });
     // innerWidth 이용해서 모바일만 적용되게 하기 !!!!!!!!!!!!
     var windowWidth = window.innerWidth;
 
@@ -23,7 +29,6 @@ window.onload = function() {
         const etcIcon = document.querySelector('.icon-box .etc');
 
         // ***** selected css 적용 *****
-
         const selectedBtn = (e) => {
             allBtn.classList.remove('selected');
             skillTabBtn.forEach(btn => btn.classList.remove('selected'));
@@ -169,6 +174,24 @@ window.onload = function() {
         });
     }
 
+
+    //====== portfolio_title ======
+
+    //====== portfolio_detail ======
+    // ----- [모바일] button click 시 -----
+    const pfBtn = document.querySelectorAll('.pf-btn button');
+
+    if (windowWidth < 768) {
+        // ***** style 적용 *****
+        const clickPfBtn = (e) => {
+            e.target.style.color = '#fff';
+            e.target.style.backgroundColor = '#7b588c';
+        };
+    
+        pfBtn.forEach((btn) => {
+            btn.addEventListener('click', clickPfBtn);
+        });
+    }
 
     //====== contact ======
     // ----- focus 시 placeholder 없애기 -----

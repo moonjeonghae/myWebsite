@@ -1,0 +1,401 @@
+@import './style.scss';
+@import './mixin.scss';
+
+@mixin portfolio-title() {
+    .portfolio-title {
+        // background-color: darkkhaki;
+
+        @include responsive(large-screens) {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .title-box {
+            width: 90vw;
+            // background-color: lightblue;
+
+            @include responsive(large-screens) {
+                position: absolute;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+                width: $wide-width;
+            }
+
+            .pf-sub-title {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: flex-end;
+                // background-color: aquamarine; 
+
+                @include responsive(large-screens) {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                }
+
+                .long-line {
+                    width: 30vw;
+                    height: 1px;
+                    margin: 0;
+                    margin-left: 3vw;
+                    background-color: $color-main;    
+
+                    @include responsive(large-screens) {
+                        width: 330px;
+                        margin-left: 0;
+                        margin-right: 15px;
+                    }
+                }
+
+                p {
+                    margin: 0;
+                    margin-bottom: 0.5vh;
+                    font: {
+                        family: $en-font;
+                        size: 8.5vw;
+                    }
+                    text-align: left;
+
+                    @include responsive(large-screens) {
+                        font-size: 5.333rem;
+                    }
+                }
+            }
+            
+            .pf-main-title {
+                width: 66vw;
+
+                @include responsive(large-screens) {
+                    position: relative;
+                }
+
+                .pf-title {
+                    width: 66vw;
+                    font-size: 12vw;
+                    text-align: center;
+                    // background-color: lightgoldenrodyellow;
+     
+                    @include responsive(large-screens) {
+                        font-size: 7rem;
+                    }
+                }
+
+                .short-line {
+                    display: none;
+    
+                    @include responsive(large-screens) {
+                        display: block;
+                        position: absolute;
+                        right: 110px; top: 50%;
+                        transform: translateY(-50%);
+                        width: 200px;
+                        height: 1px;
+                        background-color: $color-main;           
+                    }
+                }
+            }
+        }  // title-box
+
+
+        .circle-box {
+            position: relative;
+            height: 30vh;
+            // background-color: darkgray;
+
+            .pf-line {
+                position: relative;
+                left: 16vw; top: -60vw;
+                svg {
+                    transform: scale(0.95) rotate(230deg);
+                    
+                    @include responsive(large-screens) {
+                        transform: scale(0.7) rotate(220deg);
+                    } 
+                }
+
+                @include responsive(large-screens) {
+                    left: 410px; top: -200px;
+                }
+            }
+            .pf-starlight {
+                position: absolute;
+                left: 0; top: 0;
+                width: 5vw;
+            }
+        }
+    }  // portfolio-title
+}
+
+
+@mixin portfolio-detail-common() {
+    div {
+        width: $wide-width;
+        height: 100vh;
+
+        // 공통 style
+        .pf-content-title {
+            display: none;
+
+            @include responsive(large-screens) {
+                display: block;
+                padding-top: 170px;
+                font-size: 3.333rem;
+            }
+        }
+
+        .pf-content-box {
+            width: $wide-width;
+
+            @include responsive(large-screens) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .website-image {
+                position: relative;
+                width: $wide-width;
+                height: 300px;
+                overflow: hidden;
+                margin: 0;
+                background-color: antiquewhite;
+
+                img {
+                    position: absolute;
+                    left: 0; top: 0;
+                    width: 90vw;
+                    // animation: imgMove 10s linear infinite;
+
+                    // @keyframes imgMove {
+                    //     0% { transform: translateY(0); }
+                    //     50% { transform: translateY(-450px); }
+                    //     100% { transform: translateY(0); }
+                    // }
+                    
+                    @include responsive(large-screens) {
+                        width: $wide-width;
+                    }
+                }
+            }
+
+            .pf-txt {
+                width: 90vw;
+                height: 150px;
+                padding: 10px 15px;
+                // background-color: lightblue;
+
+                .ko-content-title {
+                    font-size: 1.167rem;
+                    color: $color-black;
+                    
+                    @include responsive(large-screens) {
+                        font-size: 1.333rem;
+                        color: $color-main;
+                    }
+                }
+
+                .type {
+                    // margin-top: 2px;
+                    font: {
+                        weight: $ko-font-light;
+                        size: 0.675rem;
+                    }
+                    color: $color-black;
+
+                    @include responsive(large-screens) {
+                        margin-top: 5px;
+                        font-size: 0.833rem;
+                        color: $color-main;
+                    }
+                }
+
+                .duration {
+                    display: flex;
+                    margin: 0;
+                    width: 210px;
+                    height: 20px;
+                    // background-color: antiquewhite;
+
+                    @include responsive(large-screens) {
+                        width: 500px;
+                        height: 30px;
+                        margin: 10px 0 0;
+                    }
+
+                    .duration-txt {
+                        font: {
+                            weight: $ko-font-semibold;
+                            size: 0.833rem;
+                        }
+                        color: $color-black;
+
+                        @include responsive(large-screens) {
+                            width: 100px;
+                            font-size: 1rem;
+                            color: $color-main;
+                        }
+                    }
+
+                    .time {
+                        font-size: 0.833rem;
+                        color: $color-black;
+
+                        @include responsive(large-screens) {
+                            font-size: 1rem;
+                            color: $color-main;
+                        }
+                    }
+                }
+
+                .using-skills {
+                    // background-color: lightsalmon;
+                    height: 17px;
+                    margin-top: 2px;
+
+                    @include responsive(large-screens) {
+                        height: 30px;
+                        margin: 5px 0 15px;
+                    }
+
+                   ul {
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+
+                    @include responsive(large-screens) {
+                        height: $wide-height;
+                    }        
+
+                        li {
+                            margin: 0 10px;
+                            font-size: 0.776rem;
+                            color: $color-mainbg;
+
+                            @include responsive(large-screens) {
+                                height: $wide-height;
+                                line-height: 30px;
+                                padding: 0 20px;
+                                border-radius: 20px;
+                                font-weight: $ko-font-semibold;
+                                font-size: 1rem;
+                                color: $color-mainbg;
+                                background-color: rgba($color-main, 0.7);
+                            }   
+                            
+                            &:first-child {
+                                margin-left: 0;
+                            }
+
+                            .sharp {
+                                display: inline-block;
+
+                                @include responsive(large-screens) {
+                                    display: none;
+                                }        
+                            }
+                        }
+                   }
+                }
+
+                .desc-txt {
+                    display: none;
+
+                    @include responsive(large-screens) {
+                        display: block;
+                        width: $wide-width;
+                        height: 200px;
+                        // background-color: bisque;
+                    }        
+                }
+
+                .pf-btn {
+                    width: $wide-width;
+                    margin-top: 10px;
+                    // background-color: aquamarine;
+
+                    @include responsive(large-screens) {
+                        margin: 0;
+                        height: 40px;
+                    }
+
+                    button {
+                        position: relative;
+                        overflow: hidden;
+                        padding: 5px 10px;
+                        border: 2px solid $color-point;
+                        border-radius: 10px;
+                        font: {
+                            family: $ko-font;
+                            size: 0.833rem;
+                        }
+                        color: $color-point;
+                        background-color: $color-main;
+                        cursor: pointer;
+                        
+                        @include responsive(large-screens) {
+                            width: 120px;
+                            padding: 10px 0;
+                            margin-right: 10px;
+                            // font-weight: $ko-font-semibold;
+                            background-color: transparent;
+                        }  
+                        
+                        
+                        span {
+                            @include responsive(large-screens) {
+                                display: inline-block;
+                                position: absolute;
+                                width: 25%;
+                                height: 100%;
+                                background-color: $color-point;
+                                transform: translateY(150%);
+                                border-radius: 50%;
+                                left: calc((var(--n) - 1) * 25%);
+                                transition: 0.5s;
+                                transition-delay: calc((var(--n) - 1) * 0.1s);
+                                z-index: -1;
+                            }
+
+                            &:first-child {
+                                @include responsive(large-screens) {
+                                    --n: 1;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                @include responsive(large-screens) {
+                                    --n: 2;
+                                }
+                            }
+
+                            &:nth-child(3) {
+                                @include responsive(large-screens) {
+                                    --n: 3;
+                                }
+                            }
+
+                            &:nth-child(4) {
+                                @include responsive(large-screens) {
+                                    --n: 4;
+                                }
+                            }
+                        }
+                        
+                        &:hover {
+                            @include responsive(large-screens) {
+                                color: $color-main;
+                            }
+
+                            span {
+                                @include responsive(large-screens) {
+                                    transform: translateY(0) scale(2.5);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }  // pf-txt
+        }  // pf-content-box
+    }
+}

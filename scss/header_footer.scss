@@ -1,0 +1,229 @@
+@import './style.scss';
+@import './mixin.scss';
+
+@mixin header-style() {
+    header {
+        position: relative;
+        z-index: 100;
+        width: $wide-width;
+        height: 14vh;
+        // background-color: lightblue;
+    
+        @include responsive(large-screens) {
+            position: fixed;
+            height: 150px;
+        }
+    
+        .logo-mainmenu-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: $wide-width;
+            height: 14vh;
+            // background-color: lightcoral;
+            
+            @include responsive(large-screens) {
+                max-width: 1440px;
+                height: 150px;
+            }
+    
+            .logo {
+                margin: 0;
+                width: 12vw;
+    
+                @include responsive(large-screens) {
+                    width: 80px;
+                }
+            }
+    
+            .main-menu {
+                margin: 0;
+                // background-color: lightsalmon;
+                
+                .gnb {
+                    display: none;
+    
+                    @include responsive(large-screens) {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 820px;
+                        // background-color: bisque;
+                    }
+    
+                    
+                    li {
+                        @include responsive(large-screens) {
+                            margin: 0;
+                            font: {
+                                family: $en-font;
+                                weight: $en-font-regular;
+                                size: 1.167rem;
+                            }
+                        }
+                    }
+                }
+    
+                .mobile-menu-bar {
+                    width: 8vw;
+                    cursor: pointer;
+    
+    
+                    @include responsive(large-screens) {
+                        display: none;
+                    }
+    
+                    .bar {
+                        // display: block;
+                        width: $wide-width;
+                        height: 1px;
+                        border: 1px solid $color-main;
+                        border-radius: 15px;
+                        margin: 30% 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@mixin footer-style() {
+    footer {
+        position: relative;
+        z-index: 100;
+        width: $wide-width;
+        height: 12vh;
+        border-top: 1px solid rgba($color-main, 0.5);
+    
+        @include responsive(large-screens) {
+            position: relative;
+            height: 100px;
+        }
+    
+        .logo-contact-icon {
+            display: flex;
+            align-items: center;
+            width: $wide-width;
+            height: $wide-height;
+            
+            .footer-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: $wide-width;
+                // background-color: lightseagreen;
+    
+                @include responsive(large-screens) {
+                    position: relative;
+                    display: block;
+                    height: 40px;
+                }
+    
+                .footer-logo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 51vw;
+                    margin: 0;
+                    // background-color: lightblue;
+        
+                    @include responsive(large-screens) {
+                        position: absolute;
+                        left: 50%; top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 430px;
+                    }
+    
+                    img {
+                        width: 7vw;
+    
+                        @include responsive(large-screens) {
+                            width: 70px;
+                        }
+                    }
+                }
+        
+        
+                .logo-txt {
+                    width: 40vw;
+                    // background-color: lightcoral;
+                    
+                    @include responsive(large-screens) {
+                        display: flex;
+                        width: 340px;
+                    }
+    
+                    p {
+                        display: flex;
+                        align-items: center;
+                        font-weight: $ko-font-light;
+                        font-size: 0.667rem;
+        
+                        @include responsive(large-screens) {
+                            font-size: 1rem;
+                            margin: 0;
+                        }
+    
+                        &.second {
+                            @include responsive(large-screens) {
+                                margin-left: 5px;
+                            }
+                        }
+                        img {
+                            width: 10px;
+                            height: 10px;
+                            margin-left: 3px;
+    
+                            @include responsive(large-screens) {
+                                width: 15px;
+                                height: 15px;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+        
+        
+                .contact-icon-box {
+                    display: flex;
+                    align-items: center;
+                    width: 17vw;
+                    margin: 0;
+                    // background-color: lightgreen;
+    
+                    @include responsive(large-screens) {
+                        position: absolute;
+                        right: 0; top: 50%;
+                        transform: translateY(-50%);
+                        width: 150px;
+                    }
+    
+                    div {
+                        a {
+                            img {
+                                width: 4vw;
+    
+                                @include responsive(large-screens) {
+                                    width: 30px;
+                                }
+                            }
+                        }
+    
+                        &.mail-icon {
+                            a {
+                                img {
+                                    width: 5vw;
+    
+                                    @include responsive(large-screens) {
+                                        width: 35px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }  // footer-content
+        }  // logo-contact-icon
+    }  // footer
+}
