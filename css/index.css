@@ -783,17 +783,23 @@ main .home .stars .shooting-star div .tail {
   -o-border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
      border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
   border-image-slice: 1;
-  animation: long 2s linear forwards;
+  opacity: 0;
+  animation: long 4s linear forwards infinite;
 }
 @keyframes long {
   0% {
+    opacity: 1;
     width: 100%;
+  }
+  25% {
+    width: 100%;
+  }
+  49% {
+    opacity: 1;
   }
   50% {
-    width: 100%;
-  }
-  99% {
-    opacity: 1;
+    width: 0;
+    opacity: 0;
   }
   100% {
     width: 0;
@@ -804,7 +810,7 @@ main .home .stars .shooting-star div img {
   position: absolute;
   left: 0;
   width: 0.4vw;
-  animation: shootingstarImgScale 1s ease infinite, shootingstarImg 0.7s linear 1.5s forwards;
+  animation: shootingstarImgScale 4s ease forwards infinite;
 }
 @media only screen and (min-width: 1024px) {
   main .home .stars .shooting-star div img {
@@ -814,35 +820,63 @@ main .home .stars .shooting-star div img {
 @keyframes shootingstarImgScale {
   0% {
     transform: scale(1);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-@keyframes shootingstarImg {
-  0% {
     opacity: 1;
   }
-  100% {
+  10% {
+    transform: scale(1.5);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1);
     opacity: 0;
+  }
+  100% {
+    transform: scale(1);
   }
 }
 main .home .stars .shooting-star .shooting1 {
   position: absolute;
-  left: 10vw;
-  top: 15vh;
   transform: rotate(-45deg);
+  animation: shootingM 4s linear infinite;
+}
+@keyframes shootingM {
+  0% {
+    left: 40vw;
+    top: -5vh;
+  }
+  50% {
+    left: 10vw;
+    top: 15vh;
+  }
+  100% {
+    left: 10vw;
+    top: 15vh;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .home .stars .shooting-star .shooting1 {
-    left: 20vw;
-    top: 160px;
-    animation: shooting 2s linear;
+    animation: shooting 4s linear infinite;
   }
   @keyframes shooting {
     0% {
       left: 35vw;
-      top: -160px;
+      top: -140px;
+    }
+    50% {
+      left: 20vw;
+      top: 160px;
     }
     100% {
       left: 20vw;
@@ -852,27 +886,91 @@ main .home .stars .shooting-star .shooting1 {
 }
 main .home .stars .shooting-star .shooting2 {
   position: absolute;
-  left: 7vw;
-  top: 57vh;
   transform: rotate(-45deg);
+  animation: shootingM2 4s linear 0.5s infinite;
+}
+@keyframes shootingM2 {
+  0% {
+    left: 25vw;
+    top: 45vh;
+  }
+  50% {
+    left: 7vw;
+    top: 57vh;
+  }
+  100% {
+    left: 7vw;
+    top: 57vh;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .home .stars .shooting-star .shooting2 {
-    left: 32vw;
-    top: 530px;
+    animation: shooting2 4s linear 0.5s infinite;
   }
+  @keyframes shooting2 {
+    0% {
+      left: 40vw;
+      top: 370px;
+    }
+    50% {
+      left: 32vw;
+      top: 530px;
+    }
+    100% {
+      left: 32vw;
+      top: 530px;
+    }
+  }
+}
+main .home .stars .shooting-star .shooting2 .tail {
+  animation: long 4s linear 0.5s forwards infinite;
+}
+main .home .stars .shooting-star .shooting2 img {
+  animation: shootingstarImgScale 4s ease 0.5s forwards infinite;
 }
 main .home .stars .shooting-star .shooting3 {
   position: absolute;
-  left: 77vw;
-  top: 35vh;
   transform: rotate(-45deg);
+  animation: shootingM3 4s linear 1s infinite;
+}
+@keyframes shootingM3 {
+  0% {
+    left: 98vw;
+    top: 15vh;
+  }
+  50% {
+    left: 77vw;
+    top: 35vh;
+  }
+  100% {
+    left: 77vw;
+    top: 35vh;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .home .stars .shooting-star .shooting3 {
-    left: 67vw;
-    top: 300px;
+    animation: shooting3 4s linear 1s infinite;
   }
+  @keyframes shooting3 {
+    0% {
+      left: 83vw;
+      top: -100px;
+    }
+    50% {
+      left: 67vw;
+      top: 300px;
+    }
+    100% {
+      left: 67vw;
+      top: 300px;
+    }
+  }
+}
+main .home .stars .shooting-star .shooting3 .tail {
+  animation: long 4s linear 1s forwards infinite;
+}
+main .home .stars .shooting-star .shooting3 img {
+  animation: shootingstarImgScale 4s ease 1s forwards infinite;
 }
 main .about-me {
   margin-top: 100vh;
@@ -996,7 +1094,11 @@ main .about-me .aboutme-content .txt-content-box .main-txt strong {
 main .about-me .aboutme-content .txt-content-box .main-txt strong span {
   display: inline-block;
 }
-main .about-me .aboutme-content .txt-content-box .main-txt strong span.bracket {
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.job {
+  display: none;
+  background-color: lightblue;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight .bracket {
   color: #efb1d5;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
@@ -1113,6 +1215,7 @@ main .skill .skill-box .skill-tab-btn button {
   font-size: 0.833rem;
   color: #fff;
   background-color: #7b588c;
+  cursor: pointer;
 }
 main .skill .skill-box .skill-tab-btn button.selected {
   font-weight: 500;
@@ -1132,6 +1235,7 @@ main .skill .skill-box .icon-box {
        column-gap: 5vw;
   row-gap: 7vw;
   width: 100%;
+  cursor: pointer;
 }
 @media only screen and (min-width: 1024px) {
   main .skill .skill-box .icon-box {
@@ -1206,6 +1310,7 @@ main .skill .skill-desc .x-btn {
   top: 2vw;
   width: 7vw;
   height: 7vw;
+  cursor: pointer;
 }
 main .skill .skill-desc .x-btn .x-line {
   position: absolute;

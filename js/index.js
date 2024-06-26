@@ -10,9 +10,41 @@ window.onload = function() {
 
     //====== about me ======
     // ----- aboutme-tab-btn click 시 -----
-    // ***** highlight css 적용 *****
-    // ***** 해당 내용 나오게 하기 *****
+    const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
+    const effortBtn = document.querySelector('.effort-btn');
+    // const strengthBtn = document.querySelector('.strength-btn');
+    // const goalBtn = document.querySelector('.goal-btn');
+    // const historyBtn = document.querySelector('.history-btn');
+    // const aboutmeContents = document.querySelectorAll('.aboutme-content-txt');
+    // const effortTxt = document.querySelector('.effort');
+    // const goalTxt = document.querySelector('.goal');
 
+    // ***** highlight css 적용 *****
+    const selectedAboutBtn = (e) => {
+        effortBtn.classList.remove('selected');
+        aboutBtns.forEach(btn => btn.classList.remove('selected'));
+        e.target.classList.add('selected');
+    }
+
+    aboutBtns.forEach(btn => {
+        btn.addEventListener('click', selectedAboutBtn);
+    });
+
+    // ***** 해당 내용 나오게 하기 *****
+    // const showContentTxt = (e) => {
+    //     effortTxt.style.display = 'none';
+    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
+    //     e.target.style.display = 'block';
+    // }
+    // effortBtn.addEventListener('click', () => {
+    //     effortTxt.style.display = 'block';
+    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
+    // });
+
+    // goalBtn.addEventListener('click', () => {
+    //     goalTxt.style.display = 'block';
+    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
+    // });
 
     //====== skill ======
     // ----- [모바일] tabBtn click 시 -----
@@ -204,3 +236,30 @@ window.onload = function() {
     //     })
     // })
 };
+
+$(document).ready(function() {
+// 초기값은 typing 진행 안 하는 것으로 설정
+var isTyping = false;
+var typingIdx = 0;
+
+// typing 할 텍스트 가지고 오기
+var typingTxt = $('.job').text();  
+// 텍스트 한글자씩 자르기
+typingTxt = typingTxt.split('');
+
+// typing 함수 만들기
+function typeText() {
+    if (typingIdx < typingTxt.length) {
+        $('.job-typing').append(typingTxt[typingIdx]);
+        typingIdx++;
+    } else {
+        clearInterval(tyInt);
+    }
+}
+
+// typing이 진행되지 않으면 typing 실행함
+if (isTyping == false) {
+    isTyping = true;
+    var tyInt = setInterval(typeText, 100);
+}
+});

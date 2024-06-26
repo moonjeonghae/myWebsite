@@ -569,13 +569,19 @@
                     border: 1px solid transparent;
                     border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
                     border-image-slice: 1;
+                    opacity: 0;
                     // background: linear-gradient( #fff 100%, #fff 0%);
-                    animation: long 2s linear forwards;
+
+                    animation: long 4s linear forwards infinite;
 
                     @keyframes long {
-                        0% { width: $wide-width; }
-                        50% { width: $wide-width; }
-                        99% { opacity: 1; } 
+                        0% {  
+                            opacity: 1; 
+                            width: $wide-width; 
+                        }
+                        25% { width: $wide-width; }
+                        49% { opacity: 1; } 
+                        50% { width: 0; opacity: 0; }
                         100% { width: 0; opacity: 0; }
                     }
                 }
@@ -584,61 +590,126 @@
                     position: absolute;
                     left: 0;
                     width: 0.4vw;
-                    animation: shootingstarImgScale 1s ease infinite, shootingstarImg 0.7s linear 1.5s forwards;
+                    animation: shootingstarImgScale 4s ease forwards infinite;
                     
                     @include responsive(large-screens) {
                         width: 0.2vw;
                     }
                     
                     @keyframes shootingstarImgScale {
-                        0% { transform: scale(1); }
-                        100% { transform: scale(1.5); }
-                    }
-
-                    @keyframes shootingstarImg {
-                        0% { opacity: 1; }
-                        100% { opacity: 0; }
+                        0% { transform: scale(1); opacity: 1;}
+                        10% { transform: scale(1.5); }
+                        20% { transform: scale(1); }
+                        30% { transform: scale(1.5); }
+                        40% { transform: scale(1); }
+                        50% { transform: scale(1.5); opacity: 1;}
+                        80% { transform: scale(1); opacity: 0;}
+                        100% { transform: scale(1); }
                     }
                 }
             }
 
             .shooting1 {
                 position: absolute;
-                left: 10vw; top: 15vh;
+                // left: 10vw; top: 15vh;
                 transform: rotate(-45deg);
+                animation: shootingM 4s linear infinite;
+
+                @keyframes shootingM {
+                    0% { 
+                        left: 40vw; top: -5vh; 
+                    }
+                    50% { left: 10vw; top: 15vh; }
+                    100% { left: 10vw; top: 15vh; }
+                }
 
                 @include responsive(large-screens) {
-                    left: 20vw; top: 160px;
-                    animation: shooting 2s linear;
+                    // left: 20vw; top: 160px;
+                    animation: shooting 4s linear infinite;
 
                     @keyframes shooting {
                         0% { 
-                            left: 35vw; top: -160px; 
+                            left: 35vw; top: -140px; 
                         }
+                        50% { left: 20vw; top: 160px; }
                         100% { left: 20vw; top: 160px; }
                     }
                 }
-            }
+            }  // shooting1
 
             .shooting2 {
                 position: absolute;
-                left: 7vw; top: 57vh;
+                // left: 7vw; top: 57vh;
                 transform: rotate(-45deg);
+                animation: shootingM2 4s linear 0.5s infinite;
+
+                @keyframes shootingM2 {
+                    0% { 
+                        left: 25vw; top: 45vh; 
+                    }
+                    50% { left: 7vw; top: 57vh; }
+                    100% { left: 7vw; top: 57vh; }
+                }
 
                 @include responsive(large-screens) {
-                    left: 32vw; top: 530px;
+                    // left: 32vw; top: 530px;
+                    animation: shooting2 4s linear 0.5s infinite;
+
+                    @keyframes shooting2 {
+                        0% { 
+                            left: 40vw; top: 370px; 
+                        }
+                        50% { left: 32vw; top: 530px; }
+                        100% { left: 32vw; top: 530px; }
+                    }
                 }
-            }
+
+                .tail {
+                    animation: long 4s linear 0.5s forwards infinite;
+                }
+
+                img {
+                    animation: shootingstarImgScale 4s ease 0.5s forwards infinite;
+
+                }
+            }  // shooting2
 
             .shooting3 {
                 position: absolute;
-                left: 77vw; top: 35vh;
+                // left: 77vw; top: 35vh;
                 transform: rotate(-45deg);
+                animation: shootingM3 4s linear 1s infinite;
+
+                @keyframes shootingM3 {
+                    0% { 
+                        left: 98vw; top: 15vh; 
+                    }
+                    50% { left: 77vw; top: 35vh; }
+                    100% { left: 77vw; top: 35vh; }
+                }
 
                 @include responsive(large-screens) {
-                    left: 67vw; top: 300px;
+                    // left: 67vw; top: 300px;
+                    animation: shooting3 4s linear 1s infinite;
+
+                    @keyframes shooting3 {
+                        0% { 
+                            left: 83vw; top: -100px; 
+                        }
+                        50% { left: 67vw; top: 300px; }
+                        100% { left: 67vw; top: 300px; }
+                    }
                 }
-            }
+
+                .tail {
+                    animation: long 4s linear 1s forwards infinite;
+                }
+
+                img {
+                    animation: shootingstarImgScale 4s ease 1s forwards infinite;
+
+                }
+            }  // shooting3
         }
     }
 }

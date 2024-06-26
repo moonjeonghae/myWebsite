@@ -171,8 +171,53 @@ main {
                         span {
                             display: inline-block;
                             
-                            &.bracket {
-                                color: $small-starlight;
+                            &.job {
+                                display: none;
+                                // white-space: nowrap;
+                                // overflow: hidden;
+                                // border-right: 2px solid $color-main;
+                                // padding-right: 0.5vw;
+                                background-color: lightblue;
+                                // animation: typing 0.5s steps(5), blink 0.5s step-end infinite alternate;
+
+                                // @keyframes typing {
+                                //     from { width: 0; }
+                                //     to { width: 18vw; }
+                                // }
+
+                                // @keyframes blink {
+                                //     0% { border-color: $color-main; }
+                                //     50% { border-color: transparent; }
+                                //     100% { border-color: $color-main; }
+                                // }
+                            }
+                            
+                            &.highlight {
+                                // white-space: nowrap;
+                                // overflow: hidden;
+
+                                // animation: bracketScale 0.5s;
+
+                                // @keyframes bracketScale {
+                                //     from { width: 0; }
+                                //     to { width: 15vw; }
+                                // }
+
+                                .bracket {
+                                    color: $small-starlight;
+                                }
+
+                                // .name {
+                                //     // white-space: nowrap;
+                                //     // overflow: hidden;
+                                //     // opacity: 0;
+                                //     // animation: bracketScale 0.5s steps(4) 0.5s forwards;
+
+                                //     // @keyframes bracketScale {
+                                //     //     from { width: 0; opacity: 1; }
+                                //     //     to { width: 10vw; opacity: 1;}
+                                //     // }
+                                // }
                             }
                         }
                     }
@@ -307,6 +352,7 @@ main {
                     }
                     color: $color-main;
                     background-color: $color-point;
+                    cursor: pointer;
 
                     &.selected {
                         font-weight: $ko-font-medium;
@@ -328,6 +374,7 @@ main {
                 column-gap: 5vw;
                 row-gap: 7vw;
                 width: $wide-width;
+                cursor: pointer;
 
                 @include responsive(large-screens) {
                     position: absolute;
@@ -406,7 +453,8 @@ main {
                 right: 2vw; top: 2vw;
                 width: 7vw;
                 height: 7vw;
-            
+                cursor: pointer;
+
                 .x-line {
                     position: absolute;
                     top: 50%;
