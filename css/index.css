@@ -114,6 +114,8 @@ header .logo-mainmenu-box {
   }
 }
 header .logo-mainmenu-box .logo {
+  position: relative;
+  z-index: 2000;
   margin: 0;
   width: 12vw;
 }
@@ -128,6 +130,15 @@ header .logo-mainmenu-box .main-menu {
 header .logo-mainmenu-box .main-menu .gnb {
   display: none;
 }
+header .logo-mainmenu-box .main-menu .gnb.menu-visible {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #190d22;
+}
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box .main-menu .gnb {
     display: flex;
@@ -135,8 +146,28 @@ header .logo-mainmenu-box .main-menu .gnb {
     width: 820px;
   }
 }
+header .logo-mainmenu-box .main-menu .gnb li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0;
+  font-family: "Playfair Display SC", serif;
+  font-size: 2rem;
+}
+header .logo-mainmenu-box .main-menu .gnb li:first-child {
+  margin-top: 20vh;
+}
+@media only screen and (min-width: 1024px) {
+  header .logo-mainmenu-box .main-menu .gnb li:first-child {
+    margin-top: 0;
+  }
+}
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box .main-menu .gnb li {
+    position: relative;
+    z-index: 1000;
+    display: block;
     margin: 0;
     font-family: "Playfair Display SC", serif;
     font-weight: 400;
@@ -144,6 +175,8 @@ header .logo-mainmenu-box .main-menu .gnb {
   }
 }
 header .logo-mainmenu-box .main-menu .mobile-menu-bar {
+  position: relative;
+  z-index: 2000;
   width: 8vw;
   cursor: pointer;
 }
@@ -158,6 +191,20 @@ header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar {
   border: 1px solid #fff;
   border-radius: 15px;
   margin: 30% 0;
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active {
+  margin: 0;
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active:first-child {
+  transform: translateY(3px) rotate(-45deg);
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active:nth-child(2) {
+  transform: scale(0);
+}
+header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active:last-child {
+  transform: rotate(45deg);
 }
 
 main {
@@ -1235,7 +1282,6 @@ main .skill .skill-box .icon-box {
        column-gap: 5vw;
   row-gap: 7vw;
   width: 100%;
-  cursor: pointer;
 }
 @media only screen and (min-width: 1024px) {
   main .skill .skill-box .icon-box {
@@ -1256,11 +1302,14 @@ main .skill .skill-box .icon-box .icon {
   width: 28vw;
   height: 28vw;
   border-radius: 50%;
+  cursor: pointer;
 }
 @media only screen and (min-width: 1024px) {
   main .skill .skill-box .icon-box .icon {
     position: absolute;
     transform: translate(-50%, -50%) rotate(90deg);
+    width: 120px;
+    height: 120px;
   }
 }
 main .skill .skill-box .icon-box .icon::before {
@@ -1294,6 +1343,9 @@ main .skill .skill-box .icon-box .icon img {
     width: 80px;
   }
 }
+main .skill .skill-box .icon-box .icon .back-inner {
+  display: none;
+}
 main .skill .skill-desc {
   display: none;
   position: fixed;
@@ -1304,6 +1356,13 @@ main .skill .skill-desc {
   height: 100vh;
   background-color: rgba(25, 13, 34, 0.8);
 }
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc {
+    display: block;
+    background-color: transparent;
+    position: static;
+  }
+}
 main .skill .skill-desc .x-btn {
   position: absolute;
   right: 2vw;
@@ -1311,6 +1370,11 @@ main .skill .skill-desc .x-btn {
   width: 7vw;
   height: 7vw;
   cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .x-btn {
+    display: none;
+  }
 }
 main .skill .skill-desc .x-btn .x-line {
   position: absolute;
@@ -1339,22 +1403,126 @@ main .skill .skill-desc .skill-desc-txt {
   border: 1px solid #fff;
   border-radius: 50px;
 }
-main .skill .skill-desc .skill-desc-txt .skill-title {
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt {
+    display: block;
+    position: absolute;
+    margin-top: 30px;
+    width: 230px;
+    height: 230px;
+    perspective: 500px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+  }
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani.visible {
+  visibility: visible;
+  opacity: 1;
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani.moving {
+  transform: rotateY(180deg);
+  transition: transform 0.5s ease 0.5s;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: #190d22;
+    backface-visibility: hidden;
+  }
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-title {
   margin-bottom: 2vh;
   font-size: 1.5rem;
   text-align: center;
 }
-main .skill .skill-desc .skill-desc-txt .skill-icon {
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-title {
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-icon {
   width: 30vw;
 }
-main .skill .skill-desc .skill-desc-txt .skill-line {
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-icon {
+    width: 80px;
+  }
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-line {
   margin-top: 4vh;
   width: 100%;
   height: 1px;
   background-color: #fff;
 }
-main .skill .skill-desc .skill-desc-txt .desc-txt {
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-line.skill-graph {
+    position: relative;
+    margin-top: 15px;
+    width: 150px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-line.skill-graph .graph-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 10px;
+    border-radius: 10px;
+    transform: width 1s;
+    background-color: #efb1d5;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateY(180deg);
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: #190d22;
+  }
+}
+main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .desc-txt {
   margin-top: 3vh;
+  width: 90%;
   font-size: 0.833rem;
 }
 main .portfolio {
@@ -1509,16 +1677,6 @@ main .portfolio .portfolio-detail div {
   width: 100%;
   height: 100vh;
 }
-main .portfolio .portfolio-detail div .pf-content-title {
-  display: none;
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-title {
-    display: block;
-    padding-top: 170px;
-    font-size: 3.333rem;
-  }
-}
 main .portfolio .portfolio-detail div .pf-content-box {
   width: 100%;
 }
@@ -1527,6 +1685,7 @@ main .portfolio .portfolio-detail div .pf-content-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 170px;
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .website-image {
@@ -1559,7 +1718,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title 
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
-    font-size: 1.333rem;
+    font-size: 1.667rem;
     color: #fff;
   }
 }

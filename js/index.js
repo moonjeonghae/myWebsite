@@ -7,7 +7,23 @@ window.onload = function() {
     // });
     // innerWidth 이용해서 모바일만 적용되게 하기 !!!!!!!!!!!!
     var windowWidth = window.innerWidth;
+    // ----- [모바일] 햄버거 메뉴 -----
+    if (windowWidth < 768) {
+        const menuBar = document.querySelector('.mobile-menu-bar');
+        const bars = document.querySelectorAll('.bar');
+        const gnb = document.querySelector('.gnb');
+        const $body = document.querySelector('body');
 
+
+        menuBar.addEventListener('click', () => {
+            bars.forEach(bar => {
+                bar.classList.toggle('active');
+            });
+
+            gnb.classList.toggle('menu-visible');
+            $body.classList.toggle('scroll-stop');
+        });
+    }
     //====== about me ======
     // ----- aboutme-tab-btn click 시 -----
     const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
@@ -153,9 +169,9 @@ window.onload = function() {
     // ----- [모바일] modal -----
     const $body = document.querySelector('body');
     const icons = document.querySelectorAll('.icon-box > .icon');
+    const iconModal = document.querySelectorAll('.skill-desc .skill-desc-txt')
 
     if(windowWidth < 768 ) {
-        const iconModal = document.querySelectorAll('.skill-desc .skill-desc-txt')
         const skillDesc = document.querySelector('.skill-desc');
         const xBtn = document.querySelector('.x-btn');
     
@@ -169,7 +185,7 @@ window.onload = function() {
     
         // # 각 icon에 함수 적용
         icons.forEach((icon, idx) => {
-            icon.addEventListener('click', () => showModal(idx))
+            icon.addEventListener('click', () => showModal(idx));
         })
     
         // X 버튼 누르면 모달이 사라지는 함수 만들기
@@ -204,9 +220,60 @@ window.onload = function() {
         icons.forEach((icon, idx) => {
             iconArrangement(idx);
         });
+
+        // ----- [PC] skill-desc 애니메이션 -----
+        const skillDescAni = document.querySelectorAll('.desc-txt-ani');
+        const titleBox = document.querySelector('.title-box');
+
+        // #mouseover 시 적용될 css 함수 만들기 => movingSkillDesc
+        const movingSkillDesc = (idx) => {
+            return () => {
+                skillDescAni[idx].classList.add('visible');
+                titleBox.style.display = 'none';
+                skillDescAni[idx].classList.add('moving');
+            };
+        };
+        
+        // #mouseout 시 적용될 css 함수 만들기 => originSkillDesc
+        const originSkillDesc = (idx) => {
+            return () => {
+                skillDescAni[idx].classList.remove('moving');
+            
+                setTimeout(() => {
+                    skillDescAni[idx].classList.remove('visible');
+                    titleBox.style.display = 'block';
+                },500)
+            
+            };
+        };
+
+        // #icon에 mouseover하면 각 icon에 movingSkillDesc()가 적용됨
+        icons.forEach((icon, idx) => {
+            icon.addEventListener('mouseenter', movingSkillDesc(idx))
+        });
+        // #icon에 mouseout하면 각 icon에 originSkillDesc()가 적용됨
+        icons.forEach((icon, idx) => {
+            icon.addEventListener('mouseleave', originSkillDesc(idx))
+        });
     }
 
 
+    // ----- [PC] bar graph 만들기 -----
+    // #skill-graph, graph-bar 변수 지정
+    const barGraph = document.querySelectorAll('.skill-graph');
+    // #각 skill-graph 지정
+    barGraph.forEach(bar => {
+        // #data-value 속성값 변수 지정하여 불러오기
+        const graphBar = document.querySelectorAll('.graph-bar');
+        const data = parseFloat(bar.getAttribute('data-value'));
+
+        console.log(data);
+        // #style 적용하기
+        graphBar.forEach(graph => {
+            graph.style.width = `${data}%`;
+        })
+    });
+    
     //====== portfolio_title ======
 
     //====== portfolio_detail ======
@@ -226,15 +293,7 @@ window.onload = function() {
     }
 
     //====== contact ======
-    // ----- focus 시 placeholder 없애기 -----
-    // const inputs = document.querySelectorAll('input');
-    // const textarea = document.querySelector('textarea');
 
-    // inputs.forEach(input => {
-    //     input.addEventListener('focus', function() {
-    //         this.setAttribute('unvisible', this.setAttribute('visible'));
-    //     })
-    // })
 };
 
 $(document).ready(function() {

@@ -7,8 +7,52 @@
     <link rel="stylesheet" href="./css/index_test.css">
     <script src="./js/index.js"></script>
     <title>circle test</title>
+    <style>
+      .html {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        perspective: 500px;
+        background-color: antiquewhite;
+      }
+
+      .htmlanimation {
+      position: relative;
+      width: 100px;
+      height: 150px;
+      transition: transform 2s;
+      transform-style: preserve-3d;
+      transform: rotateY(180deg);
+    }
+
+    .inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5em;
+      font-size: 1rem;
+    }
+
+    .inner.front {
+      z-index: 1;
+      background: coral;
+      backface-visibility: hidden;
+    }
+
+    .inner.back {
+      background: lightblue;
+      transform: rotateY(180deg);
+    }
+    </style>
 </head>
-<body>
+<div>
     <!-- <svg width="860" height="860">
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -93,7 +137,7 @@
 });
  </script> -->
 
- <div class="test">
+ <!-- <div class="test">
   <img src="./images/html.png" alt="html">
  </div>
 
@@ -110,6 +154,26 @@ img.onload = function() {
 
 // 애니메이션 종료 후 클래스를 제거하는 이벤트 리스너를 추가합니다.
 
- </script>
+ </script> -->
+<!-- <div class="test">
+  <div class="icon html coding" data-deg="92">
+    <img src="./images/html.png" alt="html icon" class="html-inner front">
+    <p class="html-inner back">zzzzzzzzzzz</p>
+  </div>
+</div> -->
+
+<div class="skill-desc-txt html">
+  <div class="htmlanimation">
+    <div class="desc-front inner">
+        <h3 class="skill-title">HTML</h3>
+        <img src="./images/html.png" alt="html icon" class="skill-icon">
+        <div class="skill-graph skill-line"></div>
+    </div>
+    <p class="desc-txt desc-back inner">
+        HTML로 텍스트, 이미지, 링크, 테이블 등 다양한 콘텐츠를 만들고 웹 페이지의 레이아웃을 구조화할 수 있습니다.
+    </p>
+  </div>
+</div>
+
 </body>
 </html>

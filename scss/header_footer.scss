@@ -28,6 +28,8 @@
             }
     
             .logo {
+                position: relative;
+                z-index: 2000;
                 margin: 0;
                 width: 12vw;
     
@@ -42,7 +44,16 @@
                 
                 .gnb {
                     display: none;
-    
+
+                    &.menu-visible {
+                        display: block;
+                        position: absolute;
+                        left: 0; top: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background-color: $main-bg;
+                    }
+                    
                     @include responsive(large-screens) {
                         display: flex;
                         justify-content: space-between;
@@ -52,7 +63,27 @@
     
                     
                     li {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 5vh 0;
+                        font-family: $en-font;
+                        font-size: 2rem;
+                        // background-color: lightblue;
+
+                        &:first-child {
+                            margin-top: 20vh;
+
+                            @include responsive(large-screens) {
+                                margin-top: 0;
+                            }
+                        }
+
                         @include responsive(large-screens) {
+                            position: relative;
+                            z-index: 1000;
+                            display: block;
                             margin: 0;
                             font: {
                                 family: $en-font;
@@ -64,6 +95,8 @@
                 }
     
                 .mobile-menu-bar {
+                    position: relative;
+                    z-index: 2000;
                     width: 8vw;
                     cursor: pointer;
     
@@ -73,12 +106,29 @@
                     }
     
                     .bar {
-                        // display: block;
                         width: $wide-width;
                         height: 1px;
                         border: 1px solid $color-main;
                         border-radius: 15px;
                         margin: 30% 0;
+                        transform-origin: center;
+                        transition: transform 0.5s ease;
+
+                        &.active {
+                            margin: 0;
+
+                            &:first-child {
+                                transform: translateY(3px) rotate(-45deg);
+                            }
+    
+                            &:nth-child(2) {
+                                transform: scale(0);
+                            }
+    
+                            &:last-child {
+                                transform: rotate(45deg);
+                            }
+                        }
                     }
                 }
             }

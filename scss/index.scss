@@ -374,7 +374,7 @@ main {
                 column-gap: 5vw;
                 row-gap: 7vw;
                 width: $wide-width;
-                cursor: pointer;
+                // background-color: lightcoral;
 
                 @include responsive(large-screens) {
                     position: absolute;
@@ -400,10 +400,14 @@ main {
                     height: 28vw;
                     // border: 3px solid $color-main;
                     border-radius: 50%;
-                    
+                    cursor: pointer;
+
                     @include responsive(large-screens) {
                        position: absolute;
                        transform: translate(-50%, -50%) rotate(90deg);
+                       width: 120px;
+                       height: 120px;
+                    //    background-color: lightblue;
                     }
 
                     &::before {
@@ -429,10 +433,14 @@ main {
                         transform: translate(-50%, -50%);
                         z-index: 2;
                         width: 15vw;
-
+                        
                         @include responsive(large-screens) {
                             width: 80px;
                         }
+                    }
+
+                    .back-inner {
+                        display: none;
                     }
                 }
             }  // icon-box
@@ -447,13 +455,23 @@ main {
             width: $wide-width;
             height: 100vh;
             background-color: rgba(25, 13, 34, 0.8);
-            
+
+            @include responsive(large-screens) {
+                display: block;
+                background-color: transparent;
+                position: static;
+            }
+
             .x-btn {
                 position: absolute;
                 right: 2vw; top: 2vw;
                 width: 7vw;
                 height: 7vw;
                 cursor: pointer;
+
+                @include responsive(large-screens) {
+                    display: none;
+                }
 
                 .x-line {
                     position: absolute;
@@ -485,26 +503,131 @@ main {
                 border: 1px solid $color-main;
                 border-radius: 50px;
 
-                .skill-title {
-                    margin-bottom: 2vh;
-                    font-size: 1.5rem;
+                @include responsive(large-screens) {
+                    display: block;
+                    position: absolute;
+                    margin-top: 30px;
+                    width: 230px;
+                    height: 230px;
+                    perspective: 500px;
+                    padding: 0;
+                    border: none;
+                    border-radius: 50%;
                     text-align: center;
                 }
+               
+                .desc-txt-ani {
+                    @include responsive(large-screens) {
+                        position: relative;
+                        width: $wide-width;
+                        height: $wide-height;
+                        border-radius: 50%;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: transform 0.5s ease;
+                        transform-style: preserve-3d;
+                    }
 
-                .skill-icon {
-                    width: 30vw;
-                }
+                    &.visible {
+                        visibility: visible;
+                        opacity: 1;
+                    }
 
-                .skill-line {
-                    margin-top: 4vh;
-                    width: $wide-width;
-                    height: 1px;
-                    background-color: $color-main;
-                }
+                    &.moving {
+                        transform: rotateY(180deg);
+                        transition: transform 0.5s ease 0.5s;
+                    }
+                    
+                    .desc-front {
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 0; top: 0;
+                            z-index: 1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            width: $wide-width;
+                            height: $wide-height;
+                            border: 1px solid $color-main;
+                            border-radius: 50%;
+                            background-color: $color-mainbg;
+                            backface-visibility: hidden;
+                        }
 
-                .desc-txt {
-                    margin-top: 3vh;
-                    font-size: 0.833rem;
+                        .skill-title {
+                            margin-bottom: 2vh;
+                            font-size: 1.5rem;
+                            text-align: center;
+        
+                            @include responsive(large-screens) {
+                                margin-top: -20px;
+                                margin-bottom: 10px;
+                            }
+                        }
+        
+                        .skill-icon {
+                            width: 30vw;
+        
+                            @include responsive(large-screens) {
+                                width: 80px;
+                            }
+                        }
+        
+                        .skill-line {
+                            margin-top: 4vh;
+                            width: $wide-width;
+                            height: 1px;
+                            background-color: $color-main;
+                            
+                            &.skill-graph {
+                                @include responsive(large-screens) {
+                                    position: relative;
+                                    margin-top: 15px;
+                                    width: 150px;
+                                    height: 10px;
+                                    border-radius: 10px;
+                                    background-color: $color-main;
+                                }
+                                
+                                .graph-bar {
+                                    @include responsive(large-screens) {
+                                        position: absolute;
+                                        left: 0; top: 0;
+                                        width: 0;
+                                        height: 10px;
+                                        border-radius: 10px;
+                                        transform: width 1s;
+                                        background-color: $color-graph;
+                                    }
+    
+                                }
+                            }
+                        }
+                    }
+    
+                    .desc-back {
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 50%; top: 50%;
+                            transform:  translate(-50%, -50%) rotateY(180deg);
+                            z-index: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-top: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid $color-main;
+                            border-radius: 50%;
+                            background-color: $main-bg;
+                        }
+                        .desc-txt {
+                            margin-top: 3vh;
+                            width: 90%;
+                            font-size: 0.833rem;
+                        }
+                    }
                 }
             }
         }  // skill-desc
