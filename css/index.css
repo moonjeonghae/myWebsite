@@ -198,7 +198,7 @@ header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active {
   margin: 0;
 }
 header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active:first-child {
-  transform: translateY(3px) rotate(-45deg);
+  transform: translateY(4px) rotate(-45deg);
 }
 header .logo-mainmenu-box .main-menu .mobile-menu-bar .bar.active:nth-child(2) {
   transform: scale(0);
