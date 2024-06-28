@@ -4,6 +4,8 @@
 @mixin header-style() {
     header {
         position: relative;
+        margin: 0;
+        top: 0;
         z-index: 100;
         width: $wide-width;
         height: 14vh;
@@ -68,8 +70,6 @@
                         align-items: center;
                         justify-content: center;
                         margin: 5vh 0;
-                        font-family: $en-font;
-                        font-size: 2rem;
                         // background-color: lightblue;
 
                         &:first-child {
@@ -85,10 +85,18 @@
                             z-index: 1000;
                             display: block;
                             margin: 0;
-                            font: {
-                                family: $en-font;
-                                weight: $en-font-regular;
-                                size: 1.167rem;
+                        }
+
+                        a {
+                            font-family: $en-font;
+                            font-size: 2rem;
+
+                            @include responsive(large-screens) {
+                                font: {
+                                    family: $en-font;
+                                    weight: $en-font-regular;
+                                    size: 1.167rem;
+                                }
                             }
                         }
                     }
@@ -174,7 +182,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: flex-start;
-                    width: 51vw;
+                    width: 53vw;
                     margin: 0;
                     // background-color: lightblue;
         
@@ -186,8 +194,8 @@
                     }
     
                     img {
-                        width: 7vw;
-    
+                        width: 10vw;
+                        
                         @include responsive(large-screens) {
                             width: 70px;
                         }
@@ -224,11 +232,29 @@
                             width: 10px;
                             height: 10px;
                             margin-left: 3px;
+                            margin-top: 2px;
+                            animation: footerStar 2s ease infinite;
     
                             @include responsive(large-screens) {
                                 width: 15px;
                                 height: 15px;
                                 margin-left: 5px;
+                                margin-top: 0;
+                            }
+
+                            @keyframes footerStar {
+                                0% { 
+                                    transform: scale(0.8);
+                                    opacity: 0.5; 
+                                }
+                                50% {
+                                     transform: scale(1); 
+                                     opacity: 1; 
+                                    }
+                                100% { 
+                                    transform: scale(0.8);
+                                    opacity: 0.5; 
+                                }
                             }
                         }
                     }
@@ -238,7 +264,7 @@
                 .contact-icon-box {
                     display: flex;
                     align-items: center;
-                    width: 17vw;
+                    width: 24vw;
                     margin: 0;
                     // background-color: lightgreen;
     
@@ -252,7 +278,7 @@
                     div {
                         a {
                             img {
-                                width: 4vw;
+                                width: 6vw;
     
                                 @include responsive(large-screens) {
                                     width: 30px;
@@ -263,7 +289,7 @@
                         &.mail-icon {
                             a {
                                 img {
-                                    width: 5vw;
+                                    width: 7vw;
     
                                     @include responsive(large-screens) {
                                         width: 35px;

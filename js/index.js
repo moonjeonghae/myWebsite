@@ -9,10 +9,11 @@ window.onload = function() {
     var windowWidth = window.innerWidth;
     // ----- [모바일] 햄버거 메뉴 -----
     if (windowWidth < 768) {
+        const $body = document.querySelector('body');
         const menuBar = document.querySelector('.mobile-menu-bar');
         const bars = document.querySelectorAll('.bar');
         const gnb = document.querySelector('.gnb');
-        const $body = document.querySelector('body');
+        const gnbA = document.querySelectorAll('.gnb a');
 
 
         menuBar.addEventListener('click', () => {
@@ -23,7 +24,36 @@ window.onload = function() {
             gnb.classList.toggle('menu-visible');
             $body.classList.toggle('scroll-stop');
         });
-    }
+        
+        // ----- [모바일] gnb click 하면 스크롤 다시 생기게 하기 -----
+        gnbA.forEach((a) => {
+            a.addEventListener('click', () => {
+                bars.forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                gnb.classList.remove('menu-visible');
+                $body.classList.remove('scroll-stop');
+            })
+        })
+    } 
+    // else {
+    //     gnbA.forEach((a) => {
+    //         a.addEventListener('click', (e) => {
+    //             e.preventDefault(); // 기본 동작 방지
+        
+    //             const targetId = a.getAttribute('href').substring(1); // 링크의 href에서 '#' 제거
+    //             const targetSec = document.getElementById(targetId);
+        
+    //             if (targetSec) {
+    //                 // 해당 섹션의 위치로 스크롤
+    //                 targetSec.scrollIntoView({
+    //                     behavior: 'smooth' // 부드러운 스크롤
+    //                 });
+    //             }
+    //         });
+    //     });
+    // }
+
     //====== about me ======
     // ----- aboutme-tab-btn click 시 -----
     const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
@@ -279,12 +309,20 @@ window.onload = function() {
     //====== portfolio_detail ======
     // ----- [모바일] button click 시 -----
     const pfBtn = document.querySelectorAll('.pf-btn button');
+    let activeBtn = null;
 
     if (windowWidth < 768) {
         // ***** style 적용 *****
         const clickPfBtn = (e) => {
+            if(activeBtn && activeBtn !== e.target) {
+                e.target.style.color = '#7b588c';
+                e.target.style.backgroundColor = '#fff';
+            }
             e.target.style.color = '#fff';
             e.target.style.backgroundColor = '#7b588c';
+
+            // #현재 버튼 상태
+            activeBtn = e.target;
         };
     
         pfBtn.forEach((btn) => {
