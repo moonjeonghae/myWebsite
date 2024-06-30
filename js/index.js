@@ -1,12 +1,66 @@
 window.onload = function() {
-    // const logo = document.querySelector('.logo');
-    // const $html = document.querySelector('html');
-
-    // logo.addEventListener('click', () => {
-    //     $html.style.scrollTop = 0;
-    // });
     // innerWidth 이용해서 모바일만 적용되게 하기 !!!!!!!!!!!!
     var windowWidth = window.innerWidth;
+
+    // ++++++++++++++++++ header ++++++++++++++++++
+    // ----- logo click 시 첫 화면 나오게 하기 -----
+    const logo = document.querySelector('.logo');
+    
+    logo.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+
+    // ----- [PC] 선택된 gnb에 효과 적용하기 -----
+    const gnbs = document.querySelectorAll('.gnb a');
+    const homeGnb = document.querySelector('.gnb a:first-child');
+    
+    if(windowWidth >= 768) {
+        const selectedGnb = (e) =>  {
+                gnbs.forEach(a => a.classList.remove('gnb-selected'));
+                e.target.classList.add('gnb-selected');
+        };
+        
+        // #초기값으로 homeGnb 선택
+        selectedGnb({ target: homeGnb });
+    
+        gnbs.forEach(gnb => {
+            gnb.addEventListener('click', selectedGnb);
+        });
+
+
+        // ----- [PC] 각 section에 맞는 gnb에 효과 적용하기 -----
+        const sections = document.querySelectorAll('section');
+
+        // #각 섹션에 offsetTop 값을 저장할 배열 변수로 지정하기
+        const sectionOffsets = [];
+
+        // #각 섹션에 offsetTop 값 구하기
+        sections.forEach(section => {
+            sectionOffsets.push(section.offsetTop);
+        });
+
+        // #현재 스크롤 위치에 따라 gnb에 효과 적용하기
+        const activeGnb = () => {
+            const scrollPos = window.scrollY;
+
+            sectionOffsets.forEach((offset, idx) => {
+                if (scrollPos >= offset && scrollPos < offset + sections[idx].offsetHeight) {
+                    gnbs.forEach(a => a.classList.remove('gnb-selected'));
+                    gnbs[idx].classList.add('gnb-selected');
+                }
+            });
+        };
+
+        // #초기값 설정
+        activeGnb();
+
+        window.addEventListener('scroll', activeGnb);
+    }
+
     // ----- [모바일] 햄버거 메뉴 -----
     if (windowWidth < 768) {
         const $body = document.querySelector('body');
@@ -36,63 +90,88 @@ window.onload = function() {
             })
         })
     } 
-    // else {
-    //     gnbA.forEach((a) => {
-    //         a.addEventListener('click', (e) => {
-    //             e.preventDefault(); // 기본 동작 방지
-        
-    //             const targetId = a.getAttribute('href').substring(1); // 링크의 href에서 '#' 제거
-    //             const targetSec = document.getElementById(targetId);
-        
-    //             if (targetSec) {
-    //                 // 해당 섹션의 위치로 스크롤
-    //                 targetSec.scrollIntoView({
-    //                     behavior: 'smooth' // 부드러운 스크롤
-    //                 });
-    //             }
-    //         });
-    //     });
-    // }
 
+
+
+    // ++++++++++++++++++ main ++++++++++++++++++
     //====== about me ======
     // ----- aboutme-tab-btn click 시 -----
     const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
     const effortBtn = document.querySelector('.effort-btn');
-    // const strengthBtn = document.querySelector('.strength-btn');
-    // const goalBtn = document.querySelector('.goal-btn');
-    // const historyBtn = document.querySelector('.history-btn');
-    // const aboutmeContents = document.querySelectorAll('.aboutme-content-txt');
-    // const effortTxt = document.querySelector('.effort');
-    // const goalTxt = document.querySelector('.goal');
+    const strengthBtn = document.querySelector('.strength-btn');
+    const goalBtn = document.querySelector('.goal-btn');
+    const historyBtn = document.querySelector('.history-btn');
+    const aboutmeContents = document.querySelectorAll('.aboutme-content-txt');
+    const effortTxt = document.querySelector('.effort');
+    const strengthTxt = document.querySelector('.strength');
+    const goalTxt = document.querySelector('.goal');
+    const historyTxt = document.querySelector('.history');
 
-    // ***** highlight css 적용 *****
-    const selectedAboutBtn = (e) => {
-        effortBtn.classList.remove('selected');
-        aboutBtns.forEach(btn => btn.classList.remove('selected'));
-        e.target.classList.add('selected');
-    }
 
-    aboutBtns.forEach(btn => {
-        btn.addEventListener('click', selectedAboutBtn);
+    // #초기화 상태 => effort
+    const initializeEffortBtn = () => {
+        // #모든 aboutmeContents 숨기기
+        aboutmeContents.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // #effortTxt 보이도록 설정
+        effortTxt.style.display = 'block';
+
+        // #모든 버튼에서 'selected' 클래스 제거
+        aboutBtns.forEach(btn => {
+            btn.classList.remove('selected');
+        });
+
+        // #effortBtn에 'selected' 클래스 추가
+        effortBtn.classList.add('selected');
+    };
+
+    
+    const observerAboutMe = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                initializeEffortBtn();
+            }
+        });
     });
 
-    // ***** 해당 내용 나오게 하기 *****
-    // const showContentTxt = (e) => {
-    //     effortTxt.style.display = 'none';
-    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
-    //     e.target.style.display = 'block';
-    // }
-    // effortBtn.addEventListener('click', () => {
-    //     effortTxt.style.display = 'block';
-    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
-    // });
+    // #Intersection Observer가 effortBtn을 감시
+    observerAboutMe.observe(effortBtn);
 
-    // goalBtn.addEventListener('click', () => {
-    //     goalTxt.style.display = 'block';
-    //     aboutmeContents.forEach(content => {content.style.display = 'none';});
-    // });
+    // #각 aboutBtns 버튼에 대한 클릭 이벤트 처리
+    aboutBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // #모든 버튼에서 'selected' 클래스 제거
+            aboutBtns.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // #클릭된 버튼에 'selected' 클래스 추가
+            e.target.classList.add('selected');
+
+            // #버튼 click 시 txt style
+            aboutmeContents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            if (e.target === effortBtn) {
+                effortTxt.style.display = 'block';
+            } else if (e.target === strengthBtn) {
+                strengthTxt.style.display = 'block';
+            } else if (e.target === goalBtn) {
+                goalTxt.style.display = 'block';
+            } else if (e.target === historyBtn) {
+                historyTxt.style.display = 'block';
+            }
+        });
+    });
+
 
     //====== skill ======
+    const $body = document.querySelector('body');
+    const icons = document.querySelectorAll('.icon-box > .icon');
+    const iconModal = document.querySelectorAll('.skill-desc .skill-desc-txt')
     // ----- [모바일] tabBtn click 시 -----
     if(windowWidth < 768) {
         const skillTabBtn = document.querySelectorAll('.skill-tab-btn button');
@@ -107,6 +186,40 @@ window.onload = function() {
         const etcIcon = document.querySelector('.icon-box .etc');
 
         // ***** selected css 적용 *****
+        // #초기 상태 => allBtn
+        const initializeSkillBtn = () => {
+            // #모든 btn class 제거 후 allBtn에만 적용
+            skillTabBtn.forEach(btn => btn.classList.remove('selected'));
+            allBtn.classList.add('selected');
+
+            // #모든 icon 보이게 하기
+            codingIcon.forEach(icon => {
+                icon.style.display = 'block';
+            });
+            designIcon.forEach(icon => {
+                icon.style.display = 'block';
+            });
+            videoIcon.style.display = 'block';
+            etcIcon.style.display = 'block';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
+        };
+
+        const observerSkill = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    initializeSkillBtn();
+                }
+            });
+        });
+    
+        // #Intersection Observer가 allBtn을 감시
+        observerSkill.observe(allBtn);
+    
+
         const selectedBtn = (e) => {
             allBtn.classList.remove('selected');
             skillTabBtn.forEach(btn => btn.classList.remove('selected'));
@@ -128,6 +241,11 @@ window.onload = function() {
             });
             videoIcon.style.display = 'block';
             etcIcon.style.display = 'block';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         });
 
         codingBtn.addEventListener('click', function() {
@@ -139,6 +257,11 @@ window.onload = function() {
             });
             videoIcon.style.display = 'none';
             etcIcon.style.display = 'none';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         });
 
         designBtn.addEventListener('click', function() {
@@ -150,6 +273,11 @@ window.onload = function() {
             });
             videoIcon.style.display = 'none';
             etcIcon.style.display = 'none';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         });
 
         videoBtn.addEventListener('click', function() {
@@ -161,6 +289,11 @@ window.onload = function() {
             });
             videoIcon.style.display = 'block';
             etcIcon.style.display = 'none';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         });
 
         etcBtn.addEventListener('click', function() {
@@ -172,15 +305,16 @@ window.onload = function() {
             });
             videoIcon.style.display = 'none';
             etcIcon.style.display = 'block';
+
+            // #donut graph 실행
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         });
-    }
 
 
-    // ----- [모바일] icon graph -----
-    if(windowWidth < 768) {
-        const donuts = document.querySelectorAll('.icon');
-    
-        donuts.forEach(donut => {
+        // ----- [모바일] icon graph -----
+        const donutAnimation =(donut) => {
             const ttlPercent = parseFloat(donut.dataset.deg);
             let final = 0;
             const donutAnimation = setInterval(() => {
@@ -192,16 +326,14 @@ window.onload = function() {
                     clearInterval(donutAnimation);
                 }
             }, 10);
+        }
+        const donuts = document.querySelectorAll('.icon');
+    
+        donuts.forEach(donut => {
+            donutAnimation(donut);
         });
-    }
-
-
-    // ----- [모바일] modal -----
-    const $body = document.querySelector('body');
-    const icons = document.querySelectorAll('.icon-box > .icon');
-    const iconModal = document.querySelectorAll('.skill-desc .skill-desc-txt')
-
-    if(windowWidth < 768 ) {
+        
+        // ----- [모바일] modal -----
         const skillDesc = document.querySelector('.skill-desc');
         const xBtn = document.querySelector('.x-btn');
     
@@ -223,15 +355,19 @@ window.onload = function() {
             skillDesc.style.display = 'none';
             iconModal.forEach(modal => modal.style.display = 'none');
             $body.classList.remove('scroll-stop');
+
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
         }
     
         // # button에 함수 적용하기
         xBtn.addEventListener('click', removeModal);
-    }
+    }  // [모바일] skill
 
 
     // ----- [PC] icon 배치 -----
-    if(windowWidth > 768) {
+    if(windowWidth >= 768) {
         const radius = 285;
 
         const iconArrangement = (idx) => {
@@ -251,16 +387,25 @@ window.onload = function() {
             iconArrangement(idx);
         });
 
-        // ----- [PC] skill-desc 애니메이션 -----
+
+        // ----- [PC] skill-desc / bar graph 애니메이션 -----
         const skillDescAni = document.querySelectorAll('.desc-txt-ani');
         const titleBox = document.querySelector('.title-box');
+        const barGraph = document.querySelectorAll('.skill-graph');
 
-        // #mouseover 시 적용될 css 함수 만들기 => movingSkillDesc
+        // #mouseenter 시 적용될 css 함수 만들기 => movingSkillDesc
         const movingSkillDesc = (idx) => {
             return () => {
-                skillDescAni[idx].classList.add('visible');
-                titleBox.style.display = 'none';
-                skillDescAni[idx].classList.add('moving');
+                titleBox.style.visibility = 'hidden';
+                
+                setTimeout(() => {
+                    skillDescAni[idx].classList.add('visible');
+                    skillDescAni[idx].classList.add('moving');
+    
+                    const graphBar = barGraph[idx].querySelector('.graph-bar');
+                    const data = parseFloat(barGraph[idx].getAttribute('data-value'));
+                    graphBar.style.width = `${data}%`;
+                },10)
             };
         };
         
@@ -271,9 +416,11 @@ window.onload = function() {
             
                 setTimeout(() => {
                     skillDescAni[idx].classList.remove('visible');
-                    titleBox.style.display = 'block';
-                },500)
-            
+                    titleBox.style.visibility = 'visible';
+                    const graphBar = barGraph[idx].querySelector('.graph-bar');
+                    graphBar.style.width = '0';
+                },300)
+                
             };
         };
 
@@ -287,22 +434,6 @@ window.onload = function() {
         });
     }
 
-
-    // ----- [PC] bar graph 만들기 -----
-    // #skill-graph, graph-bar 변수 지정
-    const barGraph = document.querySelectorAll('.skill-graph');
-    // #각 skill-graph 지정
-    barGraph.forEach(bar => {
-        // #data-value 속성값 변수 지정하여 불러오기
-        const graphBar = document.querySelectorAll('.graph-bar');
-        const data = parseFloat(bar.getAttribute('data-value'));
-
-        console.log(data);
-        // #style 적용하기
-        graphBar.forEach(graph => {
-            graph.style.width = `${data}%`;
-        })
-    });
     
     //====== portfolio_title ======
 
@@ -330,8 +461,75 @@ window.onload = function() {
         });
     }
 
-    //====== contact ======
+    // ----- [공통] 화면에 보일 때 img 애니메이션 실행되게 하기 -----
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            // #entry가 화면에 보이는 경우
+            if(entry.isIntersecting) {
+                const target = entry.target;
+                target.classList.add('img-animation');
+                observer.unobserve(target);  // 한 번만 작동하도록 관찰 중지
+            }
+        });
+    });
 
+    // #img 요소 가져와서 IntersectionObserver로 관찰
+    const images = document.querySelectorAll('.website-image img');
+    images.forEach(img => {
+        observer.observe(img);
+        img.style.cursor ='pointer';
+
+        img.addEventListener('mouseenter', () => {
+            img.style.animationPlayState = 'paused';
+        });
+
+        img.addEventListener('mouseleave', () => {
+            img.style.animationPlayState = 'running';
+        });
+    });
+
+    // ----- [공통] 화면에 보일 때 txt 애니메이션 실행되게 하기 -----
+    const observerTxt = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const target = entry.target;
+
+            if (entry.isIntersecting) {
+                target.classList.add('pf-active');
+            }  else {
+                target.classList.remove('pf-active');
+            }
+        });
+    });
+
+    const texts = document.querySelectorAll('.pf-txt');
+    texts.forEach(txt => {
+        observerTxt.observe(txt);
+    });
+
+    // ----- [공통] 화면에 보일 때 btn 애니메이션 실행되게 하기 -----
+    const observerBtn = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const target = entry.target;
+
+            if (entry.isIntersecting) {
+                target.classList.add('pfBtn-active');
+            }  else {
+                target.classList.remove('pfBtn-active');
+            }
+        });
+    });
+
+    const bottuns = document.querySelectorAll('.pf-btn');
+    bottuns.forEach(btn => {
+        observerBtn.observe(btn);
+    });
+
+    //====== contact ======
+   
+
+
+    // ++++++++++++++++++ footer ++++++++++++++++++
+    
 };
 
 $(document).ready(function() {

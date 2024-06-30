@@ -30,7 +30,7 @@ main {
         font-size: 2rem;
 
         @include responsive(large-screens) {
-            padding-top: 170px;
+            padding-top: 17vh;
             font-size: 3rem;
         }
     }
@@ -60,7 +60,6 @@ main {
             text-align: center;
 
             @include responsive(large-screens) {
-                padding-top: 170px;
                 text-align: left;
             }
         }
@@ -78,8 +77,8 @@ main {
                 // background-color: darkgreen;
     
                 @include responsive(large-screens) {
-                    width: 800px;
-                    height: 640px;
+                    width: 43vw;
+                    height: 75vh;
     
                 }
     
@@ -111,7 +110,7 @@ main {
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 5px; top: 240px;
+                        left: 2vw; top: 245px;
                     }
 
                     .big-line {
@@ -129,7 +128,7 @@ main {
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 230px; top: -40px;
+                        left: 17vw; top: -40px;
     
                     }
                     .small-line {
@@ -145,10 +144,12 @@ main {
     
             .txt-content-box {
                 margin-top: 7vh;
-    
+                // background-color: lightblue;
+
                 @include responsive(large-screens) {
                     margin-top: 0;
                     margin-left: 40px;
+                    width: 57vw;
                 }
                 .main-txt {
                     font-size: 1rem;
@@ -284,14 +285,34 @@ main {
                     }
                 }  // aboutme-tab-btn
     
-    
-                .aboutme-content-txt {
-                    .txt {
-                        font-size: 0.833rem;
-                        line-height: 1.8;
+                .aboutme-content-box {
+                    position: relative;
+                    width: $wide-width;
+                    height: 42vh;
 
-                        @include responsive(large-screens) {
-                            font-size: 1.167rem;
+                    .aboutme-content-txt {
+                        position: absolute;
+                        left: 0; top: 0;
+                        .txt {
+                            font-size: 0.833rem;
+                            line-height: 1.8;
+                            background-color: lightgreen;
+    
+                            @include responsive(large-screens) {
+                                font-size: 1.167rem;
+                            }
+                        }
+    
+                        &.strength {
+                            display: none;
+                        }
+    
+                        &.goal {
+                            display: none;
+                        }
+    
+                        &.history {
+                            display: none;
                         }
                     }
                 }
@@ -524,7 +545,7 @@ main {
                         border-radius: 50%;
                         visibility: hidden;
                         opacity: 0;
-                        transition: transform 0.5s ease;
+                        transition: transform 0.3s ease;
                         transform-style: preserve-3d;
                     }
 
@@ -535,7 +556,7 @@ main {
 
                     &.moving {
                         transform: rotateY(180deg);
-                        transition: transform 0.5s ease 0.5s;
+                        transition: transform 0.5s ease 0.7s;
                     }
                     
                     .desc-front {
@@ -597,10 +618,9 @@ main {
                                         width: 0;
                                         height: 10px;
                                         border-radius: 10px;
-                                        transform: width 1s;
+                                        transition: width 0.5s;
                                         background-color: $color-graph;
                                     }
-    
                                 }
                             }
                         }
@@ -613,17 +633,28 @@ main {
                             transform:  translate(-50%, -50%) rotateY(180deg);
                             z-index: 0;
                             display: flex;
+                            flex-direction: column;
                             align-items: center;
                             justify-content: center;
-                            margin-top: 0;
+                            gap: 10px;
                             width: 100%;
                             height: 100%;
                             border: 1px solid $color-main;
                             border-radius: 50%;
                             background-color: $main-bg;
                         }
+
+                        .percent {
+                            display: none;
+
+                            @include responsive(large-screens) {
+                                display: block;
+                                font-size: 1.5rem;
+                            }
+                        }
+
                         .desc-txt {
-                            margin-top: 3vh;
+                            // margin-top: 3vh;
                             width: 90%;
                             font-size: 0.833rem;
                         }
@@ -649,12 +680,14 @@ main {
         // +++++++ portfolio-detail +++++++
         .portfolio-detail {
             display: flex;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 90vw;
-            height: 450px;
-            border-radius: 30px;
-            background-color: $color-main;
+            flex-direction: column;
+
+            // overflow: hidden;
+            // white-space: nowrap;
+            // width: 90vw;
+            // height: 450px;
+            // border-radius: 30px;
+            // background-color: $color-main;
 
             @include responsive(large-screens) {
                 flex-direction: column;
@@ -670,19 +703,36 @@ main {
             
 
             .portfolio_1 {
-                .pf-content-title {
-                    margin-bottom: 10px;
-                }
+                margin-bottom: 5vh;
+                // background-color: aquamarine;
                 
+
                 .hollys-content-box {
                     @include responsive(large-screens) {
                         height: 653px;
                     }
+
                     .hollys-img {
+                        border-radius: 5vw;
+
                         @include responsive(large-screens) {
                             width: 580px;
                             height: 653px;
                             border-radius: 0 165px 0 165px;
+                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+                        }
+
+                        img {
+                            &.img-animation {
+                                animation: moving 8s ease infinite;
+                                @keyframes moving {
+                                    0% { transform:translateY(0) }
+                                    40% { transform:translateY(-50%) }
+                                    50% { transform:translateY(-50%) }
+                                    90% { transform:translateY(0) }
+                                    100% { transform:translateY(0) }
+                                }
+                            }
                         }
                     }
 
@@ -698,10 +748,7 @@ main {
 
 
             .portfolio_2 {
-                .pf-content-title {
-                    margin-bottom: 10px;
-                    text-align: right;
-                }
+                margin-bottom: 5vh;
                 
                 .station-content-box {
                     @include responsive(large-screens) {
@@ -710,10 +757,37 @@ main {
                     }
 
                     .station-img {
+                        border-radius: 5vw;
+
                         @include responsive(large-screens) {
                             width: 800px;
                             height: 603px;
                             border-radius: 200px 0 200px 0;
+                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+                        }
+
+                        img {
+                            &.img-animation {
+                                animation: moving2 15s ease infinite;
+
+                                @include responsive(large-screens) {
+                                    @keyframes moving2 {
+                                        0% { transform:translateY(0) }
+                                        40% { transform:translateY(-89%) }
+                                        50% { transform:translateY(-89%) }
+                                        90% { transform:translateY(0) }
+                                        100% { transform:translateY(0) }
+                                    }
+                                }
+
+                                @keyframes moving2 {
+                                    0% { transform:translateY(0) }
+                                    40% { transform:translateY(-85%) }
+                                    50% { transform:translateY(-85%) }
+                                    90% { transform:translateY(0) }
+                                    100% { transform:translateY(0) }
+                                }
+                            }
                         }
                     }
 
@@ -722,6 +796,8 @@ main {
                             width: 566px;
                             height: 400px;
                             margin: 0;
+                            transform: translateX(-30vw);
+                            transition:  transform 0.3s;
                         }
                     }
                 }  //  station-content-box
@@ -729,26 +805,33 @@ main {
 
 
             .portfolio_3 {
-
-                .pf-content-title {
-                    @include responsive(large-screens) {
-                        position: relative;
-                        padding-top: 10vh;
-                        left: 650px;
-                        top: 190px;
-                    }
-                }
-                
                 .personal-content-box {
                     @include responsive(large-screens) {
                         height: 700px;
                     }
                     .personal-img {
+                        border-radius: 5vw;
+                        
                         @include responsive(large-screens) {
                             width: 580px;
                             height: 700px;
                             border-radius: 300px;
-                            box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+                            border: 1px solid $color-main;
+                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+                        }
+
+                        img {
+                            &.img-animation {
+                                animation: moving3 15s ease infinite;
+                                
+                                @keyframes moving3 {
+                                    0% { transform:translateY(0) }
+                                    40% { transform:translateY(-89%) }
+                                    50% { transform:translateY(-89%) }
+                                    90% { transform:translateY(0) }
+                                    100% { transform:translateY(0) }
+                                }
+                            }
                         }
                     }
 
@@ -797,7 +880,7 @@ main {
 
             .contact-line-content {
                 position: relative;
-                top: -35px;
+                top: -4vh;
                 width: 90vw;
                 height: 90vw;
                 border: 1px solid $color-main;
@@ -810,16 +893,19 @@ main {
                 }
                 .contact-content {
                     position: absolute;
-                    left: 50%; top: 50%;
+                    left: 50%; top: 55%;
                     transform: translate(-50%, -50%);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    height: 65%;
+                    height: 80%;
                     // background-color: lightcoral;
 
                     form {
                         width: 55vw;
+                        height: $wide-height;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        // background-color: lightblue;
 
                         @include responsive(large-screens) {
                             width: 20vw;
@@ -827,7 +913,8 @@ main {
 
                         div {
                             width: $wide-width;
-                            margin-bottom: 2vh;
+                            height: 22%;
+                            // margin-bottom: 1vh;
 
                             @include responsive(large-screens) {
                                 margin-bottom: 4vh;
@@ -835,7 +922,7 @@ main {
 
                             label {
                                 font-size: 0.833rem;
-
+                                // background-color: lightgrey;
                                 
                                 @include responsive(large-screens) {
                                     font-size: 1.167rem;
@@ -844,12 +931,13 @@ main {
 
                             input {
                                 width: $wide-width;
-                                height: 3vh;
+                                height: 2.5vh;
                                 margin-top: 7px;
                                 padding-left: 7px;
                                 border-style: none;
                                 border-bottom: 1px solid $color-main;
                                 background-color: transparent;
+                                // background-color: lightseagreen;
 
                                 @include responsive(large-screens) {
                                     height: 4vh;
@@ -869,84 +957,88 @@ main {
                                     }
                                 }
                                 
-                                &:focus {
-                                    outline: none;
+                                &[type=text] {
                                     color: $color-main;
+                                    outline: none;
                                 }
 
                                 &:focus::placeholder {
                                     opacity: 0;
+                                }
+                                
+                            }
+
+                            // &.name-box {
+                            //     background-color: lightcoral;
+                            // }
+
+                            &.message-box {
+                                // background-color: lightgreen;
+                                height: 40%;
+                                
+                                textarea {
+                                    width: $wide-width;
+                                    // height: 80%;
+                                    margin-top: 7px;
+                                    padding: 7px;
+                                    border: 1px solid $color-main;
+                                    border-radius: 3px;
+                                    color: $color-main;
+                                    font-family: $ko-font;
+                                    background-color: transparent;
+    
+                                    @include responsive(large-screens) {
+                                        height: 150px;
+                                    }
+    
+                                    &::placeholder {
+                                        font: {
+                                            family: $ko-font;
+                                            size: 0.667rem;   
+                                        }
+                                        opacity: 1;
+                                        color: rgba($color-main, 0.5);
+    
+                                        @include responsive(large-screens) {
+                                            font-size: 0.833rem;
+                                        }
+                                    }
+    
+                                    &:focus {
+                                        outline: none;
+                                    }
+    
+                                    &:focus::placeholder {
+                                        opacity: 0;
+                                    }
                                 }
                             }
 
-                            textarea {
-                                width: $wide-width;
-                                height: 58px;
-                                margin-top: 7px;
-                                padding: 7px;
-                                border: 1px solid $color-main;
-                                border-radius: 3px;
-                                background-color: transparent;
+                            
+                        }
 
-                                @include responsive(large-screens) {
-                                    height: 90px;
-                                }
-
-                                &::placeholder {
-                                    font: {
-                                        family: $ko-font;
-                                        size: 0.667rem;   
-                                    }
-                                    opacity: 1;
-                                    color: rgba($color-main, 0.5);
-
-                                    @include responsive(large-screens) {
-                                        font-size: 0.833rem;
-                                    }
-                                }
-
-                                &:focus {
-                                    outline: none;
-                                    font-family: $ko-font;
-                                    color: $color-main;
-                                }
-
-                                &:focus::placeholder {
-                                    opacity: 0;
-                                }
+                        #send {
+                            position: relative;
+                            z-index: 1;
+                            width: 70px;
+                            height: 30px;
+                            border-radius: 25px;
+                            font: {
+                                family: $ko-font;
+                                size: 0.833rem;
+                            }
+                            text-align: center;
+                            border: 1px solid $color-black;
+                            background-color: $color-main;
+                            cursor: pointer;
+    
+                            @include responsive(large-screens) {
+                                width: 30%;
+                                padding: 4px 0;
+                                font-size: 1rem;
                             }
                         }
                     }  // form
-
-                    .send-btn {
-                        position: relative;
-                        z-index: 1;
-                        padding: 2px 20px;
-                        border-radius: 25px;
-                        font: {
-                            family: $ko-font;
-                            size: 0.833rem;
-                        }
-                        background-color: $color-main;
-                        cursor: pointer;
-
-                        @include responsive(large-screens) {
-                            padding: 4px 40px;
-                            font-size: 1rem;
-                        }
-
-                        // &:hover::after {
-                        //     position: absolute;
-                        //     z-index: 0;
-                        //     left: 0; top: 0;
-                        //     width: $wide-width;
-                        //     height: $wide-height;
-                        //     border-radius: 25px;
-                        //     content: '';
-                        //     color: $color-main; 
-                        //     background-color: $color-point;
-                        // }
-                    }
                 }  // contact-content
             }  // contact-line-content
         }  // contact-content-box

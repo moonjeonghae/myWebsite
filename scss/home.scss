@@ -60,7 +60,8 @@
                 animation: cloudMove 4s ease-in-out infinite;
 
                 @include responsive(large-screens) {
-                    right: 0; bottom: 500px;
+                    z-index: 1;
+                    right: 0; bottom: 52vh;
                     width: 285px;
                 }
             }

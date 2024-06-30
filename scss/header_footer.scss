@@ -34,6 +34,7 @@
                 z-index: 2000;
                 margin: 0;
                 width: 12vw;
+                cursor: pointer;
     
                 @include responsive(large-screens) {
                     width: 80px;
@@ -94,9 +95,19 @@
                             @include responsive(large-screens) {
                                 font: {
                                     family: $en-font;
-                                    weight: $en-font-regular;
+                                    weight: 500;
                                     size: 1.167rem;
                                 }
+                            }
+
+                            &:hover {
+                                color: $color-main;
+                                text-shadow:  0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+                            }
+
+                            &.gnb-selected {
+                                color: $color-main;
+                                text-shadow:  0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
                             }
                         }
                     }
@@ -293,6 +304,28 @@
     
                                     @include responsive(large-screens) {
                                         width: 35px;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.phone-icon {
+                            a {
+                                address {
+                                    display: none;
+                                }
+
+                                &:hover {
+                                    position: relative;
+
+                                    address {
+                                        @include responsive(large-screens) {
+                                            display: block;
+                                            position: absolute;
+                                            left: -40px; top: -30px;
+                                            width: 110px;
+                                            // background-color: lightblue;
+                                        }
                                     }
                                 }
                             }

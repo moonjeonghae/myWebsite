@@ -130,8 +130,11 @@
 @mixin portfolio-detail-common() {
     div {
         width: $wide-width;
-        height: 100vh;
-
+        height: 150vW;
+        // background-color: antiquewhite;
+        @include responsive(large-screens) {
+            height: 100vh;
+        }
         // 공통 style
         .pf-content-box {
             width: $wide-width;
@@ -146,7 +149,7 @@
             .website-image {
                 position: relative;
                 width: $wide-width;
-                height: 300px;
+                height: 100vw;
                 overflow: hidden;
                 margin: 0;
                 background-color: antiquewhite;
@@ -154,14 +157,7 @@
                 img {
                     position: absolute;
                     left: 0; top: 0;
-                    width: 90vw;
-                    // animation: imgMove 10s linear infinite;
-
-                    // @keyframes imgMove {
-                    //     0% { transform: translateY(0); }
-                    //     50% { transform: translateY(-450px); }
-                    //     100% { transform: translateY(0); }
-                    // }
+                    width: $wide-width;
                     
                     @include responsive(large-screens) {
                         width: $wide-width;
@@ -170,18 +166,26 @@
             }
 
             .pf-txt {
-                width: 90vw;
-                height: 150px;
-                padding: 10px 15px;
+                width: 87vw;
+                height: 50vw;
+                padding: 10px 0;
+                transform: translateX(-30vw);
+                transition:  transform 0.3s;
                 // background-color: lightblue;
+
+                @include responsive(large-screens) {
+                    transform: translateX(30vw);
+                }
+
+                &.pf-active {
+                    transform: translateX(0);
+                }
 
                 .ko-content-title {
                     font-size: 1.167rem;
-                    color: $color-black;
                     
                     @include responsive(large-screens) {
                         font-size: 1.667rem;
-                        color: $color-main;
                     }
                 }
 
@@ -191,19 +195,18 @@
                         weight: $ko-font-light;
                         size: 0.675rem;
                     }
-                    color: $color-black;
 
                     @include responsive(large-screens) {
                         margin-top: 5px;
                         font-size: 0.833rem;
-                        color: $color-main;
                     }
                 }
 
                 .duration {
                     display: flex;
+                    justify-content: space-between;
                     margin: 0;
-                    width: 210px;
+                    width: 230px;
                     height: 20px;
                     // background-color: antiquewhite;
 
@@ -214,26 +217,23 @@
                     }
 
                     .duration-txt {
+                        width: 35%;
                         font: {
                             weight: $ko-font-semibold;
                             size: 0.833rem;
                         }
-                        color: $color-black;
 
                         @include responsive(large-screens) {
                             width: 100px;
                             font-size: 1rem;
-                            color: $color-main;
                         }
                     }
 
                     .time {
                         font-size: 0.833rem;
-                        color: $color-black;
 
                         @include responsive(large-screens) {
                             font-size: 1rem;
-                            color: $color-main;
                         }
                     }
                 }
@@ -260,7 +260,6 @@
                         li {
                             margin: 0 10px;
                             font-size: 0.776rem;
-                            color: $color-mainbg;
 
                             @include responsive(large-screens) {
                                 height: $wide-height;
@@ -290,7 +289,6 @@
 
                 .desc-txt {
                     display: none;
-
                     @include responsive(large-screens) {
                         display: block;
                         width: $wide-width;
@@ -302,11 +300,26 @@
                 .pf-btn {
                     width: $wide-width;
                     margin-top: 10px;
+                    white-space: nowrap;
+                    overflow-x: scroll;
                     // background-color: aquamarine;
+                    opacity: 0;
+                    transform: translateY(3vw);
+                    transition: transform 0.3s ease 0.2s, opacity 0.3s linear 0.2s;
+
+                    &.pfBtn-active {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    &::-webkit-scrollbar {
+                        display: none; /* Webkit 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨김 */
+                    }
 
                     @include responsive(large-screens) {
                         margin: 0;
                         height: 40px;
+                        overflow-x: visible;
                     }
 
                     button {
