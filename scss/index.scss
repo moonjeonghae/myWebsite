@@ -68,7 +68,7 @@ main {
         .aboutme-content {
             @include responsive(large-screens) {
                 display: flex;
-                align-items: center;
+                // align-items: center;
             }
 
             .photo-content {
@@ -78,7 +78,7 @@ main {
     
                 @include responsive(large-screens) {
                     width: 43vw;
-                    height: 75vh;
+                    height: 70vh;
     
                 }
     
@@ -147,15 +147,19 @@ main {
                 // background-color: lightblue;
 
                 @include responsive(large-screens) {
-                    margin-top: 0;
+                    margin-top: 3vh;
                     margin-left: 40px;
                     width: 57vw;
                 }
                 .main-txt {
                     font-size: 1rem;
-    
+
                     @include responsive(large-screens) {
                            font-size: 1.667rem;
+                    }
+
+                    .hello {
+                        display: inline-block;
                     }
 
                     strong {
@@ -171,56 +175,36 @@ main {
                         
                         span {
                             display: inline-block;
-                            
+
                             &.job {
                                 display: none;
-                                // white-space: nowrap;
-                                // overflow: hidden;
-                                // border-right: 2px solid $color-main;
-                                // padding-right: 0.5vw;
-                                background-color: lightblue;
-                                // animation: typing 0.5s steps(5), blink 0.5s step-end infinite alternate;
-
-                                // @keyframes typing {
-                                //     from { width: 0; }
-                                //     to { width: 18vw; }
-                                // }
-
-                                // @keyframes blink {
-                                //     0% { border-color: $color-main; }
-                                //     50% { border-color: transparent; }
-                                //     100% { border-color: $color-main; }
-                                // }
                             }
                             
                             &.highlight {
-                                // white-space: nowrap;
-                                // overflow: hidden;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                vertical-align: top;
+                                visibility: hidden;
+                                transition: visibility 0.1s linear 0.5s;
+                                // background-color: lightblue;
 
-                                // animation: bracketScale 0.5s;
-
-                                // @keyframes bracketScale {
-                                //     from { width: 0; }
-                                //     to { width: 15vw; }
-                                // }
-
+                                &.highlight-visible {
+                                    visibility: visible;
+                                }
+                                
                                 .bracket {
                                     color: $small-starlight;
                                 }
 
-                                // .name {
-                                //     // white-space: nowrap;
-                                //     // overflow: hidden;
-                                //     // opacity: 0;
-                                //     // animation: bracketScale 0.5s steps(4) 0.5s forwards;
-
-                                //     // @keyframes bracketScale {
-                                //     //     from { width: 0; opacity: 1; }
-                                //     //     to { width: 10vw; opacity: 1;}
-                                //     // }
-                                // }
+                                .name {
+                                    display: none;
+                                }
                             }
                         }
+
+                    }
+                    .verb {
+                        display: inline-block;
                     }
                 }  // main-txt
     
@@ -229,7 +213,7 @@ main {
                     margin: 3vh 0 2vh 1vh;
 
                     @include responsive(large-screens) {
-                           margin-top: 40px;
+                           margin-top: 30px;
                     }
 
                     button {
@@ -296,7 +280,7 @@ main {
                         .txt {
                             font-size: 0.833rem;
                             line-height: 1.8;
-                            background-color: lightgreen;
+                            // background-color: lightgreen;
     
                             @include responsive(large-screens) {
                                 font-size: 1.167rem;
@@ -305,10 +289,40 @@ main {
     
                         &.strength {
                             display: none;
+                            
+                            .strength-list {
+                                div {
+                                    margin-bottom: 2vh;
+
+                                    @include responsive(large-screens) {
+                                        margin-bottom: 30px;
+                                    }
+                                    
+                                    .strength-keyword {
+                                        margin-bottom: 5px;
+
+                                        @include responsive(large-screens) {
+                                            font-size: 1.333rem;
+                                        }
+                                    }
+
+                                    &.list3 {
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
                         }
     
                         &.goal {
                             display: none;
+
+                            .gaol-title {
+                                margin-bottom: 15px;
+
+                                @include responsive(large-screens) {
+                                    font-size: 1.333rem;
+                                }
+                            }
                         }
     
                         &.history {
@@ -689,15 +703,14 @@ main {
             // border-radius: 30px;
             // background-color: $color-main;
 
-            @include responsive(large-screens) {
-                flex-direction: column;
-                overflow: visible;
-                white-space: wrap;
-                width: $wide-width;
-                height: $wide-height;
-                border-radius: 0;
-                background-color: transparent;
-            }
+            // @include responsive(large-screens) {
+            //     flex-direction: column;
+            //     overflow: visible;
+            //     white-space: wrap;
+            //     width: $wide-width;
+            //     height: $wide-height;
+            //     background-color: transparent;
+            // }
             
             @include portfolio-detail-common();
             
@@ -706,9 +719,13 @@ main {
                 margin-bottom: 5vh;
                 // background-color: aquamarine;
                 
-
+                @include responsive(large-screens) {
+                    margin-bottom: 0;
+                }
+                
                 .hollys-content-box {
                     @include responsive(large-screens) {
+                        width: $wide-width;
                         height: 653px;
                     }
 
@@ -737,10 +754,19 @@ main {
                     }
 
                     .hollys-txt {
+                        background-color: lightgreen;
+
                         @include responsive(large-screens) {
+                            // width: 40vw;
                             width: 700px;
                             height: 375px;
+                            margin: 0;
                             padding: 0;
+                            // margin-left: 5vw;
+                        }
+
+                        .desc-txt {
+                            height: 150px;
                         }
                     }
                 }
@@ -750,6 +776,10 @@ main {
             .portfolio_2 {
                 margin-bottom: 5vh;
                 
+                @include responsive(large-screens) {
+                    margin-bottom: 0;
+                }
+
                 .station-content-box {
                     @include responsive(large-screens) {
                         flex-direction: row-reverse;
@@ -792,6 +822,8 @@ main {
                     }
 
                     .station-txt {
+                        background-color: lightgreen;
+
                         @include responsive(large-screens) {
                             width: 566px;
                             height: 400px;
@@ -809,6 +841,7 @@ main {
                     @include responsive(large-screens) {
                         height: 700px;
                     }
+
                     .personal-img {
                         border-radius: 5vw;
                         
@@ -836,6 +869,7 @@ main {
                     }
 
                     .personal-txt {
+                        background-color: lightgreen;
                         @include responsive(large-screens) {
                             width: 690px;
                             height: 300px;

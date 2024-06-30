@@ -174,7 +174,9 @@
                 // background-color: lightblue;
 
                 @include responsive(large-screens) {
+                    width: $wide-width;
                     transform: translateX(30vw);
+                    margin: 0;
                 }
 
                 &.pf-active {
@@ -289,11 +291,12 @@
 
                 .desc-txt {
                     display: none;
+
                     @include responsive(large-screens) {
                         display: block;
                         width: $wide-width;
-                        height: 200px;
-                        // background-color: bisque;
+                        // height: 150px;
+                        background-color: bisque;
                     }        
                 }
 

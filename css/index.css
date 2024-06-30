@@ -1056,7 +1056,6 @@ main .about-me .title {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content {
     display: flex;
-    align-items: center;
   }
 }
 main .about-me .aboutme-content .photo-content {
@@ -1066,7 +1065,7 @@ main .about-me .aboutme-content .photo-content {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content {
     width: 43vw;
-    height: 75vh;
+    height: 70vh;
   }
 }
 main .about-me .aboutme-content .photo-content .my-photo {
@@ -1133,7 +1132,7 @@ main .about-me .aboutme-content .txt-content-box {
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .txt-content-box {
-    margin-top: 0;
+    margin-top: 3vh;
     margin-left: 40px;
     width: 57vw;
   }
@@ -1145,6 +1144,9 @@ main .about-me .aboutme-content .txt-content-box .main-txt {
   main .about-me .aboutme-content .txt-content-box .main-txt {
     font-size: 1.667rem;
   }
+}
+main .about-me .aboutme-content .txt-content-box .main-txt .hello {
+  display: inline-block;
 }
 main .about-me .aboutme-content .txt-content-box .main-txt strong {
   display: inline-block;
@@ -1161,17 +1163,32 @@ main .about-me .aboutme-content .txt-content-box .main-txt strong span {
 }
 main .about-me .aboutme-content .txt-content-box .main-txt strong span.job {
   display: none;
-  background-color: lightblue;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight {
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+  visibility: hidden;
+  transition: visibility 0.1s linear 0.5s;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight.highlight-visible {
+  visibility: visible;
 }
 main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight .bracket {
   color: #efb1d5;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight .name {
+  display: none;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt .verb {
+  display: inline-block;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
   margin: 3vh 0 2vh 1vh;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
@@ -1237,7 +1254,6 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
   font-size: 0.833rem;
   line-height: 1.8;
-  background-color: lightgreen;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
@@ -1247,8 +1263,35 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength {
   display: none;
 }
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength .strength-list div {
+  margin-bottom: 2vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength .strength-list div {
+    margin-bottom: 30px;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength .strength-list div .strength-keyword {
+  margin-bottom: 5px;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength .strength-list div .strength-keyword {
+    font-size: 1.333rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength .strength-list div.list3 {
+  margin-bottom: 0;
+}
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.goal {
   display: none;
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.goal .gaol-title {
+  margin-bottom: 15px;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.goal .gaol-title {
+    font-size: 1.333rem;
+  }
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history {
   display: none;
@@ -1704,17 +1747,6 @@ main .portfolio .portfolio-detail {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail {
-    flex-direction: column;
-    overflow: visible;
-    white-space: wrap;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    background-color: transparent;
-  }
-}
 main .portfolio .portfolio-detail div {
   width: 100%;
   height: 150vW;
@@ -1763,7 +1795,9 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+    width: 100%;
     transform: translateX(30vw);
+    margin: 0;
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt.pf-active {
@@ -1874,7 +1908,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
     display: block;
     width: 100%;
-    height: 200px;
+    background-color: bisque;
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
@@ -1969,7 +2003,13 @@ main .portfolio .portfolio-detail .portfolio_1 {
   margin-bottom: 5vh;
 }
 @media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_1 {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box {
+    width: 100%;
     height: 653px;
   }
 }
@@ -2003,15 +2043,27 @@ main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-img i
     transform: translateY(0);
   }
 }
+main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt {
+  background-color: lightgreen;
+}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt {
     width: 700px;
     height: 375px;
+    margin: 0;
     padding: 0;
   }
 }
+main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt .desc-txt {
+  height: 150px;
+}
 main .portfolio .portfolio-detail .portfolio_2 {
   margin-bottom: 5vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_2 {
+    margin-bottom: 0;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_2 .station-content-box {
@@ -2068,6 +2120,9 @@ main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img
     transform: translateY(0);
   }
 }
+main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-txt {
+  background-color: lightgreen;
+}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-txt {
     width: 566px;
@@ -2112,6 +2167,9 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
   100% {
     transform: translateY(0);
   }
+}
+main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-txt {
+  background-color: lightgreen;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-txt {

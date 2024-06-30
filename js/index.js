@@ -45,10 +45,13 @@ window.onload = function() {
 
         // #현재 스크롤 위치에 따라 gnb에 효과 적용하기
         const activeGnb = () => {
-            const scrollPos = window.scrollY;
+            const scrollPos = window.scrollY + window.innerHeight / 2;
 
-            sectionOffsets.forEach((offset, idx) => {
-                if (scrollPos >= offset && scrollPos < offset + sections[idx].offsetHeight) {
+            sections.forEach((section, idx) => {
+                const sectionTop = sectionOffsets[idx];
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
                     gnbs.forEach(a => a.classList.remove('gnb-selected'));
                     gnbs[idx].classList.add('gnb-selected');
                 }
@@ -95,6 +98,73 @@ window.onload = function() {
 
     // ++++++++++++++++++ main ++++++++++++++++++
     //====== about me ======
+    // ----- [공통] 첫 번째 타이핑 효과 => 웹 개발자 -----
+    var isTypingJob = false;
+    var typingIdxJob = 0;
+    var tyIntJob;
+
+    // #typing 할 텍스트 가지고 오기
+    var typingTxtJob = document.querySelector('.job').innerText;  
+    
+    // #텍스트 한글자씩 자르기
+    typingTxtJob = typingTxtJob.split(''); 
+
+    // #typing 함수 만들기
+    function typeTextJob() {
+        if (typingIdxJob < typingTxtJob.length) {
+            document.querySelector('.job-typing').innerText += typingTxtJob[typingIdxJob];
+            typingIdxJob++;
+        } else {
+            clearInterval(tyIntJob);
+            isTypingJob = false;
+        }
+    };
+
+    // #typing이 진행되지 않으면 typing 실행함
+    setTimeout(() => {
+        if (isTypingJob == false) {
+            isTypingJob = true;
+            tyIntJob = setInterval(typeTextJob, 100);
+        }
+    }, 200);
+
+    // ----- [공통] bracket 나타나게 하기 -----
+    setTimeout(() => {
+        document.querySelector('.highlight').classList.add('highlight-visible');
+    }, 500)
+
+    // ----- [공통] 두 번째 타이핑 효과 => 문정해 -----
+    var isTypingName = false;
+    var typingIdxName = 0;
+    var tyIntName; 
+
+    // #typing 할 텍스트 가지고 오기
+    var typingTxtName = document.querySelector('.name').innerText;  
+    
+    // #텍스트 한글자씩 자르기
+    typingTxtName = typingTxtName.split(''); 
+
+    // #typing 함수 만들기
+    function typeTextName() {
+        if (typingIdxName < typingTxtName.length) {
+            document.querySelector('.name-typing').innerText += typingTxtName[typingIdxName];
+            typingIdxName++;
+        } else {
+            clearInterval(tyIntName);
+            isTypingName = false;
+        }
+
+    };
+    
+    // #typing이 진행되지 않으면 typing 실행함
+    setTimeout(() => {
+        if (isTypingName == false) {
+            isTypingName = true;
+            tyIntName = setInterval(typeTextName, 100);
+        }
+    }, 1100);
+
+
     // ----- aboutme-tab-btn click 시 -----
     const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
     const effortBtn = document.querySelector('.effort-btn');
@@ -532,29 +602,66 @@ window.onload = function() {
     
 };
 
-$(document).ready(function() {
-// 초기값은 typing 진행 안 하는 것으로 설정
-var isTyping = false;
-var typingIdx = 0;
+// $(document).ready(function() {
+//     // 첫 번째 타이핑 효과
+//     var isTypingJob = false;
+//     var typingIdxJob = 0;
 
-// typing 할 텍스트 가지고 오기
-var typingTxt = $('.job').text();  
-// 텍스트 한글자씩 자르기
-typingTxt = typingTxt.split('');
+//     // typing 할 텍스트 가지고 오기
+//     var typingTxtJob = $('.job').text();  
+//     // 텍스트 한글자씩 자르기
+//     typingTxtJob = typingTxtJob.split('');
 
-// typing 함수 만들기
-function typeText() {
-    if (typingIdx < typingTxt.length) {
-        $('.job-typing').append(typingTxt[typingIdx]);
-        typingIdx++;
-    } else {
-        clearInterval(tyInt);
-    }
-}
+//     // typing 함수 만들기
+//     function typeTextJob() {
+//         if (typingIdxJob < typingTxtJob.length) {
+//             $('.job-typing').append(typingTxtJob[typingIdxJob]);
+//             typingIdxJob++;
+//         } else {
+//             clearInterval(tyIntJob);
+//             isTypingJob = false;
+//         }
+//     }
 
-// typing이 진행되지 않으면 typing 실행함
-if (isTyping == false) {
-    isTyping = true;
-    var tyInt = setInterval(typeText, 100);
-}
-});
+//     // typing이 진행되지 않으면 typing 실행함
+    
+//     setTimeout(() => {
+//         if (isTypingJob == false) {
+//             isTypingJob = true;
+//             tyIntJob = setInterval(typeTextJob, 100);
+//         }
+//     }, 200);
+
+//     setTimeout(() => {
+//         $('.highlight').addClass('highlight-visible');
+//     }, 500)
+//     // 두 번째 타이핑 효과
+//     var isTypingName = false;
+//     var typingIdxName = 0;
+//     var tyIntName; // 타이핑 인터벌 변수
+
+//     // typing 할 텍스트 가지고 오기
+//     var typingTxtName = $('.name').text();  
+//     console.log(typingTxtName);
+//     // 텍스트 한글자씩 자르기
+//     typingTxtName = typingTxtName.split('');
+
+//     // typing 함수 만들기
+//     function typeTextName() {
+//         if (typingIdxName < typingTxtName.length) {
+//             $('.name-typing').append(typingTxtName[typingIdxName]);
+//             typingIdxName++;
+//         } else {
+//             clearInterval(tyIntName);
+//             isTypingName = false;
+//         }
+//     }
+
+//     // 애니메이션이 끝난 후 typing 시작
+//     setTimeout(() => {
+//         if (isTypingName == false) {
+//             isTypingName = true;
+//             tyIntName = setInterval(typeTextName, 100);
+//         }
+//     }, 1100);
+// });
