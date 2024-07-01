@@ -64,6 +64,24 @@ window.onload = function() {
         window.addEventListener('scroll', activeGnb);
     }
 
+    // ----- [PC] gnb click 시 해당 section으로 부드럽게 스크롤 -----
+    const sections = document.querySelectorAll('section');
+
+    // #각 섹션에 offsetTop 값을 저장할 배열 변수로 지정하기
+    const sectionOffsets = [];
+
+    // #각 섹션에 offsetTop 값 구하기
+    sections.forEach(section => {
+        sectionOffsets.push(section.offsetTop);
+    });
+
+    gnbs.forEach((gnb, idx) => {
+        gnb.addEventListener('click', (e) => {
+            e.preventDefault();
+            sections[idx].scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
     // ----- [모바일] 햄버거 메뉴 -----
     if (windowWidth < 768) {
         const $body = document.querySelector('body');

@@ -38,6 +38,13 @@
     
                 @include responsive(large-screens) {
                     width: 80px;
+                    animation: logoMoving 2s ease-in-out infinite;
+
+                    @keyframes logoMoving {
+                        0% { transform: translateY(2px); }
+                        50% { transform: translateY(-2px); }
+                        100% { transform: translateY(2px); }
+                    }
                 }
             }
     
@@ -291,6 +298,17 @@
                     }
     
                     div {
+                        &:hover {
+                            animation: iconHover 0.5s linear;
+
+                            @keyframes iconHover {
+                                0% { transform: rotate(10deg); }
+                                25% { transform: rotate(-10deg); }
+                                50% { transform: rotate(10deg); }
+                                75% { transform: rotate(-10deg); }
+                                0% { transform: rotate(0); }
+                            }
+                        }
                         a {
                             img {
                                 width: 6vw;

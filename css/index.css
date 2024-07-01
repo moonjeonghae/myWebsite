@@ -130,6 +130,18 @@ header .logo-mainmenu-box .logo {
 @media only screen and (min-width: 1024px) {
   header .logo-mainmenu-box .logo {
     width: 80px;
+    animation: logoMoving 2s ease-in-out infinite;
+  }
+  @keyframes logoMoving {
+    0% {
+      transform: translateY(2px);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(2px);
+    }
   }
 }
 header .logo-mainmenu-box .main-menu {
@@ -2377,6 +2389,7 @@ main .contact .contact-content-box .contact-line-content .contact-content form #
 @media only screen and (min-width: 1024px) {
   main .contact .contact-content-box .contact-line-content .contact-content form #send {
     width: 30%;
+    height: 35px;
     padding: 4px 0;
     font-size: 1rem;
   }
@@ -2510,6 +2523,26 @@ footer .logo-contact-icon .footer-content .contact-icon-box {
   footer .logo-contact-icon .footer-content .contact-icon-box {
     width: 120px;
     gap: 0;
+  }
+}
+footer .logo-contact-icon .footer-content .contact-icon-box div:hover {
+  animation: iconHover 0.5s linear;
+}
+@keyframes iconHover {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  0% {
+    transform: rotate(0);
   }
 }
 footer .logo-contact-icon .footer-content .contact-icon-box div a img {
