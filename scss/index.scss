@@ -14,6 +14,10 @@
     padding: 0 15px;
     margin: 0 auto;
     // background-color: lightpink;
+
+    @include responsive(large-screens) {
+        padding: 0 10px;
+    }
 }
 
 
@@ -128,7 +132,7 @@ main {
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 17vw; top: -40px;
+                        left: 15vw; top: -40px;
     
                     }
                     .small-line {
@@ -668,9 +672,13 @@ main {
                         }
 
                         .desc-txt {
-                            // margin-top: 3vh;
+                            margin-top: 3vh;
                             width: 90%;
                             font-size: 0.833rem;
+
+                            @include responsive(large-screens) {
+                                margin-top: 0;
+                            }
                         }
                     }
                 }
@@ -695,22 +703,6 @@ main {
         .portfolio-detail {
             display: flex;
             flex-direction: column;
-
-            // overflow: hidden;
-            // white-space: nowrap;
-            // width: 90vw;
-            // height: 450px;
-            // border-radius: 30px;
-            // background-color: $color-main;
-
-            // @include responsive(large-screens) {
-            //     flex-direction: column;
-            //     overflow: visible;
-            //     white-space: wrap;
-            //     width: $wide-width;
-            //     height: $wide-height;
-            //     background-color: transparent;
-            // }
             
             @include portfolio-detail-common();
             
@@ -754,8 +746,6 @@ main {
                     }
 
                     .hollys-txt {
-                        background-color: lightgreen;
-
                         @include responsive(large-screens) {
                             // width: 40vw;
                             width: 700px;
@@ -765,9 +755,9 @@ main {
                             // margin-left: 5vw;
                         }
 
-                        .desc-txt {
-                            height: 150px;
-                        }
+                        // .desc-txt {
+                        //     height: 150px;
+                        // }
                     }
                 }
             }  // portfolio_1
@@ -822,12 +812,11 @@ main {
                     }
 
                     .station-txt {
-                        background-color: lightgreen;
-
                         @include responsive(large-screens) {
                             width: 566px;
                             height: 400px;
                             margin: 0;
+                            text-align: left;
                             transform: translateX(-30vw);
                             transition:  transform 0.3s;
                         }
@@ -869,10 +858,9 @@ main {
                     }
 
                     .personal-txt {
-                        background-color: lightgreen;
                         @include responsive(large-screens) {
                             width: 690px;
-                            height: 300px;
+                            height: 350px;
                             padding: 0;
                         }
                     }

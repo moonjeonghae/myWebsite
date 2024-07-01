@@ -87,6 +87,11 @@ footer {
   padding: 0 15px;
   margin: 0 auto;
 }
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 0 10px;
+  }
+}
 
 header {
   position: relative;
@@ -275,8 +280,8 @@ main .home .sky-box .home-container .moon {
 }
 @media only screen and (min-width: 1024px) {
   main .home .sky-box .home-container .moon {
-    width: 260px;
-    margin-top: 270px;
+    width: 13.5vw;
+    margin-top: 27vh;
   }
 }
 main .home .sky-box .home-container .moon img {
@@ -294,8 +299,8 @@ main .home .sky-box .home-container .cloud1 {
 @media only screen and (min-width: 1024px) {
   main .home .sky-box .home-container .cloud1 {
     left: 0;
-    bottom: 180px;
-    width: 420px;
+    bottom: 16vh;
+    width: 24vw;
   }
 }
 main .home .sky-box .home-container .cloud2 {
@@ -310,7 +315,7 @@ main .home .sky-box .home-container .cloud2 {
     z-index: 1;
     right: 0;
     bottom: 52vh;
-    width: 285px;
+    width: 15vw;
   }
 }
 @keyframes cloudMove {
@@ -326,6 +331,7 @@ main .home .sky-box .home-container .cloud2 {
 }
 main .home .ocean {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -476,7 +482,7 @@ main .home .stars .biggest-star:nth-of-type(2) {
 @media only screen and (min-width: 1024px) {
   main .home .stars .biggest-star:nth-of-type(2) {
     left: 51vw;
-    top: 185px;
+    top: 20vh;
   }
 }
 main .home .stars .big-star {
@@ -937,15 +943,15 @@ main .home .stars .shooting-star .shooting1 {
   @keyframes shooting {
     0% {
       left: 35vw;
-      top: -140px;
+      top: -13vh;
     }
     50% {
       left: 20vw;
-      top: 160px;
+      top: 14.8vh;
     }
     100% {
       left: 20vw;
-      top: 160px;
+      top: 14.8vh;
     }
   }
 }
@@ -975,15 +981,15 @@ main .home .stars .shooting-star .shooting2 {
   @keyframes shooting2 {
     0% {
       left: 40vw;
-      top: 370px;
+      top: 34vh;
     }
     50% {
       left: 32vw;
-      top: 530px;
+      top: 49vh;
     }
     100% {
       left: 32vw;
-      top: 530px;
+      top: 49vh;
     }
   }
 }
@@ -1019,15 +1025,15 @@ main .home .stars .shooting-star .shooting3 {
   @keyframes shooting3 {
     0% {
       left: 83vw;
-      top: -100px;
+      top: -9.25vh;
     }
     50% {
       left: 67vw;
-      top: 300px;
+      top: 27.7vh;
     }
     100% {
       left: 67vw;
-      top: 300px;
+      top: 27.7vh;
     }
   }
 }
@@ -1115,7 +1121,7 @@ main .about-me .aboutme-content .photo-content .small-circle {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .small-circle {
     position: absolute;
-    left: 17vw;
+    left: 15vw;
     top: -40px;
   }
 }
@@ -1612,8 +1618,14 @@ main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .percent {
   }
 }
 main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .desc-txt {
+  margin-top: 3vh;
   width: 90%;
   font-size: 0.833rem;
+}
+@media only screen and (min-width: 1024px) {
+  main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .desc-txt {
+    margin-top: 0;
+  }
 }
 main .portfolio {
   width: 100%;
@@ -1773,7 +1785,6 @@ main .portfolio .portfolio-detail div .pf-content-box .website-image {
   height: 100vw;
   overflow: hidden;
   margin: 0;
-  background-color: antiquewhite;
 }
 main .portfolio .portfolio-detail div .pf-content-box .website-image img {
   position: absolute;
@@ -1795,7 +1806,11 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
+    height: 150px;
     transform: translateX(30vw);
     margin: 0;
   }
@@ -1804,20 +1819,24 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt.pf-active {
   transform: translateX(0);
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+  width: 100%;
   font-size: 1.167rem;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+    text-align: left;
     font-size: 1.667rem;
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
+  width: 100%;
   font-weight: 300;
   font-size: 0.675rem;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
     margin-top: 5px;
+    text-align: left;
     font-size: 0.833rem;
   }
 }
@@ -1908,7 +1927,6 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
     display: block;
     width: 100%;
-    background-color: bisque;
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
@@ -1930,6 +1948,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn::-webkit-s
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
     margin: 0;
+    margin-top: 50px;
     height: 40px;
     overflow-x: visible;
   }
@@ -2043,9 +2062,6 @@ main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-img i
     transform: translateY(0);
   }
 }
-main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt {
-  background-color: lightgreen;
-}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt {
     width: 700px;
@@ -2053,9 +2069,6 @@ main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt {
     margin: 0;
     padding: 0;
   }
-}
-main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-txt .desc-txt {
-  height: 150px;
 }
 main .portfolio .portfolio-detail .portfolio_2 {
   margin-bottom: 5vh;
@@ -2120,14 +2133,12 @@ main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img
     transform: translateY(0);
   }
 }
-main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-txt {
-  background-color: lightgreen;
-}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-txt {
     width: 566px;
     height: 400px;
     margin: 0;
+    text-align: left;
     transform: translateX(-30vw);
     transition: transform 0.3s;
   }
@@ -2168,13 +2179,10 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
     transform: translateY(0);
   }
 }
-main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-txt {
-  background-color: lightgreen;
-}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-txt {
     width: 690px;
-    height: 300px;
+    height: 350px;
     padding: 0;
   }
 }
@@ -2387,6 +2395,9 @@ footer {
     height: 100px;
   }
 }
+footer .container {
+  margin: 0 auto;
+}
 footer .logo-contact-icon {
   display: flex;
   align-items: center;
@@ -2394,14 +2405,13 @@ footer .logo-contact-icon {
   height: 100%;
 }
 footer .logo-contact-icon .footer-content {
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 @media only screen and (min-width: 1024px) {
   footer .logo-contact-icon .footer-content {
-    position: relative;
     display: block;
     height: 40px;
   }
@@ -2486,18 +2496,20 @@ footer .logo-contact-icon .footer-content .logo-txt p img {
   }
 }
 footer .logo-contact-icon .footer-content .contact-icon-box {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
-  width: 24vw;
-  margin: 0;
+  justify-content: space-between;
+  gap: 2vw;
+  width: 23vw;
 }
 @media only screen and (min-width: 1024px) {
   footer .logo-contact-icon .footer-content .contact-icon-box {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 150px;
+    width: 120px;
+    gap: 0;
   }
 }
 footer .logo-contact-icon .footer-content .contact-icon-box div a img {

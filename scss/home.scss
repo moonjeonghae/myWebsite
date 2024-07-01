@@ -30,8 +30,8 @@
                 box-shadow: 0 0 10px 7px rgba(255, 255, 255, 0.7);
     
                 @include responsive(large-screens) {
-                    width: 260px;
-                    margin-top: 270px;
+                    width: 13.5vw;
+                    margin-top: 27vh;
                 }
 
                 img {
@@ -48,8 +48,8 @@
                 animation: cloudMove 4s ease-in-out infinite;
 
                 @include responsive(large-screens) {
-                    left: 0; bottom: 180px;
-                    width: 420px;
+                    left: 0; bottom: 16vh;
+                    width: 24vw;
                 }
             }
     
@@ -62,7 +62,7 @@
                 @include responsive(large-screens) {
                     z-index: 1;
                     right: 0; bottom: 52vh;
-                    width: 285px;
+                    width: 15vw;
                 }
             }
 
@@ -85,6 +85,7 @@
 
     .ocean {
         position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -238,7 +239,7 @@
                 left: 60vw; top: 17vh;
 
                 @include responsive(large-screens) {
-                    left:51vw; top: 185px;
+                    left:51vw; top: 20vh;
                 }
 
                 animation-delay: 0.5s;
@@ -630,10 +631,10 @@
 
                     @keyframes shooting {
                         0% { 
-                            left: 35vw; top: -140px; 
+                            left: 35vw; top: -13vh; 
                         }
-                        50% { left: 20vw; top: 160px; }
-                        100% { left: 20vw; top: 160px; }
+                        50% { left: 20vw; top: 14.8vh; }
+                        100% { left: 20vw; top: 14.8vh; }
                     }
                 }
             }  // shooting1
@@ -658,10 +659,10 @@
 
                     @keyframes shooting2 {
                         0% { 
-                            left: 40vw; top: 370px; 
+                            left: 40vw; top: 34vh; 
                         }
-                        50% { left: 32vw; top: 530px; }
-                        100% { left: 32vw; top: 530px; }
+                        50% { left: 32vw; top: 49vh; }
+                        100% { left: 32vw; top: 49vh; }
                     }
                 }
 
@@ -695,10 +696,10 @@
 
                     @keyframes shooting3 {
                         0% { 
-                            left: 83vw; top: -100px; 
+                            left: 83vw; top: -9.25vh; 
                         }
-                        50% { left: 67vw; top: 300px; }
-                        100% { left: 67vw; top: 300px; }
+                        50% { left: 67vw; top: 27.7vh; }
+                        100% { left: 67vw; top: 27.7vh; }
                     }
                 }
 

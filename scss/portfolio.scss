@@ -152,7 +152,7 @@
                 height: 100vw;
                 overflow: hidden;
                 margin: 0;
-                background-color: antiquewhite;
+                // background-color: antiquewhite;
 
                 img {
                     position: absolute;
@@ -171,28 +171,36 @@
                 padding: 10px 0;
                 transform: translateX(-30vw);
                 transition:  transform 0.3s;
-                // background-color: lightblue;
-
+                // background-color: lightgreen;
+                
                 @include responsive(large-screens) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     width: $wide-width;
+                    height: 150px;
                     transform: translateX(30vw);
                     margin: 0;
                 }
-
+                
                 &.pf-active {
                     transform: translateX(0);
                 }
-
+                
                 .ko-content-title {
+                    width: $wide-width;
                     font-size: 1.167rem;
+                    // background-color: lightblue;
                     
                     @include responsive(large-screens) {
+                        text-align: left;
                         font-size: 1.667rem;
                     }
                 }
 
                 .type {
                     // margin-top: 2px;
+                    width: $wide-width;
                     font: {
                         weight: $ko-font-light;
                         size: 0.675rem;
@@ -200,6 +208,7 @@
 
                     @include responsive(large-screens) {
                         margin-top: 5px;
+                        text-align: left;
                         font-size: 0.833rem;
                     }
                 }
@@ -291,12 +300,11 @@
 
                 .desc-txt {
                     display: none;
+                    // background-color: bisque;
 
                     @include responsive(large-screens) {
                         display: block;
                         width: $wide-width;
-                        // height: 150px;
-                        background-color: bisque;
                     }        
                 }
 
@@ -321,6 +329,7 @@
 
                     @include responsive(large-screens) {
                         margin: 0;
+                        margin-top: 50px;
                         height: 40px;
                         overflow-x: visible;
                     }

@@ -168,8 +168,11 @@
         @include responsive(large-screens) {
             position: relative;
             height: 100px;
+            // background-color: lightcoral;
         }
-    
+        .container {
+            margin: 0 auto;
+        }
         .logo-contact-icon {
             display: flex;
             align-items: center;
@@ -177,14 +180,13 @@
             height: $wide-height;
             
             .footer-content {
+                position: relative;
                 display: flex;
-                align-items: center;
                 justify-content: space-between;
                 width: $wide-width;
                 // background-color: lightseagreen;
     
                 @include responsive(large-screens) {
-                    position: relative;
                     display: block;
                     height: 40px;
                 }
@@ -273,17 +275,19 @@
         
         
                 .contact-icon-box {
+                    position: absolute;
+                    right: 0; top: 50%;
+                    transform: translateY(-50%);
                     display: flex;
                     align-items: center;
-                    width: 24vw;
-                    margin: 0;
+                    justify-content: space-between;
+                    gap: 2vw;
+                    width: 23vw;
                     // background-color: lightgreen;
     
                     @include responsive(large-screens) {
-                        position: absolute;
-                        right: 0; top: 50%;
-                        transform: translateY(-50%);
-                        width: 150px;
+                        width: 120px;
+                        gap: 0;
                     }
     
                     div {
