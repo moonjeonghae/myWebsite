@@ -128,11 +128,11 @@ main {
     
                 .small-circle {
                     position: relative;
-                    left: 23vw; top: -200vw;
-    
+                    right: -23vw; top: -197vw;
+                    
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 15vw; top: -40px;
+                        right: 0; top: -40px;
     
                     }
                     .small-line {
@@ -184,6 +184,10 @@ main {
                                 display: none;
                             }
                             
+                            &.job-typing {
+                                min-height: 1rem;
+                            }
+
                             &.highlight {
                                 white-space: nowrap;
                                 overflow: hidden;
@@ -202,6 +206,10 @@ main {
 
                                 .name {
                                     display: none;
+                                }
+
+                                &.name-typing {
+                                    min-height: 1rem;
                                 }
                             }
                         }
@@ -229,12 +237,37 @@ main {
                             size: 0.833rem;
                         }
                         color: $color-main;
+                        visibility: hidden;
+                        opacity: 0;
+                        transform: scale(0);
                         background-color: transparent;
                         cursor: pointer;
 
                         @include responsive(large-screens) {
                             margin-right: 53px;
                             font-size: 1rem;                    
+                        }
+
+                        &.show {
+                            animation: showBtns 0.3s ease-in-out forwards;
+
+                            @keyframes showBtns {
+                                0% {
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    transform: scale(0);
+                                }
+                                50% {
+                                    visibility: visible;
+                                    opacity: 1;
+                                    transform: scale(1.2);
+                                }
+                                100% {
+                                    visibility: visible;
+                                    opacity: 1;
+                                    transform: scale(1.0);
+                                }
+                            }
                         }
 
                         &::after {
@@ -277,20 +310,38 @@ main {
                     position: relative;
                     width: $wide-width;
                     height: 42vh;
-
+                    
                     .aboutme-content-txt {
                         position: absolute;
                         left: 0; top: 0;
-                        .txt {
-                            font-size: 0.833rem;
-                            line-height: 1.8;
-                            // background-color: lightgreen;
+                        display: none;
+                        animation: tiltIn 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     
-                            @include responsive(large-screens) {
-                                font-size: 1.167rem;
+                        @keyframes tiltIn {
+                            0% { 
+                                transform:  rotateX(-30deg) translateX(200px) skewX(30deg);
+                            }
+                            100% { 
+                                transform: rotateX(0deg) translateX(0) skewX(0deg);
                             }
                         }
-    
+                        
+                        @include responsive(large-screens) {
+                            @keyframes tiltIn {
+                                0% { 
+                                    transform:  rotateX(-30deg) translateX(300px) skewX(30deg);
+                                }
+                                100% { 
+                                    transform: rotateX(0deg) translateX(0) skewX(0deg);
+                                }
+                            }
+                        }
+
+                        &.txt-show {
+                            animation: tiltIn 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                        }
+
+                        
                         &.strength {
                             display: none;
                             
@@ -331,6 +382,16 @@ main {
     
                         &.history {
                             display: none;
+                        }
+
+                        .txt {
+                            font-size: 0.833rem;
+                            line-height: 1.8;
+                            // background-color: lightgreen;
+    
+                            @include responsive(large-screens) {
+                                font-size: 1.167rem;
+                            }
                         }
                     }
                 }
@@ -410,7 +471,7 @@ main {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: minmax(100px, auto);
-                column-gap: 4vw;
+                column-gap: 3vw;
                 row-gap: 7vw;
                 width: $wide-width;
                 // background-color: lightcoral;
@@ -425,12 +486,12 @@ main {
                     margin-top: 30px;
                     border: 1px solid $color-main;
                     border-radius: 50%;
-                    // animation: circleRotate 30s linear infinite;
+                    animation: circleRotate 30s linear infinite;
                     
-                    // @keyframes circleRotate {
-                    //     0% { transform: translate(-50%, -50%) rotate(0); }
-                    //     100% { transform: translate(-50%, -50%) rotate(360deg); }
-                    // }
+                    @keyframes circleRotate {
+                        0% { transform: translate(-50%, -50%) rotate(0); }
+                        100% { transform: translate(-50%, -50%) rotate(360deg); }
+                    }
                 }
 
                 .icon {
@@ -447,6 +508,13 @@ main {
                        width: 120px;
                        height: 120px;
                     //    background-color: lightblue;
+
+                    animation: circleRotate2 30s linear infinite;
+                    
+                    @keyframes circleRotate2 {
+                        0% { transform: translate(-50%, -50%) rotate(360deg); }
+                        100% { transform: translate(-50%, -50%) rotate(0); }
+                    }
                     }
 
                     &::before {
@@ -503,7 +571,7 @@ main {
 
             .x-btn {
                 position: absolute;
-                right: 2vw; top: 2vw;
+                right: 15px; top: 15px;
                 width: 7vw;
                 height: 7vw;
                 cursor: pointer;
@@ -519,8 +587,8 @@ main {
                     width: $wide-width;
                     height: 1px;
                     background-color: $color-main;
-                    transform-origin: center; /* 기본적으로 중심을 기준으로 회전 */
-            
+                    transform-origin: center;
+
                     &:first-of-type {
                         transform: translate(-50%, -50%) rotate(45deg);
                     }
@@ -538,7 +606,7 @@ main {
                 transform:  translate(-50%, -50%);
                 padding: 7vw;
                 width: 70vw;
-                height: 60vh;
+                height: 50vh;
                 border: 1px solid $color-main;
                 border-radius: 50px;
 
@@ -606,10 +674,12 @@ main {
                         }
         
                         .skill-icon {
-                            width: 30vw;
+                            width: 25vw;
+                            height: 25vw;
         
                             @include responsive(large-screens) {
                                 width: 80px;
+                                height: 80px;
                             }
                         }
         

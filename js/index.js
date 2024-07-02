@@ -120,7 +120,8 @@ window.onload = function() {
     var isTypingJob = false;
     var typingIdxJob = 0;
     var tyIntJob;
-
+    const jobTypingBox = document.querySelector('.job-typing');
+    
     // #typing 할 텍스트 가지고 오기
     var typingTxtJob = document.querySelector('.job').innerText;  
     
@@ -130,7 +131,7 @@ window.onload = function() {
     // #typing 함수 만들기
     function typeTextJob() {
         if (typingIdxJob < typingTxtJob.length) {
-            document.querySelector('.job-typing').innerText += typingTxtJob[typingIdxJob];
+            jobTypingBox.innerText += typingTxtJob[typingIdxJob];
             typingIdxJob++;
         } else {
             clearInterval(tyIntJob);
@@ -138,23 +139,44 @@ window.onload = function() {
         }
     };
 
-    // #typing이 진행되지 않으면 typing 실행함
-    setTimeout(() => {
-        if (isTypingJob == false) {
-            isTypingJob = true;
-            tyIntJob = setInterval(typeTextJob, 100);
-        }
-    }, 200);
+    // #typing이 진행되지 않으면 typing 실행
+    const jobObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && !isTypingJob) {
+                typingIdxJob = 0;
+                jobTypingBox.innerText = '';
+
+                setTimeout (() => {
+                    isTypingJob = true;
+                    tyIntJob = setInterval(typeTextJob, 100);
+                }, 100);
+            }
+        });
+    });
+    
+    jobObserver.observe(jobTypingBox);
 
     // ----- [공통] bracket 나타나게 하기 -----
-    setTimeout(() => {
-        document.querySelector('.highlight').classList.add('highlight-visible');
-    }, 500)
+    const highlight = document.querySelector('.highlight');
 
+    const bracketObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                setTimeout(() => {
+                    highlight.classList.add('highlight-visible');
+                }, 400)
+            } else {
+                highlight.classList.remove('highlight-visible');
+            }
+        });
+    });
+    
+    bracketObserver.observe(highlight);
     // ----- [공통] 두 번째 타이핑 효과 => 문정해 -----
     var isTypingName = false;
     var typingIdxName = 0;
     var tyIntName; 
+    const nameTypingBox = document.querySelector('.name-typing');
 
     // #typing 할 텍스트 가지고 오기
     var typingTxtName = document.querySelector('.name').innerText;  
@@ -165,7 +187,7 @@ window.onload = function() {
     // #typing 함수 만들기
     function typeTextName() {
         if (typingIdxName < typingTxtName.length) {
-            document.querySelector('.name-typing').innerText += typingTxtName[typingIdxName];
+            nameTypingBox.innerText += typingTxtName[typingIdxName];
             typingIdxName++;
         } else {
             clearInterval(tyIntName);
@@ -175,16 +197,52 @@ window.onload = function() {
     };
     
     // #typing이 진행되지 않으면 typing 실행함
-    setTimeout(() => {
-        if (isTypingName == false) {
-            isTypingName = true;
-            tyIntName = setInterval(typeTextName, 100);
-        }
-    }, 1100);
+    const nameObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && !isTypingName) {
+                typingIdxName = 0;
+                nameTypingBox.innerText = '';
+                
+                setTimeout (() => {
+                    isTypingName = true;
+                    tyIntName = setInterval(typeTextName, 100);
+                }, 1000);
+            }
+        });
+    });
+    
+    nameObserver.observe(nameTypingBox);
+    
 
 
-    // ----- aboutme-tab-btn click 시 -----
+    // ----- [공통] typing 후 aboutme-btn 등장 -----
     const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
+ 
+    function aboutBtnAnimation() {
+        aboutBtns.forEach((btn, idx) => {
+            setTimeout(() => {
+                btn.classList.add('show');
+            }, idx * 100)
+        });
+    }
+    const observerAboutBtns = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                setTimeout(() => {
+                    aboutBtnAnimation();
+                }, 1400);
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    aboutBtns.forEach(btn => {
+        observerAboutBtns.observe(btn);
+    });
+
+
+    // ----- [공통] typing 후 aboutme-content-box 등장 & aboutme-tab-btn click 시 -----
     const effortBtn = document.querySelector('.effort-btn');
     const strengthBtn = document.querySelector('.strength-btn');
     const goalBtn = document.querySelector('.goal-btn');
@@ -219,7 +277,13 @@ window.onload = function() {
     const observerAboutMe = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                initializeEffortBtn();
+                setTimeout(() => {
+                    initializeEffortBtn();
+                }, 2000);
+            } else {
+                aboutmeContents.forEach(content => {
+                    content.style.display = 'none';
+                });
             }
         });
     });
@@ -254,6 +318,7 @@ window.onload = function() {
             }
         });
     });
+
 
 
     //====== skill ======
@@ -477,6 +542,7 @@ window.onload = function() {
 
 
         // ----- [PC] skill-desc / bar graph 애니메이션 -----
+        const iconBox = document.querySelector('.icon-box');
         const skillDescAni = document.querySelectorAll('.desc-txt-ani');
         const titleBox = document.querySelector('.title-box');
         const barGraph = document.querySelectorAll('.skill-graph');
@@ -484,11 +550,16 @@ window.onload = function() {
         // #mouseenter 시 적용될 css 함수 만들기 => movingSkillDesc
         const movingSkillDesc = (idx) => {
             return () => {
+                iconBox.style.animationPlayState = 'paused';
+                icons.forEach(icon => {
+                    icon.style.animationPlayState = 'paused';
+                });
                 titleBox.style.visibility = 'hidden';
                 
                 setTimeout(() => {
                     skillDescAni[idx].classList.add('visible');
                     skillDescAni[idx].classList.add('moving');
+
     
                     const graphBar = barGraph[idx].querySelector('.graph-bar');
                     const data = parseFloat(barGraph[idx].getAttribute('data-value'));
@@ -507,6 +578,10 @@ window.onload = function() {
                     titleBox.style.visibility = 'visible';
                     const graphBar = barGraph[idx].querySelector('.graph-bar');
                     graphBar.style.width = '0';
+                    iconBox.style.animationPlayState = 'running';
+                    icons.forEach(icon => {
+                        icon.style.animationPlayState = 'running';
+                    });
                 },300)
                 
             };

@@ -1127,13 +1127,13 @@ main .about-me .aboutme-content .photo-content .big-circle .big-line {
 }
 main .about-me .aboutme-content .photo-content .small-circle {
   position: relative;
-  left: 23vw;
-  top: -200vw;
+  right: -23vw;
+  top: -197vw;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .small-circle {
     position: absolute;
-    left: 15vw;
+    right: 0;
     top: -40px;
   }
 }
@@ -1182,6 +1182,9 @@ main .about-me .aboutme-content .txt-content-box .main-txt strong span {
 main .about-me .aboutme-content .txt-content-box .main-txt strong span.job {
   display: none;
 }
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.job-typing {
+  min-height: 1rem;
+}
 main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight {
   white-space: nowrap;
   overflow: hidden;
@@ -1197,6 +1200,9 @@ main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight
 }
 main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight .name {
   display: none;
+}
+main .about-me .aboutme-content .txt-content-box .main-txt strong span.highlight.name-typing {
+  min-height: 1rem;
 }
 main .about-me .aboutme-content .txt-content-box .main-txt .verb {
   display: inline-block;
@@ -1216,6 +1222,9 @@ main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 0.833rem;
   color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-color: transparent;
   cursor: pointer;
 }
@@ -1223,6 +1232,26 @@ main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
   main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button {
     margin-right: 53px;
     font-size: 1rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button.show {
+  animation: showBtns 0.3s ease-in-out forwards;
+}
+@keyframes showBtns {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button::after {
@@ -1268,15 +1297,29 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
   position: absolute;
   left: 0;
   top: 0;
+  display: none;
+  animation: tiltIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
-  font-size: 0.833rem;
-  line-height: 1.8;
+@keyframes tiltIn {
+  0% {
+    transform: rotateX(-30deg) translateX(200px) skewX(30deg);
+  }
+  100% {
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+  }
 }
 @media only screen and (min-width: 1024px) {
-  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
-    font-size: 1.167rem;
+  @keyframes tiltIn {
+    0% {
+      transform: rotateX(-30deg) translateX(300px) skewX(30deg);
+    }
+    100% {
+      transform: rotateX(0deg) translateX(0) skewX(0deg);
+    }
   }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.txt-show {
+  animation: tiltIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength {
   display: none;
@@ -1313,6 +1356,15 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history {
   display: none;
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
+  font-size: 0.833rem;
+  line-height: 1.8;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
+    font-size: 1.167rem;
+  }
 }
 main .skill {
   position: relative;
@@ -1377,8 +1429,8 @@ main .skill .skill-box .icon-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(100px, auto);
-  -moz-column-gap: 4vw;
-       column-gap: 4vw;
+  -moz-column-gap: 3vw;
+       column-gap: 3vw;
   row-gap: 7vw;
   width: 100%;
 }
@@ -1394,6 +1446,15 @@ main .skill .skill-box .icon-box {
     margin-top: 30px;
     border: 1px solid #fff;
     border-radius: 50%;
+    animation: circleRotate 30s linear infinite;
+  }
+  @keyframes circleRotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
 }
 main .skill .skill-box .icon-box .icon {
@@ -1409,6 +1470,15 @@ main .skill .skill-box .icon-box .icon {
     transform: translate(-50%, -50%) rotate(90deg);
     width: 120px;
     height: 120px;
+    animation: circleRotate2 30s linear infinite;
+  }
+  @keyframes circleRotate2 {
+    0% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
   }
 }
 main .skill .skill-box .icon-box .icon::before {
@@ -1464,8 +1534,8 @@ main .skill .skill-desc {
 }
 main .skill .skill-desc .x-btn {
   position: absolute;
-  right: 2vw;
-  top: 2vw;
+  right: 15px;
+  top: 15px;
   width: 7vw;
   height: 7vw;
   cursor: pointer;
@@ -1482,7 +1552,7 @@ main .skill .skill-desc .x-btn .x-line {
   width: 100%;
   height: 1px;
   background-color: #fff;
-  transform-origin: center; /* 기본적으로 중심을 기준으로 회전 */
+  transform-origin: center;
 }
 main .skill .skill-desc .x-btn .x-line:first-of-type {
   transform: translate(-50%, -50%) rotate(45deg);
@@ -1498,7 +1568,7 @@ main .skill .skill-desc .skill-desc-txt {
   transform: translate(-50%, -50%);
   padding: 7vw;
   width: 70vw;
-  height: 60vh;
+  height: 50vh;
   border: 1px solid #fff;
   border-radius: 50px;
 }
@@ -1566,11 +1636,13 @@ main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-title {
   }
 }
 main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-icon {
-  width: 30vw;
+  width: 25vw;
+  height: 25vw;
 }
 @media only screen and (min-width: 1024px) {
   main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-icon {
     width: 80px;
+    height: 80px;
   }
 }
 main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front .skill-line {
@@ -1773,7 +1845,7 @@ main .portfolio .portfolio-detail {
 }
 main .portfolio .portfolio-detail div {
   width: 100%;
-  height: 150vW;
+  height: 150vw;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div {
@@ -1813,8 +1885,9 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
   width: 87vw;
   height: 50vw;
   padding: 10px 0;
+  opacity: 0;
   transform: translateX(-30vw);
-  transition: transform 0.3s;
+  transition: opacity 0.1s, transform 0.3s;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
@@ -1828,9 +1901,11 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
   }
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt.pf-active {
+  opacity: 1;
   transform: translateX(0);
 }
 main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+  position: relative;
   width: 100%;
   font-size: 1.167rem;
 }
