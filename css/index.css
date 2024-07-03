@@ -1113,16 +1113,8 @@ main .about-me .aboutme-content .photo-content .big-circle {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .big-circle {
     position: absolute;
-    left: 2vw;
-    top: 245px;
-  }
-}
-main .about-me .aboutme-content .photo-content .big-circle .big-line {
-  transform: rotate(15deg);
-}
-@media only screen and (min-width: 1024px) {
-  main .about-me .aboutme-content .photo-content .big-circle .big-line {
-    transform: scale(2.5) rotate(5deg);
+    left: 0;
+    top: 200px;
   }
 }
 main .about-me .aboutme-content .photo-content .small-circle {
@@ -1133,16 +1125,8 @@ main .about-me .aboutme-content .photo-content .small-circle {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .small-circle {
     position: absolute;
-    right: 0;
-    top: -40px;
-  }
-}
-main .about-me .aboutme-content .photo-content .small-circle .small-line {
-  transform: rotate(190deg);
-}
-@media only screen and (min-width: 1024px) {
-  main .about-me .aboutme-content .photo-content .small-circle .small-line {
-    transform: scale(2) rotate(180deg);
+    right: 2vw;
+    top: -2vh;
   }
 }
 main .about-me .aboutme-content .txt-content-box {

@@ -78,7 +78,7 @@ window.onload = function() {
     gnbs.forEach((gnb, idx) => {
         gnb.addEventListener('click', (e) => {
             e.preventDefault();
-            sections[idx].scrollIntoView({ behavior: 'smooth' });
+            sections[idx].scrollIntoView({ behavior: 'smooth' }); 
         });
     });
 

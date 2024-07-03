@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/index.js"></script>
     <title>moonChoice</title>
+    
 </head>
 <body>
     <header>
@@ -35,7 +36,7 @@
                         <div class="mobile-menu-bar">  <!-- 모바일(햄버거 메뉴) -->
                             <div class="bar"></div>
                             <div class="bar"></div>
-                            <div class="bar"></div>
+                             <div class="bar"></div>
                         </div>
                     </nav>
                 </div> <!-- logo-mainmenu-box -->
@@ -135,11 +136,11 @@
 
                 <div class="aboutme-content">
 
-                    <div class="photo-content">
+                    <div class="photo-content" onload="draw()">
                         <div class="my-photo"><img src="./images/me.png" alt="my photo"></div>
                         <div class="big-circle">
                             <div class="big-line">
-                                <svg width="100%" height="100%" viewBox="0 0 860 860" preserveAspectRatio="xMidYMid meet">
+                                <!-- <svg width="100%" height="100%" viewBox="0 0 860 860" preserveAspectRatio="xMidYMid meet">
                                     <defs>
                                       <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
                                         <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
@@ -149,13 +150,28 @@
                                     <circle cx="430" cy="430" r="200" stroke="url(#grad1)" stroke-width="1px" fill="transparent" stroke-dasharray="0 1319.47" stroke-dashoffset="0">
                                       <animate attributeName="stroke-dasharray" from="0 1319.47" to="950 369.47" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
                                     </circle>
-                                  </svg>
+                                  </svg> -->
+
+                                  <canvas id="myCanvas" height="400" width="400">
+                                </canvas>
+                                <script>
+                                    function draw(){
+                            
+                                    var ctx = document.getElementById('myCanvas').getContext("2d");
+                            
+                                    ctx.strokeStyle = 'white'; // 원하는 색상으로 변경
+                                    ctx.beginPath();
+                                    ctx.arc(182, 200, 180,(Math.PI/180) * 25 ,(Math.PI/180) * 280, false);
+                                    ctx.stroke(); //테두리
+                                    }
+                                    draw();
+                                </script>
                             </div>
                             <div class="starlight"></div>
                         </div>
                         <div class="small-circle">
                             <div class="small-line">
-                                <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                                <!-- <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
                                     <defs>
                                       <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
                                         <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
@@ -166,7 +182,21 @@
                                             stroke-dasharray="0 630" stroke-dashoffset="0">
                                       <animate attributeName="stroke-dasharray" from="0 630" to="410 120" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
                                     </circle>
-                                  </svg>
+                                  </svg> -->
+                                  <canvas id="myCanvas1" height="260" width="260">
+                                  </canvas>
+                                  <script>
+                                    function draw(){
+                            
+                                    var ctx = document.getElementById('myCanvas1').getContext("2d");
+                            
+                                    ctx.strokeStyle = 'white'; // 원하는 색상으로 변경
+                                    ctx.beginPath();
+                                    ctx.arc(130, 130, 120,(Math.PI/180) * 190 ,(Math.PI/180) * 110, false);
+                                    ctx.stroke(); //테두리
+                                    }
+                                    draw();
+                                  </script>
                             </div>
                             <div class="starlight"></div>
                         </div>
@@ -532,7 +562,7 @@
                                 <div class="duration">
                                     <div class="duration-txt">제작기간</div>
                                     <div class="time">
-                                        <time datetime="2024.03.01">2024.03.01</time> ~ <time datetime="2024.04.02">2024.04.02</time>
+                                        <time datetime="2024-03-01">2024.03.01</time> ~ <time datetime="2024-04-02">2024.04.02</time>
                                     </div>
                                 </div>
 
@@ -574,7 +604,7 @@
                                 <div class="duration">
                                     <div class="duration-txt">제작기간</div>
                                     <div class="time">
-                                        <time datetime="2024.03.01">2024.03.01</time> ~ <time datetime="2024.04.02">2024.04.02</time>
+                                        <time datetime="2024-03-01">2024.03.01</time> ~ <time datetime="2024-04-02">2024.04.02</time>
                                     </div>
                                 </div>
 
@@ -615,7 +645,7 @@
                                 <div class="duration">
                                     <div class="duration-txt">제작기간</div>
                                     <div class="time">
-                                        <time datetime="2024.03.01">2024.03.01</time> ~ <time datetime="2024.04.02">2024.04.02</time>
+                                        <time datetime="2024-03-01">2024.03.01</time> ~ <time datetime="2024-04-02">2024.04.02</time>
                                     </div>
                                 </div>
 

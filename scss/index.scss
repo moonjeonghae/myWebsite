@@ -114,14 +114,14 @@ main {
     
                     @include responsive(large-screens) {
                         position: absolute;
-                        left: 2vw; top: 245px;
+                        left: 0; top: 200px;
                     }
 
                     .big-line {
-                        transform: rotate(15deg);
+                        // transform: rotate(15deg);
 
                         @include responsive(large-screens) {
-                            transform: scale(2.5) rotate(5deg);
+                            // transform: scale(2.5) rotate(5deg);
                         }
                     }
                 }
@@ -132,14 +132,14 @@ main {
                     
                     @include responsive(large-screens) {
                         position: absolute;
-                        right: 0; top: -40px;
+                        right: 2vw; top: -2vh;
     
                     }
                     .small-line {
-                        transform: rotate(190deg);
+                        // transform: rotate(190deg);
 
                         @include responsive(large-screens) {
-                            transform: scale(2) rotate(180deg);
+                            // transform: scale(2) rotate(180deg);
                         }
                     }
                 }
