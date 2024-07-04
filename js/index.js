@@ -116,6 +116,103 @@ window.onload = function() {
 
     // ++++++++++++++++++ main ++++++++++++++++++
     //====== about me ======
+    // ----- [공통] img 애니메이션 -----
+    const photo = document.querySelector('.my-photo')
+    var observerImg = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                photo.classList.add('img-move');
+            }
+        });
+    });
+
+    const photoContent = document.querySelector('.photo-content');
+    observerImg.observe(photoContent);
+
+    // ----- [공통] circle 애니메이션 -----
+    // ***** big-circle 적용 *****
+    function bigDraw(){
+        var ctx = document.getElementById('circle-canvas').getContext("2d");
+        var grad = ctx.createLinearGradient(0, 0, 300, 120);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
+        grad.addColorStop(1, 'rgba(158, 110, 151, 1)');
+
+        ctx.strokeStyle = grad; 
+        ctx.lineWidth = 1;
+        ctx.stroke(); 
+        var startAngle = (Math.PI / 180) * 25; 
+        var endAngle = (Math.PI / 180) * 275; 
+        var currentAngle = startAngle; 
+
+        function animate() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.beginPath();
+
+            ctx.arc(182, 200, 180, startAngle, currentAngle, false);
+            ctx.stroke();
+
+            currentAngle += (Math.PI / 180) * 4;
+
+            if (currentAngle <= endAngle) {
+                requestAnimationFrame(animate);
+            }
+        }
+        const observerBigCircle = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animate();
+                } 
+            });
+        });
+        
+        const photoContent = document.querySelector('.photo-content');
+        observerBigCircle.observe(photoContent);
+    }
+    bigDraw();
+
+    // ***** small-circle 적용 *****
+    function smallDraw(){
+                            
+        var ctx = document.getElementById('circle-canvas1').getContext("2d");
+
+        var grad1 = ctx.createLinearGradient(0, 0, 300, 250);
+        grad1.addColorStop(0, 'rgba(158, 110, 151, 0.7)');
+        grad1.addColorStop(1, 'rgba(255, 255, 255, 1)');
+
+        ctx.strokeStyle = grad1;
+        ctx.lineWidth = 1;
+        var startAngle = (Math.PI / 180) * 0;
+        var endAngle = (Math.PI / 180) * 275;
+        var currentAngle = startAngle;
+
+        function animate() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // 캔버스 지우기
+
+            ctx.beginPath();
+            ctx.arc(130, 130, 120, startAngle, currentAngle, false);
+            ctx.stroke();
+
+            // 각도를 증가시켜 애니메이션 효과 생성
+            currentAngle += (Math.PI / 180) * 5;
+
+            if (currentAngle <= endAngle) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        const observerSmallCircle = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animate();
+                } 
+            });
+        });
+        
+        const photoContent = document.querySelector('.photo-content');
+        observerSmallCircle.observe(photoContent);
+    }
+    smallDraw();
+
     // ----- [공통] 첫 번째 타이핑 효과 => 웹 개발자 -----
     var isTypingJob = false;
     var typingIdxJob = 0;
@@ -599,6 +696,94 @@ window.onload = function() {
 
     
     //====== portfolio_title ======
+    // ----- [공통] 포트폴리오 title 애니메이션 -----
+    // ***** txt, line 적용 *****
+    function portfolioTitleAnimation(entries) {
+        entries.forEach(entry => {
+            var target = entry.target;
+            if(entry.isIntersecting) {
+                target.classList.add(target.dataset.class);
+            } else {
+                target.classList.remove(target.dataset.class);
+            }
+        })
+    };
+
+    const pfObserver = new IntersectionObserver(portfolioTitleAnimation);
+
+    const pfLongLine = document.querySelector('.long-line');
+    const pfSubTitleP = document.querySelector('.pf-sub-title p');
+    const pfTitle = document.querySelector('.pf-title');
+    const pfShortLine = document.querySelector('.short-line');
+
+    pfLongLine.dataset.class = 'longline-active';
+    pfSubTitleP.dataset.class = 'p-active';
+    pfTitle.dataset.class = 'pftitle-active';
+    pfShortLine.dataset.class = 'shortline-active';
+
+    pfObserver.observe(pfLongLine);
+    pfObserver.observe(pfSubTitleP);
+    pfObserver.observe(pfTitle);
+    pfObserver.observe(pfShortLine);
+
+    // ***** circle 적용 *****
+    function pfDraw(){
+        var ctx = document.getElementById('pf-canvas').getContext("2d");
+
+        var pfGrad = ctx.createLinearGradient(0, 0, 300, 250);
+        pfGrad.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
+        pfGrad.addColorStop(0.5, 'rgba(255, 255, 255, 1)');
+        pfGrad.addColorStop(1, 'rgba(255, 255, 255, 0.5)');
+
+        ctx.strokeStyle = pfGrad;
+        ctx.lineWidth = 1;
+        ctx.stroke(); 
+
+        if (windowWidth < 768 ) {
+            var startAngle = (Math.PI / 180) * 90; 
+        } else {
+            var startAngle = (Math.PI / 180) * 60; 
+        }
+        var endAngle = (Math.PI / 180) * 360; 
+        var currentAngle = startAngle; 
+
+        function drawInitial() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.beginPath();
+            ctx.arc(325, 325, 325, startAngle, startAngle, false);
+            ctx.stroke();
+        };
+
+        function animate() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.beginPath();
+
+            ctx.arc(325, 325, 325, startAngle, currentAngle, false);
+            ctx.stroke();
+
+            currentAngle += (Math.PI / 180) * 4;
+
+            if (currentAngle <= endAngle) {
+                requestAnimationFrame(animate);
+            }  
+        };
+
+        const observerPortfolio = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    currentAngle = startAngle;
+                    drawInitial();
+                    setTimeout(() => {
+                        animate();
+                    }, 1500);
+                }
+            });
+        });
+        
+        const portfolio = document.querySelector('.portfolio-title');
+        observerPortfolio.observe(portfolio);
+    }
+    pfDraw();
 
     //====== portfolio_detail ======
     // ----- [모바일] button click 시 -----

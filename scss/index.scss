@@ -53,18 +53,22 @@ main {
 
     //====== about-me ======
     .about-me {
-        margin-top: 100vh;
+        margin-top: 90vh;
         // background-color: lightseagreen;
 
         @include responsive(large-screens) {
-            height: 100vh;
+            margin-top: 100vh;
+            // height: 1080px;
+            // background-color: lightblue;
         }
 
         .title {
             text-align: center;
+            margin-bottom: -7vw;
 
             @include responsive(large-screens) {
                 text-align: left;
+                margin-bottom: 0;
             }
         }
 
@@ -72,7 +76,6 @@ main {
         .aboutme-content {
             @include responsive(large-screens) {
                 display: flex;
-                // align-items: center;
             }
 
             .photo-content {
@@ -82,7 +85,7 @@ main {
     
                 @include responsive(large-screens) {
                     width: 43vw;
-                    height: 70vh;
+                    height: 600px;
     
                 }
     
@@ -93,7 +96,21 @@ main {
                     margin-top: 10vh;
                     padding-top: 5vh;
                     // background-color: bisque;
+                    &.img-move {
+                        animation: imgMove 0.5s ease;    
     
+                        @keyframes imgMove {
+                            0% { 
+                                transform: translateY(30px);
+                                opacity: 0; 
+                            }
+                            100% { 
+                                transform: translateY(0);
+                                opacity: 1; 
+                            }
+                        }
+                    }
+
                     @include responsive(large-screens) {
                         display: flex;
                         align-items: left;
@@ -109,8 +126,7 @@ main {
     
                 .big-circle {
                     position: relative;
-                    left: -20vw; top: -63vw;
-    
+                    left: -20vw; top: -65vw;
     
                     @include responsive(large-screens) {
                         position: absolute;
@@ -118,28 +134,48 @@ main {
                     }
 
                     .big-line {
-                        // transform: rotate(15deg);
+                        transform: scale(0.55) rotate(5deg);
 
                         @include responsive(large-screens) {
-                            // transform: scale(2.5) rotate(5deg);
+                            transform: scale(1) rotate(0);
+                        }
+
+                        #circle-canvas {
+                            width: 100vw;
+                            height: 100vw;
+
+                            @include responsive(large-screens) {
+                                width: 400px;
+                                height: 400px;
+                            }
                         }
                     }
                 }
     
                 .small-circle {
                     position: relative;
-                    right: -23vw; top: -197vw;
+                    right: -22vw; top: -205vw;
                     
                     @include responsive(large-screens) {
                         position: absolute;
-                        right: 2vw; top: -2vh;
-    
+                        right: 20px; top: -15px;
                     }
+
                     .small-line {
-                        // transform: rotate(190deg);
+                        transform: scale(0.4) rotate(190deg);
 
                         @include responsive(large-screens) {
-                            // transform: scale(2) rotate(180deg);
+                            transform: scale(1) rotate(195deg);
+                        }
+
+                        #circle-canvas1 {
+                            width: 100vw;
+                            height: 100vw;
+
+                            @include responsive(large-screens) {
+                                width: 260px;
+                                height: 260px;
+                            }
                         }
                     }
                 }
@@ -222,7 +258,7 @@ main {
     
                 
                 .aboutme-tab-btn {
-                    margin: 3vh 0 2vh 1vh;
+                    margin: 2vh 0 1vh 1vh;
 
                     @include responsive(large-screens) {
                            margin-top: 30px;
@@ -309,7 +345,8 @@ main {
                 .aboutme-content-box {
                     position: relative;
                     width: $wide-width;
-                    height: 42vh;
+                    height: 43vh;
+                    // background-color: darkgoldenrod;
                     
                     .aboutme-content-txt {
                         position: absolute;
@@ -404,11 +441,12 @@ main {
     .skill {
         position: relative;
         width: $wide-width;
-        margin-top: 20vh;
+        margin-top: 10vh;
         // background-color: darkgoldenrod;
 
         @include responsive(large-screens) {
-            height: 100vh;
+            // height: 1080px;
+            margin-top: 13vh;
         }
 
         .title-box {
@@ -438,7 +476,7 @@ main {
                 scrollbar-width: none;
 
                 &::-webkit-scrollbar {
-                    display: none; /* Webkit 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨김 */
+                    display: none;
                 }
 
                 button {
@@ -483,7 +521,7 @@ main {
                     display: block;
                     width: 570px;
                     height: 570px;
-                    margin-top: 30px;
+                    margin-top: 20px;
                     border: 1px solid $color-main;
                     border-radius: 50%;
                     animation: circleRotate 30s linear infinite;
@@ -760,11 +798,12 @@ main {
     //====== portfolio ======
     .portfolio {
         width: $wide-width;
-        margin-top: 50vh;
+        margin-top: 10vh;
+        // background-color: darkblue;
 
         @include responsive(large-screens) {
             margin-top: 0;
-            height: 400vh;
+            // height: 400vh;
         }
         
         @include portfolio-title();
@@ -942,16 +981,17 @@ main {
 
     .contact {
         width: $wide-width;
+        margin: 10vh 0 5vh;
         // background-color: lightsalmon;
-        margin-top: 10vh;
+
         @include responsive(large-screens) {
-            height: 100vh;
             margin-top: 0;
         }
 
         .contact-content-box {
             width: $wide-width;
             padding-top: 5vh;
+            // background-color: aqua;
 
             
             @include responsive(large-screens) {
@@ -983,6 +1023,7 @@ main {
                     width: 36vw;
                     height: 36vw;
                 }
+
                 .contact-content {
                     position: absolute;
                     left: 50%; top: 55%;
@@ -1060,10 +1101,6 @@ main {
                                 
                             }
 
-                            // &.name-box {
-                            //     background-color: lightcoral;
-                            // }
-
                             &.message-box {
                                 // background-color: lightgreen;
                                 height: 40%;
@@ -1080,7 +1117,7 @@ main {
                                     background-color: transparent;
     
                                     @include responsive(large-screens) {
-                                        height: 150px;
+                                        height: 80%;
                                     }
     
                                     &::placeholder {

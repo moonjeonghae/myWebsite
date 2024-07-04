@@ -109,12 +109,21 @@
 
                             &:hover {
                                 color: $color-main;
-                                text-shadow:  0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+                                text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
                             }
 
                             &.gnb-selected {
                                 color: $color-main;
-                                text-shadow:  0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+                                text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+                                animation: gnbGlow 4s ease-in-out infinite;
+
+                                @keyframes gnbGlow {
+                                    0% { text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5; }
+                                    25% { text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5; }
+                                    50% { text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5; }
+                                    75% { text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5; }
+                                    100% { text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5; }
+                                }
                             }
                         }
                     }

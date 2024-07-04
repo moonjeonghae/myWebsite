@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap);
 * {
@@ -207,6 +206,24 @@ header .logo-mainmenu-box .main-menu .gnb li a:hover {
 header .logo-mainmenu-box .main-menu .gnb li a.gnb-selected {
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+  animation: gnbGlow 4s ease-in-out infinite;
+}
+@keyframes gnbGlow {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+  }
+  25% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5;
+  }
+  50% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+  }
+  75% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #efb1d5, 0 0 20px #efb1d5, 0 0 30px #efb1d5;
+  }
 }
 header .logo-mainmenu-box .main-menu .mobile-menu-bar {
   position: relative;
@@ -1056,19 +1073,21 @@ main .home .stars .shooting-star .shooting3 img {
   animation: shootingstarImgScale 4s ease 1s forwards infinite;
 }
 main .about-me {
-  margin-top: 100vh;
+  margin-top: 90vh;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me {
-    height: 100vh;
+    margin-top: 100vh;
   }
 }
 main .about-me .title {
   text-align: center;
+  margin-bottom: -7vw;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .title {
     text-align: left;
+    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1083,7 +1102,7 @@ main .about-me .aboutme-content .photo-content {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content {
     width: 43vw;
-    height: 70vh;
+    height: 600px;
   }
 }
 main .about-me .aboutme-content .photo-content .my-photo {
@@ -1092,6 +1111,19 @@ main .about-me .aboutme-content .photo-content .my-photo {
   width: 50vw;
   margin-top: 10vh;
   padding-top: 5vh;
+}
+main .about-me .aboutme-content .photo-content .my-photo.img-move {
+  animation: imgMove 0.5s ease;
+}
+@keyframes imgMove {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .my-photo {
@@ -1108,7 +1140,7 @@ main .about-me .aboutme-content .photo-content .my-photo img {
 main .about-me .aboutme-content .photo-content .big-circle {
   position: relative;
   left: -20vw;
-  top: -63vw;
+  top: -65vw;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .big-circle {
@@ -1117,16 +1149,52 @@ main .about-me .aboutme-content .photo-content .big-circle {
     top: 200px;
   }
 }
+main .about-me .aboutme-content .photo-content .big-circle .big-line {
+  transform: scale(0.55) rotate(5deg);
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .big-circle .big-line {
+    transform: scale(1) rotate(0);
+  }
+}
+main .about-me .aboutme-content .photo-content .big-circle .big-line #circle-canvas {
+  width: 100vw;
+  height: 100vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .big-circle .big-line #circle-canvas {
+    width: 400px;
+    height: 400px;
+  }
+}
 main .about-me .aboutme-content .photo-content .small-circle {
   position: relative;
-  right: -23vw;
-  top: -197vw;
+  right: -22vw;
+  top: -205vw;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .small-circle {
     position: absolute;
-    right: 2vw;
-    top: -2vh;
+    right: 20px;
+    top: -15px;
+  }
+}
+main .about-me .aboutme-content .photo-content .small-circle .small-line {
+  transform: scale(0.4) rotate(190deg);
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .small-circle .small-line {
+    transform: scale(1) rotate(195deg);
+  }
+}
+main .about-me .aboutme-content .photo-content .small-circle .small-line #circle-canvas1 {
+  width: 100vw;
+  height: 100vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .small-circle .small-line #circle-canvas1 {
+    width: 260px;
+    height: 260px;
   }
 }
 main .about-me .aboutme-content .txt-content-box {
@@ -1192,7 +1260,7 @@ main .about-me .aboutme-content .txt-content-box .main-txt .verb {
   display: inline-block;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
-  margin: 3vh 0 2vh 1vh;
+  margin: 2vh 0 1vh 1vh;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
@@ -1275,7 +1343,7 @@ main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button.selecte
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box {
   position: relative;
   width: 100%;
-  height: 42vh;
+  height: 43vh;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt {
   position: absolute;
@@ -1353,11 +1421,11 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 main .skill {
   position: relative;
   width: 100%;
-  margin-top: 20vh;
+  margin-top: 10vh;
 }
 @media only screen and (min-width: 1024px) {
   main .skill {
-    height: 100vh;
+    margin-top: 13vh;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1386,7 +1454,7 @@ main .skill .skill-box .skill-tab-btn {
   scrollbar-width: none;
 }
 main .skill .skill-box .skill-tab-btn::-webkit-scrollbar {
-  display: none; /* Webkit 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨김 */
+  display: none;
 }
 main .skill .skill-box .skill-tab-btn button {
   padding: 5px 20px;
@@ -1427,7 +1495,7 @@ main .skill .skill-box .icon-box {
     display: block;
     width: 570px;
     height: 570px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: 1px solid #fff;
     border-radius: 50%;
     animation: circleRotate 30s linear infinite;
@@ -1697,64 +1765,93 @@ main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .desc-txt {
 }
 main .portfolio {
   width: 100%;
-  margin-top: 50vh;
+  margin-top: 10vh;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio {
     margin-top: 0;
-    height: 400vh;
   }
+}
+main .portfolio .portfolio-title {
+  position: relative;
+  height: 50vw;
+  margin-bottom: 10vh;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title {
-    position: relative;
-    height: 100vh;
+    height: 1080px;
   }
 }
 main .portfolio .portfolio-title .title-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
   width: 90vw;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
   }
 }
 main .portfolio .portfolio-title .title-box .pf-sub-title {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
-  justify-content: flex-end;
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-title .title-box .pf-sub-title {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
+  justify-content: flex-start;
 }
 main .portfolio .portfolio-title .title-box .pf-sub-title .long-line {
-  width: 30vw;
+  width: 15vw;
   height: 1px;
   margin: 0;
-  margin-left: 3vw;
+  margin-right: 3vw;
   background-color: #fff;
+}
+main .portfolio .portfolio-title .title-box .pf-sub-title .long-line.longline-active {
+  animation: longline 0.3s ease forwards;
+}
+@keyframes longline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 15vw;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box .pf-sub-title .long-line {
-    width: 330px;
-    margin-left: 0;
+    width: 23%;
     margin-right: 15px;
+  }
+  @keyframes longline {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 23%;
+    }
   }
 }
 main .portfolio .portfolio-title .title-box .pf-sub-title p {
   margin: 0;
   margin-bottom: 0.5vh;
+  opacity: 0;
   font-family: "Playfair Display SC", serif;
   font-size: 8.5vw;
   text-align: left;
+}
+main .portfolio .portfolio-title .title-box .pf-sub-title p.p-active {
+  animation: pActive 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+@keyframes pActive {
+  0% {
+    letter-spacing: -0.5em;
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box .pf-sub-title p {
@@ -1763,20 +1860,41 @@ main .portfolio .portfolio-title .title-box .pf-sub-title p {
 }
 main .portfolio .portfolio-title .title-box .pf-main-title {
   width: 66vw;
+  display: flex;
+  align-items: center;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box .pf-main-title {
     position: relative;
+    left: 150px;
+    width: 950px;
   }
 }
 main .portfolio .portfolio-title .title-box .pf-main-title .pf-title {
   width: 66vw;
   font-size: 12vw;
   text-align: center;
+  margin: 0;
+  opacity: 0;
+}
+main .portfolio .portfolio-title .title-box .pf-main-title .pf-title.pftitle-active {
+  animation: pfTitle 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both;
+}
+@keyframes pfTitle {
+  0% {
+    letter-spacing: -0.5em;
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box .pf-main-title .pf-title {
     font-size: 7rem;
+    width: 645px;
   }
 }
 main .portfolio .portfolio-title .title-box .pf-main-title .short-line {
@@ -1785,36 +1903,54 @@ main .portfolio .portfolio-title .title-box .pf-main-title .short-line {
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box .pf-main-title .short-line {
     display: block;
-    position: absolute;
-    right: 110px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
+    margin: 0;
+    width: 0;
     height: 1px;
     background-color: #fff;
   }
 }
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .title-box .pf-main-title .short-line.shortline-active {
+    animation: shortline 0.3s ease 1.3s forwards;
+  }
+  @keyframes shortline {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 10vw;
+    }
+  }
+}
 main .portfolio .portfolio-title .circle-box {
   position: relative;
-  height: 30vh;
+  width: 100%;
+  height: 100%;
 }
 main .portfolio .portfolio-title .circle-box .pf-line {
-  position: relative;
-  left: 16vw;
-  top: -60vw;
-}
-main .portfolio .portfolio-title .circle-box .pf-line svg {
-  transform: scale(0.95) rotate(230deg);
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-title .circle-box .pf-line svg {
-    transform: scale(0.7) rotate(220deg);
-  }
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-52%);
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .circle-box .pf-line {
-    left: 410px;
-    top: -200px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-52%);
+    width: 650px;
+  }
+}
+main .portfolio .portfolio-title .circle-box .pf-line #pf-canvas {
+  width: 40vw;
+  height: 40vw;
+  transform: rotate(140deg);
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title .circle-box .pf-line #pf-canvas {
+    width: 650px;
+    height: 650px;
+    transform: rotate(150deg);
   }
 }
 main .portfolio .portfolio-title .circle-box .pf-starlight {
@@ -1827,45 +1963,43 @@ main .portfolio .portfolio-detail {
   display: flex;
   flex-direction: column;
 }
-main .portfolio .portfolio-detail div {
+main .portfolio .portfolio-detail .detail {
   width: 100%;
-  height: 150vw;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div {
-    height: 100vh;
+  main .portfolio .portfolio-detail .detail {
+    padding: 170px 0;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box {
+main .portfolio .portfolio-detail .detail .pf-content-box {
   width: 100%;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box {
+  main .portfolio .portfolio-detail .detail .pf-content-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 170px;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .website-image {
+main .portfolio .portfolio-detail .detail .pf-content-box .website-image {
   position: relative;
   width: 100%;
   height: 100vw;
   overflow: hidden;
   margin: 0;
 }
-main .portfolio .portfolio-detail div .pf-content-box .website-image img {
+main .portfolio .portfolio-detail .detail .pf-content-box .website-image img {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .website-image img {
+  main .portfolio .portfolio-detail .detail .pf-content-box .website-image img {
     width: 100%;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt {
   width: 87vw;
   height: 50vw;
   padding: 10px 0;
@@ -1874,7 +2008,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
   transition: opacity 0.1s, transform 0.3s;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1884,92 +2018,96 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt {
     margin: 0;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt.pf-active {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt.pf-active {
   opacity: 1;
   transform: translateX(0);
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-title {
   position: relative;
   width: 100%;
   font-size: 1.167rem;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .ko-content-title {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-title {
     text-align: left;
     font-size: 1.667rem;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .type {
   width: 100%;
   font-weight: 300;
   font-size: 0.675rem;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .type {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .type {
     margin-top: 5px;
     text-align: left;
     font-size: 0.833rem;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
   display: flex;
   justify-content: space-between;
+  gap: 0;
   margin: 0;
   width: 230px;
   height: 20px;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration {
-    width: 500px;
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
+    width: 250px;
     height: 30px;
     margin: 10px 0 0;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .duration-txt {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .duration-txt {
   width: 35%;
+  margin: 0;
   font-weight: 600;
   font-size: 0.833rem;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .duration-txt {
-    width: 100px;
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .duration-txt {
+    width: 70px;
     font-size: 1rem;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .time {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .time {
   font-size: 0.833rem;
+  margin: 0;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .duration .time {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .time {
     font-size: 1rem;
+    text-align: left;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills {
   height: 17px;
   margin-top: 2px;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills {
     height: 30px;
     margin: 5px 0 15px;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul {
   display: flex;
   align-items: center;
   justify-content: left;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul {
     height: 100%;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li {
   margin: 0 10px;
   font-size: 0.776rem;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li {
     height: 100%;
     line-height: 30px;
     padding: 0 20px;
@@ -1980,27 +2118,27 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul l
     background-color: rgba(255, 255, 255, 0.7);
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li:first-child {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li:first-child {
   margin-left: 0;
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li .sharp {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li .sharp {
   display: inline-block;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .using-skills ul li .sharp {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li .sharp {
     display: none;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .desc-txt {
   display: none;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .desc-txt {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .desc-txt {
     display: block;
     width: 100%;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn {
   width: 100%;
   margin-top: 10px;
   white-space: nowrap;
@@ -2009,22 +2147,22 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
   transform: translateY(3vw);
   transition: transform 0.3s ease 0.2s, opacity 0.3s linear 0.2s;
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn.pfBtn-active {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn.pfBtn-active {
   opacity: 1;
   transform: translateY(0);
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn::-webkit-scrollbar {
-  display: none; /* Webkit 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨김 */
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn::-webkit-scrollbar {
+  display: none;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn {
     margin: 0;
     margin-top: 50px;
     height: 40px;
     overflow-x: visible;
   }
 }
-main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button {
   position: relative;
   overflow: hidden;
   padding: 5px 10px;
@@ -2037,7 +2175,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
   cursor: pointer;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button {
     width: 120px;
     padding: 10px 0;
     margin-right: 10px;
@@ -2045,7 +2183,7 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button span {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span {
     display: inline-block;
     position: absolute;
     width: 25%;
@@ -2060,32 +2198,32 @@ main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button {
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button span:first-child {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:first-child {
     --n: 1;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button span:nth-child(2) {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(2) {
     --n: 2;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button span:nth-child(3) {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(3) {
     --n: 3;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button span:nth-child(4) {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(4) {
     --n: 4;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button:hover {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover {
     color: #fff;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail div .pf-content-box .pf-txt .pf-btn button:hover span {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover span {
     transform: translateY(0) scale(2.5);
   }
 }
@@ -2259,11 +2397,10 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
 }
 main .contact {
   width: 100%;
-  margin-top: 10vh;
+  margin: 10vh 0 5vh;
 }
 @media only screen and (min-width: 1024px) {
   main .contact {
-    height: 100vh;
     margin-top: 0;
   }
 }
@@ -2400,7 +2537,7 @@ main .contact .contact-content-box .contact-line-content .contact-content form d
 }
 @media only screen and (min-width: 1024px) {
   main .contact .contact-content-box .contact-line-content .contact-content form div.message-box textarea {
-    height: 150px;
+    height: 80%;
   }
 }
 main .contact .contact-content-box .contact-line-content .contact-content form div.message-box textarea::-moz-placeholder {

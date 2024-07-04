@@ -135,68 +135,17 @@
                 <h2 class="title">ABOUT ME</h2>
 
                 <div class="aboutme-content">
-
-                    <div class="photo-content" onload="draw()">
+                    <div class="photo-content">
                         <div class="my-photo"><img src="./images/me.png" alt="my photo"></div>
                         <div class="big-circle">
                             <div class="big-line">
-                                <!-- <svg width="100%" height="100%" viewBox="0 0 860 860" preserveAspectRatio="xMidYMid meet">
-                                    <defs>
-                                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
-                                        <stop offset="100%" style="stop-color:rgb(158,110,151);stop-opacity:1" />
-                                      </linearGradient>
-                                    </defs>
-                                    <circle cx="430" cy="430" r="200" stroke="url(#grad1)" stroke-width="1px" fill="transparent" stroke-dasharray="0 1319.47" stroke-dashoffset="0">
-                                      <animate attributeName="stroke-dasharray" from="0 1319.47" to="950 369.47" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
-                                    </circle>
-                                  </svg> -->
-
-                                  <canvas id="myCanvas" height="400" width="400">
-                                </canvas>
-                                <script>
-                                    function draw(){
-                            
-                                    var ctx = document.getElementById('myCanvas').getContext("2d");
-                            
-                                    ctx.strokeStyle = 'white'; // 원하는 색상으로 변경
-                                    ctx.beginPath();
-                                    ctx.arc(182, 200, 180,(Math.PI/180) * 25 ,(Math.PI/180) * 280, false);
-                                    ctx.stroke(); //테두리
-                                    }
-                                    draw();
-                                </script>
+                                <canvas id="circle-canvas" height="400" width="400"></canvas>
                             </div>
                             <div class="starlight"></div>
                         </div>
                         <div class="small-circle">
                             <div class="small-line">
-                                <!-- <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-                                    <defs>
-                                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.3" />
-                                        <stop offset="100%" style="stop-color:rgb(158,110,151);stop-opacity:1" />
-                                      </linearGradient>
-                                    </defs>
-                                    <circle cx="200" cy="200" r="80" stroke="url(#grad1)" stroke-width="0.5px" fill="transparent" 
-                                            stroke-dasharray="0 630" stroke-dashoffset="0">
-                                      <animate attributeName="stroke-dasharray" from="0 630" to="410 120" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
-                                    </circle>
-                                  </svg> -->
-                                  <canvas id="myCanvas1" height="260" width="260">
-                                  </canvas>
-                                  <script>
-                                    function draw(){
-                            
-                                    var ctx = document.getElementById('myCanvas1').getContext("2d");
-                            
-                                    ctx.strokeStyle = 'white'; // 원하는 색상으로 변경
-                                    ctx.beginPath();
-                                    ctx.arc(130, 130, 120,(Math.PI/180) * 190 ,(Math.PI/180) * 110, false);
-                                    ctx.stroke(); //테두리
-                                    }
-                                    draw();
-                                  </script>
+                                  <canvas id="circle-canvas1" height="260" width="260"></canvas>
                             </div>
                             <div class="starlight"></div>
                         </div>
@@ -528,17 +477,7 @@
     
                     <div class="circle-box">
                         <div class="pf-line">
-                            <svg witdh="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                                <defs>
-                                    <lineargradient id="grad2" x1="80%" y1="0%" x2="0%" y2="130%">
-                                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
-                                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                                    </lineargradient>
-                                </defs>
-                                <circle cx="100" cy="100" r="60" stroke="url(#grad2)" stroke-width="0.5px" fill="transparent" strokedasharray="0 500" stroke-dashoffset="0">
-                                    <animate attributeName="stroke-dasharray" from="0 500" to="300 100" begin="0s" dur="2s" repeatCount="1" fill="freeze" />
-                                </circle>
-                            </svg>
+                            <canvas id="pf-canvas" width="650" height="650"></canvas>
                         </div>
                         <!-- <div class="pf-starlight"><img src="./images/starlight.png" alt="startlight"></div> -->
                     </div>
@@ -547,7 +486,7 @@
 
                 <div class="portfolio-detail">
                     <!--+++++++++++++++++ portfolio_1 +++++++++++++++++-->
-                    <div class="portfolio_1">
+                    <div class="portfolio_1 detail">
                         <div class="hollys-content-box pf-content-box">
                             <div class="hollys-img website-image">
                                 <img src="./images/hollys.png" alt="hollys renewal website">
@@ -589,7 +528,7 @@
             
             
                     <!--+++++++++++++++++ portfolio_2 +++++++++++++++++-->
-                    <div class="portfolio_2">
+                    <div class="portfolio_2 detail">
                         <div class="station-content-box pf-content-box">
                             <div class="station-img website-image">
                                 <img src="./images/seoul284.png" alt="station website">
@@ -630,7 +569,7 @@
             
             
                     <!--+++++++++++++++++ portfolio_3 +++++++++++++++++-->
-                    <div class="portfolio_3">
+                    <div class="portfolio_3 detail">
                         <div class="personal-content-box pf-content-box">
                             <div class="personal-img website-image">
                                 <img src="./images/personal_pf.png" alt="personal website">
