@@ -9,7 +9,8 @@
         // background-color: darkkhaki;
 
         @include responsive(large-screens) {
-            height: 1080px;
+            // height: 1080px;
+            // padding-top: 10vh;
         }
         
         .title-box {
@@ -21,6 +22,7 @@
 
             @include responsive(large-screens) {
                 width: $wide-width;
+                transform: translate(-50%, -50%);
             }
 
             .pf-sub-title {
@@ -175,7 +177,7 @@
                 
                 @include responsive(large-screens) {
                     right: 0; top: 50%;
-                    transform: translateY(-52%);
+                    transform: translateY(-50%);
                     width: 650px;
                 }
 
@@ -378,6 +380,13 @@
                                 background-color: rgba($color-main, 0.7);
                             }   
                             
+                            &:hover {
+                                @include responsive(large-screens) {
+                                    cursor: default;
+                                    background-color: rgba($color-main, 1);
+                                }
+                            }
+
                             &:first-child {
                                 margin-left: 0;
                             }

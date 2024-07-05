@@ -213,6 +213,31 @@ window.onload = function() {
     }
     smallDraw();
 
+    // ----- [공통] starlight 애니메이션 -----
+    const starlight = document.querySelector('.big-circle .starlight');
+    const smallStarlight = document.querySelector('.small-circle .small-starlight');
+    
+    const observerStarlight = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            var target = entry.target;
+
+            if(entry.isIntersecting) {
+                if(target.classList.contains('starlight')) {
+                    target.classList.add('starlight-show');
+                } else if (target.classList.contains('small-starlight')) {
+                    target.classList.add('small-starlight-show');
+                }
+            }
+        });
+    });
+
+    if (starlight) {
+        observerStarlight.observe(starlight);
+    } 
+    if (smallStarlight) {
+        observerStarlight.observe(smallStarlight);
+    }
+
     // ----- [공통] 첫 번째 타이핑 효과 => 웹 개발자 -----
     var isTypingJob = false;
     var typingIdxJob = 0;
@@ -877,4 +902,18 @@ window.onload = function() {
 
 
     // ++++++++++++++++++ footer ++++++++++++++++++
+    function drawFooter(){
+
+        var ctx = document.getElementById('fixed-circle').getContext("2d");
+        var grad = ctx.createLinearGradient(100, 0, 100, 100);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
+
+        ctx.strokeStyle = grad; 
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(50, 50, 30,(Math.PI/180) * 40 ,(Math.PI/180) * 360,false);
+        ctx.stroke(); //테두리
+      }
+      drawFooter();
 };

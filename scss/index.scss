@@ -150,6 +150,39 @@ main {
                             }
                         }
                     }
+
+                    .starlight {
+                        position: absolute;
+                        left: 47vw; top: 23.5vw;
+                        width: 5vw;
+                        height: 5vw;
+                        opacity: 0;
+                        transform: scale(0);
+                        transition: all 0.4s ease-in 0.4s;
+
+                        @include responsive(large-screens) {
+                            left: 170px; top: 5px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                        // animation: fixedMenu 2.5s ease-out infinite;
+
+                        // @keyframes fixedMenu {
+                        //     0% {transform: rotate(0deg);}
+                        //     100% {transform: rotate(360deg);}
+                        // }
+
+                        &.starlight-show {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+
+                        img {
+                            width: $wide-width;
+                            height: $wide-height;
+                            transform: rotate(25deg);
+                        }
+                    }
                 }
     
                 .small-circle {
@@ -176,6 +209,27 @@ main {
                                 width: 260px;
                                 height: 260px;
                             }
+                        }
+                    }
+
+                    .small-starlight {
+                        position: absolute;
+                        right: 52vw; bottom: 31.9vw;
+                        width: 3vw;
+                        height: 3vw;
+                        opacity: 0;
+                        transform: scale(0);
+                        transition: all 0.2s ease-in 0.4s;
+
+                        @include responsive(large-screens) {
+                            right: 160px; bottom: 8px;
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        &.small-starlight-show {
+                            opacity: 1;
+                            transform: scale(1);
                         }
                     }
                 }
@@ -680,7 +734,7 @@ main {
 
                     &.moving {
                         transform: rotateY(180deg);
-                        transition: transform 0.5s ease 0.7s;
+                        transition: transform 0.5s ease 0.6s;
                     }
                     
                     .desc-front {

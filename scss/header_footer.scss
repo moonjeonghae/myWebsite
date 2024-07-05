@@ -365,5 +365,38 @@
                 }
             }  // footer-content
         }  // logo-contact-icon
+
+        .fixed-menu {
+            position: fixed;
+            right: 0; bottom: 0;
+            width: 100px;
+            height: 100px;
+            animation: fixedMenu 2.5s ease-out infinite;
+
+            @keyframes fixedMenu {
+                0% {transform: rotate(0deg);}
+                100% {transform: rotate(360deg);}
+            }
+
+            @include responsive(large-screens) {
+                right: 0; bottom: 50px;
+            }
+            // #fixed-circle {
+            // }
+
+            img {
+                position: absolute;
+                right: 10px; top: 35px;
+                width: 20px;
+                height: 20px;
+                transform: rotate(10deg);
+            }
+
+            // .arrow {
+            //     position: absolute;
+            //     left: 50%; right: 50%;
+            //     transform: translate(-50%, -50%);
+            // }
+        }
     }  // footer
 }

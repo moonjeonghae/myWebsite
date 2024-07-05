@@ -185,7 +185,27 @@ nameObserver.observe(nameTypingBox);
     }
     pfDraw();
 
-    
+    const observerStarlight = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            var target = entry.target;
+
+            if(entry.isIntersecting) {
+                if(target.classList.contains('starlight')) {
+                    target.classList.add('starlight-show');
+                } else if (target.classList.contains('small-starlight')) {
+                    target.classList.add('small-starlight-show');
+                }
+            }
+        });
+    });
+
+    if (starlight) {
+        observerStarlight.observe(starlight);
+      }
+      
+      if (smallStarlight) {
+        observerStarlight.observe(smallStarlight);
+      }
 
     // skill 부분 아래 보이는 것처럼 수정하기
     // 버튼과 그에 대한 아이콘들을 객체로 정의

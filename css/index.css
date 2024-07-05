@@ -343,7 +343,7 @@ main .home .sky-box .home-container .cloud2 {
   main .home .sky-box .home-container .cloud2 {
     z-index: 1;
     right: 0;
-    bottom: 52vh;
+    bottom: 48vh;
     width: 15vw;
   }
 }
@@ -1167,6 +1167,33 @@ main .about-me .aboutme-content .photo-content .big-circle .big-line #circle-can
     height: 400px;
   }
 }
+main .about-me .aboutme-content .photo-content .big-circle .starlight {
+  position: absolute;
+  left: 47vw;
+  top: 23.5vw;
+  width: 5vw;
+  height: 5vw;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease-in 0.4s;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .big-circle .starlight {
+    left: 170px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+  }
+}
+main .about-me .aboutme-content .photo-content .big-circle .starlight.starlight-show {
+  opacity: 1;
+  transform: scale(1);
+}
+main .about-me .aboutme-content .photo-content .big-circle .starlight img {
+  width: 100%;
+  height: 100%;
+  transform: rotate(25deg);
+}
 main .about-me .aboutme-content .photo-content .small-circle {
   position: relative;
   right: -22vw;
@@ -1196,6 +1223,28 @@ main .about-me .aboutme-content .photo-content .small-circle .small-line #circle
     width: 260px;
     height: 260px;
   }
+}
+main .about-me .aboutme-content .photo-content .small-circle .small-starlight {
+  position: absolute;
+  right: 52vw;
+  bottom: 31.9vw;
+  width: 3vw;
+  height: 3vw;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease-in 0.4s;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .photo-content .small-circle .small-starlight {
+    right: 160px;
+    bottom: 8px;
+    width: 20px;
+    height: 20px;
+  }
+}
+main .about-me .aboutme-content .photo-content .small-circle .small-starlight.small-starlight-show {
+  opacity: 1;
+  transform: scale(1);
 }
 main .about-me .aboutme-content .txt-content-box {
   margin-top: 7vh;
@@ -1656,7 +1705,7 @@ main .skill .skill-desc .skill-desc-txt .desc-txt-ani.visible {
 }
 main .skill .skill-desc .skill-desc-txt .desc-txt-ani.moving {
   transform: rotateY(180deg);
-  transition: transform 0.5s ease 0.7s;
+  transition: transform 0.5s ease 0.6s;
 }
 @media only screen and (min-width: 1024px) {
   main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-front {
@@ -1777,11 +1826,6 @@ main .portfolio .portfolio-title {
   height: 50vw;
   margin-bottom: 10vh;
 }
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-title {
-    height: 1080px;
-  }
-}
 main .portfolio .portfolio-title .title-box {
   position: absolute;
   left: 50%;
@@ -1792,6 +1836,7 @@ main .portfolio .portfolio-title .title-box {
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box {
     width: 100%;
+    transform: translate(-50%, -50%);
   }
 }
 main .portfolio .portfolio-title .title-box .pf-sub-title {
@@ -1937,7 +1982,7 @@ main .portfolio .portfolio-title .circle-box .pf-line {
   main .portfolio .portfolio-title .circle-box .pf-line {
     right: 0;
     top: 50%;
-    transform: translateY(-52%);
+    transform: translateY(-50%);
     width: 650px;
   }
 }
@@ -2116,6 +2161,12 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills 
     font-size: 1rem;
     color: #190d22;
     background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li:hover {
+    cursor: default;
+    background-color: white;
   }
 }
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills ul li:first-child {
@@ -2771,4 +2822,34 @@ footer .logo-contact-icon .footer-content .contact-icon-box div.phone-icon a:hov
     top: -30px;
     width: 110px;
   }
+}
+footer .fixed-menu {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  animation: fixedMenu 2.5s ease-out infinite;
+}
+@keyframes fixedMenu {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  footer .fixed-menu {
+    right: 0;
+    bottom: 50px;
+  }
+}
+footer .fixed-menu img {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(10deg);
 }/*# sourceMappingURL=index.css.map */
