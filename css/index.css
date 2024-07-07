@@ -1309,7 +1309,7 @@ main .about-me .aboutme-content .txt-content-box .main-txt .verb {
   display: inline-block;
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
-  margin: 2vh 0 1vh 1vh;
+  margin: 2vh 0 3vh 1vh;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn {
@@ -1458,13 +1458,23 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history {
   display: none;
 }
-main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
-  font-size: 0.833rem;
-  line-height: 1.8;
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history table tr {
+  height: 40px;
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history table tr td {
+  font-size: 1rem;
 }
 @media only screen and (min-width: 1024px) {
-  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt .txt {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history table tr td {
     font-size: 1.167rem;
+  }
+}
+main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history table tr td:first-child {
+  width: 38vw;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.history table tr td:first-child {
+    width: 180px;
   }
 }
 main .skill {

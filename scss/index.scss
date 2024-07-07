@@ -312,7 +312,7 @@ main {
     
                 
                 .aboutme-tab-btn {
-                    margin: 2vh 0 1vh 1vh;
+                    margin: 2vh 0 3vh 1vh;
 
                     @include responsive(large-screens) {
                            margin-top: 30px;
@@ -473,15 +473,29 @@ main {
     
                         &.history {
                             display: none;
-                        }
-
-                        .txt {
-                            font-size: 0.833rem;
-                            line-height: 1.8;
-                            // background-color: lightgreen;
+                            
+                            table {
+                                tr {
+                                    height: 40px;
+                                    td {
+                                        font-size: 1rem;
+                                        // font-size: 0.833rem;
     
-                            @include responsive(large-screens) {
-                                font-size: 1.167rem;
+                                        @include responsive(large-screens) {
+                                            font-size: 1.167rem;
+                                        }
+                                        
+
+                                        &:first-child {
+                                            width: 38vw;
+                                            // background-color: lightcoral;
+
+                                            @include responsive(large-screens) {
+                                                width: 180px;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
