@@ -1175,7 +1175,7 @@ main .about-me .aboutme-content .photo-content .big-circle .starlight {
   height: 5vw;
   opacity: 0;
   transform: scale(0);
-  transition: all 0.4s ease-in 0.4s;
+  transition: all 0.4s ease-in 0.7s;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .big-circle .starlight {
@@ -1232,7 +1232,7 @@ main .about-me .aboutme-content .photo-content .small-circle .small-starlight {
   height: 3vw;
   opacity: 0;
   transform: scale(0);
-  transition: all 0.2s ease-in 0.4s;
+  transition: all 0.2s ease-in 0.7s;
 }
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .small-circle .small-starlight {
@@ -1481,10 +1481,12 @@ main .skill {
   position: relative;
   width: 100%;
   margin-top: 10vh;
+  height: 100vh;
 }
 @media only screen and (min-width: 1024px) {
   main .skill {
-    margin-top: 13vh;
+    height: auto;
+    margin-top: 15vh;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1824,7 +1826,6 @@ main .skill .skill-desc .skill-desc-txt .desc-txt-ani .desc-back .desc-txt {
 }
 main .portfolio {
   width: 100%;
-  margin-top: 10vh;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio {
@@ -1833,8 +1834,13 @@ main .portfolio {
 }
 main .portfolio .portfolio-title {
   position: relative;
-  height: 50vw;
+  height: 50vh;
   margin-bottom: 10vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-title {
+    height: auto;
+  }
 }
 main .portfolio .portfolio-title .title-box {
   position: absolute;
@@ -2008,22 +2014,18 @@ main .portfolio .portfolio-title .circle-box .pf-line #pf-canvas {
     transform: rotate(150deg);
   }
 }
-main .portfolio .portfolio-title .circle-box .pf-starlight {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 5vw;
-}
 main .portfolio .portfolio-detail {
   display: flex;
   flex-direction: column;
 }
 main .portfolio .portfolio-detail .detail {
   width: 100%;
+  height: 100vh;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail {
     padding: 170px 0;
+    height: auto;
   }
 }
 main .portfolio .portfolio-detail .detail .pf-content-box {
@@ -2080,7 +2082,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt.pf-active {
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-title {
   position: relative;
   width: 100%;
-  font-size: 1.167rem;
+  font-size: 1.333rem;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-title {
@@ -2105,18 +2107,19 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
   justify-content: space-between;
   gap: 0;
   margin: 0;
-  width: 230px;
+  margin-top: 5px;
+  width: 210px;
   height: 20px;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
-    width: 250px;
+    width: 20px;
     height: 30px;
     margin: 10px 0 0;
   }
 }
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .duration-txt {
-  width: 35%;
+  width: 25%;
   margin: 0;
   font-weight: 600;
   font-size: 0.833rem;
@@ -2139,7 +2142,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration .tim
 }
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills {
   height: 17px;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .using-skills {
@@ -2201,7 +2204,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .desc-txt {
 }
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
   white-space: nowrap;
   overflow-x: scroll;
   opacity: 0;
@@ -2288,9 +2291,6 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
     transform: translateY(0) scale(2.5);
   }
 }
-main .portfolio .portfolio-detail .portfolio_1 {
-  margin-bottom: 5vh;
-}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_1 {
     margin-bottom: 0;
@@ -2339,9 +2339,6 @@ main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-img i
     margin: 0;
     padding: 0;
   }
-}
-main .portfolio .portfolio-detail .portfolio_2 {
-  margin-bottom: 5vh;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_2 {
@@ -2420,13 +2417,13 @@ main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img
 }
 main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-img {
   border-radius: 5vw;
+  border: 1px solid #fff;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-img {
     width: 580px;
     height: 700px;
     border-radius: 300px;
-    border: 1px solid #fff;
   }
 }
 main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-img img.img-animation {
@@ -2458,7 +2455,7 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
 }
 main .contact {
   width: 100%;
-  margin: 10vh 0 5vh;
+  margin-bottom: 5vh;
 }
 @media only screen and (min-width: 1024px) {
   main .contact {

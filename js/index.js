@@ -143,6 +143,7 @@ window.onload = function() {
         var startAngle = (Math.PI / 180) * 25; 
         var endAngle = (Math.PI / 180) * 275; 
         var currentAngle = startAngle; 
+        var animationCompleted = false;
 
         function animate() {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -151,15 +152,17 @@ window.onload = function() {
             ctx.arc(182, 200, 180, startAngle, currentAngle, false);
             ctx.stroke();
 
-            currentAngle += (Math.PI / 180) * 4;
+            currentAngle += (Math.PI / 180) * 4.5;
 
             if (currentAngle <= endAngle) {
                 requestAnimationFrame(animate);
+            } else {
+                animationCompleted = true;
             }
         }
         const observerBigCircle = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if(entry.isIntersecting && !animationCompleted) {
                     animate();
                 } 
             });
@@ -184,6 +187,7 @@ window.onload = function() {
         var startAngle = (Math.PI / 180) * 0;
         var endAngle = (Math.PI / 180) * 275;
         var currentAngle = startAngle;
+        var animationCompleted = false;
 
         function animate() {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // 캔버스 지우기
@@ -193,16 +197,18 @@ window.onload = function() {
             ctx.stroke();
 
             // 각도를 증가시켜 애니메이션 효과 생성
-            currentAngle += (Math.PI / 180) * 5;
+            currentAngle += (Math.PI / 180) * 7;
 
             if (currentAngle <= endAngle) {
                 requestAnimationFrame(animate);
+            } else {
+                animationCompleted = true;
             }
         }
 
         const observerSmallCircle = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if(entry.isIntersecting  && !animationCompleted) {
                     animate();
                 } 
             });
@@ -491,7 +497,6 @@ window.onload = function() {
             });
         });
     
-        // #Intersection Observer가 allBtn을 감시
         observerSkill.observe(allBtn);
     
 
@@ -902,18 +907,17 @@ window.onload = function() {
 
 
     // ++++++++++++++++++ footer ++++++++++++++++++
-    function drawFooter(){
+    // function drawFooter(){
+    //     var ctx = document.getElementById('fixed-circle').getContext("2d");
+    //     var grad = ctx.createLinearGradient(100, 0, 100, 100);
+    //     grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    //     grad.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
 
-        var ctx = document.getElementById('fixed-circle').getContext("2d");
-        var grad = ctx.createLinearGradient(100, 0, 100, 100);
-        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        grad.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
-
-        ctx.strokeStyle = grad; 
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(50, 50, 30,(Math.PI/180) * 40 ,(Math.PI/180) * 360,false);
-        ctx.stroke(); //테두리
-      }
-      drawFooter();
+    //     ctx.strokeStyle = grad; 
+    //     ctx.lineWidth = 1;
+    //     ctx.beginPath();
+    //     ctx.arc(50, 50, 30,(Math.PI/180) * 40 ,(Math.PI/180) * 360,false);
+    //     ctx.stroke(); //테두리
+    //   }
+    //   drawFooter();
 };

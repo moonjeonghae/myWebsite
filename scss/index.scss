@@ -158,19 +158,13 @@ main {
                         height: 5vw;
                         opacity: 0;
                         transform: scale(0);
-                        transition: all 0.4s ease-in 0.4s;
+                        transition: all 0.4s ease-in 0.7s;
 
                         @include responsive(large-screens) {
                             left: 170px; top: 5px;
                             width: 30px;
                             height: 30px;
                         }
-                        // animation: fixedMenu 2.5s ease-out infinite;
-
-                        // @keyframes fixedMenu {
-                        //     0% {transform: rotate(0deg);}
-                        //     100% {transform: rotate(360deg);}
-                        // }
 
                         &.starlight-show {
                             opacity: 1;
@@ -219,7 +213,7 @@ main {
                         height: 3vw;
                         opacity: 0;
                         transform: scale(0);
-                        transition: all 0.2s ease-in 0.4s;
+                        transition: all 0.2s ease-in 0.7s;
 
                         @include responsive(large-screens) {
                             right: 160px; bottom: 8px;
@@ -510,11 +504,12 @@ main {
         position: relative;
         width: $wide-width;
         margin-top: 10vh;
+        height: 100vh;
         // background-color: darkgoldenrod;
 
         @include responsive(large-screens) {
-            // height: 1080px;
-            margin-top: 13vh;
+            height: auto;
+            margin-top: 15vh;
         }
 
         .title-box {
@@ -866,7 +861,7 @@ main {
     //====== portfolio ======
     .portfolio {
         width: $wide-width;
-        margin-top: 10vh;
+        // margin-top: 10vh;
         // background-color: darkblue;
 
         @include responsive(large-screens) {
@@ -885,7 +880,7 @@ main {
             
 
             .portfolio_1 {
-                margin-bottom: 5vh;
+                // margin-bottom: 10vh;
                 // background-color: aquamarine;
                 
                 @include responsive(large-screens) {
@@ -941,7 +936,7 @@ main {
 
 
             .portfolio_2 {
-                margin-bottom: 5vh;
+                // margin-bottom: 5vh;
                 
                 @include responsive(large-screens) {
                     margin-bottom: 0;
@@ -1010,12 +1005,12 @@ main {
 
                     .personal-img {
                         border-radius: 5vw;
+                        border: 1px solid $color-main;
                         
                         @include responsive(large-screens) {
                             width: 580px;
                             height: 700px;
                             border-radius: 300px;
-                            border: 1px solid $color-main;
                             // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
                         }
 
@@ -1049,7 +1044,7 @@ main {
 
     .contact {
         width: $wide-width;
-        margin: 10vh 0 5vh;
+        margin-bottom: 5vh;
         // background-color: lightsalmon;
 
         @include responsive(large-screens) {

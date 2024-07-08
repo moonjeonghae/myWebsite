@@ -4,12 +4,12 @@
 @mixin portfolio-title() {
     .portfolio-title {
         position: relative;
-        height: 50vw;
+        height: 50vh;
         margin-bottom: 10vh;
         // background-color: darkkhaki;
 
         @include responsive(large-screens) {
-            // height: 1080px;
+            height: auto;
             // padding-top: 10vh;
         }
         
@@ -29,12 +29,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
-                // background-color: aquamarine; 
-
-                // @include responsive(large-screens) {
-                //     flex-direction: row;
-                //     justify-content: flex-start;
-                // }
 
                 .long-line {
                     width: 15vw;
@@ -193,11 +187,6 @@
                     }
                 }
             }
-            .pf-starlight {
-                position: absolute;
-                left: 0; top: 0;
-                width: 5vw;
-            }
         }
     }  // portfolio-title
 }
@@ -206,10 +195,11 @@
 @mixin portfolio-detail-common() {
     .detail {
         width: $wide-width;
-        
+        height: 100vh;
 
         @include responsive(large-screens) {
             padding: 170px 0;
+            height: auto;
         }
 
         // 공통 style
@@ -268,7 +258,7 @@
                 .ko-content-title {
                     position: relative;
                     width: $wide-width;
-                    font-size: 1.167rem;
+                    font-size: 1.333rem;
                     // color: $color-graph;
                     // background-color: lightblue;
                     
@@ -311,18 +301,18 @@
                     justify-content: space-between;
                     gap: 0;
                     margin: 0;
-                    width: 230px;
+                    margin-top: 5px;
+                    width: 210px;
                     height: 20px;
-                    // background-color: lightblue;
 
                     @include responsive(large-screens) {
-                        width: 250px;
+                        width: 20px;
                         height: 30px;
                         margin: 10px 0 0;
                     }
 
                     .duration-txt {
-                        width: 35%;
+                        width: 25%;
                         margin: 0;
                         font: {
                             weight: $ko-font-semibold;
@@ -347,9 +337,9 @@
                 }
 
                 .using-skills {
-                    // background-color: lightsalmon;
                     height: 17px;
-                    margin-top: 2px;
+                    margin-top: 3px;
+                    // background-color: lightsalmon;
 
                     @include responsive(large-screens) {
                         height: 30px;
@@ -414,7 +404,7 @@
 
                 .pf-btn {
                     width: $wide-width;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     white-space: nowrap;
                     overflow-x: scroll;
                     // background-color: aquamarine;
