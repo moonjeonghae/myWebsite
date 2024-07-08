@@ -9,20 +9,20 @@
         // background-color: darkkhaki;
 
         @include responsive(large-screens) {
-            height: auto;
-            // padding-top: 10vh;
+            height: 1000px;
+            // height: auto;
+            // padding: 10vh 0;
         }
         
         .title-box {
             position: absolute;
             left: 50%; top: 50%;
-            transform: translate(-50%, -55%);
+            transform: translate(-50%, -50%);
             width: 90vw;
             // background-color: lightblue;
 
             @include responsive(large-screens) {
                 width: $wide-width;
-                transform: translate(-50%, -50%);
             }
 
             .pf-sub-title {
@@ -166,7 +166,7 @@
             .pf-line {
                 position: absolute;
                 right: 0; top: 50%;
-                transform: translateY(-52%);
+                transform: translateY(-50%);
                 // background-color: darkcyan;
                 
                 @include responsive(large-screens) {
@@ -264,22 +264,8 @@
                     
                     @include responsive(large-screens) {
                         text-align: left;
-                        font-size: 1.667rem;
+                        font-size: 2rem;
                     }
-
-                    // img {
-                    //     display: inline-block;
-                    //     width: 26px;
-                    //     margin-right: 5px;
-                    // }
-                    // &:after {
-                    //     position: absolute;
-                    //     left: 0; bottom: 0;
-                    //     width: 250px;
-                    //     content: '';
-                    //     height: 5px;
-                    //     background-color: $color-graph;
-                    // }
                 }
 
                 .type {
@@ -306,7 +292,7 @@
                     height: 20px;
 
                     @include responsive(large-screens) {
-                        width: 20px;
+                        width: 250px;
                         height: 30px;
                         margin: 10px 0 0;
                     }
@@ -434,11 +420,6 @@
                         padding: 5px 10px;
                         border: 2px solid $color-point;
                         border-radius: 10px;
-                        font: {
-                            family: $ko-font;
-                            size: 0.833rem;
-                        }
-                        color: $color-point;
                         background-color: $color-main;
                         cursor: pointer;
                         
@@ -448,9 +429,16 @@
                             margin-right: 10px;
                             // font-weight: $ko-font-semibold;
                             background-color: transparent;
-                        }  
-                        
-                        
+                        }
+
+                        a {
+                            font: {
+                                family: $ko-font;
+                                size: 0.833rem;
+                            }
+                            color: $color-point;
+                        }
+
                         span {
                             @include responsive(large-screens) {
                                 display: inline-block;
@@ -492,8 +480,10 @@
                         }
                         
                         &:hover {
-                            @include responsive(large-screens) {
-                                color: $color-main;
+                            a {
+                                @include responsive(large-screens) {
+                                    color: $color-main;
+                                }
                             }
 
                             span {
@@ -502,7 +492,6 @@
                                 }
                             }
                         }
-
                     }
                 }
             }  // pf-txt

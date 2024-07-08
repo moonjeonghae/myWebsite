@@ -1839,20 +1839,19 @@ main .portfolio .portfolio-title {
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title {
-    height: auto;
+    height: 1000px;
   }
 }
 main .portfolio .portfolio-title .title-box {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -50%);
   width: 90vw;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .title-box {
     width: 100%;
-    transform: translate(-50%, -50%);
   }
 }
 main .portfolio .portfolio-title .title-box .pf-sub-title {
@@ -1992,7 +1991,7 @@ main .portfolio .portfolio-title .circle-box .pf-line {
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-52%);
+  transform: translateY(-50%);
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-title .circle-box .pf-line {
@@ -2087,7 +2086,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-ti
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .ko-content-title {
     text-align: left;
-    font-size: 1.667rem;
+    font-size: 2rem;
   }
 }
 main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .type {
@@ -2113,7 +2112,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .duration {
-    width: 20px;
+    width: 250px;
     height: 30px;
     margin: 10px 0 0;
   }
@@ -2232,9 +2231,6 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
   padding: 5px 10px;
   border: 2px solid #7b588c;
   border-radius: 10px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 0.833rem;
-  color: #7b588c;
   background-color: #fff;
   cursor: pointer;
 }
@@ -2245,6 +2241,11 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
     margin-right: 10px;
     background-color: transparent;
   }
+}
+main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button a {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.833rem;
+  color: #7b588c;
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span {
@@ -2282,7 +2283,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover a {
     color: #fff;
   }
 }

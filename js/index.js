@@ -902,6 +902,9 @@ window.onload = function() {
         observerBtn.observe(btn);
     });
 
+
+    // ----- [공통] 버튼에 링크 연결하기 -----
+    
     //====== contact ======
    
 
