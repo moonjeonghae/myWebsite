@@ -113,7 +113,6 @@ main {
 
                     @include responsive(large-screens) {
                         display: flex;
-                        align-items: left;
                         width: 340px;
                         margin-top: 50px;
                         padding-top: 0;
@@ -393,9 +392,12 @@ main {
                 .aboutme-content-box {
                     position: relative;
                     width: $wide-width;
-                    height: 43vh;
+                    height: 57vh;
                     // background-color: darkgoldenrod;
                     
+                    @include responsive(large-screens) {
+                        height: 47vh;
+                    }
                     .aboutme-content-txt {
                         position: absolute;
                         left: 0; top: 0;
@@ -503,7 +505,7 @@ main {
     .skill {
         position: relative;
         width: $wide-width;
-        margin-top: 10vh;
+        margin-top: 15vh;
         height: 100vh;
         // background-color: darkgoldenrod;
 
@@ -523,6 +525,8 @@ main {
                 line-height: 230px;
                 border: 1px solid $color-main;
                 border-radius: 50%;
+                transform-style: preserve-3d;
+                transition: transform 0.5s ease;
             }
 
             .title {
@@ -536,7 +540,7 @@ main {
             .skill-tab-btn {
                 overflow-x: scroll;
                 white-space: nowrap;
-                scrollbar-width: none;
+                -ms-overflow-style: none;
 
                 &::-webkit-scrollbar {
                     display: none;
@@ -606,8 +610,8 @@ main {
                     @include responsive(large-screens) {
                        position: absolute;
                        transform: translate(-50%, -50%) rotate(90deg);
-                       width: 120px;
-                       height: 120px;
+                       width: 100px;
+                       height: 100px;
                     //    background-color: lightblue;
 
                     animation: circleRotate2 30s linear infinite;
@@ -732,7 +736,7 @@ main {
                         border-radius: 50%;
                         visibility: hidden;
                         opacity: 0;
-                        transition: transform 0.3s ease;
+                        transition: transform 0.5s ease;
                         transform-style: preserve-3d;
                     }
 
@@ -876,14 +880,29 @@ main {
             display: flex;
             flex-direction: column;
             
+            .pf-category {
+                position: relative;
+                z-index: 0;
+                margin-bottom: 30px;
+                font-size: 2rem;
+                // background-color: darkgreen;
+
+                @include responsive(large-screens) {
+                    // width: $wide-width;
+                    margin-bottom: 0;
+                    font-size: 3.333rem;
+                    // text-align: center;
+                }
+            }
+
             @include portfolio-detail-common();
             
 
             .portfolio_1 {
-                // margin-bottom: 10vh;
                 // background-color: aquamarine;
                 
                 @include responsive(large-screens) {
+                    padding-top: 100px;
                     margin-bottom: 0;
                 }
                 
@@ -900,18 +919,28 @@ main {
                             width: 580px;
                             height: 653px;
                             border-radius: 0 165px 0 165px;
-                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
                         }
 
                         img {
                             &.img-animation {
-                                animation: moving 8s ease infinite;
+                                animation: moving 5s ease infinite;
+
                                 @keyframes moving {
                                     0% { transform:translateY(0) }
-                                    40% { transform:translateY(-50%) }
-                                    50% { transform:translateY(-50%) }
+                                    40% { transform:translateY(-51%) }
+                                    50% { transform:translateY(-51%) }
                                     90% { transform:translateY(0) }
                                     100% { transform:translateY(0) }
+                                }
+
+                                @include responsive(large-screens) {
+                                    @keyframes moving {
+                                        0% { transform:translateY(0) }
+                                        40% { transform:translateY(-50%) }
+                                        50% { transform:translateY(-50%) }
+                                        90% { transform:translateY(0) }
+                                        100% { transform:translateY(0) }
+                                    }
                                 }
                             }
                         }
@@ -919,19 +948,15 @@ main {
 
                     .hollys-txt {
                         @include responsive(large-screens) {
-                            // width: 40vw;
                             width: 700px;
                             height: 375px;
                             margin: 0;
                             padding: 0;
-                            // margin-left: 5vw;
                         }
-
-                        // .desc-txt {
-                        //     height: 150px;
-                        // }
                     }
                 }
+
+                
             }  // portfolio_1
 
 
@@ -955,29 +980,29 @@ main {
                             width: 800px;
                             height: 603px;
                             border-radius: 200px 0 200px 0;
-                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
                         }
 
                         img {
                             &.img-animation {
                                 animation: moving2 15s ease infinite;
 
+                                
+                                @keyframes moving2 {
+                                    0% { transform:translateY(0) }
+                                    40% { transform:translateY(-81.5%) }
+                                    50% { transform:translateY(-81.5%) }
+                                    90% { transform:translateY(0) }
+                                    100% { transform:translateY(0) }
+                                }
+                                
                                 @include responsive(large-screens) {
                                     @keyframes moving2 {
                                         0% { transform:translateY(0) }
-                                        40% { transform:translateY(-89%) }
-                                        50% { transform:translateY(-89%) }
+                                        40% { transform:translateY(-87%) }
+                                        50% { transform:translateY(-87%) }
                                         90% { transform:translateY(0) }
                                         100% { transform:translateY(0) }
                                     }
-                                }
-
-                                @keyframes moving2 {
-                                    0% { transform:translateY(0) }
-                                    40% { transform:translateY(-85%) }
-                                    50% { transform:translateY(-85%) }
-                                    90% { transform:translateY(0) }
-                                    100% { transform:translateY(0) }
                                 }
                             }
                         }
@@ -1016,14 +1041,24 @@ main {
 
                         img {
                             &.img-animation {
-                                animation: moving3 15s ease infinite;
+                                animation: moving3 10s ease infinite;
                                 
                                 @keyframes moving3 {
                                     0% { transform:translateY(0) }
-                                    40% { transform:translateY(-89%) }
-                                    50% { transform:translateY(-89%) }
+                                    40% { transform:translateY(-75%) }
+                                    50% { transform:translateY(-75%) }
                                     90% { transform:translateY(0) }
                                     100% { transform:translateY(0) }
+                                }
+
+                                @include responsive(large-screens) {
+                                    @keyframes moving3 {
+                                        0% { transform:translateY(0) }
+                                        40% { transform:translateY(-72.5%) }
+                                        50% { transform:translateY(-72.5%) }
+                                        90% { transform:translateY(0) }
+                                        100% { transform:translateY(0) }
+                                    }
                                 }
                             }
                         }
@@ -1038,6 +1073,45 @@ main {
                     }
                 }
             }  // portfolio_3
+
+            .portfolio_4 {
+                // margin-bottom: 5vh;
+                // background-color: lightcoral;
+                
+                @include responsive(large-screens) {
+                    padding-top: 50px;
+                    margin-bottom: 0;
+                }
+
+                .kiosk-content-box {
+                    @include responsive(large-screens) {
+                        flex-direction: row-reverse;
+                        height: 603px;
+                    }
+
+                    .kiosk-img {
+                        border-radius: 5vw;
+                        overflow: hidden;
+                        // background-color: antiquewhite;
+
+                        @include responsive(large-screens) {
+                            width: 800px;
+                            border-radius: 0 120px 0 120px;
+                        }
+                    }
+
+                    .kiosk-txt {
+                        @include responsive(large-screens) {
+                            width: 566px;
+                            height: 400px;
+                            margin: 0;
+                            text-align: left;
+                            transform: translateX(-30vw);
+                            transition:  transform 0.3s;
+                        }
+                    }
+                }  //  kiosk-content-box
+            }  // portfolio_4
         }  // portfolio-detail
     }  // portfolio
 

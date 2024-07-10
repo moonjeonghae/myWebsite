@@ -7,10 +7,7 @@ window.onload = function() {
     const logo = document.querySelector('.logo');
     
     logo.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.location.href = './index.html';
     });
 
 
@@ -673,14 +670,27 @@ window.onload = function() {
         const skillDescAni = document.querySelectorAll('.desc-txt-ani');
         const titleBox = document.querySelector('.title-box');
         const barGraph = document.querySelectorAll('.skill-graph');
+        const iconImgs = document.querySelectorAll('.icon > img');
 
+        // # 애니메이션 멈추게 하는 함수
+        const pausedAnimation = () => {
+            iconBox.style.animationPlayState = 'paused';
+            icons.forEach(icon => {
+                icon.style.animationPlayState = 'paused';
+            });
+        }
+
+        // # 애니메이션 움직이게 하는 함수
+        const runningAnimation = () => {
+            iconBox.style.animationPlayState = 'running';
+            icons.forEach(icon => {
+                icon.style.animationPlayState = 'running';
+            });
+        }
         // #mouseenter 시 적용될 css 함수 만들기 => movingSkillDesc
         const movingSkillDesc = (idx) => {
             return () => {
-                iconBox.style.animationPlayState = 'paused';
-                icons.forEach(icon => {
-                    icon.style.animationPlayState = 'paused';
-                });
+                pausedAnimation();
                 titleBox.style.visibility = 'hidden';
                 
                 setTimeout(() => {
@@ -699,27 +709,26 @@ window.onload = function() {
         const originSkillDesc = (idx) => {
             return () => {
                 skillDescAni[idx].classList.remove('moving');
-            
+                titleBox.style.visibility = 'visible';
+                titleBox.style.opacity = '0';
+                
                 setTimeout(() => {
                     skillDescAni[idx].classList.remove('visible');
-                    titleBox.style.visibility = 'visible';
                     const graphBar = barGraph[idx].querySelector('.graph-bar');
                     graphBar.style.width = '0';
-                    iconBox.style.animationPlayState = 'running';
-                    icons.forEach(icon => {
-                        icon.style.animationPlayState = 'running';
-                    });
+                    titleBox.style.opacity = '1';
                 },300)
                 
+                runningAnimation();
             };
         };
 
         // #icon에 mouseover하면 각 icon에 movingSkillDesc()가 적용됨
-        icons.forEach((icon, idx) => {
+        iconImgs.forEach((icon, idx) => {
             icon.addEventListener('mouseenter', movingSkillDesc(idx))
         });
         // #icon에 mouseout하면 각 icon에 originSkillDesc()가 적용됨
-        icons.forEach((icon, idx) => {
+        iconImgs.forEach((icon, idx) => {
             icon.addEventListener('mouseleave', originSkillDesc(idx))
         });
     }
@@ -728,33 +737,44 @@ window.onload = function() {
     //====== portfolio_title ======
     // ----- [공통] 포트폴리오 title 애니메이션 -----
     // ***** txt, line 적용 *****
-    function portfolioTitleAnimation(entries) {
-        entries.forEach(entry => {
-            var target = entry.target;
+    function portfolioTitleAnimationPlay(entries) {
+        entries.forEach((entry) => {
             if(entry.isIntersecting) {
-                target.classList.add(target.dataset.class);
-            } else {
-                target.classList.remove(target.dataset.class);
+                function portfolioTitleAnimation(entries) {
+                    entries.forEach(entry => {
+                        var target = entry.target;
+                        if(entry.isIntersecting) {
+                            target.classList.add(target.dataset.class);
+                        } else {
+                            target.classList.remove(target.dataset.class);
+                        }
+                    })
+                };
+
+                const pfObserver = new IntersectionObserver(portfolioTitleAnimation);
+
+                const pfLongLine = document.querySelector('.long-line');
+                const pfSubTitleP = document.querySelector('.pf-sub-title p');
+                const pfTitle = document.querySelector('.pf-title');
+                const pfShortLine = document.querySelector('.short-line');
+
+                pfLongLine.dataset.class = 'longline-active';
+                pfSubTitleP.dataset.class = 'p-active';
+                pfTitle.dataset.class = 'pftitle-active';
+                pfShortLine.dataset.class = 'shortline-active';
+
+                pfObserver.observe(pfLongLine);
+                pfObserver.observe(pfSubTitleP);
+                pfObserver.observe(pfTitle);
+                pfObserver.observe(pfShortLine);
             }
-        })
+        });
     };
+    
+    const portfolio = document.querySelector('.portfolio-title');
 
-    const pfObserver = new IntersectionObserver(portfolioTitleAnimation);
-
-    const pfLongLine = document.querySelector('.long-line');
-    const pfSubTitleP = document.querySelector('.pf-sub-title p');
-    const pfTitle = document.querySelector('.pf-title');
-    const pfShortLine = document.querySelector('.short-line');
-
-    pfLongLine.dataset.class = 'longline-active';
-    pfSubTitleP.dataset.class = 'p-active';
-    pfTitle.dataset.class = 'pftitle-active';
-    pfShortLine.dataset.class = 'shortline-active';
-
-    pfObserver.observe(pfLongLine);
-    pfObserver.observe(pfSubTitleP);
-    pfObserver.observe(pfTitle);
-    pfObserver.observe(pfShortLine);
+    const pfPlayOBbserver = new IntersectionObserver(portfolioTitleAnimationPlay);
+    pfPlayOBbserver.observe(portfolio);
 
     // ***** circle 적용 *****
     function pfDraw(){
@@ -809,7 +829,8 @@ window.onload = function() {
                 }
             });
         });
-        
+
+        // const pfShortLine = document.querySelector('.short-line');
         const portfolio = document.querySelector('.portfolio-title');
         observerPortfolio.observe(portfolio);
     }
@@ -846,7 +867,7 @@ window.onload = function() {
             if(entry.isIntersecting) {
                 const target = entry.target;
                 target.classList.add('img-animation');
-                observer.unobserve(target);  // 한 번만 작동하도록 관찰 중지
+                observer.unobserve(target);
             }
         });
     });
@@ -902,25 +923,81 @@ window.onload = function() {
         observerBtn.observe(btn);
     });
 
-
-    // ----- [공통] 버튼에 링크 연결하기 -----
+    // ----- [공통] 버튼 클릭 시 href 연결 -----  
+    const btns = document.querySelectorAll('.pf-btn button');
+    btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-href');
+            window.open(url, '_blank');
+        })
+    })
+     
+     
+    // ----- [공통] design 버튼 클릭 시 모달창 띄우기 -----
+    const designGuideBtns = document.querySelectorAll('.design-btn');
+    const designGuides = document.querySelectorAll('.design-guide');
+    const cancelBtns = document.querySelectorAll('.cancel-btn');
     
-    //====== contact ======
-   
+    const clickDesignGuideBtn = (idx)=> {
+        designGuides[idx].classList.add('dg-show');
+        designGuides[idx].style.display = 'block';
+        $body.classList.add('scroll-stop');
+    };
+
+    const cancelModal = (idx) => {
+        designGuides[idx].classList.remove('dg-show');
+        designGuides[idx].style.display = 'none';
+        $body.classList.remove('scroll-stop');
+    }
+
+    designGuideBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            clickDesignGuideBtn(idx);
+        });
+    });
+
+    cancelBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            cancelModal(idx);
+        });
+    });
 
 
     // ++++++++++++++++++ footer ++++++++++++++++++
-    // function drawFooter(){
-    //     var ctx = document.getElementById('fixed-circle').getContext("2d");
-    //     var grad = ctx.createLinearGradient(100, 0, 100, 100);
-    //     grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    //     grad.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
+    const TopBtn = document.querySelector('.fixed-menu');
 
-    //     ctx.strokeStyle = grad; 
-    //     ctx.lineWidth = 1;
-    //     ctx.beginPath();
-    //     ctx.arc(50, 50, 30,(Math.PI/180) * 40 ,(Math.PI/180) * 360,false);
-    //     ctx.stroke(); //테두리
-    //   }
-    //   drawFooter();
+    TopBtn.addEventListener('mouseenter', () => {
+        TopBtn.classList.add('moving');
+    });
+
+    TopBtn.addEventListener('mouseleave', () => {
+        TopBtn.classList.remove('moving');
+    });
+
+    TopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    const homeSec = document.getElementById('home');
+    const homeHeight = homeSec.offsetHeight;
+    console.log(homeHeight);
+    
+    function topBtnOpacity() {
+        const scrollPos = window.scrollY;
+        console.log(scrollPos);
+        
+        if(scrollPos < homeHeight) {
+            TopBtn.style.opacity = 0;
+            TopBtn.style.transition = 'opacity 0.3s';
+        } else {
+            TopBtn.style.opacity = 1;
+        }
+    }
+
+    topBtnOpacity();
+
+    window.addEventListener('scroll', topBtnOpacity);
 };

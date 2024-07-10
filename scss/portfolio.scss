@@ -4,7 +4,7 @@
 @mixin portfolio-title() {
     .portfolio-title {
         position: relative;
-        height: 50vh;
+        height: 100vh;
         margin-bottom: 10vh;
         // background-color: darkkhaki;
 
@@ -203,6 +203,63 @@
         }
 
         // 공통 style
+        .design-guide {
+            display: none;
+            width: $wide-width;
+            height: $wide-height;
+
+            &.dg-show {
+                display: block;
+                position: fixed;
+                z-index: 100000;
+                left: 0; top: 0;
+                overflow-y: scroll;
+                width: $wide-width;
+                background-color: rgba(25, 13, 34, 0.8);
+            }
+
+            .cancel-btn {
+                position: fixed;
+                right: 5vw; top: 5vw;
+                width: 7vw;
+                height: 7vw;
+                cursor: pointer;
+
+                @include responsive(large-screens) {
+                    right: 23%; top: 20px;
+                    transform: translateY(-23%);
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .x-line {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: $wide-width;
+                    height: 1px;
+                    background-color: $color-main;
+                    transform-origin: center;
+
+                    &:first-of-type {
+                        transform: translate(-50%, -50%) rotate(45deg);
+                    }
+            
+                    &:last-of-type {
+                        transform: translate(-50%, -50%) rotate(-45deg);
+                    }
+                }
+            }
+
+            img {
+                width: 70%;
+
+                @include responsive(large-screens) {
+                    width: 50%;
+                }
+            }
+        }
+
         .pf-content-box {
             width: $wide-width;
 
@@ -420,6 +477,11 @@
                         padding: 5px 10px;
                         border: 2px solid $color-point;
                         border-radius: 10px;
+                        font: {
+                            family: $ko-font;
+                            size: 0.833rem;
+                        }
+                        color: $color-point;
                         background-color: $color-main;
                         cursor: pointer;
                         
@@ -431,16 +493,9 @@
                             background-color: transparent;
                         }
 
-                        a {
-                            font: {
-                                family: $ko-font;
-                                size: 0.833rem;
-                            }
-                            color: $color-point;
-                        }
-
                         span {
                             @include responsive(large-screens) {
+                                --n: 0;
                                 display: inline-block;
                                 position: absolute;
                                 width: 25%;
@@ -480,10 +535,8 @@
                         }
                         
                         &:hover {
-                            a {
-                                @include responsive(large-screens) {
-                                    color: $color-main;
-                                }
+                            @include responsive(large-screens) {
+                                color: $color-main;
                             }
 
                             span {

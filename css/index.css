@@ -1128,7 +1128,6 @@ main .about-me .aboutme-content .photo-content .my-photo.img-move {
 @media only screen and (min-width: 1024px) {
   main .about-me .aboutme-content .photo-content .my-photo {
     display: flex;
-    align-items: left;
     width: 340px;
     margin-top: 50px;
     padding-top: 0;
@@ -1392,7 +1391,12 @@ main .about-me .aboutme-content .txt-content-box .aboutme-tab-btn button.selecte
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box {
   position: relative;
   width: 100%;
-  height: 43vh;
+  height: 57vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .about-me .aboutme-content .txt-content-box .aboutme-content-box {
+    height: 47vh;
+  }
 }
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt {
   position: absolute;
@@ -1480,7 +1484,7 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
 main .skill {
   position: relative;
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 15vh;
   height: 100vh;
 }
 @media only screen and (min-width: 1024px) {
@@ -1501,6 +1505,8 @@ main .skill {
     line-height: 230px;
     border: 1px solid #fff;
     border-radius: 50%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1512,7 +1518,7 @@ main .skill {
 main .skill .skill-box .skill-tab-btn {
   overflow-x: scroll;
   white-space: nowrap;
-  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 main .skill .skill-box .skill-tab-btn::-webkit-scrollbar {
   display: none;
@@ -1581,8 +1587,8 @@ main .skill .skill-box .icon-box .icon {
   main .skill .skill-box .icon-box .icon {
     position: absolute;
     transform: translate(-50%, -50%) rotate(90deg);
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     animation: circleRotate2 30s linear infinite;
   }
   @keyframes circleRotate2 {
@@ -1707,7 +1713,7 @@ main .skill .skill-desc .skill-desc-txt {
     border-radius: 50%;
     visibility: hidden;
     opacity: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
     transform-style: preserve-3d;
   }
 }
@@ -1834,7 +1840,7 @@ main .portfolio {
 }
 main .portfolio .portfolio-title {
   position: relative;
-  height: 50vh;
+  height: 100vh;
   margin-bottom: 10vh;
 }
 @media only screen and (min-width: 1024px) {
@@ -2017,6 +2023,18 @@ main .portfolio .portfolio-detail {
   display: flex;
   flex-direction: column;
 }
+main .portfolio .portfolio-detail .pf-category {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .pf-category {
+    margin-bottom: 0;
+    font-size: 3.333rem;
+  }
+}
 main .portfolio .portfolio-detail .detail {
   width: 100%;
   height: 100vh;
@@ -2025,6 +2043,61 @@ main .portfolio .portfolio-detail .detail {
   main .portfolio .portfolio-detail .detail {
     padding: 170px 0;
     height: auto;
+  }
+}
+main .portfolio .portfolio-detail .detail .design-guide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+main .portfolio .portfolio-detail .detail .design-guide.dg-show {
+  display: block;
+  position: fixed;
+  z-index: 100000;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: rgba(25, 13, 34, 0.8);
+}
+main .portfolio .portfolio-detail .detail .design-guide .cancel-btn {
+  position: fixed;
+  right: 5vw;
+  top: 5vw;
+  width: 7vw;
+  height: 7vw;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .detail .design-guide .cancel-btn {
+    right: 23%;
+    top: 20px;
+    transform: translateY(-23%);
+    width: 30px;
+    height: 30px;
+  }
+}
+main .portfolio .portfolio-detail .detail .design-guide .cancel-btn .x-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform-origin: center;
+}
+main .portfolio .portfolio-detail .detail .design-guide .cancel-btn .x-line:first-of-type {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+main .portfolio .portfolio-detail .detail .design-guide .cancel-btn .x-line:last-of-type {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+main .portfolio .portfolio-detail .detail .design-guide img {
+  width: 70%;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .detail .design-guide img {
+    width: 50%;
   }
 }
 main .portfolio .portfolio-detail .detail .pf-content-box {
@@ -2231,6 +2304,9 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
   padding: 5px 10px;
   border: 2px solid #7b588c;
   border-radius: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.833rem;
+  color: #7b588c;
   background-color: #fff;
   cursor: pointer;
 }
@@ -2242,13 +2318,9 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
     background-color: transparent;
   }
 }
-main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button a {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 0.833rem;
-  color: #7b588c;
-}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span {
+    --n: 0;
     display: inline-block;
     position: absolute;
     width: 25%;
@@ -2283,7 +2355,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
   }
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover a {
+  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button:hover {
     color: #fff;
   }
 }
@@ -2294,6 +2366,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_1 {
+    padding-top: 100px;
     margin-bottom: 0;
   }
 }
@@ -2314,23 +2387,42 @@ main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-img {
   }
 }
 main .portfolio .portfolio-detail .portfolio_1 .hollys-content-box .hollys-img img.img-animation {
-  animation: moving 8s ease infinite;
+  animation: moving 5s ease infinite;
 }
 @keyframes moving {
   0% {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-50%);
+    transform: translateY(-51%);
   }
   50% {
-    transform: translateY(-50%);
+    transform: translateY(-51%);
   }
   90% {
     transform: translateY(0);
   }
   100% {
     transform: translateY(0);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  @keyframes moving {
+    0% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(-50%);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2365,16 +2457,33 @@ main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img
 main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img img.img-animation {
   animation: moving2 15s ease infinite;
 }
+@keyframes moving2 {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-81.5%);
+  }
+  50% {
+    transform: translateY(-81.5%);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @media only screen and (min-width: 1024px) {
   @keyframes moving2 {
     0% {
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-89%);
+      transform: translateY(-87%);
     }
     50% {
-      transform: translateY(-89%);
+      transform: translateY(-87%);
     }
     90% {
       transform: translateY(0);
@@ -2382,23 +2491,6 @@ main .portfolio .portfolio-detail .portfolio_2 .station-content-box .station-img
     100% {
       transform: translateY(0);
     }
-  }
-}
-@keyframes moving2 {
-  0% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-85%);
-  }
-  50% {
-    transform: translateY(-85%);
-  }
-  90% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2428,17 +2520,17 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
   }
 }
 main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-img img.img-animation {
-  animation: moving3 15s ease infinite;
+  animation: moving3 10s ease infinite;
 }
 @keyframes moving3 {
   0% {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-89%);
+    transform: translateY(-75%);
   }
   50% {
-    transform: translateY(-89%);
+    transform: translateY(-75%);
   }
   90% {
     transform: translateY(0);
@@ -2448,10 +2540,61 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
   }
 }
 @media only screen and (min-width: 1024px) {
+  @keyframes moving3 {
+    0% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-72.5%);
+    }
+    50% {
+      transform: translateY(-72.5%);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+@media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-txt {
     width: 690px;
     height: 350px;
     padding: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_4 {
+    padding-top: 50px;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_4 .kiosk-content-box {
+    flex-direction: row-reverse;
+    height: 603px;
+  }
+}
+main .portfolio .portfolio-detail .portfolio_4 .kiosk-content-box .kiosk-img {
+  border-radius: 5vw;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_4 .kiosk-content-box .kiosk-img {
+    width: 800px;
+    border-radius: 0 120px 0 120px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_4 .kiosk-content-box .kiosk-txt {
+    width: 566px;
+    height: 400px;
+    margin: 0;
+    text-align: left;
+    transform: translateX(-30vw);
+    transition: transform 0.3s;
   }
 }
 main .contact {
@@ -2833,31 +2976,49 @@ footer .logo-contact-icon .footer-content .contact-icon-box div.phone-icon a:hov
 }
 footer .fixed-menu {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
-  animation: fixedMenu 2.5s ease-out infinite;
-}
-@keyframes fixedMenu {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  right: 3vw;
+  bottom: 13vh;
+  width: 50px;
+  display: flex;
+  margin: 0;
 }
 @media only screen and (min-width: 1024px) {
   footer .fixed-menu {
-    right: 0;
-    bottom: 50px;
+    right: 50px;
+    bottom: 120px;
+    width: 70px;
+  }
+}
+footer .fixed-menu p {
+  margin-right: -13px;
+  font-size: 0.75rem;
+}
+@media only screen and (min-width: 1024px) {
+  footer .fixed-menu p {
+    margin-right: -20px;
+    font-size: 1rem;
   }
 }
 footer .fixed-menu img {
-  position: absolute;
-  right: 10px;
-  top: 35px;
-  width: 20px;
-  height: 20px;
-  transform: rotate(10deg);
+  width: 30px;
+}
+@media only screen and (min-width: 1024px) {
+  footer .fixed-menu img {
+    width: 35px;
+  }
+}
+footer .fixed-menu.moving {
+  animation: movingTop 1.5s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes movingTop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }/*# sourceMappingURL=index.css.map */

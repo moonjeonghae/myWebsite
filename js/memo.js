@@ -272,4 +272,32 @@ nameObserver.observe(nameTypingBox);
     });
 
 
+    const skillDesc = document.querySelector('.skill-desc');
+        const xBtn = document.querySelector('.x-btn');
     
+        // #icon click 시 발생할 함수 만들기
+        const showModal = (idx) => {
+            skillDesc.style.display = 'block';
+            iconModal[idx].style.display = 'block';
+            // # scroll 없앨 것이기 때문에 body에 있는 .scroll-stop 추가
+            $body.classList.add('scroll-stop');
+        }
+    
+        // # 각 icon에 함수 적용
+        icons.forEach((icon, idx) => {
+            icon.addEventListener('click', () => showModal(idx));
+        })
+    
+        // X 버튼 누르면 모달이 사라지는 함수 만들기
+        const removeModal = () => {
+            skillDesc.style.display = 'none';
+            iconModal.forEach(modal => modal.style.display = 'none');
+            $body.classList.remove('scroll-stop');
+
+            donuts.forEach(donut => {
+                donutAnimation(donut);
+            });
+        }
+    
+        // # button에 함수 적용하기
+        xBtn.addEventListener('click', removeModal);
