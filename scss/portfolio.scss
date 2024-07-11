@@ -213,7 +213,7 @@
                 position: fixed;
                 z-index: 100000;
                 left: 0; top: 0;
-                overflow-y: scroll;
+                overflow-y: scroll; 
                 width: $wide-width;
                 background-color: rgba(25, 13, 34, 0.8);
             }
@@ -479,6 +479,7 @@
                         border-radius: 10px;
                         font: {
                             family: $ko-font;
+                            weight: $ko-font-medium;
                             size: 0.833rem;
                         }
                         color: $color-point;
@@ -495,7 +496,6 @@
 
                         span {
                             @include responsive(large-screens) {
-                                --n: 0;
                                 display: inline-block;
                                 position: absolute;
                                 width: 25%;
@@ -503,34 +503,8 @@
                                 background-color: $color-point;
                                 transform: translateY(150%);
                                 border-radius: 50%;
-                                left: calc((var(--n) - 1) * 25%);
                                 transition: 0.5s;
-                                transition-delay: calc((var(--n) - 1) * 0.1s);
                                 z-index: -1;
-                            }
-
-                            &:first-child {
-                                @include responsive(large-screens) {
-                                    --n: 1;
-                                }
-                            }
-
-                            &:nth-child(2) {
-                                @include responsive(large-screens) {
-                                    --n: 2;
-                                }
-                            }
-
-                            &:nth-child(3) {
-                                @include responsive(large-screens) {
-                                    --n: 3;
-                                }
-                            }
-
-                            &:nth-child(4) {
-                                @include responsive(large-screens) {
-                                    --n: 4;
-                                }
                             }
                         }
                         

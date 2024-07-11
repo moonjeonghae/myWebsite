@@ -1423,9 +1423,6 @@ main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-c
     }
   }
 }
-main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.txt-show {
-  animation: tiltIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
 main .about-me .aboutme-content .txt-content-box .aboutme-content-box .aboutme-content-txt.strength {
   display: none;
 }
@@ -1653,8 +1650,9 @@ main .skill .skill-desc {
 }
 main .skill .skill-desc .x-btn {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -20%);
   width: 7vw;
   height: 7vw;
   cursor: pointer;
@@ -2305,6 +2303,7 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
   border: 2px solid #7b588c;
   border-radius: 10px;
   font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
   font-size: 0.833rem;
   color: #7b588c;
   background-color: #fff;
@@ -2320,7 +2319,6 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span {
-    --n: 0;
     display: inline-block;
     position: absolute;
     width: 25%;
@@ -2328,30 +2326,8 @@ main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button
     background-color: #7b588c;
     transform: translateY(150%);
     border-radius: 50%;
-    left: calc((var(--n) - 1) * 25%);
     transition: 0.5s;
-    transition-delay: calc((var(--n) - 1) * 0.1s);
     z-index: -1;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:first-child {
-    --n: 1;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(2) {
-    --n: 2;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(3) {
-    --n: 3;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .detail .pf-content-box .pf-txt .pf-btn button span:nth-child(4) {
-    --n: 4;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2527,10 +2503,10 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-75%);
+    transform: translateY(-76.7%);
   }
-  50% {
-    transform: translateY(-75%);
+  60% {
+    transform: translateY(-76.7%);
   }
   90% {
     transform: translateY(0);
@@ -2545,10 +2521,10 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
       transform: translateY(0);
     }
     40% {
-      transform: translateY(-72.5%);
+      transform: translateY(-74.5%);
     }
     50% {
-      transform: translateY(-72.5%);
+      transform: translateY(-74.5%);
     }
     90% {
       transform: translateY(0);
