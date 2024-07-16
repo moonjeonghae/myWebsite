@@ -6,8 +6,8 @@
 👤 제작 인원 : 1명
 
 ## ⚙️ Tools
-- HTML
-- SASS
+- html
+- sass
 - Javascript
 
 ## 🌕 Concept
