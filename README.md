@@ -6,9 +6,9 @@
 👤 제작 인원 : 1명
 
 ## ⚙️ Tools
-- html
-- sass
-- javascript
+- HTML
+- SASS
+- Javascript
 
 ## 🌕 Concept
 '문정해'에서 '문'은 영어로 Moon, 즉 '달'을 의미합니다. <br>
