@@ -736,7 +736,7 @@ window.onload = function() {
         });
     }
 
-    // ----- [공통] 화면에 보일 때 img 애니메이션 실행되게 하기 -----
+    // ----- [공통] 화면에 보일 때 img/video 애니메이션 실행되게 하기 -----
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
@@ -759,6 +759,25 @@ window.onload = function() {
         img.addEventListener('mouseleave', () => {
             img.style.animationPlayState = 'running';
         });
+    });
+
+    const videos = document.querySelectorAll('.pf-content-box video');
+
+    const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if(entry.isIntersecting) {
+                video.currentTime = 0;
+                video.play();
+            } else {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+    });
+
+    videos.forEach(video => {
+        videoObserver.observe(video);
     });
 
     // ----- [공통] 화면에 보일 때 txt 애니메이션 실행되게 하기 -----
@@ -834,7 +853,7 @@ window.onload = function() {
     const clickDesignGuideBtn = (idx)=> {
         designGuides[idx].classList.add('dg-show');
         designGuides[idx].style.display = 'block';
-        $body.classList.add('scroll-stop');
+        $body.classList.add('scroll-stop'); 
     };
 
     const cancelModal = (idx) => {

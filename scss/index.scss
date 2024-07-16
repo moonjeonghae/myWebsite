@@ -13,7 +13,6 @@
     max-width: 1440px;
     padding: 0 15px;
     margin: 0 auto;
-    // background-color: lightpink;
 
     @include responsive(large-screens) {
         padding: 0 10px;
@@ -48,18 +47,14 @@ main {
         height: 100vh;
 
         @include home-style();  // sky-box & ocean & stars
-    }  // home
-
+    } 
 
     //====== about-me ======
     .about-me {
         margin-top: 90vh;
-        // background-color: lightseagreen;
 
         @include responsive(large-screens) {
             margin-top: 100vh;
-            // height: 1080px;
-            // background-color: lightblue;
         }
 
         .title {
@@ -81,7 +76,6 @@ main {
             .photo-content {
                 position: relative;
                 height: 75vw;
-                // background-color: darkgreen;
     
                 @include responsive(large-screens) {
                     width: 43vw;
@@ -231,7 +225,6 @@ main {
     
             .txt-content-box {
                 margin-top: 7vh;
-                // background-color: lightblue;
 
                 @include responsive(large-screens) {
                     margin-top: 3vh;
@@ -277,7 +270,6 @@ main {
                                 vertical-align: top;
                                 visibility: hidden;
                                 transition: visibility 0.1s linear 0.5s;
-                                // background-color: lightblue;
 
                                 &.highlight-visible {
                                     visibility: visible;
@@ -393,7 +385,6 @@ main {
                     position: relative;
                     width: $wide-width;
                     height: 57vh;
-                    // background-color: darkgoldenrod;
                     
                     @include responsive(large-screens) {
                         height: 47vh;
@@ -422,6 +413,16 @@ main {
                                 100% { 
                                     transform: rotateX(0deg) translateX(0) skewX(0deg);
                                 }
+                            }
+                        }
+
+
+                        .txt {
+                            font-size: 0.833rem;
+                            line-height: 1.8;
+
+                            @include responsive(large-screens) {
+                                font-size: 1.167rem;
                             }
                         }
 
@@ -470,8 +471,7 @@ main {
                                 tr {
                                     height: 40px;
                                     td {
-                                        font-size: 1rem;
-                                        // font-size: 0.833rem;
+                                        font-size: 0.833rem;
     
                                         @include responsive(large-screens) {
                                             font-size: 1.167rem;
@@ -480,7 +480,6 @@ main {
 
                                         &:first-child {
                                             width: 38vw;
-                                            // background-color: lightcoral;
 
                                             @include responsive(large-screens) {
                                                 width: 180px;
@@ -503,7 +502,6 @@ main {
         width: $wide-width;
         margin-top: 15vh;
         height: 100vh;
-        // background-color: darkgoldenrod;
 
         @include responsive(large-screens) {
             height: auto;
@@ -575,7 +573,6 @@ main {
                 column-gap: 3vw;
                 row-gap: 7vw;
                 width: $wide-width;
-                // background-color: lightcoral;
 
                 @include responsive(large-screens) {
                     position: absolute;
@@ -599,7 +596,6 @@ main {
                     position: relative;
                     width: 28vw;
                     height: 28vw;
-                    // border: 3px solid $color-main;
                     border-radius: 50%;
                     cursor: pointer;
 
@@ -608,14 +604,12 @@ main {
                        transform: translate(-50%, -50%) rotate(90deg);
                        width: 100px;
                        height: 100px;
-                    //    background-color: lightblue;
-
-                    animation: circleRotate2 30s linear infinite;
+                       animation: circleRotate2 30s linear infinite;
                     
-                    @keyframes circleRotate2 {
-                        0% { transform: translate(-50%, -50%) rotate(360deg); }
-                        100% { transform: translate(-50%, -50%) rotate(0); }
-                    }
+                        @keyframes circleRotate2 {
+                            0% { transform: translate(-50%, -50%) rotate(360deg); }
+                            100% { transform: translate(-50%, -50%) rotate(0); }
+                        }
                     }
 
                     &::before {
@@ -862,12 +856,9 @@ main {
     //====== portfolio ======
     .portfolio {
         width: $wide-width;
-        // margin-top: 10vh;
-        // background-color: darkblue;
 
         @include responsive(large-screens) {
             margin-top: 0;
-            // height: 400vh;
         }
         
         @include portfolio-title();
@@ -882,13 +873,10 @@ main {
                 z-index: 0;
                 margin-bottom: 30px;
                 font-size: 2rem;
-                // background-color: darkgreen;
 
                 @include responsive(large-screens) {
-                    // width: $wide-width;
                     margin-bottom: 0;
                     font-size: 3.333rem;
-                    // text-align: center;
                 }
             }
 
@@ -896,8 +884,6 @@ main {
             
 
             .portfolio_1 {
-                // background-color: aquamarine;
-                
                 @include responsive(large-screens) {
                     padding-top: 100px;
                     margin-bottom: 0;
@@ -947,19 +933,14 @@ main {
                         @include responsive(large-screens) {
                             width: 700px;
                             height: 375px;
-                            margin: 0;
-                            padding: 0;
+                            margin-left: 2vw;
                         }
                     }
                 }
-
-                
             }  // portfolio_1
 
 
             .portfolio_2 {
-                // margin-bottom: 5vh;
-                
                 @include responsive(large-screens) {
                     margin-bottom: 0;
                 }
@@ -1009,7 +990,7 @@ main {
                         @include responsive(large-screens) {
                             width: 566px;
                             height: 400px;
-                            margin: 0;
+                            margin-right: 1vw;
                             text-align: left;
                             transform: translateX(-30vw);
                             transition:  transform 0.3s;
@@ -1017,7 +998,6 @@ main {
                     }
                 }  //  station-content-box
             }  // portfolio_2
-
 
             .portfolio_3 {
                 .personal-content-box {
@@ -1033,7 +1013,6 @@ main {
                             width: 580px;
                             height: 700px;
                             border-radius: 300px;
-                            // box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
                         }
 
                         img {
@@ -1065,16 +1044,13 @@ main {
                         @include responsive(large-screens) {
                             width: 690px;
                             height: 350px;
-                            padding: 0;
+                            margin-left: 2vw;
                         }
                     }
                 }
             }  // portfolio_3
 
             .portfolio_4 {
-                // margin-bottom: 5vh;
-                // background-color: lightcoral;
-                
                 @include responsive(large-screens) {
                     padding-top: 50px;
                     margin-bottom: 0;
@@ -1086,14 +1062,16 @@ main {
                         height: 603px;
                     }
 
-                    .kiosk-img {
+                    .kiosk-video {
                         border-radius: 5vw;
                         overflow: hidden;
-                        // background-color: antiquewhite;
-
                         @include responsive(large-screens) {
                             width: 800px;
                             border-radius: 0 120px 0 120px;
+                        }
+
+                        video {
+                            width: 100%;
                         }
                     }
 
@@ -1101,14 +1079,79 @@ main {
                         @include responsive(large-screens) {
                             width: 566px;
                             height: 400px;
-                            margin: 0;
+                            margin-right: 1vw;
                             text-align: left;
                             transform: translateX(-30vw);
                             transition:  transform 0.3s;
                         }
                     }
-                }  //  kiosk-content-box
+                } 
             }  // portfolio_4
+
+            .portfolio_5 {
+                .game-content-box {
+                    @include responsive(large-screens) {
+                        width: $wide-width;
+                        height: 603px;
+                    }
+
+                    .game-video {
+                        border-radius: 5vw;
+                        overflow: hidden;
+
+                        @include responsive(large-screens) {
+                            width: 800px;
+                            border-radius: 120px 0 120px 0;
+                        }
+
+                        video {
+                            width: 100%;
+                        }
+                    }
+
+                    .game-txt {
+                        @include responsive(large-screens) {
+                            width: 500px;
+                            height: 400px;
+                            margin-left: 2vw;
+                        }
+                    }
+                }
+            }  // portfolio_5
+
+            .portfolio_6 {
+                .todolist-content-box {
+                    @include responsive(large-screens) {
+                        flex-direction: row-reverse;
+                        height: 603px;
+                    }
+
+                    .todolist-img {
+                        border-radius: 5vw;
+                        overflow: hidden;
+
+                        @include responsive(large-screens) {
+                            width: 800px;
+                            border-radius: 0 120px 0 120px;
+                        }
+
+                        img {
+                            transform: scale(1.2);
+                        }
+                    }
+
+                    .todolist-txt {
+                        @include responsive(large-screens) {
+                            width: 566px;
+                            height: 400px;
+                            margin-right: 1vw;
+                            text-align: left;
+                            transform: translateX(-30vw);
+                            transition:  transform 0.3s;
+                        }
+                    }
+                }
+            }  // portfolio_6
         }  // portfolio-detail
     }  // portfolio
 
@@ -1116,7 +1159,6 @@ main {
     .contact {
         width: $wide-width;
         margin-bottom: 5vh;
-        // background-color: lightsalmon;
 
         @include responsive(large-screens) {
             margin-top: 0;
@@ -1125,8 +1167,6 @@ main {
         .contact-content-box {
             width: $wide-width;
             padding-top: 5vh;
-            // background-color: aqua;
-
             
             @include responsive(large-screens) {
                 padding-top: 0;
@@ -1163,7 +1203,6 @@ main {
                     left: 50%; top: 55%;
                     transform: translate(-50%, -50%);
                     height: 80%;
-                    // background-color: lightcoral;
 
                     form {
                         width: 55vw;
@@ -1172,7 +1211,6 @@ main {
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-between;
-                        // background-color: lightblue;
 
                         @include responsive(large-screens) {
                             width: 20vw;
@@ -1181,7 +1219,6 @@ main {
                         div {
                             width: $wide-width;
                             height: 22%;
-                            // margin-bottom: 1vh;
 
                             @include responsive(large-screens) {
                                 margin-bottom: 4vh;
@@ -1189,7 +1226,6 @@ main {
 
                             label {
                                 font-size: 0.833rem;
-                                // background-color: lightgrey;
                                 
                                 @include responsive(large-screens) {
                                     font-size: 1.167rem;
@@ -1204,7 +1240,6 @@ main {
                                 border-style: none;
                                 border-bottom: 1px solid $color-main;
                                 background-color: transparent;
-                                // background-color: lightseagreen;
 
                                 @include responsive(large-screens) {
                                     height: 4vh;
@@ -1236,12 +1271,10 @@ main {
                             }
 
                             &.message-box {
-                                // background-color: lightgreen;
                                 height: 40%;
                                 
                                 textarea {
                                     width: $wide-width;
-                                    // height: 80%;
                                     margin-top: 7px;
                                     padding: 7px;
                                     border: 1px solid $color-main;

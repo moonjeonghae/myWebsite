@@ -8,7 +8,6 @@
         width: $wide-width;
         height: 85vh;
         background: radial-gradient(circle at center bottom, $moonlight-bg, $main-bg);
-        // background-color: lightblue;
         
         @include responsive(large-screens) {
             height: 87vh;
@@ -572,8 +571,6 @@
                     border-image: linear-gradient(-45deg, transparent 0%, #fff 100%);
                     border-image-slice: 1;
                     opacity: 0;
-                    // background: linear-gradient( #fff 100%, #fff 0%);
-
                     animation: long 4s linear forwards infinite;
 
                     @keyframes long {
@@ -613,7 +610,6 @@
 
             .shooting1 {
                 position: absolute;
-                // left: 10vw; top: 15vh;
                 transform: rotate(-45deg);
                 animation: shootingM 4s linear infinite;
 
@@ -626,7 +622,6 @@
                 }
 
                 @include responsive(large-screens) {
-                    // left: 20vw; top: 160px;
                     animation: shooting 4s linear infinite;
 
                     @keyframes shooting {
@@ -641,7 +636,6 @@
 
             .shooting2 {
                 position: absolute;
-                // left: 7vw; top: 57vh;
                 transform: rotate(-45deg);
                 animation: shootingM2 4s linear 0.5s infinite;
 
@@ -654,7 +648,6 @@
                 }
 
                 @include responsive(large-screens) {
-                    // left: 32vw; top: 530px;
                     animation: shooting2 4s linear 0.5s infinite;
 
                     @keyframes shooting2 {
@@ -678,7 +671,6 @@
 
             .shooting3 {
                 position: absolute;
-                // left: 77vw; top: 35vh;
                 transform: rotate(-45deg);
                 animation: shootingM3 4s linear 1s infinite;
 
@@ -691,7 +683,6 @@
                 }
 
                 @include responsive(large-screens) {
-                    // left: 67vw; top: 300px;
                     animation: shooting3 4s linear 1s infinite;
 
                     @keyframes shooting3 {

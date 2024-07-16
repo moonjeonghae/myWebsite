@@ -9,7 +9,6 @@
         z-index: 100;
         width: $wide-width;
         height: 14vh;
-        // background-color: lightblue;
     
         @include responsive(large-screens) {
             position: fixed;
@@ -22,7 +21,6 @@
             justify-content: space-between;
             width: $wide-width;
             height: 14vh;
-            // background-color: lightcoral;
             
             @include responsive(large-screens) {
                 max-width: 1440px;
@@ -50,7 +48,6 @@
     
             .main-menu {
                 margin: 0;
-                // background-color: lightsalmon;
                 
                 .gnb {
                     display: none;
@@ -68,7 +65,6 @@
                         display: flex;
                         justify-content: space-between;
                         width: 820px;
-                        // background-color: bisque;
                     }
     
                     
@@ -78,7 +74,6 @@
                         align-items: center;
                         justify-content: center;
                         margin: 5vh 0;
-                        // background-color: lightblue;
 
                         &:first-child {
                             margin-top: 20vh;
@@ -184,7 +179,6 @@
         @include responsive(large-screens) {
             position: relative;
             height: 100px;
-            // background-color: lightcoral;
         }
         .container {
             margin: 0 auto;
@@ -200,7 +194,6 @@
                 display: flex;
                 justify-content: space-between;
                 width: $wide-width;
-                // background-color: lightseagreen;
     
                 @include responsive(large-screens) {
                     display: block;
@@ -213,7 +206,6 @@
                     justify-content: flex-start;
                     width: 53vw;
                     margin: 0;
-                    // background-color: lightblue;
         
                     @include responsive(large-screens) {
                         position: absolute;
@@ -234,7 +226,6 @@
         
                 .logo-txt {
                     width: 40vw;
-                    // background-color: lightcoral;
                     
                     @include responsive(large-screens) {
                         display: flex;
@@ -299,7 +290,6 @@
                     justify-content: space-between;
                     gap: 2vw;
                     width: 23vw;
-                    // background-color: lightgreen;
     
                     @include responsive(large-screens) {
                         width: 120px;
@@ -355,7 +345,6 @@
                                             position: absolute;
                                             left: -40px; top: -30px;
                                             width: 110px;
-                                            // background-color: lightblue;
                                         }
                                     }
                                 }

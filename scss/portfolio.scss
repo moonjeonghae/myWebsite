@@ -6,12 +6,9 @@
         position: relative;
         height: 100vh;
         margin-bottom: 10vh;
-        // background-color: darkkhaki;
 
         @include responsive(large-screens) {
             height: 1000px;
-            // height: auto;
-            // padding: 10vh 0;
         }
         
         .title-box {
@@ -19,7 +16,6 @@
             left: 50%; top: 50%;
             transform: translate(-50%, -50%);
             width: 90vw;
-            // background-color: lightblue;
 
             @include responsive(large-screens) {
                 width: $wide-width;
@@ -36,7 +32,6 @@
                     margin: 0;
                     margin-right: 3vw;
                     background-color: $color-main;    
-                    // animation: longline 0.3s ease forwards;
 
                     &.longline-active {
                         animation: longline 0.3s ease forwards;
@@ -93,7 +88,6 @@
                 width: 66vw;
                 display: flex;
                 align-items: center;
-                // background-color: darkorchid;
 
                 @include responsive(large-screens) {
                     position: relative;
@@ -107,7 +101,6 @@
                     text-align: center;
                     margin: 0;
                     opacity: 0;
-                    // background-color: darkorange;
      
                     &.pftitle-active {
                         animation: pfTitle 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
@@ -161,13 +154,11 @@
             position: relative;
             width: $wide-width;
             height: $wide-height;
-            // background-color: darkgray;
 
             .pf-line {
                 position: absolute;
                 right: 0; top: 50%;
                 transform: translateY(-50%);
-                // background-color: darkcyan;
                 
                 @include responsive(large-screens) {
                     right: 0; top: 50%;
@@ -275,7 +266,6 @@
                 height: 100vw;
                 overflow: hidden;
                 margin: 0;
-                // background-color: antiquewhite;
 
                 img {
                     position: absolute;
@@ -295,7 +285,6 @@
                 opacity: 0;
                 transform: translateX(-30vw);
                 transition: opacity 0.1s, transform 0.3s;
-                // background-color: lightgreen;
                 
                 @include responsive(large-screens) {
                     display: flex;
@@ -316,8 +305,6 @@
                     position: relative;
                     width: $wide-width;
                     font-size: 1.333rem;
-                    // color: $color-graph;
-                    // background-color: lightblue;
                     
                     @include responsive(large-screens) {
                         text-align: left;
@@ -382,7 +369,6 @@
                 .using-skills {
                     height: 17px;
                     margin-top: 3px;
-                    // background-color: lightsalmon;
 
                     @include responsive(large-screens) {
                         height: 30px;
@@ -437,7 +423,6 @@
 
                 .desc-txt {
                     display: none;
-                    // background-color: bisque;
 
                     @include responsive(large-screens) {
                         display: block;
@@ -450,7 +435,6 @@
                     margin-top: 20px;
                     white-space: nowrap;
                     overflow-x: scroll;
-                    // background-color: aquamarine;
                     opacity: 0;
                     transform: translateY(3vw);
                     transition: transform 0.3s ease 0.2s, opacity 0.3s linear 0.2s;
@@ -490,7 +474,6 @@
                             width: 120px;
                             padding: 10px 0;
                             margin-right: 10px;
-                            // font-weight: $ko-font-semibold;
                             background-color: transparent;
                         }
 
