@@ -1,5 +1,6 @@
 # 🌕 MoonChoice Portfolio
 문정해의 포트폴리오입니다.
+<img width="1190" alt="pc_mobile_home" src="https://github.com/user-attachments/assets/a413bae7-97c6-4d6f-8cbd-29cd53f57bcc">
 
 ## 📢 About
 📆 제작 기간 : 2024.06 ~ 2024.07 <br>
