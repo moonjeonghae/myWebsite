@@ -1051,9 +1051,11 @@ main {
             }  // portfolio_3
 
             .portfolio_4 {
+                height: 80vh;
+
                 @include responsive(large-screens) {
+                    height: auto;
                     padding-top: 50px;
-                    margin-bottom: 0;
                 }
 
                 .kiosk-content-box {
@@ -1089,6 +1091,12 @@ main {
             }  // portfolio_4
 
             .portfolio_5 {
+                height: 80vh;
+
+                @include responsive(large-screens) {
+                    height: auto;
+                }
+
                 .game-content-box {
                     @include responsive(large-screens) {
                         width: $wide-width;
@@ -1120,6 +1128,12 @@ main {
             }  // portfolio_5
 
             .portfolio_6 {
+                height: 80vh;
+
+                @include responsive(large-screens) {
+                    height: auto;
+                }
+
                 .todolist-content-box {
                     @include responsive(large-screens) {
                         flex-direction: row-reverse;
@@ -1162,6 +1176,7 @@ main {
 
         @include responsive(large-screens) {
             margin-top: 0;
+            
         }
 
         .contact-content-box {
@@ -1262,6 +1277,7 @@ main {
                                 &[type=text] {
                                     color: $color-main;
                                     outline: none;
+                                    background-color: transparent;
                                 }
 
                                 &:focus::placeholder {

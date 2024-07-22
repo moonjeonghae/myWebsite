@@ -227,201 +227,231 @@ window.onload = function() {
         observerStarlight.observe(smallStarlight);
     }
 
-    // ----- [공통] 첫 번째 타이핑 효과 => 웹 개발자 -----
-    var isTypingJob = false;
-    var typingIdxJob = 0;
-    var tyIntJob;
-    const jobTypingBox = document.querySelector('.job-typing');
-    var typingTxtJob = document.querySelector('.job').innerText;  
+    function aboutmeAnimation() {
+        // ----- [공통] 첫 번째 타이핑 효과 => 웹 개발자 -----
+        var isTypingJob = false;
+        var typingIdxJob = 0;
+        var tyIntJob;
+        const jobTypingBox = document.querySelector('.job-typing');
+        var typingTxtJob = document.querySelector('.job').innerText;  
+        
+        typingTxtJob = typingTxtJob.split(''); 
     
-    typingTxtJob = typingTxtJob.split(''); 
-
-    function typeTextJob() {
-        if (typingIdxJob < typingTxtJob.length) {
-            jobTypingBox.innerText += typingTxtJob[typingIdxJob];
-            typingIdxJob++;
-        } else {
-            clearInterval(tyIntJob);
-            isTypingJob = false;
-        }
-    };
-
-    const jobObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting && !isTypingJob) {
-                typingIdxJob = 0;
-                jobTypingBox.innerText = '';
-
-                setTimeout (() => {
-                    isTypingJob = true;
-                    tyIntJob = setInterval(typeTextJob, 100);
-                }, 100);
-            }
-        });
-    });
-    
-    jobObserver.observe(jobTypingBox);
-
-    // ----- [공통] bracket 나타나게 하기 -----
-    const highlight = document.querySelector('.highlight');
-
-    const bracketObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                setTimeout(() => {
-                    highlight.classList.add('highlight-visible');
-                }, 400)
+        function typeTextJob() {
+            if (typingIdxJob < typingTxtJob.length) {
+                jobTypingBox.innerText += typingTxtJob[typingIdxJob];
+                typingIdxJob++;
             } else {
-                highlight.classList.remove('highlight-visible');
+                clearInterval(tyIntJob);
+                isTypingJob = false;
+                bracketObserver.observe(highlight);
             }
-        });
-    });
+        };
     
-    bracketObserver.observe(highlight);
-
-    // ----- [공통] 두 번째 타이핑 효과 => 문정해 -----
-    var isTypingName = false;
-    var typingIdxName = 0;
-    var tyIntName; 
-    const nameTypingBox = document.querySelector('.name-typing');
-    var typingTxtName = document.querySelector('.name').innerText;  
+        const jobObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting && !isTypingJob) {
+                    typingIdxJob = 0;
+                    jobTypingBox.innerText = '';
     
-    typingTxtName = typingTxtName.split(''); 
-
-    function typeTextName() {
-        if (typingIdxName < typingTxtName.length) {
-            nameTypingBox.innerText += typingTxtName[typingIdxName];
-            typingIdxName++;
-        } else {
-            clearInterval(tyIntName);
-            isTypingName = false;
-        }
-    };
-    
-    const nameObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting && !isTypingName) {
-                typingIdxName = 0;
-                nameTypingBox.innerText = '';
-                
-                setTimeout (() => {
-                    isTypingName = true;
-                    tyIntName = setInterval(typeTextName, 100);
-                }, 1000);
-            }
-        });
-    });
-    
-    nameObserver.observe(nameTypingBox);
-    
-    // ----- [공통] typing 후 aboutme-btn 등장 -----
-    const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
- 
-    function aboutBtnAnimation() {
-        aboutBtns.forEach((btn, idx) => {
-            setTimeout(() => {
-                btn.classList.add('show');
-            }, idx * 100)
-        });
-    }
-
-    const observerAboutBtns = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                setTimeout(() => {
-                    aboutBtnAnimation();
-                }, 1400);
-            } else {
-                entry.target.classList.remove('show');
-            }
-        });
-    });
-
-    aboutBtns.forEach(btn => {
-        observerAboutBtns.observe(btn);
-    });
-
-
-    // ----- [공통] typing 후 aboutme-content-box 등장 & aboutme-tab-btn click 시 -----
-    const effortBtn = document.querySelector('.effort-btn');
-    const strengthBtn = document.querySelector('.strength-btn');
-    const goalBtn = document.querySelector('.goal-btn');
-    const historyBtn = document.querySelector('.history-btn');
-    const aboutmeContents = document.querySelectorAll('.aboutme-content-txt');
-    const effortTxt = document.querySelector('.effort');
-    const strengthTxt = document.querySelector('.strength');
-    const goalTxt = document.querySelector('.goal');
-    const historyTxt = document.querySelector('.history');
-
-
-    // #초기화 상태 => effort
-    const initializeEffortBtn = () => {
-        aboutmeContents.forEach(content => {
-            content.style.display = 'none';
-        });
-
-        effortTxt.style.display = 'block';
-
-        aboutBtns.forEach(btn => {
-            btn.classList.remove('selected');
-        });
-
-        effortBtn.classList.add('selected');
-    };
-
-    
-    const observerAboutMe = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            let isInitialized = false;
-
-            if (entry.isIntersecting && !isInitialized) {
-                isInitialized = true;
-                setTimeout(() => {
-                    initializeEffortBtn();
-                }, 2000);
-            } else if (!entry.isIntersecting) {
-                isInitialized = false;
-                aboutmeContents.forEach(content => {
-                    content.style.display = 'none';
-                });
-            }
-        });
-    });
-
-    observerAboutMe.observe(effortBtn);
-
-    aboutBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            aboutBtns.forEach(btn => {
-                btn.classList.remove('selected');
+                    setTimeout (() => {
+                        isTypingJob = true;
+                        tyIntJob = setInterval(typeTextJob, 100);
+                    }, 100);
+                }
             });
-
-            e.target.classList.add('selected');
-
+        });
+        
+        jobObserver.observe(jobTypingBox);
+    
+        // ----- [공통] bracket 나타나게 하기 -----
+        const highlight = document.querySelector('.highlight');
+    
+        const bracketObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    setTimeout(() => {
+                        highlight.classList.add('highlight-visible');
+                    }, 400)
+                } else {
+                    highlight.classList.remove('highlight-visible');
+                }
+            });
+        });
+        
+        bracketObserver.observe(highlight);
+    
+        // ----- [공통] 두 번째 타이핑 효과 => 문정해 -----
+        var isTypingName = false;
+        var typingIdxName = 0;
+        var tyIntName;
+        const nameTypingBox = document.querySelector('.name-typing');
+        const nameElement = document.querySelector('.name');
+        
+        if (nameElement) {
+            var typingTxtName = nameElement.innerText;
+            typingTxtName = typingTxtName.split('');
+        
+            function typeTextName() {
+                if (typingIdxName < typingTxtName.length) {
+                    nameTypingBox.innerText += typingTxtName[typingIdxName];
+                    typingIdxName++;
+                } else {
+                    clearInterval(tyIntName);
+                    isTypingName = false;
+                }
+            }
+        
+            const nameObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isTypingName) {
+                        typingIdxName = 0;
+                        nameTypingBox.innerText = '';
+                        
+                        setTimeout(() => {
+                            if (!isTypingName) {
+                                isTypingName = true;
+                                tyIntName = setInterval(typeTextName, 100);
+                            }
+                        }, 1000);
+                    }
+                });
+            });
+            nameObserver.observe(nameTypingBox);
+        }
+    
+        // ----- [공통] typing 후 aboutme-btn 등장 -----
+        const aboutBtns = document.querySelectorAll('.aboutme-tab-btn button');
+     
+        function aboutBtnAnimation() {
+            aboutBtns.forEach((btn, idx) => {
+                setTimeout(() => {
+                    btn.classList.add('show');
+                }, idx * 100)
+            });
+        }
+    
+        const observerAboutBtns = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    setTimeout(() => {
+                        aboutBtnAnimation();
+                    }, 1400);
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+    
+        aboutBtns.forEach(btn => {
+            observerAboutBtns.observe(btn);
+        });
+    
+        // ----- [공통] typing 후 aboutme-content-box 등장 & aboutme-tab-btn click 시 -----
+        const effortBtn = document.querySelector('.effort-btn');
+        const strengthBtn = document.querySelector('.strength-btn');
+        const goalBtn = document.querySelector('.goal-btn');
+        const historyBtn = document.querySelector('.history-btn');
+        const aboutmeContents = document.querySelectorAll('.aboutme-content-txt');
+        const effortTxt = document.querySelector('.effort');
+        const strengthTxt = document.querySelector('.strength');
+        const goalTxt = document.querySelector('.goal');
+        const historyTxt = document.querySelector('.history');
+    
+    
+        // #초기화 상태 => effort
+        const initializeEffortBtn = () => {
             aboutmeContents.forEach(content => {
                 content.style.display = 'none';
             });
-
-            if (e.target === effortBtn) {
-                effortTxt.style.display = 'block';
-            } else if (e.target === strengthBtn) {
-                strengthTxt.style.display = 'block';
-            } else if (e.target === goalBtn) {
-                goalTxt.style.display = 'block';
-            } else if (e.target === historyBtn) {
-                historyTxt.style.display = 'block';
-            }
+    
+            effortTxt.style.display = 'block';
+    
+            aboutBtns.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+    
+            effortBtn.classList.add('selected');
+        };
+        
+        const observerAboutMe = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                let isInitialized = false;
+    
+                if (entry.isIntersecting && !isInitialized) {
+                    isInitialized = true;
+                    setTimeout(() => {
+                        initializeEffortBtn();
+                    }, 2000);
+                } else if (!entry.isIntersecting) {
+                    isInitialized = false;
+                    aboutmeContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+                }
+            });
         });
-    });
-
+        observerAboutMe.observe(effortBtn);
+    
+        aboutBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                aboutBtns.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+    
+                e.target.classList.add('selected');
+    
+                aboutmeContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+    
+                if (e.target === effortBtn) {
+                    effortTxt.style.display = 'block';
+                } else if (e.target === strengthBtn) {
+                    strengthTxt.style.display = 'block';
+                } else if (e.target === goalBtn) {
+                    goalTxt.style.display = 'block';
+                } else if (e.target === historyBtn) {
+                    historyTxt.style.display = 'block';
+                }
+            });
+        });
+    }
+    aboutmeAnimation();
 
     //====== skill ======
     const $body = document.querySelector('body');
     const icons = document.querySelectorAll('.icon-box > .icon');
     const iconModal = document.querySelectorAll('.skill-desc .skill-desc-txt')
 
-    // ----- [모바일] tabBtn click 시 -----
     if(windowWidth < 768) {
+        // ----- [모바일] icon graph -----
+        const donutAnimation = (donut) => {
+            const ttlPercent = parseFloat(donut.dataset.deg);
+            let final = 0;
+            donut.style.background = `conic-gradient(#efb1d5 0% 0%, #fff 0% 100%)`;
+    
+            const donutAnimations = setInterval(() => {
+                donut.style.background = `conic-gradient(#efb1d5 0% ${final}%, #fff ${final}% 100%)`;
+                final++;
+    
+                if (final > ttlPercent) {
+                    clearInterval(donutAnimations);
+                }
+            }, 10);
+        }
+    
+        const donuts = document.querySelectorAll('.icon');
+    
+        const initializeDonuts = () => {
+            donuts.forEach(donut => {
+                donut.dataset.deg = donut.dataset.deg || 0;  // Ensure data.deg is set
+                donutAnimation(donut);
+            });
+        };
+        initializeDonuts();
+
+        // ----- [모바일] tabBtn click 시 -----
         const skillTabBtns = document.querySelectorAll('.skill-tab-btn button');
         const allBtn = document.querySelector('.skill-tab-btn .all');
         const codingBtn = document.querySelector('.skill-tab-btn .coding');
@@ -432,19 +462,12 @@ window.onload = function() {
         const designIcons = document.querySelectorAll('.icon-box .design');
         const videoIcon = document.querySelector('.icon-box .video');
         const etcIcon = document.querySelector('.icon-box .etc');
-
+        
         // ***** selected css 적용 *****
         const initializeSkillBtn = () => {
             skillTabBtns.forEach(btn => btn.classList.remove('selected'));
             allBtn.classList.add('selected');
-
-            [codingIcons, designIcons].forEach(icons => 
-                icons.forEach(icon => icon.style.display = 'block')
-            );
-
-            [videoIcon, etcIcon].forEach(icon => icon.style.display = 'block');
-
-            donuts.forEach(donut => donutAnimation(donut));
+            initializeDonuts();
         };
 
         const observerSkill = new IntersectionObserver(entries => {
@@ -462,6 +485,7 @@ window.onload = function() {
             allBtn.classList.remove('selected');
             skillTabBtns.forEach(btn => btn.classList.remove('selected'));
             e.target.classList.add('selected');
+            initializeDonuts();
         };
 
         skillTabBtns.forEach(btn => btn.addEventListener('click', selectedBtn));
@@ -472,9 +496,9 @@ window.onload = function() {
             codingIcons.forEach(icon => icon.style.display = showCoding ? 'block' : 'none');
             designIcons.forEach(icon => icon.style.display = showDesign ? 'block' : 'none');
             videoIcon.style.display = showVideo ? 'block' : 'none';            
-            etcIcon.style.display = showEtc ? 'block' : 'none';  
+            etcIcon.style.display = showEtc ? 'block' : 'none';
             
-            donuts.forEach(donut => donutAnimation(donut));
+            initializeDonuts();
         };
 
         allBtn.addEventListener('click', () => showIcons(true, true, true, true));
@@ -483,25 +507,7 @@ window.onload = function() {
         videoBtn.addEventListener('click', () => showIcons(false, false, true, false));
         etcBtn.addEventListener('click', () => showIcons(false, false, false, true));
 
-        // ----- [모바일] icon graph -----
-        const donutAnimation =(donut) => {
-            const ttlPercent = parseFloat(donut.dataset.deg);
-            let final = 0;
-            const donutAnimation = setInterval(() => {
-                donut.dataset.deg = final;
-                donut.style.background = `conic-gradient(#efb1d5 0% ${final}%, #fff ${final}% 100%)`;
-                final++;
 
-                if (final >= ttlPercent) {
-                    clearInterval(donutAnimation);
-                }
-            }, 10);
-        }
-
-        const donuts = document.querySelectorAll('.icon');
-    
-        donuts.forEach(donut => donutAnimation(donut));
-        
         // ----- [모바일] modal -----
         const skillDesc = document.querySelector('.skill-desc');
         const xBtn = document.querySelector('.x-btn');
@@ -521,9 +527,7 @@ window.onload = function() {
             iconModal.forEach(modal => modal.style.display = 'none');
             $body.classList.remove('scroll-stop');
 
-            donuts.forEach(donut => {
-                donutAnimation(donut);
-            });
+            initializeDonuts();
         };
     
         xBtn.addEventListener('click', removeModal);
@@ -647,6 +651,7 @@ window.onload = function() {
                 pfObserver.observe(pfShortLine);
             }
         });
+        pfDraw();
     };
     
     const portfolio = document.querySelector('.portfolio-title');
@@ -711,7 +716,6 @@ window.onload = function() {
         const portfolio = document.querySelector('.portfolio-title');
         observerPortfolio.observe(portfolio);
     }
-    pfDraw();
 
     //====== portfolio_detail ======
     // ----- [모바일] button click 시 -----
@@ -876,6 +880,31 @@ window.onload = function() {
     });
 
 
+    //====== contact ======
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert('전송이 완료되었습니다!');
+            clearForm();
+        })
+        .catch(error => {
+            alert('전송에 실패하였습니다.');
+            console.error('Error:', error);
+        });
+    });
+
+    function clearForm() {
+        document.querySelector('form').reset();
+    };
+
     // ++++++++++++++++++ footer ++++++++++++++++++
     // [pc] phone-icon 복사 가능하게 창 띄우기
     const phoneIcon = document.querySelector('.phone-icon a');
@@ -932,7 +961,6 @@ window.onload = function() {
             TopBtn.style.opacity = 1;
         }
     }
-
     topBtnOpacity();
 
     window.addEventListener('scroll', topBtnOpacity);

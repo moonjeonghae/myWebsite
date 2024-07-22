@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        
+    </script>
+    <title>HOLLYS KIOSK</title>
+</head>
+<body>
+    <div class="kiosk">
+        <header>
+            <div class="logo-mainmenu">
+                <div class="logo">
+                    <h1>할리스 키오스크</h1>
+                    <img src="./images/logo.gif" alt="hollys logo">
+                </div>
+
+                <nav class="main-menu">
+                    <ul class="gnb">
+                        <li class="coffee"><a href="#" data-type="coffee" class="active">COFFEE</a></li>
+                        <li class="beverage"><a href="#" data-type="beverage">BEVERAGE</a></li>
+                        <li class="food"><a href="#" data-type="food">FOOD</a></li>
+                        <li class="md"><a href="#" data-type="md">MD</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+    
+        <main>
+            <section class="kiosk-content">
+                <h2 class="title"></h2>
+                
+                <div class="submenu-title-content" id="new-content">
+                    <div class="sub-title">
+                        <ul>
+                            <li id="sub-title-1" class="selected"></li>
+                            <li id="sub-title-2"></li>
+                            <li id="sub-title-3"></li>  
+                        </ul>
+                    </div>
+
+                    <div class="menu-content-box" id="menu-content-box">
+                        <div class="menu-list hidden" id="menu-list">
+                              <img src="" alt="" class="product-image">
+                              <p class="product-name"></p>
+                              <p class="product-price"></p>
+                        </div>
+                    </div>
+                </div>  
+            </section> 
+
+            <section class="kiosk-order-info">
+                <div class="order-info-content">
+                    <div class="order-list">
+                        <div class="product"></div>
+                        <div class="amount">
+                            <button class="minus-btn">-</button>
+                            <p class="number"></p>
+                            <button class="plus-btn">+</button>
+                        </div>
+                        <div class="price"></div>
+                        <div class="cancel">
+                            <span class="x"></span>
+                            <span class="x"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ttlcontent-button">
+                    <div class="ttl-content">
+                        <table>
+                            <tr>
+                                <td class="content-name">총 수량</td>
+                                <td class="ttl-amount ttl">0개</td>
+                            </tr>
+                            <tr>
+                                <td class="content-name">총 금액</td>
+                                <td class="ttl-price ttl">0원</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="btn-box">
+                        <button class="cancel-btn">취소</button>
+                        <button class="order-btn">주문하기</button>
+                    </div>
+                </div>
+
+                <div class="order-modal">
+                    <div class="choice">
+                        <img src="./images/back.png" alt="back botton" class="back">
+                        <p class="order-method">주문 방법을 선택해 주세요.</p>
+                        <div class="modal-btn">
+                            <button class="cafe">
+                                <img src="./images/store.png" alt="store icon">
+                                <b>먹고 가기</b>
+                            </button>
+                            <button class="takeout">
+                                <img src="./images/takeout.png" alt="takeout icon">
+                                <b>포장하기</b>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="calc">
+                        <img src="./images/back.png" alt="back botton" class="back">
+                        <div class="calc-main">
+                           <div class="final-order-check"></div>
+                           <div class="price">
+                                <div class="total">
+                                    <p class="calc-modal-txt">총 결제 금액</p>
+                                    <p class="total-price">0원</p>
+                                </div>
+                                <div class="pay">
+                                    <p class="calc-modal-txt">지불할 금액</p>
+                                    <p class="pay-price">0원</p>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="pay-method">
+                            <strong>지불 금액 선택</strong>
+                            <div class="pay-method-btn">
+                                <button class="fifty-thousands" data-price="50,000">+50,000원</button>
+                                <button class="ten-thousands" data-price="10,000">+10,000원</button>
+                                <button class="five-thousands" data-price="5,000">+5,000원</button>
+                                <button class="one-thousand" data-price="1,000">+1,000원</button>
+                                <div class="hundrend">
+                                    <button class="five" data-price="500">+500원</button>
+                                    <button class="one" data-price="100">+100원</button>
+                                </div>
+                            </div>
+                            <div class="method-reset"><button>초기화</button></div>
+                        </div>
+                        <div class="change">
+                            <p class="calc-modal-txt">거스름돈</p>
+                            <p class="change-money">0원</p>
+                        </div>
+                        <div class="pay-btn"><button><b>결제하기</b></button></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    
+        <footer>
+            <div class="footerlogo-box">
+                <img src="./images/footer_logo.png" alt="footer logo">
+                <div class="logo-txt">HOLLYS</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

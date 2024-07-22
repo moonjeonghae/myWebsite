@@ -2549,10 +2549,13 @@ main .portfolio .portfolio-detail .portfolio_3 .personal-content-box .personal-i
     margin-left: 2vw;
   }
 }
+main .portfolio .portfolio-detail .portfolio_4 {
+  height: 80vh;
+}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_4 {
+    height: auto;
     padding-top: 50px;
-    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2584,6 +2587,14 @@ main .portfolio .portfolio-detail .portfolio_4 .kiosk-content-box .kiosk-video v
     transition: transform 0.3s;
   }
 }
+main .portfolio .portfolio-detail .portfolio_5 {
+  height: 80vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_5 {
+    height: auto;
+  }
+}
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_5 .game-content-box {
     width: 100%;
@@ -2608,6 +2619,14 @@ main .portfolio .portfolio-detail .portfolio_5 .game-content-box .game-video vid
     width: 500px;
     height: 400px;
     margin-left: 2vw;
+  }
+}
+main .portfolio .portfolio-detail .portfolio_6 {
+  height: 80vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_6 {
+    height: auto;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -2759,6 +2778,7 @@ main .contact .contact-content-box .contact-line-content .contact-content form d
 main .contact .contact-content-box .contact-line-content .contact-content form div input[type=text] {
   color: #fff;
   outline: none;
+  background-color: transparent;
 }
 main .contact .contact-content-box .contact-line-content .contact-content form div input:focus::-moz-placeholder {
   opacity: 0;
