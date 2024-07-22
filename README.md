@@ -1,5 +1,4 @@
 # 🌕 MoonChoice Portfolio
-문정해의 포트폴리오입니다.
 <img width="1190" alt="pc_mobile_home" src="https://github.com/user-attachments/assets/9f9115a5-51b6-4070-9b57-8d77477cd79c">
 
 ## 📢 About
