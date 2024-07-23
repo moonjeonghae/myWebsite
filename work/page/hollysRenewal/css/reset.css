@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face { 
+    font-family: 'NanumSquareEB';
+	font-style: normal;
+	font-weight: 800;
+    src: url('./font/NanumSquareEB.eot');
+    src: local('NanumSquareEB'),
+    url('./font/NanumSquareEB.eot?#iefix') format('embedded-opentype'),
+    url('./font/NanumSquareEB.woff2') format('woff2'),
+    url('./font/NanumSquareEB.woff') format('woff'),
+    url('./font/NanumSquareEB.ttf') format('truetype'),
+    url('./font/NanumSquareEB.svg#KakaoaLt') format('svg');
+}
+@font-face { 
+    font-family: 'NanumSquareB';
+	font-style: normal;
+	font-weight: 700;
+    src: url('./font/NanumSquareB.eot');
+    src: local('NanumSquareB'),
+    url('./font/NanumSquareB.eot?#iefix') format('embedded-opentype'),
+    url('./font/NanumSquareB.woff2') format('woff2'),
+    url('./font/NanumSquareB.woff') format('woff'),
+    url('./font/NanumSquareB.ttf') format('truetype'),
+    url('./font/NanumSquareB.svg#KakaoaLt') format('svg');
+}
+@font-face { 
+    font-family: 'NanumSquareR';
+	font-style: normal;
+	font-weight: 400;
+    src: url('./font/NanumSquareR.eot');
+    src: local('NanumSquareR'),
+    url('./font/NanumSquareR.eot?#iefix') format('embedded-opentype'),
+    url('./font/NanumSquareR.woff2') format('woff2'),
+    url('./font/NanumSquareR.woff') format('woff'),
+    url('./font/NanumSquareR.ttf') format('truetype'),
+    url('./font/NanumSquareR.svg#KakaoaLt') format('svg');
+}
+@font-face {
+    font-family: 'NanumSquareL';
+    font-weight: 300;
+    font-style: normal;
+    src: url('./font/NanumSquareL.eot');
+    src: local('NanumSquareL'),
+    url('./font/NanumSquareL.eot?#iefix') format('embedded-opentype'),
+    url('./font/NanumSquareL.woff2') format('woff2'),
+    url('./font/NanumSquareL.woff') format('woff'),
+    url('./font/NanumSquareL.ttf') format('truetype'),
+    url('./font/NanumSquareL.svg#KakaoaLt') format('svg');
+}
+html,
+body {
+    font: 16px 'NanumSquareR';
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+strong{
+    display: block;
+    font: 18px 'NanumSquareB';
+}
+span {
+    display: block;
+}
+address {
+    font-style: normal;
+}
+img {
+    display: block;
+    width: 100%;
+}
+img,
+input,
+textarea,
+select {
+    vertical-align: middle;
+}
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font: 30px 'NanumSquareEB';
+}
+h3 {
+    font: 24px 'NanumSquareB';
+}
+p {
+    font: 16px 'NanumSquareR';
+}
+header,
+nav,
+main,
+section,
+footer {
+    display: block;
+}
