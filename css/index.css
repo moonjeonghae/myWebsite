@@ -2635,18 +2635,26 @@ main .portfolio .portfolio-detail .portfolio_6 {
     height: 603px;
   }
 }
-main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-img {
+main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-video {
   border-radius: 5vw;
   overflow: hidden;
 }
 @media only screen and (min-width: 1024px) {
-  main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-img {
+  main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-video {
     width: 800px;
     border-radius: 0 120px 0 120px;
   }
 }
-main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-img img {
-  transform: scale(1.2);
+main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-video video {
+  width: 100%;
+  margin-top: 1vw;
+  transform: scale(1.16);
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-video video {
+    margin-top: 0;
+    transform: scale(1.1);
+  }
 }
 @media only screen and (min-width: 1024px) {
   main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-txt {
