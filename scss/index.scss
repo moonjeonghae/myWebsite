@@ -1075,6 +1075,12 @@ main {
 
                         video {
                             width: 100%;
+                            height: 100%;
+                            transform: scale(1.06);
+
+                            @include responsive(large-screens) {
+                                transform: scale(1.03);
+                            }
                         }
                     }
 
@@ -1115,6 +1121,9 @@ main {
 
                         video {
                             width: 100%;
+                            height: 100%;
+                            transform: scale(1.05);
+
                         }
                     }
 
@@ -1152,12 +1161,13 @@ main {
 
                         video {
                             width: 100%;
+                            height: 100%;
                             margin-top: 1vw;
-                            transform: scale(1.16);
+                            transform: scale(1.06);
 
                             @include responsive(large-screens) {
                                 margin-top: 0;
-                                transform: scale(1.1);
+                                transform: scale(1.05);
                             }
                         }
                     }
