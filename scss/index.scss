@@ -1184,6 +1184,46 @@ main {
                     }
                 }
             }  // portfolio_6
+
+            .portfolio_7 {
+                height: 80vh;
+
+                @include responsive(large-screens) {
+                    height: auto;
+                }
+
+                .calculator-content-box {
+                    @include responsive(large-screens) {
+                        width: $wide-width;
+                        height: 603px;
+                    }
+
+                    .calculator-video {
+                        border-radius: 5vw;
+                        overflow: hidden;
+
+                        @include responsive(large-screens) {
+                            width: 800px;
+                            border-radius: 120px 0 120px 0;
+                        }
+
+                        video {
+                            width: 100%;
+                            height: 100%;
+                            transform: scale(1.05);
+
+                        }
+                    }
+
+                    .calculator-txt {
+                        @include responsive(large-screens) {
+                            width: 500px;
+                            height: 400px;
+                            margin-left: 2vw;
+                        }
+                    }
+                }
+            }  // portfolio_7
         }  // portfolio-detail
     }  // portfolio
 

@@ -2676,6 +2676,42 @@ main .portfolio .portfolio-detail .portfolio_6 .todolist-content-box .todolist-v
     transition: transform 0.3s;
   }
 }
+main .portfolio .portfolio-detail .portfolio_7 {
+  height: 80vh;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_7 {
+    height: auto;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_7 .calculator-content-box {
+    width: 100%;
+    height: 603px;
+  }
+}
+main .portfolio .portfolio-detail .portfolio_7 .calculator-content-box .calculator-video {
+  border-radius: 5vw;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_7 .calculator-content-box .calculator-video {
+    width: 800px;
+    border-radius: 120px 0 120px 0;
+  }
+}
+main .portfolio .portfolio-detail .portfolio_7 .calculator-content-box .calculator-video video {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+}
+@media only screen and (min-width: 1024px) {
+  main .portfolio .portfolio-detail .portfolio_7 .calculator-content-box .calculator-txt {
+    width: 500px;
+    height: 400px;
+    margin-left: 2vw;
+  }
+}
 main .contact {
   width: 100%;
   margin-bottom: 5vh;
