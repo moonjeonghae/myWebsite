@@ -113,8 +113,7 @@ main {
 .slide > .slide-button a {
     color: #d7d7d7;
 }
-.slide > .slide-button a:hover,
-.slide > .slide-button a:focus {
+.slide > .slide-button a.active {
     color: #ba000d;
 }
 
@@ -141,6 +140,7 @@ main {
 .best-menu .menu-list {
     width: 1100px;
     height: 328px;
+    overflow: hidden;
     margin: auto;
     margin-top: 40px;
     /* background-color: blue; */
@@ -148,14 +148,16 @@ main {
 
 .best-menu .menu-list > ul {
     display: flex;
-    overflow: hidden;
     justify-content: space-between;
 }
 .best-menu .menu-list li > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 257px;
     height: 328px;
     margin-right: 24px;
-    padding: 30px 56px;
     border-radius: 10%;
     background-color: #fff;
 }
@@ -166,10 +168,16 @@ main {
     width: 144px;
     margin-bottom: 20px;
 }
+.best-menu .menu-list li:last-child > a > img {
+    width: 180px;
+}
 .best-menu .menu-list li > a > p {
     width: 155px;
     text-align: center;
     /* background-color: lightgreen; */
+}
+.best-menu .menu-list li:last-child > a > p {
+    transform: translateY(30px);
 }
 .best-menu .right-arrow {
     position: absolute;
@@ -281,7 +289,7 @@ main {
 .franchise {
     margin-top: 150px;
     width: 100%; height: 390px;
-    background: url(../images/franchise_background.png) no-repeat left top;
+    background: url(../images/franchise_background.png) no-repeat right top;
 }
 .franchise .franchise-txt {
     padding-top: 60px;
@@ -371,6 +379,9 @@ main {
     height: 491px;
     background-color: #faf9f7;
 }
+.news h3 > a.selected {
+    font-family: 'NanumSquareEB';
+}
 .news ul {
     position: absolute;
     left: 300px; top: 50px;
@@ -379,10 +390,9 @@ main {
     width: 880px;
 }
 .news .event > h3 > a:hover,
-.news .sns > h3 > a:hover,
-.news .event > h3 > a:focus,
-.news .sns > h3 > a:focus {
-    font-family: 'NanumSquareEB';
+.news .sns > h3 > a:hover {
+    /* font-family: 'NanumSquareEB'; */
+    color: #4f4c4b;
 }
 
 .news .event > h3 {
@@ -417,8 +427,10 @@ main {
     font-size: 12px;
     color: gray;
 }
+.news .sns > ul {
+    display: none;
+}
 .news .sns > ul > li {
-    display: none;  /* event가 우선적으로 보여야함 */
     width: 280px;
 }
 .news .sns > ul > li > a:hover {
